@@ -67,7 +67,7 @@
                 <li>
                   <a href="#">Quản lý</a>
                   <ul class="sub-menu">
-                    <li><a href="danhmuc.html">Danh mục</a></li>
+                    <li><a href="index.php?act=dsdanhmuc">Danh mục</a></li>
                     <li><a href="sanpham.html">Sản phẩm</a></li>
                     <li><a href="donhang.html">Đơn hàng</a></li>
                     <li><a href="taikhoan.html">Tài khoản</a></li>
