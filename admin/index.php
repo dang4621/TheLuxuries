@@ -47,6 +47,15 @@
                 $danhmuc = loadAll_dm();
                 include '../admin/danhmuc/dsdanhmuc.php';      
                 break; 
+            //Thương hiệu
+            case 'dsthuonghieu':
+                include '../admin/thuonghieu/dsthuonghieu.php';    
+                
+                break;
+            case 'add_th':
+                include '../admin/thuonghieu/thuonghieu.php';
+                break;
+
             //Sản phẩm
             case 'add_sp':
                 $danhmuc = loadAll_dm();
