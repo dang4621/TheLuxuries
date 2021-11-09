@@ -27,7 +27,7 @@
 							<p><textarea name="mota" id="mota" cols="30" rows="10" placeholder="Mô tả"></textarea></p>
 							<div class="button">
 								<p><input type="submit" value="THÊM"></p>
-								<a href="danhsachsanpham.html"><input type="button" value="DANH SÁCH"></a>
+								<a href="index.php?act=add_sp"><input type="button" value="DANH SÁCH"></a>
 							</div>
 						</form>
 					</div>

@@ -45,9 +45,20 @@
                     del_dm($id);
                 }
                 $danhmuc = loadAll_dm();
-                include '../admin/danhmuc/dsdanhmuc.php';     
+                include '../admin/danhmuc/dsdanhmuc.php';      
                 break; 
             //Sản phẩm
+            case 'add_sp':
+                $danhmuc = loadAll_dm();
+                if(isset($_POST['submit'])){
+
+                    include '../admin/sanpham/dssanpham.php';      
+                }
+                break;
+            case 'dssanpham':
+                
+                include '../admin/sanpham/dssanpham.php';     
+                break;
             
         }
 
