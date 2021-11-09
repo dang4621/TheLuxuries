@@ -7,22 +7,24 @@
 					</div>
 					<div class="danhmuc" style="font-size: 15px;margin-bottom: 10px;">
 						<b>Danh mục</b><br>
-						<select name="" style="width:100px;">
-							<option value="">Nike</option>
-							<option value="">Nike</option>
-							<option value="">Nike</option>
-							<option value="">Nike</option>
+						<select name="id_dm" style="width:100px;">
+							< <?php                                 
+                                    foreach($danhmuc as $value){
+                                        extract($value);
+                                        echo '<option value="'.$ma_nhom_hang.'">'.$ten_nhom_hang.'</option>';
+                                    }   
+                                ?>
 						</select>
 					</div>
 				 	<div id="form_status"></div>
 					<div class="contact-form">
 						<form type="POST" id="fruitkha-contact" onSubmit="return valid_datas( this );">
 							<p>
-								<input type="text" placeholder="Tên" name="name">
-								<input type="text" placeholder="Giá" name="giasp">
+								<input type="text" placeholder="Tên" name="ten_sp">
+								<input type="text" placeholder="Giá" name="gia">
 							</p>
 							<p>
-								<input type="file" name="hinh">
+								<input type="file" name="files[]" multiple ><br>
 							</p>
 							<p><textarea name="mota" id="mota" cols="30" rows="10" placeholder="Mô tả"></textarea></p>
 							<div class="button">

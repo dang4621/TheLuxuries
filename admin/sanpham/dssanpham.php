@@ -48,7 +48,7 @@
 							</tbody>
 						</table>
 						<div class="buttons">
-							<a href="sanpham.html" class="boxed-btn">Nhập thêm</a>
+							<a href="index.php?act=add_sp" class="boxed-btn">Nhập thêm</a>
 						</div>
 					</div>
 				</div>

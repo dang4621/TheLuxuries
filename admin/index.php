@@ -52,8 +52,9 @@
                 $danhmuc = loadAll_dm();
                 if(isset($_POST['submit'])){
 
-                    include '../admin/sanpham/dssanpham.php';      
+                       
                 }
+                include '../admin/sanpham/sanpham.php'; 
                 break;
             case 'dssanpham':
                 
