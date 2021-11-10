@@ -6,7 +6,9 @@
 						<h2>Thêm danh mục</h2>
 					</div>
 					<div class="contact-form">
-                                            <form action="" method="POST" id="fruitkha-contact"  name="" enctype="multipart/form-data">
+                <form action="" method="POST" id="fruitkha-contact"  name="" enctype="multipart/form-data">
+											
+
 							<p>
 								<b>TÊN HÃNG SẢN XUẤT</b><br>
 								<input type="text" name="name" style="width:100%;">

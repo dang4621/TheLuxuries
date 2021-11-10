@@ -58,6 +58,7 @@
                 break;
             case 'add_th':
                 include '../admin/thuonghieu/thuonghieu.php';
+            
                 
                 if(isset($_POST['add'])){
          $tenth=$_POST['name'];
@@ -65,13 +66,59 @@
          $filename=$_FILES['img']['name'];
          $target_dir = "../upload/";
          $target_file = $target_dir . basename($_FILES["img"]["name"]);
+         $math=rand(1000000000,9999999999);
+         settype($math,"int");
 
-         themthuonghieu($tenth,$xuatxu,$filename);
+         themthuonghieu($math,$tenth,$xuatxu,$filename);
 
     
    echo ('<script>alert("Cập nhật thành công")</script>');
 }
                 break;
+                
+               case 'up_th':
+                if(isset($_GET['id'])){
+                    $id=$_GET['id'];
+                    $nhom_th=loadOne_th($id) ;                
+                    include '../admin/thuonghieu/upthuonghieu.php';
+                }
+                
+                if(isset($_POST['submit'])){
+ 
+                    $tenth=$_POST['ten_th'];
+                    $xuatxu=$_POST['xuatxu'];
+                  $logo=$_FILES['ten_logo']['name'];
+                  $target_dir = "../upload/";
+                  $target_file = $target_dir . basename($_FILES["ten_logo"]["name"]);
+                    if($logo!=""){
+                      update_th($tenth,$xuatxu,$logo);
+                    } else {
+                    $sql="UPDATE thuong_hieu SET ten_thuong_hieu = '$tenth',xuat_xu= '$xuatxu' WHERE ma_thuong_hieu='$id'";
+                     pdo_execute($sql);
+                    }
+                    echo ('<script>alert("Cập nhật thành công")</script>'); 
+                    
+                }
+                
+                
+                
+                break;  
+                
+                
+               case 'del_th':
+                if(isset($_GET['id'])){
+                    $id=$_GET['id'];
+                    del_th($id);
+                }
+                include '../admin/thuonghieu/dsthuonghieu.php';      
+                break; 
+            //Thương hiệu
+                
+            case 'dsthuonghie':
+                include '../admin/thuonghieu/dsthuonghieu.php';    
+                
+                break;
+                
 
             //Sản phẩm
             case 'add_sp':

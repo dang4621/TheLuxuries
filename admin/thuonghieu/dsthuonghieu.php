@@ -13,15 +13,25 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr class="table-body-row">
-									<td class="product-remove">1</td>
-									<td class="product-name">Supreme</td>
-									<td class="product-image"><img src="assets/img/products/supreme.jpg" alt=""></td>
+                                                            <?php 
+                                                            $thuonghieu=loadAll_th();
+                                                            
+                                                            foreach ($thuonghieu as $value){
+                                                                extract($value);
+                                                                
+                                                                echo ''
+                                                                . '<tr class="table-body-row">
+									<td class="product-remove">'.$ma_thuong_hieu.'</td>
+									<td class="product-name">'.$ten_thuong_hieu.'</td>
+									<td class="product-image"><img src="../upload/'.$logo.'" alt=""></td>
 									<td>
-									<a href="sanpham.html"><input type="button" value="Sửa"></a>
-									<a href=""><input type="button" value="Xóa"></a>
+									<a href="index.php?act=up_th&id='.$ma_thuong_hieu.'"><input type="button" value="Sửa"></a>
+									<a href="index.php?act=del_th&id='.$ma_thuong_hieu.'"><input type="button" value="Xóa"></a>
 									</td>
-								</tr>								
+								</tr>	';
+                                                            }
+                                                            ?>
+									
 							</tbody>
 						</table>
 						<div class="buttons">
