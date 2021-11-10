@@ -4,7 +4,7 @@
 				<div class="col-lg-8 mb-5 mb-lg-0">
                        <form method="POST"> 
 							<p>Thêm các loại sản phẩm và số lượng của từng loại</p>
-								<input name="size" type="radio" id="html"  value="S">
+								<input name="size" type="radio" id="html"  value="S" checked>
 									<label for="html">S</label>
 								<input name="size" type="radio" id="css"  value="M">
 									<label for="css">M</label>
@@ -20,12 +20,10 @@
 									<label for="">Số lượng</label>
 								<input id="number" name="number" type="number" value="50"> <br>
 								<button type="submit" name="add_session">Thêm loại</button>
-							</form>			
-                            <!-- <a href="index.php?act=thuoctinh">Chấp nhận</a>				 -->
-                            <form action="index.php?act=thuoctinh" method="POST">
-                                <input type="hidden" name="ma_san_pham" value="<?= $ma_san_pham ?>">
-                                <input type="submit" name="themthuoctinh">
-                            </form>
+							</form>
+							<a href="index.php?act=unset_tt">Nhập lại</a><br>
+							<a href="index.php?act=thuoctinh">Xác nhận</a><br>
+							
 								<?php             
 									 if(isset($_POST['add_session'])){                   
 										$row = ["size" => $_POST['size'] ,"color" =>  $_POST['favcolor'] ,"quantity" =>  $_POST['number'] ];              

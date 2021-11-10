@@ -69,12 +69,17 @@
 
             //Sản phẩm
             case 'add_sp': 
-                include '../admin/sanpham/sanpham.php';                
+                include '../admin/sanpham/sanpham.php';              
+                 break;
+            case 'sp_confirm':
                 if(isset($_POST['submit'])){
-                    $ma_san_pham = rand(1000000000,9999999999);
+                    $ma_san_pham =mt_rand(1000000000,9999999999) ;
+                    $_SESSION['ma_san_pham']=$ma_san_pham;
                     $ma_nhom_hang=$_POST['id_dm'];
                     $ma_thuong_hieu = 4231423412;
                     $ten_san_pham=$_POST['ten_sp'];   
+
+                    echo ('<script>alert("Cập nhật thành công")</script>');
 
                      //upload nhiều ảnh
                      $targetDir = "../upload/"; 
@@ -107,20 +112,25 @@
                     $today=date("20y-m-d h:i:s", $timestamp);
                     $mo_ta=$_POST['mota'];
                     themSanpham($ma_san_pham,$ma_nhom_hang,$ma_thuong_hieu,$ten_san_pham,$file, $gia_goc,$giam_gia,$today, $mo_ta); 
-                    include '../admin/sanpham/thuoctinh.php';  
+                      
                 }
-                
-                
+                include '../admin/sanpham/thuoctinh.php';
                 break;
             case 'thuoctinh':
                 if(isset($_SESSION['thuoctinh'])){
-                    $ma_san_pham=$_POST['ma_san_pham'];
+                    $ma_san_pham=$_SESSION['ma_san_pham'];
                     foreach($_SESSION["thuoctinh"] as $value){
                     extract($value);      
                      themThuocTinh($ma_san_pham,$size,$color,$quantity);
                     }
                     unset($_SESSION['thuoctinh']);
+                    unset($_SESSION['ma_san_pham']);
+                    header("Location: index.php?act=add_sp"); 
                 }
+                break;
+            case 'unset_tt':
+                unset($_SESSION['thuoctinh']);
+                include '../admin/sanpham/thuoctinh.php';
                 break;
             case 'add_tt':
                 include '../admin/sanpham/thuoctinh.php';  

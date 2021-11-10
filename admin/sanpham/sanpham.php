@@ -8,7 +8,7 @@
 					<div class="contact-form">
 						<b>Danh mục</b><br>
 						<!-- form thêm danh mục -->
-						<form id="add_sp" action="" method="post" enctype="multipart/form-data">						
+						<form id="add_sp" action="index.php?act=sp_confirm" method="post" enctype="multipart/form-data">						
 							<select name="id_dm" style="width:100px;">
 								 <?php                                 
 										foreach($danhmuc as $value){
