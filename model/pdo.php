@@ -2,12 +2,12 @@
 
 function pdo_get_connection(){
  
-    $servername = "localhost:2222";
+    $servername = "localhost";
     $username = "root";
     $password = "";
     
     try {
-      $conn = new PDO("mysql:host=$servername;dbname=theluxuries", $username, $password);
+      $conn = new PDO("mysql:host=$servername;dbname=theLuxuries", $username, $password);
       // set the PDO error mode to exception
       $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
       return $conn;
@@ -84,4 +84,6 @@ function pdo_query_value($sql) {
             unset($conn);
         }
 }
+
+pdo_get_connection();
 
