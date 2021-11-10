@@ -1,24 +1,10 @@
 <?php 
 
-function themDanhMuc($ten_nhom_hang){
-    $sql = "INSERT INTO danh_muc(ten_nhom_hang) VALUES ('$ten_nhom_hang')";
-    pdo_execute($sql);
+ function themthuonghieu($tenth,$xuatxu,$filename){
+      $so_hoa_don = mt_srand(10);
+    $sql="insert into thuong_hieu(ma_thuong_hieu,ten_thuong_hieu,xuat_xu,logo) values ('$so_hoa_don','$tenth','$xuatxu','$filename')";
+   return pdo_execute($sql);
 }
-function loadAll_dm(){
-    $sql="SELECT*FROM danh_muc ORDER BY ma_nhom_hang";
-            return pdo_query($sql);
-}
-function loadOne_dm($id){
-    $sql="SELECT*FROM danh_muc WHERE ma_nhom_hang='$id'";
-            return pdo_query_one($sql);     
-}
-function del_dm($id){
-    $sql="DELETE FROM danh_muc where ma_nhom_hang='$id'";
-    return pdo_query($sql);
-}
-function update_dm($ten_nhom_hang,$ma_nhom_hang){
-    $sql="UPDATE danh_muc SET ten_nhom_hang = '$ten_nhom_hang' WHERE ma_nhom_hang='$ma_nhom_hang'";
-    pdo_execute($sql);
-}
+
 
 ?>

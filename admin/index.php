@@ -2,6 +2,9 @@
     
     include '../model/pdo.php';
     include '../model/danhmuc.php';
+    
+    include '../model/thuonghieu.php';
+    
 
     include 'header.php';
 
@@ -48,12 +51,26 @@
                 include '../admin/danhmuc/dsdanhmuc.php';      
                 break; 
             //Thương hiệu
-            case 'dsthuonghieu':
+                
+            case 'dsthuonghie':
                 include '../admin/thuonghieu/dsthuonghieu.php';    
                 
                 break;
             case 'add_th':
                 include '../admin/thuonghieu/thuonghieu.php';
+                
+                if(isset($_POST['add'])){
+         $tenth=$_POST['name'];
+         $xuatxu=$_POST['xuatxu'];
+         $filename=$_FILES['img']['name'];
+         $target_dir = "../upload/";
+         $target_file = $target_dir . basename($_FILES["img"]["name"]);
+
+         themthuonghieu($tenth,$xuatxu,$filename);
+
+    
+   echo ('<script>alert("Cập nhật thành công")</script>');
+}
                 break;
 
             //Sản phẩm
@@ -69,8 +86,14 @@
                 
                 include '../admin/sanpham/dssanpham.php';     
                 break;
+
+
+                
+            }
             
-        }
+        
+
+        
 
     }else{
         include '../admin/home.php';  

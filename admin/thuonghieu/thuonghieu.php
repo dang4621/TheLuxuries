@@ -6,23 +6,26 @@
 						<h2>Thêm danh mục</h2>
 					</div>
 					<div class="contact-form">
-						<form type="POST" id="fruitkha-contact" onSubmit="">
+                                            <form action="" method="POST" id="fruitkha-contact"  name="" enctype="multipart/form-data">
 							<p>
 								<b>TÊN HÃNG SẢN XUẤT</b><br>
-								<input type="text" name="maloai" style="width:100%;">
+								<input type="text" name="name" style="width:100%;">
+							</p>
+							<p>
+								<b>Xuất XỨ đ</b><br>
+								<input type="text" name="xuatxu" style="width:100%;">
 							</p>
 							<p>
 								<b>HÌNH</b><br>
-								<input type="file" name="hinh" style="width:100%;border: 1px black solid;padding: 10px 20px;">
+								<input type="file" name="img" style="width:100%;border: 1px black solid;padding: 10px 20px;">
 							</p>
 							<div class="button">
-								<p><input type="submit" value="THÊM"></p>
-								<a href="danhsachthuonghieu.html"><input type="button" value="DANH SÁCH"></a>
+								<p><input type="submit" value="THÊM" name="add"></p>
+								
 							</div>
 						</form>
 					</div>
 				</div>
-
-			</div>
+		</div>
 		</div>
 	</div>

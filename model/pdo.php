@@ -1,14 +1,21 @@
 <?php
 
-function pdo_get_connection() {
-    $dburl = "mysql:host=localhost:2222;dbname=theluxuries;charset=utf8";
-    $username = 'root';
-    $password = '';
-
-    $conn = new PDO($dburl, $username, $password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    return $conn;
-}
+function pdo_get_connection(){
+ 
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    
+    try {
+      $conn = new PDO("mysql:host=$servername;dbname=theluxuries", $username, $password);
+      // set the PDO error mode to exception
+      $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+      return $conn;
+    } catch(PDOException $e) {
+      echo "Connection failed: " . $e->getMessage();
+    }
+    
+    }
 function pdo_execute($sql) {
     $sql_args = array_slice(func_get_args(), 1);
     try {
