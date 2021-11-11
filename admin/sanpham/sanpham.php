@@ -17,6 +17,7 @@
 										}   
 									?>
 							</select>
+							
 							<p>
 								<input type="text" placeholder="Tên" name="ten_sp">
 								<input type="number" placeholder="Giá" name="gia_goc">

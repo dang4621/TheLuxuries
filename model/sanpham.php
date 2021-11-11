@@ -1,15 +1,15 @@
 <?php 
 
 function themSanPham($ma_san_pham,$ma_nhom_hang,$ma_thuong_hieu,$ten_san_pham,$file, $gia_goc,$giam_gia,$today, $mo_ta){
-    $sql = "INSERT INTO san_pham
-            (ma_san_pham,ma_nhom_hang ,ma_thuong_hieu,ten_san_pham, image , gia_goc , giam_gia ,ngay_nhap ,mo_ta) 
+    $sql = "INSERT INTO san_pham (ma_san_pham,ma_nhom_hang ,ma_thuong_hieu,ten_san_pham, image , gia_goc , giam_gia ,ngay_nhap ,mo_ta) 
     VALUES ('$ma_san_pham','$ma_nhom_hang','$ma_thuong_hieu','$ten_san_pham','$file','$gia_goc','$giam_gia','$today','$mo_ta')";
-    pdo_execute($sql);
+   pdo_execute($sql);
+   return $ma_san_pham;
 }
-function themThuocTinh($ma_san_pham,$size,$color,$so_luong){
+function themThuocTinh($code,$size,$color,$so_luong){
     $sql = "INSERT INTO thuoc_tinh
             (ma_san_pham , size , color , so_luong) 
-    VALUES ('$ma_san_pham','$size','$color','$so_luong')";
+    VALUES ('$code','$size','$color','$so_luong')";
     pdo_execute($sql);
 }
 function load_all_sp($keyw,$id){
