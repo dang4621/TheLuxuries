@@ -125,8 +125,7 @@
                  break;
             case 'sp_confirm':
                 if(isset($_POST['submit'])){
-                    $ma_san_pham =mt_rand(1000000000,9999999999) ;
-                    $_SESSION['ma_san_pham']=$ma_san_pham;
+                   
                     $ma_nhom_hang=$_POST['id_dm'];
                     $ma_thuong_hieu = 4231423412;
                     $ten_san_pham=$_POST['ten_sp'];   
@@ -163,7 +162,9 @@
                     $timestamp = time();
                     $today=date("20y-m-d h:i:s", $timestamp);
                     $mo_ta=$_POST['mota'];
-                    themSanpham($ma_san_pham,$ma_nhom_hang,$ma_thuong_hieu,$ten_san_pham,$file, $gia_goc,$giam_gia,$today, $mo_ta); 
+                    $ma_san_pham =rand(1000,99999999) ;
+                    $_SESSION['ma_san_pham']=$ma_san_pham;
+                    themSanPham($ma_san_pham,$ma_nhom_hang,$ma_thuong_hieu,$ten_san_pham,$file, $gia_goc,$giam_gia,$today, $mo_ta); 
                       
                 }
                 include '../admin/sanpham/thuoctinh.php';

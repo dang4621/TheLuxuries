@@ -32,7 +32,7 @@
 			        <input type="file"name="ten_logo" value="<?php echo($logo) ?>" style="width:100%;">
 				    </p>  
                                         
-                                    <img src="../upload/<?php echo($logo) ?>" alt="" >
+                                    <img src="../upload/<?php echo($logo) ?>" alt="" style="width: 200px;height: 200px;">
                                         
                                                     
                                                     

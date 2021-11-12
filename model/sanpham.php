@@ -1,10 +1,11 @@
 <?php 
 
 function themSanPham($ma_san_pham,$ma_nhom_hang,$ma_thuong_hieu,$ten_san_pham,$file, $gia_goc,$giam_gia,$today, $mo_ta){
+    $ma_san_pham =rand(1000000,99999999) ;
     $sql = "INSERT INTO san_pham
             (ma_san_pham,ma_nhom_hang ,ma_thuong_hieu,ten_san_pham, image , gia_goc , giam_gia ,ngay_nhap ,mo_ta) 
-    VALUES ('$ma_san_pham','$ma_nhom_hang','$ma_thuong_hieu','$ten_san_pham','$file','$gia_goc','$giam_gia','$today','$mo_ta')";
-    pdo_execute($sql);
+    VALUES (?,?,?,?,?,?,?,?,?)";
+    pdo_execute($sql,$ma_san_pham,$ma_nhom_hang,$ma_thuong_hieu,$ten_san_pham,$file,$gia_goc,$giam_gia,$today,$mo_ta);
 }
 function themThuocTinh($ma_san_pham,$size,$color,$so_luong){
     $sql = "INSERT INTO thuoc_tinh
