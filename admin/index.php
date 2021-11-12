@@ -58,19 +58,16 @@
             
                 
                 if(isset($_POST['add'])){
-         $tenth=$_POST['name'];
-         $xuatxu=$_POST['xuatxu'];
-         $filename=$_FILES['img']['name'];
-         $target_dir = "../upload/";
-         $target_file = $target_dir . basename($_FILES["img"]["name"]);
-         $math=rand(1000000000,9999999999);
-         settype($math,"int");
-
-         themthuonghieu($math,$tenth,$xuatxu,$filename);
-
-    
-   echo ('<script>alert("Cập nhật thành công")</script>');
-}
+                $tenth=$_POST['name'];
+                $xuatxu=$_POST['xuatxu'];
+                $filename=$_FILES['img']['name'];
+                $target_dir = "../upload/";
+                $target_file = $target_dir . basename($_FILES["img"]["name"]);
+                $math=rand(1000000000,9999999999);
+                settype($math,"int");
+                themthuonghieu($math,$tenth,$xuatxu,$filename);                   
+                echo ('<script>alert("Cập nhật thành công")</script>');
+                }
                 break;
                 
                case 'up_th':
@@ -121,7 +118,8 @@
 
             //Sản phẩm
             case 'add_sp': 
-                include '../admin/sanpham/sanpham.php';              
+                include '../admin/sanpham/sanpham.php';  
+            //  session_destroy();
                  break;
             case 'sp_confirm':
                 if(isset($_POST['submit'])){
@@ -129,8 +127,6 @@
                     $ma_nhom_hang=$_POST['id_dm'];
                     $ma_thuong_hieu = 4231423412;
                     $ten_san_pham=$_POST['ten_sp'];   
-
-                    echo ('<script>alert("Cập nhật thành công")</script>');
 
                      //upload nhiều ảnh
                      $targetDir = "../upload/"; 
@@ -150,13 +146,10 @@
                              }else{ 
                                  $mes="Tải tệp thất bại";
                              } 
-                         } 
-                        
+                         }                       
                      }else{ 
                         $mes="Tải tệp thất bại";
-                     } 
-
-
+                     }
                     $gia_goc=$_POST['gia_goc'];
                     $giam_gia=$_POST['giam_gia'];
                     $timestamp = time();
@@ -171,13 +164,13 @@
                 break;
             case 'thuoctinh':
                 if(isset($_SESSION['thuoctinh'])){
-                    $ma_san_pham=$_SESSION['ma_san_pham'];
+                    $code=$_SESSION['code'];
                     foreach($_SESSION["thuoctinh"] as $value){
                     extract($value);      
-                     themThuocTinh($ma_san_pham,$size,$color,$quantity);
+                     themThuocTinh($code,$size,$color,$quantity);
                     }
                     unset($_SESSION['thuoctinh']);
-                    unset($_SESSION['ma_san_pham']);
+                    unset($_SESSION['code']);
                     header("Location: index.php?act=add_sp"); 
                 }
                 break;
@@ -209,28 +202,3 @@
     include 'footer.php';
 
 ?>
-
-
-
-<link rel="shortcut icon" type="image/png" href="assets/img/logo3.png" />
-  <!-- google font -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet" />
-  <!-- fontawesome -->
-  <link rel="stylesheet" href="assets/css/all.min.css" />
-  <!-- bootstrap -->
-  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
-  <!-- owl carousel -->
-  <link rel="stylesheet" href="assets/css/owl.carousel.css" />
-  <!-- magnific popup -->
-  <link rel="stylesheet" href="assets/css/magnific-popup.css" />
-  <!-- animate css -->
-  <link rel="stylesheet" href="assets/css/animate.css" />
-  <!-- mean menu css -->
-  <link rel="stylesheet" href="assets/css/meanmenu.min.css" />
-  <!-- main style -->
-  <link rel="stylesheet" href="assets/css/main.css" />
-  <!-- responsive -->
-  <link rel="stylesheet" href="assets/css/responsive.css" />
-  <!-- style -->
-  <link rel="stylesheet" href="assets/css/style.css" />

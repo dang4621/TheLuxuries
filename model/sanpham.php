@@ -7,10 +7,10 @@ function themSanPham($ma_san_pham,$ma_nhom_hang,$ma_thuong_hieu,$ten_san_pham,$f
     VALUES (?,?,?,?,?,?,?,?,?)";
     pdo_execute($sql,$ma_san_pham,$ma_nhom_hang,$ma_thuong_hieu,$ten_san_pham,$file,$gia_goc,$giam_gia,$today,$mo_ta);
 }
-function themThuocTinh($ma_san_pham,$size,$color,$so_luong){
+function themThuocTinh($code,$size,$color,$so_luong){
     $sql = "INSERT INTO thuoc_tinh
             (ma_san_pham , size , color , so_luong) 
-    VALUES ('$ma_san_pham','$size','$color','$so_luong')";
+    VALUES ('$code','$size','$color','$so_luong')";
     pdo_execute($sql);
 }
 function load_all_sp($keyw,$id){
