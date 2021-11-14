@@ -15,9 +15,9 @@
 								<input name="size" type="radio" id="javascript"  value="XXL">
 									<label for="javascript">XXL</label><br>
 
-									<label for="favcolor">Chọn màu hiển thị</label>
+									<label for="favcolor">Chọn màu hiển thị:</label>
 								<input type="color" id="favcolor" name="favcolor" value="#ff0000"><br><br>
-									<label for="">Số lượng</label>
+									<label for="">Số lượng:</label>
 								<input id="number" name="number" type="number" value="50"> <br>
 								<button type="submit" name="add_session">Thêm loại</button>
 							</form>
