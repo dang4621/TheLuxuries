@@ -115,7 +115,7 @@
 							</div>
 							<div class="mau">
 							<h2>Màu</h2>
-v					<?php 
+					<?php 
 				    $sql="SELECT*FROM thuoc_tinh WHERE ma_san_pham=$ma_sp";
 				      $cungloai=pdo_query($sql);
 
@@ -123,8 +123,10 @@ v					<?php
 					  extract($loai); 
 
 					  echo'
-					  <input type="radio" class="radio" id="radio-1" name="group" style="background-color='.$color.';"/>
-					  <label for="radio-1"></label>';
+					  <input type="radio"  id="radio" name="group" value="'.$color.'" />
+					  <label for="radio" style="background: '.$color.';"></label>
+					  
+					  ';
 					        ?>
                     <?php }?>
 

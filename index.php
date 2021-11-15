@@ -11,7 +11,7 @@
     include 'view/header.php';
 
     //load
-
+ 
 
     if( isset($_GET['act']) ){
         $act=$_GET['act'];        
