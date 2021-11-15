@@ -113,7 +113,7 @@
                     <?php }?>
 								</form>
 							</div>
-							<div class="mau">
+							<div class="ma12">
 							<h2>Màu</h2>
 					<?php 
 				    $sql="SELECT*FROM thuoc_tinh WHERE ma_san_pham=$ma_sp";
@@ -123,8 +123,8 @@
 					  extract($loai); 
 
 					  echo'
-					  <input type="radio"  id="radio" name="group" value="'.$color.'" />
-					  <label for="radio" style="background: '.$color.';"></label>
+					  <input name="color" type="radio" id="html" value="'.$color.'">
+					  <label for="html"><div style="background-color: '.$color.';width=50px;height=50px;color: '.$color.'" >chon mau </div></label>
 					  
 					  ';
 					        ?>
