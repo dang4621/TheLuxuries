@@ -3,9 +3,28 @@
      session_start();
     
      //include 
+     include 'model/pdo.php';
+     include 'model/danhmuc.php';
+     include 'model/thuonghieu.php';
+     include 'model/sanpham.php';
+
     include 'view/header.php';
 
-    include 'view/home.php';
+    if( isset($_GET['act']) ){
+        $act=$_GET['act'];        
+        switch($act){            
+            case 'trangchu':                
+                include './site/page/home.php';
+                break;
+            default :  
+                    include './site/page/home.php';                
+                    break;
+            }
+                
+        }else{
+            include 'view/';
+        }            
+
 
     include 'view/footer.php';
 

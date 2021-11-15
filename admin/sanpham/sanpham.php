@@ -19,12 +19,12 @@
 							</select>
 							
 							<p>
-								<input type="text" placeholder="Tên" name="ten_sp">
-								<input type="number" placeholder="Giá" name="gia_goc">
-								<input type="number" placeholder="Giảm giá" name="giam_gia">
+								<input type="text" placeholder="Tên" name="ten_sp" required>
+								<input type="number" min="1" max="999999999" placeholder="Giá" name="gia_goc">
+								<input type="number" min="1" max="999999999" placeholder="Giảm giá" name="giam_gia">
 							</p>
 							<p>	<input type="file" name="anhsp[]" multiple="multiple" ></p>				
-							<p><textarea name="mota" id="mota" cols="30" rows="10" placeholder="Mô tả"></textarea></p>							
+							<p><textarea name="mota" id="mota" cols="30" rows="10" placeholder="Mô tả" required></textarea></p>							
 						</form>
 						<?php 
 							// if(isset($_SESSION['thuoctinh'])){

@@ -24,21 +24,21 @@
                 <a href="index.php?act=unset_tt">Nhập lại</a><br>
                 <a href="index.php?act=thuoctinh">Xác nhận</a><br>
 
-                <?php             
-									 if(isset($_POST['add_session'])){                   
-										$row = ["size" => $_POST['size'] ,"color" =>  $_POST['favcolor'] ,"quantity" =>  $_POST['number'] ];              
-										$_SESSION["thuoctinh"][$_POST['size'].$_POST['favcolor'].$_POST['number']]=$row;
-									}  
-									if(isset($_SESSION['thuoctinh'])){
-										foreach($_SESSION["thuoctinh"] as $value){
-										extract($value);   
-										echo("Size: ".$size." Màu : ".$color." Số lượng : ".$quantity."");
-										echo("<br>");
-										} 
-									}else{
-										echo("Chọn thuộc tính cho sản phẩm");
-									} 
-							?>
+                    <?php             
+                        if(isset($_POST['add_session'])){                   
+                            $row = ["size" => $_POST['size'] ,"color" =>  $_POST['favcolor'] ,"quantity" =>  $_POST['number'] ];              
+                            $_SESSION["thuoctinh"][$_POST['size'].$_POST['favcolor'].$_POST['number']]=$row;
+                        }  
+                        if(isset($_SESSION['thuoctinh'])){
+                            foreach($_SESSION["thuoctinh"] as $value){
+                            extract($value);   
+                            echo("Size: ".$size." Màu : ".$color." Số lượng : ".$quantity."");
+                            echo("<br>");
+                            } 
+                        }else{
+                            echo("Chọn thuộc tính cho sản phẩm");
+                        } 
+					?>
             </div>
         </div>
     </div>

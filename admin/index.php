@@ -101,6 +101,9 @@
                 
 
             //Sản phẩm
+            case 'dssanpham':                
+                include '../admin/sanpham/dssanpham.php';     
+                break;  
             case 'add_sp': 
                 if(isset($_SESSION['thuoctinh'])){
                     unset($_SESSION['thuoctinh']);
@@ -163,30 +166,18 @@
                     }
                     unset($_SESSION['thuoctinh']);
                     unset($_SESSION['code']);
-                    header("Location: index.php?act=add_sp"); 
+                    header("Location: index.php?act=dssanpham"); 
                 }
                 break;
             case 'unset_tt':
                 unset($_SESSION['thuoctinh']);
                 include '../admin/sanpham/thuoctinh.php';
                 break;
-            case 'add_tt':
-                include '../admin/sanpham/thuoctinh.php';  
-                break;
-            case 'dssanpham':
-                
+            case 'dssanpham':                
                 include '../admin/sanpham/dssanpham.php';     
-                break;
-
-
-                
-            }
-            
-        
-
-        
-
-    }else{
+                break;                
+            }   
+        }else{
         include '../admin/home.php';  
     }
 
