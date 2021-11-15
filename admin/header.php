@@ -34,9 +34,6 @@
   <link rel="stylesheet" href="assets/css/responsive.css" />
   <!-- style -->
   <link rel="stylesheet" href="assets/css/style.css" />
-  <!-- favicon -->
-  <link rel="stylesheet" href="assets/css/test.css">
-
 </head>
 
 <body>
