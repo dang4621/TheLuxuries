@@ -76,36 +76,32 @@
 			</div>
 
 			<div class="row">
-				<div class="col-lg-4 col-md-6 text-center">
-					<div class="single-product-item">
-						<div class="product-image">
-							<a href="single-product.html"><img src="assets/img/products/product-img-1.jpg" alt=""></a>
-						</div>
-						<h3>Strawberry</h3>
-						<p class="product-price"><span>Per Kg</span> 85$ </p>
-						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Thêm vào giỏ</a>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 text-center">
-					<div class="single-product-item">
-						<div class="product-image">
-							<a href="single-product.html"><img src="assets/img/products/product-img-2.jpg" alt=""></a>
-						</div>
-						<h3>Berry</h3>
-						<p class="product-price"><span>Per Kg</span> 70$ </p>
-						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Thêm vào giỏ</a>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0 text-center">
-					<div class="single-product-item">
-						<div class="product-image">
-							<a href="single-product.html"><img src="assets/img/products/product-img-3.jpg" alt=""></a>
-						</div>
-						<h3>Lemon</h3>
-						<p class="product-price"><span>Per Kg</span> 35$ </p>
-						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Thêm vào giỏ</a>
-					</div>
-				</div>
+				<?php 
+                     foreach($ba_sp as $value){                         
+                        extract($value);
+                            $url_hinh="";                                
+                            if(isset($image)&&!$image==""){
+                                $hinh=$image;
+                                $path_hinh="./content/uploads/$hinh";
+                                $url_hinh=$path_hinh;
+                            }else{
+                                $url_hinh="không có hình";
+                            }; 
+                           $gia_goc = number_format($gia_goc, 0, ",", "."); ?>
+
+					<div class="col-lg-4 col-md-6 text-center">
+						<div class="single-product-item">
+							<div class="product-image">
+								<a href="single-product.html"><img src="assets/img/products/product-img-1.jpg" alt=""></a>
+							</div>
+							<h3><?= $ten_san_pham ?></h3>
+							<p class="product-price"><span><?= $ma_thuong_hieu ?></span> <?= $gia_goc ?> </p>
+							<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Thêm vào giỏ</a>
+							</div>
+					</div>	
+				<?php }?>
+				
+
 			</div>
 		</div>
 	</div>
