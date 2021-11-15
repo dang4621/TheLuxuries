@@ -25,7 +25,7 @@
 							<a href="index.php?act=thuoctinh">Xác nhận</a><br>
 							
 								<?php             
-									 if(isset($_POST['add_session'])){                   
+									if(isset($_POST['add_session'])){                   
 										$row = ["size" => $_POST['size'] ,"color" =>  $_POST['favcolor'] ,"quantity" =>  $_POST['number'] ];              
 										$_SESSION["thuoctinh"][$_POST['size'].$_POST['favcolor'].$_POST['number']]=$row;
 									}  
@@ -36,9 +36,8 @@
 										echo("<br>");
 										} 
 									}else{
-										echo("KO CÓ GÌ");
+										echo("Chọn thuộc tính cho sản phẩm");
 									} 
-									echo("<pre>");
 							?>
 				</div>
 			</div>

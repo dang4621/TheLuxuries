@@ -47,83 +47,71 @@
                 }
                 include '../admin/danhmuc/dsdanhmuc.php';      
                 break; 
-            //Thương hiệu
-                
+
+            //Thương hiệu                
             case 'dsthuonghie':
-                include '../admin/thuonghieu/dsthuonghieu.php';    
-                
+                include '../admin/thuonghieu/dsthuonghieu.php';
                 break;
             case 'add_th':
                 include '../admin/thuonghieu/thuonghieu.php';
-            
-                
                 if(isset($_POST['add'])){
-                $tenth=$_POST['name'];
-                $xuatxu=$_POST['xuatxu'];
-                $filename=$_FILES['img']['name'];
-                $target_dir = "../upload/";
-                $target_file = $target_dir . basename($_FILES["img"]["name"]);
-                $math=rand(1000000000,9999999999);
-                settype($math,"int");
-                themthuonghieu($math,$tenth,$xuatxu,$filename);                   
-                echo ('<script>alert("Cập nhật thành công")</script>');
+                    $tenth=$_POST['name'];
+                    $xuatxu=$_POST['xuatxu'];
+                    $filename=$_FILES['img']['name'];
+                    $target_dir = "../upload/";
+                    $target_file = $target_dir . basename($_FILES["img"]["name"]);
+                    $math=rand(1000000000,9999999999);
+                    settype($math,"int");
+                    themthuonghieu($math,$tenth,$xuatxu,$filename);                   
+                    echo ('<script>alert("Cập nhật thành công")</script>');
                 }
-                break;
-                
-               case 'up_th':
+                break;                
+            case 'up_th':
                 if(isset($_GET['id'])){
                     $id=$_GET['id'];
-                    $nhom_th=loadOne_th($id) ;                
-                    
+                    $nhom_th=loadOne_th($id) ;              
                 }
-                
-                if(isset($_POST['submit'])){
- 
+                if(isset($_POST['submit'])){ 
                     $tenth=$_POST['ten_th'];
                     $xuatxu=$_POST['xuatxu'];
-                  $logo=$_FILES['ten_logo']['name'];
-                  $target_dir = "../upload/";
-                  $target_file = $target_dir . basename($_FILES["ten_logo"]["name"]);
+                    $logo=$_FILES['ten_logo']['name'];
+                    $target_dir = "../upload/";
+                    $target_file = $target_dir . basename($_FILES["ten_logo"]["name"]);
                     if($logo!=""){
                       update_th($tenth,$xuatxu,$logo);
                     } else {
                     $sql="UPDATE thuong_hieu SET ten_thuong_hieu = '$tenth',xuat_xu= '$xuatxu' WHERE ma_thuong_hieu='$id'";
                      pdo_execute($sql);
                     }
-                    echo ('<script>alert("Cập nhật thành công")</script>'); 
-                    
-                    header('location:index.php?act=dsthuonghie');
-                    
-                }
-                
-                include '../admin/thuonghieu/upthuonghieu.php';
-                
-                break;  
-                
-                
-               case 'del_th':
+                    echo ('<script>alert("Cập nhật thành công")</script>');                   
+                    header('location:index.php?act=dsthuonghie');                    
+                }                
+                include '../admin/thuonghieu/upthuonghieu.php';                
+                break;                
+            case 'del_th':
                 if(isset($_GET['id'])){
                     $id=$_GET['id'];
                     del_th($id);
                 }
                 include '../admin/thuonghieu/dsthuonghieu.php';      
                 break; 
-            //Thương hiệu
-                
             case 'dsthuonghie':
-                include '../admin/thuonghieu/dsthuonghieu.php';    
-                
+                include '../admin/thuonghieu/dsthuonghieu.php';  
                 break;
                 
 
             //Sản phẩm
             case 'add_sp': 
-                include '../admin/sanpham/sanpham.php';  
-            //  session_destroy();
+                if(isset($_SESSION['thuoctinh'])){
+                    unset($_SESSION['thuoctinh']);
+                } 
+                if(isset($_SESSION['code'])){
+                    unset($_SESSION['code']);
+                } 
+                include '../admin/sanpham/sanpham.php'; 
                  break;
             case 'sp_confirm':
-                if(isset($_POST['submit'])){
-                   
+                if(isset($_POST['submit'])){                   
                     $ma_nhom_hang=$_POST['id_dm'];
                     $ma_thuong_hieu = 4231423412;
                     $ten_san_pham=$_POST['ten_sp'];   
@@ -154,20 +142,24 @@
                     $giam_gia=$_POST['giam_gia'];
                     $timestamp = time();
                     $today=date("20y-m-d h:i:s", $timestamp);
-                    $mo_ta=$_POST['mota'];
-                    $ma_san_pham =rand(1000,99999999) ;
-                    $_SESSION['ma_san_pham']=$ma_san_pham;
+                    $mo_ta=$_POST['mota'];  
+
+                    $random =rand(10000,99999999) ;
+                    $_SESSION['code']=$random;
+                    $ma_san_pham = $random;
+                    
                     themSanPham($ma_san_pham,$ma_nhom_hang,$ma_thuong_hieu,$ten_san_pham,$file, $gia_goc,$giam_gia,$today, $mo_ta); 
                       
-                }
+                }               
                 include '../admin/sanpham/thuoctinh.php';
                 break;
+                //Thêm thuộc tính
             case 'thuoctinh':
                 if(isset($_SESSION['thuoctinh'])){
                     $code=$_SESSION['code'];
                     foreach($_SESSION["thuoctinh"] as $value){
-                    extract($value);      
-                     themThuocTinh($code,$size,$color,$quantity);
+                        extract($value);      
+                        themThuocTinh($code,$size,$color,$quantity);
                     }
                     unset($_SESSION['thuoctinh']);
                     unset($_SESSION['code']);

@@ -27,13 +27,14 @@
 							<p><textarea name="mota" id="mota" cols="30" rows="10" placeholder="Mô tả"></textarea></p>							
 						</form>
 						<?php 
-							if(isset($_SESSION['thuoctinh'])){
-								foreach($_SESSION["thuoctinh"] as $value){
-								extract($value);   
-								echo("Size: ".$size." Màu : ".$color." Số lượng : ".$quantity."");
-								echo("<br>");
-								} 
-							}
+							// if(isset($_SESSION['thuoctinh'])){
+							// 	foreach($_SESSION["thuoctinh"] as $value){
+							// 	extract($value);   
+							// 	echo("Size: ".$size." Màu : ".$color." Số lượng : ".$quantity."");
+							// 	echo("<br>");
+							// 	} 
+							// }
+							
 						?>				
 						<!-- kết thúc -->
 						<div class="button">
