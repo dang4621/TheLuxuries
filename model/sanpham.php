@@ -75,7 +75,7 @@ function tangSoLanXem($id=0){
 }
 
 function loadOne_sp2(){
-    $sql="SELECT*FROM san_pham WHERE ma_san_pham='44949275'";
+    $sql="SELECT*FROM san_pham WHERE ma_san_pham='86414367'";
             return pdo_query_one($sql);     
 }
 

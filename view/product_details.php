@@ -83,6 +83,7 @@
 				 if(is_array($nhom_th)){
                     extract($nhom_th);
 					$ma_nh=$ma_nhom_hang;
+					$ma_sp=$ma_san_pham;
                      ?>
 				<div class="col-md-7">
 
@@ -92,39 +93,46 @@
 						<p class="single-product-pricing"><span>Per Kg</span> <?=$giam_gia?></p>
 						<p><?=$mo_ta?></p>
 
+
+
 						<div class="them">
+
 							<div class="size">
 								<h2>Size:</h2>
 								<form action="" method="POST" name="tt" id="select">
-									<input name="size" type="radio" id="html" value="S">
-									<label for="html">S</label>
+					<?php 
+				    $sql="SELECT*FROM thuoc_tinh WHERE ma_san_pham=$ma_sp";
+				      $cungloai=pdo_query($sql);
 
-									<input name="size" type="radio" id="jv" value="M">
-									<label for="jv">M</label>
+				      foreach($cungloai as $loai){
+					  extract($loai); 
 
-									<input name="size" type="radio" id="php" value="L">
-									<label for="php">L</label>
-
-									<input name="size" type="radio" id="css" value="XL">
-									<label for="css">XL</label>
-
-									<input name="size" type="radio" id="js" value="XXL">
-									<label for="js">XXL</label>
+					  echo'	<input name="size" type="radio" id="html" value="'.$size.'">
+					  <label for="html">'.$size.'</label>';
+					        ?>
+                    <?php }?>
 								</form>
 							</div>
 							<div class="mau">
-								<h2>Màu:</h2>
-								<input type="radio" class="radio" id="radio-1" name="group" style="background-color=#ff0000;"/>
-								<label for="radio-1"></label>
-								<input type="radio" class="radio" id="radio-2" name="group" />
-								<label for="radio-2"></label>
-								<input type="radio" class="radio" id="radio-3" name="group" />
-								<label for="radio-3"></label>
-								<input type="radio" class="radio" id="radio-4" name="group" />
-								<label for="radio-4"></label>
+							<h2>Màu</h2>
+v					<?php 
+				    $sql="SELECT*FROM thuoc_tinh WHERE ma_san_pham=$ma_sp";
+				      $cungloai=pdo_query($sql);
+
+				      foreach($cungloai as $loai){
+					  extract($loai); 
+
+					  echo'
+					  <input type="radio" class="radio" id="radio-1" name="group" style="background-color='.$color.';"/>
+					  <label for="radio-1"></label>';
+					        ?>
+                    <?php }?>
 
 							</div>
 						</div>
+
+
+
 
 						<div class="single-product-form">
 							<form action="index.html">

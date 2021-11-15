@@ -7,10 +7,6 @@
      include './model/thuonghieu.php';
     
      //include 
-     include 'model/pdo.php';
-     include 'model/danhmuc.php';
-     include 'model/thuonghieu.php';
-     include 'model/sanpham.php';
 
     include 'view/header.php';
 
@@ -26,7 +22,7 @@
             }
                 
         }else{
-            include 'view/';
+            include 'view/product_details.php';
         }            
 
 
