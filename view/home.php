@@ -116,7 +116,7 @@
 					<div class="testimonial-sliders">
 						<div class="single-testimonial-slider">
 							<div class="client-avater">
-								<img src="assets/img/avaters/dang.jpg" alt="">
+								<img src="view/assets/img/avaters/dang.jpg" alt="">
 							</div>
 							<div class="client-meta">
 								<h3>Hoàng Hải Đăng <span>Local shop owner</span></h3>
@@ -132,7 +132,7 @@
 						</div>
 						<div class="single-testimonial-slider">
 							<div class="client-avater">
-								<img src="assets/img/avaters/truyen.jpg" alt="">
+								<img src="view/assets/img/avaters/truyen.jpg" alt="">
 							</div>
 							<div class="client-meta">
 								<h3>Phan Ngọc Truyền <span>Local shop owner</span></h3>
@@ -147,7 +147,7 @@
 						</div>
 						<div class="single-testimonial-slider">
 							<div class="client-avater">
-								<img src="assets/img/avaters/dinh.jpg" alt="">
+								<img src="view/assets/img/avaters/dinh.jpg" alt="">
 							</div>
 							<div class="client-meta">
 								<h3>Phan Công Đỉnh <span>Local shop owner</span></h3>
@@ -163,7 +163,7 @@
 						</div>
 						<div class="single-testimonial-slider">
 							<div class="client-avater">
-								<img src="assets/img/avaters/chuong.jpg" alt="">
+								<img src="view/assets/img/avaters/chuong.jpg" alt="">
 							</div>
 							<div class="client-meta">
 								<h3>Huỳnh Quốc Chương <span>Local shop owner</span></h3>
@@ -179,7 +179,7 @@
 						</div>
 						<div class="single-testimonial-slider">
 							<div class="client-avater">
-								<img src="assets/img/avaters/anh.jpg" alt="">
+								<img src="view/assets/img/avaters/anh.jpg" alt="">
 							</div>
 							<div class="client-meta">
 								<h3>Chế Hoài Anh <span>Local shop owner</span></h3>
