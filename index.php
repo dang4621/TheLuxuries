@@ -11,7 +11,8 @@
     include 'view/header.php';
 
     //load
- 
+    // $sanpham=load_all_sp($keyw,$id);
+    $ba_sp=load3_sp();
 
     if( isset($_GET['act']) ){
         $act=$_GET['act'];        
