@@ -10,14 +10,19 @@
 
     include 'view/header.php';
 
+    //load
+
+
     if( isset($_GET['act']) ){
         $act=$_GET['act'];        
         switch($act){            
             case 'trangchu':                
-                include './site/page/home.php';
-                break;
+                include 'view/home.php';
+                break;        
+            
+
             default :  
-                    include './site/page/home.php';                
+                include 'view/home.php';         
                     break;
             }
                 
