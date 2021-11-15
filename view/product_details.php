@@ -21,17 +21,30 @@
 					<div class="single-product-img">
 						<!--<img src="assets/img/products/product-img-5.jpg"> -->
 						<div class="slideshow-container">
-							<div class="mySlides1">
-							  <img src="/fruitkha/assets/img/products/product-img-1.jpg" style="width:100%">
-							</div>
-						  
-							<div class="mySlides1">
-							  <img src="/fruitkha/assets/img/products/product-img-2.jpg" style="width:100%">
-							</div>
-						  
-							<div class="mySlides1">
-							  <img src="/fruitkha/assets/img/products/product-img-3.jpg" style="width:100%">
-							</div>
+
+					<?php 
+					
+				$nhom_th2=loadOne_sp2();
+				if(is_array($nhom_th2)){
+				   extract($nhom_th2);
+				   $file=explode(",",substr($image,0,-1));
+
+				   print_r($file[0]);
+					?>
+					
+
+       <?php } ?>
+	               <div class="mySlides1">
+						<img src="./upload/<?=$file[0]?>" style="width:100%">
+					</div>
+
+					<div class="mySlides1">
+						<img src="./upload/<?=$file[1]?>" style="width:100%">
+				 </div>
+
+				<div class="mySlides1">
+				  <img src="./upload/<?=$file[2]?>" style="width:100%">
+				</div>
 						  
 							<a class="prev" onclick="plusSlides(-1, 0)">&#10094;</a>
 							<a class="next" onclick="plusSlides(1, 0)">&#10095;</a>
@@ -62,17 +75,26 @@
 						  </script>
 					</div>
 				</div>
+
+
+				<?php
+
+				$nhom_th=loadOne_sp2();
+				 if(is_array($nhom_th)){
+                    extract($nhom_th);
+					$ma_nh=$ma_nhom_hang;
+                     ?>
 				<div class="col-md-7">
 					<div class="single-product-content">
-						<h3>Green apples have polyphenols</h3>
-						<p class="single-product-pricing"><span>Per Kg</span> $50</p>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta sint dignissimos, rem commodi cum voluptatem quae reprehenderit repudiandae ea tempora incidunt ipsa, quisquam animi perferendis eos eum modi! Tempora, earum.</p>
+						<h3><?=$ten_san_pham?></h3>
+						<p class="single-product-pricing"><span>Per Kg</span> <?=$giam_gia?></p>
+						<p><?=$mo_ta?></p>
 						<div class="single-product-form">
 							<form action="index.html">
 								<input type="number" placeholder="0">
 							</form>
 							<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Thêm vào giỏ</a>
-							<p><strong>Categories: </strong>Fruits, Organic</p>
+							<p><strong>Categories: </strong><?=$ma_nh?></p>
 						</div>
 						<h4>Share:</h4>
 						<ul class="product-share">
@@ -82,6 +104,7 @@
 							<li><a href=""><i class="fab fa-linkedin"></i></a></li>
 						</ul>
 					</div>
+					<?php } ?>
 				</div>
 			</div>
 		</div>
@@ -100,36 +123,29 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-lg-4 col-md-6 text-center">
+
+			  <?php 
+				$sql="SELECT*FROM san_pham WHERE ma_nhom_hang=$ma_nh";
+				$cungloai=pdo_query($sql);
+
+				foreach($cungloai as $loai){
+					extract($loai);
+					$file=explode(",",substr($image,0,-1));
+					echo'<div class="col-lg-4 col-md-6 text-center">
 					<div class="single-product-item">
 						<div class="product-image">
-							<a href="single-product.html"><img src="assets/img/products/product-img-1.jpg" alt=""></a>
+							<a href="single-product.html"><img src="./upload/'.$file[0].'" style="height:200px" ></a>
 						</div>
-						<h3>Strawberry</h3>
-						<p class="product-price"><span>Per Kg</span> 85$ </p>
+						<h3>'.$ten_san_pham.'</h3>
+						<p class="product-price"><span>Per Kg</span> '.$giam_gia.'$ </p>
 						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Thêm vào giỏ</a>
 					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 text-center">
-					<div class="single-product-item">
-						<div class="product-image">
-							<a href="single-product.html"><img src="assets/img/products/product-img-2.jpg" alt=""></a>
-						</div>
-						<h3>Berry</h3>
-						<p class="product-price"><span>Per Kg</span> 70$ </p>
-						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Thêm vào giỏ</a>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 offset-lg-0 offset-md-3 text-center">
-					<div class="single-product-item">
-						<div class="product-image">
-							<a href="single-product.html"><img src="assets/img/products/product-img-3.jpg" alt=""></a>
-						</div>
-						<h3>Lemon</h3>
-						<p class="product-price"><span>Per Kg</span> 35$ </p>
-						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Thêm vào giỏ</a>
-					</div>
-				</div>
+				</div>';
+				}
+			  ?>
+
+
+
 			</div>
 		</div>
 	</div>

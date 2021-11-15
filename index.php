@@ -1,6 +1,10 @@
 <?php 
      ob_start();
      session_start();
+     include './model/pdo.php';
+     include './model/sanpham.php';   
+     include './model/danhmuc.php';    
+     include './model/thuonghieu.php';
     
      //include 
      include 'model/pdo.php';
