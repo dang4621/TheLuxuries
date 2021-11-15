@@ -83,12 +83,59 @@
 				 if(is_array($nhom_th)){
                     extract($nhom_th);
 					$ma_nh=$ma_nhom_hang;
+					$ma_sp=$ma_san_pham;
                      ?>
 				<div class="col-md-7">
+
+
 					<div class="single-product-content">
 						<h3><?=$ten_san_pham?></h3>
 						<p class="single-product-pricing"><span>Per Kg</span> <?=$giam_gia?></p>
 						<p><?=$mo_ta?></p>
+
+
+
+						<div class="them">
+
+							<div class="size">
+								<h2>Size:</h2>
+								<form action="" method="POST" name="tt" id="select">
+					<?php 
+				    $sql="SELECT*FROM thuoc_tinh WHERE ma_san_pham=$ma_sp";
+				      $cungloai=pdo_query($sql);
+
+				      foreach($cungloai as $loai){
+					  extract($loai); 
+
+					  echo'	<input name="size" type="radio" id="html" value="'.$size.'">
+					  <label for="html">'.$size.'</label>';
+					        ?>
+                    <?php }?>
+								</form>
+							</div>
+							<div class="ma12">
+							<h2>Màu</h2>
+					<?php 
+				    $sql="SELECT*FROM thuoc_tinh WHERE ma_san_pham=$ma_sp";
+				      $cungloai=pdo_query($sql);
+
+				      foreach($cungloai as $loai){
+					  extract($loai); 
+
+					  echo'
+					  <input name="color" type="radio" id="html" value="'.$color.'">
+					  <label for="html"><div style="background-color: '.$color.';width=50px;height=50px;color: '.$color.'" >chon mau </div></label>
+					  
+					  ';
+					        ?>
+                    <?php }?>
+
+							</div>
+						</div>
+
+
+
+
 						<div class="single-product-form">
 							<form action="index.html">
 								<input type="number" placeholder="0">

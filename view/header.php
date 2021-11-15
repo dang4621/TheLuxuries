@@ -33,6 +33,8 @@
 	<!-- responsive -->
 	<link rel="stylesheet" href="view/assets/css/responsive.css">
 
+	<link rel="stylesheet" href="view/assets/css/css1.css">
+
 </head>
 
 <body>

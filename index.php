@@ -5,6 +5,8 @@
      include './model/sanpham.php';   
      include './model/danhmuc.php';    
      include './model/thuonghieu.php';
+    
+     //include 
 
     include 'view/header.php';
 
@@ -26,10 +28,21 @@
             }
                 
         }else{
-            include 'view/home.php';
+            include 'view/product_details.php';
         }            
 
 
     include 'view/footer.php';
 
 ?>
+
+
+
+
+
+
+
+
+
+
+
