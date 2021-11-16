@@ -19,11 +19,7 @@
         switch($act){            
             case 'trangchu':                
                 include 'view/home.php';
-                break;        
-            case 'shop':                
-                include 'view/shop.php';
-                break;        
-            
+                break;       
 
             default :  
                 include 'view/product_details.php';         
@@ -31,7 +27,7 @@
             }
                 
         }else{
-            include 'view/product_details.php';
+            include 'view/home.php';
         }            
 
 

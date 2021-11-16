@@ -77,7 +77,7 @@
 								</li>
 								<li>
 									<div class="header-icons">
-										<a class="dangnhap" href="login.html"><i class="fa fa-user"></i></a>
+										<a class="dangnhap" href="view/login.php"><i class="fa fa-user"></i></a>
 										<a class="shopping-cart" href="cart.html"><i
 												class="fas fa-shopping-cart"></i></a>
 										<a class="mobile-hide search-bar-icon" href="#"><i
