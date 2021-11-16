@@ -1,9 +1,10 @@
 <div class="contact-from-section mt-150 mb-150">
     <div class="container">
-        <div class="row">
+        <div class="row1">
             <div class="col-lg-8 mb-5 mb-lg-0">
                 <form method="POST">
-                    <p>Thêm các loại sản phẩm và số lượng của từng loại</p>
+                    <p1>Thêm loại sản phẩm và số lượng của từng loại</p1><br>
+                    <p2>Chọn size:</p2>
                     <input name="size" type="radio" id="html" value="S" checked>
                     <label for="html">S</label>
                     <input name="size" type="radio" id="css" value="M">
@@ -15,14 +16,16 @@
                     <input name="size" type="radio" id="javascript" value="XXL">
                     <label for="javascript">XXL</label><br>
 
-                    <label for="favcolor">Chọn màu hiển thị:</label>
+                    <label for="favcolor">Chọn màu sản phẩm:</label>
                     <input type="color" id="favcolor" name="favcolor" value="#ff0000"><br><br>
                     <label for="">Số lượng:</label>
                     <input id="number" name="number" type="number" value="50"> <br>
                     <button type="submit" name="add_session">Thêm loại</button>
                 </form>
+                <br>
+                <a href="index.php?act=thuoctinh">Xác nhận</a>
                 <a href="index.php?act=unset_tt">Nhập lại</a><br>
-                <a href="index.php?act=thuoctinh">Xác nhận</a><br>
+                <br>
 
                     <?php             
                         if(isset($_POST['add_session'])){                   

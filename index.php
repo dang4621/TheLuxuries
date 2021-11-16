@@ -28,7 +28,7 @@
             }
                 
         }else{
-            include 'view/product_details.php';
+            include 'view/home.php';
         }            
 
 

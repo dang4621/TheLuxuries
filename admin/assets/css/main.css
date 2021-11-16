@@ -2755,3 +2755,65 @@ table.order-details tbody td {
   vertical-align: middle;
   width: 100%;
 }
+/*thuộc tính*/
+.row1 p1{
+  font-size:16pt;
+  font-weight:700;
+  color:#051922;
+}
+.row1 p2{
+  font-size:12pt;
+  font-weight:700;
+  color:#051922;
+}
+.row1 input[type="radio"]{
+  margin-left:5px;
+  margin-top:20px
+}
+.row1 label[for="favcolor"]{
+  font-size:12pt;
+  font-weight:700;
+  color:#051922;
+  margin-top:20px;
+}
+.row1 label[for=""]{
+  font-size:12pt;
+  font-weight:700;
+  color:#051922;
+}
+.row1 input[type="color"]{
+  margin-left:5px;
+}
+.row1 input[type="number"]{
+  margin-left:5px;
+  height:30px;
+}
+.row1 button[type="submit"]{
+  background-color: #F28123;
+  color: #051922;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 12px;
+  border: none !important;
+  border-radius:30px;
+  height:30px;
+}
+.row1 button[type="submit"]:hover{
+  background-color: #051922;
+  color: #f28123;
+}
+.row1 a{
+  background-color: #F28123;
+  color: #051922;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 14px;
+  border: none !important;
+  border-radius:30px;
+  height:40px;
+  padding: 10px;
+}
+.row1 a:hover{
+  background-color: #051922;
+  color: #f28123;
+}
