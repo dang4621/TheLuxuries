@@ -36,7 +36,6 @@
 
 
     include 'view/footer.php';
-    header();
 
 ?>
 
