@@ -61,11 +61,11 @@ function del_sp($id){
     return pdo_query($sql);
 }
 
-function update_sp($ma_san_pham,$ma_nhom_hang,$ten_san_pham,$gia,$image,$donvi,$mo_ta, $today){
+function update_sp($ma_san_pham,$ma_nhom_hang,$ten_san_pham,$gia_goc,$giam_gia,$image,$donvi,$mo_ta, $today){
    if($image!=""){
-    $sql="UPDATE san_pham SET ma_nhom_hang = '$ma_nhom_hang',ten_san_pham='$ten_san_pham',gia='$gia',image='$image',don_vi='$donvi',mo_ta='$mo_ta',ngay_nhap='$today' WHERE ma_san_pham='$ma_san_pham'";
+    $sql="UPDATE san_pham SET ma_nhom_hang = '$ma_nhom_hang',ten_san_pham='$ten_san_pham',gia_goc='$gia_goc',giam_gia='$giam_gia',image='$image',don_vi='$donvi',mo_ta='$mo_ta',ngay_nhap='$today' WHERE ma_san_pham='$ma_san_pham'";
    }else{
-    $sql="UPDATE san_pham SET ma_nhom_hang = '$ma_nhom_hang',ten_san_pham='$ten_san_pham',gia='$gia',don_vi='$donvi',mo_ta='$mo_ta',ngay_nhap='$today' WHERE ma_san_pham='$ma_san_pham'";
+    $sql="UPDATE san_pham SET ma_nhom_hang = '$ma_nhom_hang',ten_san_pham='$ten_san_pham',gia_goc='$gia_goc',giam_gia='$giam_gia',don_vi='$donvi',mo_ta='$mo_ta',ngay_nhap='$today' WHERE ma_san_pham='$ma_san_pham'";
    }
     pdo_execute($sql);
 }

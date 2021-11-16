@@ -44,6 +44,7 @@
                 if(isset($_GET['id'])){
                     $id=$_GET['id'];
                     del_dm($id);
+                    echo ('<script>alert("Xóa thành công")</script>');
                 }
                 include '../admin/danhmuc/dsdanhmuc.php';      
                 break; 
@@ -95,15 +96,13 @@
                 }
                 include '../admin/thuonghieu/dsthuonghieu.php';      
                 break; 
-            case 'dsthuonghie':
+            case 'dsthuonghieu':
                 include '../admin/thuonghieu/dsthuonghieu.php';  
                 break;
                 
 
             //Sản phẩm
-            case 'dssanpham':                
-                include '../admin/sanpham/dssanpham.php';     
-                break;  
+
             case 'add_sp': 
                 if(isset($_SESSION['thuoctinh'])){
                     unset($_SESSION['thuoctinh']);
@@ -113,6 +112,70 @@
                 } 
                 include '../admin/sanpham/sanpham.php'; 
                  break;
+            case 'dssanpham':
+                $id=0;
+                $sanpham=load_all_sp($keyw,$id);
+                include '../admin/sanpham/dssanpham.php';   
+                break;
+            case 'del_sp':
+                if(isset($_GET['id'])){
+                    $id=$_GET['id'];
+                    del_sp($id);
+                }
+                include '../admin/sanpham/dssanpham.php';      
+                break; 
+            case 'edit_sp':
+                if(isset($_GET['id'])){
+                $id=$_GET['id'];
+                $sanpham=loadOne_sp($id) ;                
+                include '../admin/sanpham/suasanpham.php';
+                }
+                break ;
+            case 'update_sp':
+                $id=0;
+                if(isset($_POST['submit'])){
+                     
+                    $ma_nhom_hang=$_POST['id_dm'];
+                    $ma_thuong_hieu = 4231423412;
+                    $ten_san_pham=$_POST['ten_sp'];   
+                    $ma_san_pham=$_POST['id_sp'];
+                     //upload nhiều ảnh
+                     $targetDir = "../upload/"; 
+                     $allowTypes = array('jpg','png','jpeg','gif'); 
+                     $fileNames = $_FILES['anhsp']['name']; 
+                     if(!empty($fileNames)){                         
+                         $file = implode(',', $fileNames);
+                         // print_r($file);
+                         foreach($_FILES['anhsp']['name'] as $key=>$val){              
+                             // địa chỉ của file 
+                             $fileName = basename($_FILES['anhsp']['name'][$key]); 
+                             $targetFilePath = $targetDir . $fileName; 
+                             // kiểm tra định dạng file đúng là ảnh hay không 
+                             $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION); 
+                             if(in_array($fileType, $allowTypes)){ 
+                                     move_uploaded_file($_FILES["anhsp"]["tmp_name"][$key], $targetFilePath);
+                             }else{ 
+                                 $mes="Tải tệp thất bại";
+                             } 
+                         }                       
+                     }else{ 
+                        $mes="Tải tệp thất bại";
+                     }
+                    $gia_goc=$_POST['gia_goc'];
+                    $giam_gia=$_POST['giam_gia'];
+                    $timestamp = time();
+                    $today=date("20y-m-d h:i:s", $timestamp);
+                    $mo_ta=$_POST['mota'];  
+
+
+                        update_sp($ma_san_pham,$ma_nhom_hang,$ten_san_pham,$gia_goc,$giam_gia,$image,$donvi,$mo_ta, $today);
+                        echo ('<script>alert("Cập nhật thành công")</script>');
+                    }
+                    
+                    $sanpham=load_all_sp($keyw,$id);
+                    include '../admin/sanpham/dssanpham.php';
+                    break;
+                
             case 'sp_confirm':
                 if(isset($_POST['submit'])){                   
                     $ma_nhom_hang=$_POST['id_dm'];
@@ -183,5 +246,3 @@
 
 
     include 'footer.php';
-
-?>

@@ -64,7 +64,7 @@
             <nav class="main-menu">
               <ul>
                 <li class="current-list-item">
-                  <a href="admin.html">Trang chủ</a>
+                  <a href="#">Trang chủ</a>
                 </li>
                 <li>
                   <a href="#">Quản lý</a>

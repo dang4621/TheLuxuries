@@ -7,15 +7,39 @@
 						<table class="cart-table" >
 							<thead class="cart-table-head" >
 								<tr class="table-head-row" style="background-color: #051922;color: #F28123;">
-									<th class="product-remove">Mã loại</th>
-									<th class="product-name">Tên loại</th>
+									<th class="product-remove">Mã sản phẩm</th>
+									<th class="product-name">Tên san pham</th>
 									<th class="product-image">Hình ảnh</th>
 									<th class="product-price">Giá</th>
-									<th class="product-status">Trạng thái</th>
+									<th class="product-mota">Mô tả</th>
+									<th class="product-status"></th>
 								</tr>
 							</thead>
 							<tbody>
-								<tr class="table-body-row">
+							<?php
+							 foreach($sanpham as $value){ 
+								extract($value);
+									echo(' 
+										<tr class="table-body-row">
+											<td class="product-remove">'.$ma_san_pham.'</td>
+											<td class="product-name">'.$ten_san_pham.'</td>
+											<td class="product-image">'.$image.'</td>
+											<td class="product-price">'.$gia_goc.'</td>
+											<td class="product-mota">'.$mo_ta.'</td>
+										<td>
+											<a href="index.php?act=edit_sp&id='.$ma_san_pham.'">
+												<input type="button" value="Sửa">
+											</a>
+											<a href="index.php?act=del_sp&id='.$ma_san_pham.'">
+												<input type="button" value="Xóa">
+											</a>
+										</td>
+										</tr>
+										
+										');
+
+							} ?>			
+								<!-- <tr class="table-body-row">
 									<td class="product-remove">1</td>
 									<td class="product-name">Strawberry</td>
 									<td class="product-image"><img src="assets/img/products/product-img-1.jpg" alt=""></td>
@@ -44,7 +68,7 @@
 									<a href="sanpham.html"><input type="button" value="Sửa"></a>
 									<a href=""><input type="button" value="Xóa"></a>
 								    </td>
-								</tr>
+								</tr> -->
 							</tbody>
 						</table>
 						<div class="buttons">
