@@ -19,8 +19,7 @@
         switch($act){            
             case 'trangchu':                
                 include 'view/home.php';
-                break;        
-            
+                break;       
 
             default :  
                 include 'view/product_details.php';         
@@ -28,12 +27,12 @@
             }
                 
         }else{
-            include 'view/product_details.php';
+            include 'view/home.php';
         }            
 
 
     include 'view/footer.php';
-    header();
+    
 
 ?>
 
