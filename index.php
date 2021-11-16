@@ -8,30 +8,36 @@
     
      //include 
 
-    include 'view/header.php';
+	 if($_SESSION['user']){
+		include 'view/header.php';
 
-    //load
-    // $sanpham=load_all_sp($keyw,$id);
-    $ba_sp=load3_sp();
+		//load
+		// $sanpham=load_all_sp($keyw,$id);
+		$ba_sp=load3_sp();
+	
+		if( isset($_GET['act']) ){
+			$act=$_GET['act'];        
+			switch($act){            
+				case 'trangchu':                
+					include 'view/home.php';
+					break;       
+	
+				default :  
+					include 'view/product_details.php';         
+						break;
+				}
+					
+			}else{
+				include 'view/home.php';
+			}            
+	
+	
+		include 'view/footer.php';
+	 }else{
+		 header("Location:login.php");
+	 }
 
-    if( isset($_GET['act']) ){
-        $act=$_GET['act'];        
-        switch($act){            
-            case 'trangchu':                
-                include 'view/home.php';
-                break;       
-
-            default :  
-                include 'view/product_details.php';         
-                    break;
-            }
-                
-        }else{
-            include 'view/home.php';
-        }            
-
-
-    include 'view/footer.php';
+ 
 
 ?>
 
