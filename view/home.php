@@ -81,9 +81,7 @@
                         extract($value);
                             $url_hinh="";                                
                             if(isset($image)&&!$image==""){
-                                $hinh=$image;
-                                $path_hinh="./content/uploads/$hinh";
-                                $url_hinh=$path_hinh;
+								$file = explode(",",substr($image, 0, -1));
                             }else{
                                 $url_hinh="không có hình";
                             }; 
@@ -92,10 +90,13 @@
 					<div class="col-lg-4 col-md-6 text-center">
 						<div class="single-product-item">
 							<div class="product-image">
-								<a href="single-product.html"><img src="assets/img/products/product-img-1.jpg" alt=""></a>
+								<a href="single-product.html"><img src="upload/<?php echo($file[0]); ?>" alt=""></a>
 							</div>
 							<h3><?= $ten_san_pham ?></h3>
-							<p class="product-price"><span><?= $ma_thuong_hieu ?></span> <?= $gia_goc ?> </p>
+							<p class="product-price">
+								<span></span>
+								<?= $gia_goc ?> 
+							</p>
 							<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Thêm vào giỏ</a>
 							</div>
 					</div>	
