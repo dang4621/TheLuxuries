@@ -21,10 +21,10 @@
                 <div class="col-md-12">
                     <div class="product-filters">
                         <ul>
-                            <li class="active" data-filter="*">All</li>
-                            <li data-filter=".strawberry">Strawberry</li>
-                            <li data-filter=".berry">Berry</li>
-                            <li data-filter=".lemon">Lemon</li>
+                            <li class="active">All</li>
+                            <li >Strawberry</li>
+                            <li >Berry</li>
+                            <li >Lemon</li>
                         </ul>
                     </div>
                 </div>
@@ -106,6 +106,7 @@
 					</div>
 				</div>
 			</div>
+			
 		</div>
 	</div>
 	<!-- end products -->

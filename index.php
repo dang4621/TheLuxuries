@@ -20,6 +20,9 @@
             case 'trangchu':                
                 include 'view/home.php';
                 break;        
+            case 'shop':                
+                include 'view/shop.php';
+                break;        
             
 
             default :  
