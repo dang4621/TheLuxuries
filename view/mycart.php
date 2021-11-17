@@ -34,23 +34,13 @@
 									$hinhp = "<img src='" . $imgpath . "' height='80px'>";
 
 								?>
+					<form action="" method="post">			
 								<tr class="table-body-row">
 									<td class="product-remove"><a href="index.php?act=del-sp&id=<?=$key?>"><i class="far fa-window-close"></i></a></td>
 									<td class="product-image"><?= 	$hinhp ?></td>
 									<td class="product-name"><?= $ten_san_pham ?></td>
 									<td class="product-price"><?= $gia ?></td>
-									<td class="product-quantity">
-									<form method='POST' action='index.php?act=tangsl'>
-										<input type='hidden' name='ma_san_pham' value='<?=$key?>'/>
-										<input type='hidden' name='action' value='change' />
-										<select name='quantity' class='quantity' onChange='this.form.submit()'>
-											<?php for($i=1 ; $i<100 ; $i++){ ?>
-												<option <?php if($quantity==$i) echo 'selected';?> value='<?=$i?>'> <?=$i?> </option>
-											<?php  } ?>                                
-										</select>
-									</form>
-										
-									</td>
+									<td class="product-quantity"><input type="number" name="quan[<?php echo $key ;?>]"  value="<?=$quantity?>">	</td>
 									<td class="product-size"><?= $size ?></td>
 									<td class="product-color"><?= $color ?></td>
 									<td class="product-total"><?= $tt[$a]=$gia*$quantity ; ?></td>
@@ -91,19 +81,27 @@
 							</tr>
 						</tbody>
 					</table>
-
+           
 					<div class="cart-buttons">
 						<!-- <input class="boxed-btn" type="submit" name="cartup" value="cập nhập giỏ hàng"> -->
 						<a href="index.php?act=checkout" class="boxed-btn black">Tiến hành thanh toán</a>
+						<input class="boxed-btn" type="submit" name="cartup" value="cập nhập">
 					</div>
-
+			</form>
 					<?php
 
 
-					if (isset($_POST['cartup'])) {
-						unset($_SESSION['cart'][$_POST['quan'] == 0]);
-					}
-					?>
+     if (isset($_POST['cartup'])) {
+	      foreach ($_POST['quan'] as $key2 => $val){
+		  if($val==0){
+			unset($_SESSION['shopping_cart'][$key2]);
+		 }else{
+			$_SESSION['shopping_cart'][$key2]['quantity']=$val;
+		 }
+	 }
+	  header("Location:index.php?act=cart");
+}
+?>
 				</div>
 			</div>
 		</div>
