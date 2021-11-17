@@ -97,7 +97,7 @@
 								<span></span>
 								<?= $gia_goc ?> 
 							</p>
-							<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Thêm vào giỏ</a>
+							<a href="index.php?act=detail&id=<?= $ma_san_pham ?>" class="cart-btn"><i class="fas fa-shopping-cart"></i> Chi tiết</a>
 							</div>
 					</div>	
 				<?php }?>

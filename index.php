@@ -20,10 +20,29 @@
 			switch($act){            
 				case 'trangchu':                
 					include 'view/home.php';
-					break;       
+					break; 
+					
+					case 'detail':                
+						include 'view/product_details.php';
+						break;  
+						
+					case 'cart':                
+						include 'view/mycart.php';
+						break; 
+						
+				    case 'upcart': 
+						              
+							if(isset($_GET['id'])){
+								$id=$_GET['id'];
+								$soluong=$_GET['quan'];
+								$sql="UPDATE fakebill SET quantity= $soluong where id_bill=$id";
+								pdo_execute($sql);
+								
+							}
+						break; 	
 	
 				default :  
-					include 'view/product_details.php';         
+					include 'view/home.php';         
 						break;
 				}
 					

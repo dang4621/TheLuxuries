@@ -75,7 +75,8 @@ function tangSoLanXem($id=0){
 }
 
 function loadOne_sp2(){
-    $sql="SELECT*FROM san_pham WHERE ma_san_pham='24082019'";
+    $id=$_GET['id'];
+    $sql="SELECT*FROM san_pham WHERE ma_san_pham='$id'";
             return pdo_query_one($sql);     
 }
 

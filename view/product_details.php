@@ -29,6 +29,7 @@
 								$file = explode(",", substr($image, 0));
 							} 
 							foreach($file as $id => $value){ 
+								$hinh=$value;
 								echo('
 								<div class="mySlides1">
 									<img src="upload/'.$value.'" style="width:100%">
@@ -76,17 +77,19 @@
 				extract($nhom_th);
 				$ma_nh = $ma_nhom_hang;
 				$ma_sp = $ma_san_pham;
+				$ten_sp=$ten_san_pham;
+				$gia_sp=$giam_gia;
 			?>
 				<div class="col-md-7">
 					<div class="single-product-content">
 						<h3><?= $ten_san_pham ?></h3>
-						<p class="single-product-pricing"><span>Per Kg</span> <?= $giam_gia ?></p>
+						<p class="single-product-pricing"><span>Per Products</span> <?= $giam_gia ?></p>
 						<p><?= $mo_ta ?></p>
 						<div class="them">
 							<div class="size">
 								<h2>Size:</h2>
 
-								<form action="" method="POST" name="tt" id="select">
+					<form action="" method="POST" name="tt" id="select">
 									<?php
 									$sql = "SELECT*FROM thuoc_tinh WHERE ma_san_pham=$ma_sp";
 									$cungloai = pdo_query($sql);
@@ -96,7 +99,7 @@
 					  							<label for="html">' . $size . '</label>';
 									?>
 									<?php } ?>
-								</form>
+								
 								
 							</div>
 							<div class="mau">
@@ -109,22 +112,22 @@
 									extract($loai);
 									$i++;
 								?>
-									<input type="radio" class="radio" id="radio-<?= $i ?>" name="group" />
+									<input type="radio" class="radio" id="radio-<?= $i ?>" name="color" value="<?= $color ?>" />
 									<label for="radio-<?= $i ?>" style="background: <?= $color ?>;"></label>
 								<?php } ?>
 
 							</div>
 						</div>
 
-
-
+						
 
 						<div class="single-product-form">
-							<form action="index.html">
-								<input type="number" placeholder="0">
-							</form>
-							<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Thêm vào giỏ</a>
+							
+								<input type="number" value="1" name="quan">
+							
+							<a href="" class="cart-btn"><i class="fas fa-shopping-cart"><input type="submit" name="addtocart" value="thêm  giỏ hàng"></i></a>
 							<p><strong>Categories: </strong><?= $ma_nh ?></p>
+							</form>
 						</div>
 						<h4>Share:</h4>
 						<ul class="product-share">
@@ -137,6 +140,28 @@
 				<?php } ?>
 				</div>
 		</div>
+		<?php 
+		if(isset($_POST['addtocart'])){
+			$username= $_SESSION['user']['name'];
+			$userid=$_SESSION['user']['name'];
+			$quantity=$_POST['quan'];
+			$color=$_POST['color'];
+			$size=$_POST['size'];
+			$hinhsp=$hinh;
+			$tensp=$ten_sp;
+			$giasp=$gia_sp;
+            $ma_sp=$ma_sp;
+			settype($giasp, "int");
+			settype($quantity, "int");
+			$total=$giasp*$quantity;
+
+			$spadd=[$ma_sp,$tensp,$total,$hinhsp,$quantity,$color,$size];
+            array_push($_SESSION['cart'],$spadd);
+	        echo'thành công';
+		}
+		 ?>
+
+
 	</div>
 </div>
 <!-- end single product -->
@@ -168,7 +193,7 @@
 						</div>
 						<h3>' . $ten_san_pham . '</h3>
 						<p class="product-price"><span>Per Kg</span> ' . $giam_gia . '$ </p>
-						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Thêm vào giỏ</a>
+						<a href="index.php?act=detail&id=' . $ma_san_pham . '" class="cart-btn"><i class="fas fa-shopping-cart"></i> Chi tiết</a>
 					</div>
 				</div>';
 			}
