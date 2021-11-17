@@ -6,18 +6,18 @@
 				<div class="breadcrumb-text">
 					<p>Xem thêm chi tiết</p>
 					<h1>Single Product</h1>
-					
+
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
 <!-- end breadcrumb section -->
-<?php 
-						// $abc = test();
-						// echo("<pre>");
-						// print_r($abc);
-					?>
+<?php
+// $abc = test();
+// echo("<pre>");
+// print_r($abc);
+?>
 <!-- single product -->
 <div class="single-product mt-150 mb-150">
 	<div class="container">
@@ -27,17 +27,18 @@
 					<!--<img src="assets/img/products/product-img-5.jpg"> -->
 					<div class="slideshow-container">
 						<?php
-							if (is_array($onesp)) {
-								extract($onesp);
-								$file = explode(",", substr($image, 0));
-							} 
-							foreach($file as $id => $value){ 
-								echo('
+						if (is_array($onesp)) {
+							extract($onesp);
+							$file = explode(",", substr($image, 0));
+						}
+						foreach ($file as $id => $value) {
+							$hinh = $value;
+							echo ('
 								<div class="mySlides1">
-									<img src="upload/'.$value.'" style="width:100%">
+									<img src="upload/' . $value . '" style="width:100%">
 								</div>
 								');
-						}?>					
+						} ?>
 						<a class="prev" onclick="plusSlides(-1, 0)">&#10094;</a>
 						<a class="next" onclick="plusSlides(1, 0)">&#10095;</a>
 					</div>
@@ -75,11 +76,13 @@
 				extract($onesp);
 				$ma_nh = $ma_nhom_hang;
 				$ma_sp = $ma_san_pham;
+				$ten_sp = $ten_san_pham;
+				$gia_sp = $giam_gia;
 			?>
 				<div class="col-md-7">
 					<div class="single-product-content">
 						<h3><?= $ten_san_pham ?></h3>
-						<p class="single-product-pricing"><span>Per Kg</span> <?= $giam_gia ?></p>
+						<p class="single-product-pricing"><span>Per Products</span> <?= $giam_gia ?></p>
 						<p><?= $mo_ta ?></p>
 						<div class="them">
 							<div class="size">
@@ -91,24 +94,24 @@
 									$cungloai = pdo_query($sql);
 									foreach ($cungloai as $loai) {
 										extract($loai);
-										echo '	<input name="size" value="'.$size.'"; type="radio" id="html" value="' . $size . '">
+										echo '	<input name="size" value="' . $size . '"; type="radio" id="html" value="' . $size . '">
 					  							<label for="html">' . $size . '</label>';
 									?>
 									<?php } ?>
-								</form>
-								
+
+
 							</div>
 							<div class="mau">
 								<h2>Màu</h2>
-									<?php
-									$sql = "SELECT*FROM thuoc_tinh WHERE ma_san_pham=$ma_sp";
-									$cungloai = pdo_query($sql);
-									$i=0;
-									foreach ($cungloai as $loai) {
-										extract($loai);
-										$i++;
-									?>
-									<input type="radio" value="<?= $color ?>" class="radio" id="radio-<?= $i ?>" name="group" />
+								<?php
+								$sql = "SELECT*FROM thuoc_tinh WHERE ma_san_pham=$ma_sp";
+								$cungloai = pdo_query($sql);
+								$i = 0;
+								foreach ($cungloai as $loai) {
+									extract($loai);
+									$i++;
+								?>
+									<input type="radio" class="radio" id="radio-<?= $i ?>" name="color" value="<?= $color ?>" />
 									<label for="radio-<?= $i ?>" style="background: <?= $color ?>;"></label>
 								<?php } ?>
 
@@ -133,6 +136,28 @@
 				<?php } ?>
 				</div>
 		</div>
+		<?php
+		if (isset($_POST['addtocart'])) {
+			$username = $_SESSION['user']['name'];
+			$userid = $_SESSION['user']['name'];
+			$quantity = $_POST['quan'];
+			$color = $_POST['color'];
+			$size = $_POST['size'];
+			$hinhsp = $hinh;
+			$tensp = $ten_sp;
+			$giasp = $gia_sp;
+			$ma_sp = $ma_sp;
+			settype($giasp, "int");
+			settype($quantity, "int");
+			$total = $giasp * $quantity;
+
+			$spadd = [$ma_sp, $tensp, $total, $hinhsp, $quantity, $color, $size];
+			array_push($_SESSION['cart'], $spadd);
+			echo 'thành công';
+		}
+		?>
+
+
 	</div>
 </div>
 <!-- end single product -->

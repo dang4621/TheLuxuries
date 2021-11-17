@@ -81,5 +81,10 @@ function tangSoLanXem($id=0){
     pdo_execute($sql); 
 }
 
+function loadOne_sp2(){
+    $id=$_GET['id'];
+    $sql="SELECT*FROM san_pham WHERE ma_san_pham='$id'";
+            return pdo_query_one($sql);     
+}
 
 ?>
