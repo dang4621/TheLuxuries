@@ -85,7 +85,8 @@
                             }else{
                                 $url_hinh="không có hình";
                             }; 
-                           $gia_goc = number_format($gia_goc, 0, ",", "."); ?>
+                           $gia_goc = number_format($gia_goc, 0, ",", "."); 
+					?>
 
 					<div class="col-lg-4 col-md-6 text-center">
 						<div class="single-product-item">

@@ -95,7 +95,6 @@
 		</div>
 	</div>
 	<!-- end header -->
-
 	<!-- search area -->
 	<div class="search-area">
 		<div class="container">
@@ -104,9 +103,11 @@
 					<span class="close-btn"><i class="fas fa-window-close"></i></span>
 					<div class="search-bar">
 						<div class="search-bar-tablecell">
-							<h3>Tìm kiếm:</h3>
-							<input type="text" placeholder="Từ khoá">
+						<form action="#" method="post">
+							<h3>Tìm kiếm</h3>
+							<input type="text" name="keyw">
 							<button type="submit">Tìm kiếm <i class="fas fa-search"></i></button>
+						<form>
 						</div>
 					</div>
 				</div>
