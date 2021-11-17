@@ -56,14 +56,22 @@
 								</li>
 								<li>
 									<div class="header-icons">
-										<a class="dangnhap" href="login.php">
-											<i class="fa fa-user"></i>
-										</a>
-										<a class="shopping-cart" href="index.php?act=cart">
-											<i class="fas fa-shopping-cart"> </i>
-										</a>
-										<a class="mobile-hide search-bar-icon" href="#"><i
-												class="fas fa-search"></i></a>
+										<li><a class="dangnhap" href="login.php">
+											<i class="fa fa-user"></i></a>
+											<ul class="sub-dangnhap">
+												<li><a href="#">Đơn hàng của tôi</a></li>
+												<li><a href="#">Cập nhật thông tin</a></li>
+												<li><a href="#">Quên mật khẩu</a></li>
+												<li><a href="#">Đăng xuất</a></li>
+												<li></li>
+											</ul>
+                                       </li>
+										<li><a class="shopping-cart" href="index.php?act=cart">
+											<i class="fas fa-shopping-cart"> </i></a>
+										</li>
+										<li><a class="mobile-hide search-bar-icon" href="#">
+											<i class="fas fa-search"></i></a>
+									    </li>
 									</div>
 								</li>
 							</ul>

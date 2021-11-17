@@ -609,7 +609,38 @@ nav.main-menu ul li:last-child a {
 nav.main-menu > ul li:last-child {
   float: right;
 }
-
+/*test danhnhap*/
+nav.main-menu ul ul.sub-dangnhap {
+  position: absolute;
+  background-color: #fff;
+  width: 220px;
+  padding: 15px 15px;
+  margin: 0;
+  left: 0;
+  top: 50px;
+  border-radius: 3px;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-box-shadow: 0 0 20px #555555;
+  box-shadow: 0 0 20px #555555;
+}
+nav.main-menu ul ul.sub-dangnhap li {
+  display: block;
+  text-align: left;
+}
+nav.main-menu ul ul.sub-dangnhap li a {
+  color: #555;
+  font-weight: 600;
+  padding: 7px 10px;
+  font-size: 13px;
+}
+nav.main-menu ul ul.sub-dangnhap li a:hover{
+  color: #F28123;
+}
+/*end dangnhap*/
 .site-logo {
   float: left;
   max-width: 150px;
