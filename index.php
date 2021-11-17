@@ -39,13 +39,27 @@
 							$color=$_POST['color'];
 
                             $alert=themGH($ma_san_pham,$soluong,$gia,$size,$color);   
-                            header("Location: index.php?act=test"); 
+                            header("Location: index.php?act=cart"); 
                             }
                         }else{
                         	header("Location: login.php"); 
                        	 break; 
                     }
 					break;
+				case 'tangsl':
+                        if(isset($_SESSION["user"])){                            
+                                              
+                        }else{
+                            header("Location: login.php"); 
+                            break; 
+                        }
+				case 'del-sp':    
+                    if(isset($_SESSION["user"])){
+                        if(isset($_GET['id'])){
+                            $ma_san_pham=$_GET['id'];
+                            xoaSP($ma_san_pham);  
+                    }
+                }
 				case 'cart':
 					include 'view/mycart.php';
 					break;

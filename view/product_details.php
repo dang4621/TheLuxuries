@@ -91,9 +91,9 @@
 								
 								
 									<?php
-									$sql = "SELECT*FROM thuoc_tinh WHERE ma_san_pham=$ma_sp";
-									$cungloai = pdo_query($sql);
-									foreach ($cungloai as $loai) {
+									$sql = "SELECT DISTINCT thuoc_tinh.size FROM thuoc_tinh WHERE thuoc_tinh.ma_san_pham= '$ma_sp'";
+									$getSize = pdo_query($sql);
+									foreach ($getSize as $loai) {
 										extract($loai);
 										echo '	<input name="size" value="' . $size . '"; type="radio" id="html" value="' . $size . '">
 					  							<label for="html">' . $size . '</label>';
@@ -107,7 +107,9 @@
 								
 									<?php
 									$i = 0;
-									foreach ($cungloai as $loai) {
+									$sql1 = "SELECT DISTINCT thuoc_tinh.color FROM thuoc_tinh WHERE thuoc_tinh.ma_san_pham= '$ma_sp'";
+									$getColor = pdo_query($sql1);
+									foreach ($getColor as $loai) {
 										extract($loai);
 										$i++;
 									?>

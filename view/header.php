@@ -59,7 +59,7 @@
 										<a class="dangnhap" href="login.php">
 											<i class="fa fa-user"></i>
 										</a>
-										<a class="shopping-cart" href="cart.html">
+										<a class="shopping-cart" href="index.php?act=cart">
 											<i class="fas fa-shopping-cart"> </i>
 										</a>
 										<a class="mobile-hide search-bar-icon" href="#"><i

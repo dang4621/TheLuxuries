@@ -1,15 +1,34 @@
 <?php 
-    function themGH($ma_san_pham,$soluong,$gia,$size,$color) {
+    function laysp($ma_san_pham){
         $sql="SELECT * FROM `san_pham` WHERE `ma_san_pham`='$ma_san_pham'";
-        $onesp=pdo_query_one($sql);
-        extract($onesp);
-
+        return pdo_query_one($sql);
+    }
+    function lay_idTT($ma_san_pham,$size,$color){
         $sql2="SELECT thuoc_tinh.id_tt FROM `thuoc_tinh` WHERE 
-                        thuoc_tinh.ma_san_pham = '$ma_san_pham' 
-                        and thuoc_tinh.size = '$size'
-                        AND thuoc_tinh.color= '$color'";
-        $idTT = pdo_query_one($sql2);      
-        extract($idTT);
+        thuoc_tinh.ma_san_pham = '$ma_san_pham' 
+        and thuoc_tinh.size = '$size'
+            AND thuoc_tinh.color= '$color'";
+        return pdo_query_one($sql2);    
+    }
+    function themGH($ma_san_pham,$soluong,$gia,$size,$color) {
+        // $sql="SELECT * FROM `san_pham` WHERE `ma_san_pham`='$ma_san_pham'";
+        // $onesp=pdo_query_one($sql);
+        $onesp = laysp($ma_san_pham);
+        if(is_array($onesp)){
+             extract($onesp);
+        }
+       
+
+        // $sql2="SELECT thuoc_tinh.id_tt FROM `thuoc_tinh` WHERE 
+        //                 thuoc_tinh.ma_san_pham = '$ma_san_pham' 
+        //                 and thuoc_tinh.size = '$size'
+        //                 AND thuoc_tinh.color= '$color'";
+        // $idTT = pdo_query_one($sql2);  
+        $idTT =lay_idTT($ma_san_pham,$size,$color);
+        if(is_array($idTT)){
+            extract($idTT);
+        }
+        
 
         $key = $ma_san_pham . $id_tt ;
         

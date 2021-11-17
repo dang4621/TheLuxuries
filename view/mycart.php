@@ -11,15 +11,15 @@
 								<th class="product-name">Tên</th>
 								<th class="product-price">Giá</th>
 								<th class="product-quantity">Số lượng</th>
-								<th class="product-total">Tất cả</th>
+								<th class="product-quantity">Size</th>
+								<th class="product-total">Màu</th>
+								<th class="product-total">Thành tiền</th>
 							</tr>
 						</thead>
 
-						<form method="post" action="">
 							<tbody>
 								<?php 
 								 if(!empty($_SESSION["shopping_cart"])){
-									$tong=0;
 									$total=0;
 									$a=1;
 									foreach ($_SESSION["shopping_cart"] as $value) {
@@ -35,18 +35,25 @@
 
 								?>
 								<tr class="table-body-row">
-									<td class="product-remove"><a href="#"><i class="far fa-window-close"></i></a></td>
+									<td class="product-remove"><a href="index.php?act=del-sp&id=<?=$key?>"><i class="far fa-window-close"></i></a></td>
 									<td class="product-image"><?= 	$hinhp ?></td>
 									<td class="product-name"><?= $ten_san_pham ?></td>
 									<td class="product-price"><?= $gia ?></td>
 									<td class="product-quantity">
+									<form method='POST' action='index.php?act=tangsl'>
+										<input type='hidden' name='ma_san_pham' value='<?=$key?>'/>
+										<input type='hidden' name='action' value='change' />
 										<select name='quantity' class='quantity' onChange='this.form.submit()'>
-										<?php for($i=1 ; $i<100 ; $i++){ ?>
-											<option <?php if($quantity==$i) echo 'selected';?> value='<?=$i?>'> <?=$i?> </option>
-										<?php  } ?>                                
-									</select>
+											<?php for($i=1 ; $i<100 ; $i++){ ?>
+												<option <?php if($quantity==$i) echo 'selected';?> value='<?=$i?>'> <?=$i?> </option>
+											<?php  } ?>                                
+										</select>
+									</form>
+										
 									</td>
-									<td class="product-total">xxx vnd</td>
+									<td class="product-size"><?= $size ?></td>
+									<td class="product-color"><?= $color ?></td>
+									<td class="product-total"><?= $tt[$a]=$gia*$quantity ; ?></td>
                            		</tr>
 								<?php $a++; }}?>
 							</tbody>
@@ -64,25 +71,32 @@
 						</thead>
 						<tbody>
 							<tr class="total-data">
-								<td><strong>Tổng phụ: </strong></td>
-								<td>$500</td>
+								<td><strong>Thành tiền sản phẩm: </strong></td>
+								<td><?php 
+									if(!empty($a)){
+											for($j=1;$j<$a;$j++){
+											$total+=$tt[$j];
+											}
+										print_r($total);
+										}
+									?></td>
 							</tr>
 							<tr class="total-data">
 								<td><strong>Vận chuyển: </strong></td>
-								<td>$45</td>
+								<td>0 vnd</td>
 							</tr>
 							<tr class="total-data">
 								<td><strong>Tất cả: </strong></td>
-								<td>$545</td>
+								<td></td>
 							</tr>
 						</tbody>
 					</table>
 
 					<div class="cart-buttons">
-						<input class="boxed-btn" type="submit" name="cartup" value="cập nhập giỏ hàng">
-						<a href="checkout.html" class="boxed-btn black">Kiểm tra lại</a>
+						<!-- <input class="boxed-btn" type="submit" name="cartup" value="cập nhập giỏ hàng"> -->
+						<a href="index.php?act=checkout" class="boxed-btn black">Tiến hành thanh toán</a>
 					</div>
-					</form>
+
 					<?php
 
 
