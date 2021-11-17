@@ -91,7 +91,7 @@
 									$cungloai = pdo_query($sql);
 									foreach ($cungloai as $loai) {
 										extract($loai);
-										echo '	<input name="size" type="radio" id="html" value="' . $size . '">
+										echo '	<input name="size" value="'.$size.'"; type="radio" id="html" value="' . $size . '">
 					  							<label for="html">' . $size . '</label>';
 									?>
 									<?php } ?>
@@ -100,15 +100,15 @@
 							</div>
 							<div class="mau">
 								<h2>Màu</h2>
-								<?php
-								$sql = "SELECT*FROM thuoc_tinh WHERE ma_san_pham=$ma_sp";
-								$cungloai = pdo_query($sql);
-								$i=0;
-								foreach ($cungloai as $loai) {
-									extract($loai);
-									$i++;
-								?>
-									<input type="radio" class="radio" id="radio-<?= $i ?>" name="group" />
+									<?php
+									$sql = "SELECT*FROM thuoc_tinh WHERE ma_san_pham=$ma_sp";
+									$cungloai = pdo_query($sql);
+									$i=0;
+									foreach ($cungloai as $loai) {
+										extract($loai);
+										$i++;
+									?>
+									<input type="radio" value="<?= $color ?>" class="radio" id="radio-<?= $i ?>" name="group" />
 									<label for="radio-<?= $i ?>" style="background: <?= $color ?>;"></label>
 								<?php } ?>
 
