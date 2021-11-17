@@ -91,7 +91,7 @@
 							<h3>Tìm kiếm</h3>
 							<input type="text" name="keyw">
 							<button type="submit" name="timkiem">Tìm kiếm <i class="fas fa-search"></i></button>
-						<form>
+						</form>
 						</div>
 					</div>
 				</div>
