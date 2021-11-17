@@ -74,6 +74,9 @@
 				case 'cart':
 					include 'view/mycart.php';
 					break;
+				case 'checkout':
+					include 'view/checkout.php';
+					break;		
 				case 'test':                
 					include 'view/test.php';
 					break;
