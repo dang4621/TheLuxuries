@@ -76,19 +76,20 @@
 				extract($onesp);
 				$ma_nh = $ma_nhom_hang;
 				$ma_sp = $ma_san_pham;
-				$ten_sp = $ten_san_pham;
-				$gia_sp = $giam_gia;
 			?>
 				<div class="col-md-7">
 					<div class="single-product-content">
+					<form action="index.php?act=add" id="add" method="POST">
+
 						<h3><?= $ten_san_pham ?></h3>
-						<p class="single-product-pricing"><span>Per Products</span> <?= $giam_gia ?></p>
+						<p class="single-product-pricing"><span>Per Products</span> <?= $gia_goc ?></p>
 						<p><?= $mo_ta ?></p>
 						<div class="them">
 							<div class="size">
 								<h2>Size:</h2>
-
-								<form action="" method="POST" name="tt" id="select">
+			<!-- form 1 lấy size -->
+								
+								
 									<?php
 									$sql = "SELECT*FROM thuoc_tinh WHERE ma_san_pham=$ma_sp";
 									$cungloai = pdo_query($sql);
@@ -98,31 +99,38 @@
 					  							<label for="html">' . $size . '</label>';
 									?>
 									<?php } ?>
-
-
+								
 							</div>
-							<div class="mau">
-								<h2>Màu</h2>
-								<?php
-								$sql = "SELECT*FROM thuoc_tinh WHERE ma_san_pham=$ma_sp";
-								$cungloai = pdo_query($sql);
-								$i = 0;
-								foreach ($cungloai as $loai) {
-									extract($loai);
-									$i++;
-								?>
-									<input type="radio" class="radio" id="radio-<?= $i ?>" name="color" value="<?= $color ?>" />
-									<label for="radio-<?= $i ?>" style="background: <?= $color ?>;"></label>
-								<?php } ?>
+							<div class="mau">								
+									<h2>Màu</h2>
+		<!-- form 1 lấy màu -->
+								
+									<?php
+									$i = 0;
+									foreach ($cungloai as $loai) {
+										extract($loai);
+										$i++;
+									?>
+										<input type="radio" class="radio" id="radio-<?= $i ?>" name="color" value="<?= $color ?>" />
+										<label for="radio-<?= $i ?>" style="background: <?= $color ?>;"></label>
+									<?php } ?>
 
+								
+								
 							</div>
 						</div>
 
 						<div class="single-product-form">
-							<form action="index.html">
-								<input type="number" placeholder="0">
+			<!-- form 3 lấy số lượng , mã sản phẩm-->
+							
+								<input type="number" name="quantity" value="1">
+								<input type="hidden" name="gia" value="<?= $gia_goc - $giam_gia ?>">
+								<input type="hidden" name="id" value="<?= $ma_san_pham ?>">
+
 							</form>
-							<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Thêm vào giỏ</a>
+							<input type="submit" name="add" form="add" value="Thêm vào giỏ">
+
+
 							<p><strong>Sản phẩm thuộc thương hiệu: </strong><?= $ten_thuong_hieu ?></p>
 						</div>
 						<h4>Share:</h4>
@@ -136,28 +144,6 @@
 				<?php } ?>
 				</div>
 		</div>
-		<?php
-		if (isset($_POST['addtocart'])) {
-			$username = $_SESSION['user']['name'];
-			$userid = $_SESSION['user']['name'];
-			$quantity = $_POST['quan'];
-			$color = $_POST['color'];
-			$size = $_POST['size'];
-			$hinhsp = $hinh;
-			$tensp = $ten_sp;
-			$giasp = $gia_sp;
-			$ma_sp = $ma_sp;
-			settype($giasp, "int");
-			settype($quantity, "int");
-			$total = $giasp * $quantity;
-
-			$spadd = [$ma_sp, $tensp, $total, $hinhsp, $quantity, $color, $size];
-			array_push($_SESSION['cart'], $spadd);
-			echo 'thành công';
-		}
-		?>
-
-
 	</div>
 </div>
 <!-- end single product -->

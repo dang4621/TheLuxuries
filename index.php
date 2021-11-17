@@ -5,6 +5,7 @@
      include './model/sanpham.php';   
      include './model/danhmuc.php';    
      include './model/thuonghieu.php';
+	 include './model/giohang.php';
 
 
 		include 'view/header.php';
@@ -28,7 +29,29 @@
 					}
 					$onesp=loadOne_sp($id);
 					include 'view/product_details.php';
+				case 'add':
+                    if(isset($_SESSION["user"])){
+                        if(isset($_POST['add'])){
+                            $ma_san_pham=$_POST['id'];
+                            $soluong=$_POST['quantity'];
+							$gia = $_POST['gia'];
+							$size=$_POST['size'];
+							$color=$_POST['color'];
 
+                            $alert=themGH($ma_san_pham,$soluong,$gia,$size,$color);   
+                            header("Location: index.php?act=test"); 
+                            }
+                        }else{
+                        	header("Location: login.php"); 
+                       	 break; 
+                    }
+					break;
+				case 'cart':
+					include 'view/mycart.php';
+					break;
+				case 'test':                
+					include 'view/test.php';
+					break;
 				//include các file trên header
 				case 'about':                
 					include 'view/about.php';
