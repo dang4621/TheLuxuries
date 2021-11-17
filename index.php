@@ -5,10 +5,8 @@
      include './model/sanpham.php';   
      include './model/danhmuc.php';    
      include './model/thuonghieu.php';
-    
-     //include 
 
-	 if($_SESSION['user']){
+
 		include 'view/header.php';
 
 		//load
@@ -52,9 +50,7 @@
 	
 	
 		include 'view/footer.php';
-	 }else{
-		 header("Location:login.php");
-	 }
+	 
 
  
 
