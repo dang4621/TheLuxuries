@@ -14,7 +14,7 @@
     <div class="container">
         <div class="forms-container">
             <div class="signin-signup">
-                
+
                 <form action="" method="post" class="sign-in-form">
 
                     <h2 class="title">Đăng nhập</h2>
@@ -45,48 +45,50 @@
                     </div>
                 </form>
 
-<?php
-    include './model/pdo.php';
-    session_start();
-     if(isset($_POST['submit'])){
-             $user=$_POST['username'];
-             $password=$_POST['password'];
-            $sql="SELECT * FROM users WHERE name='{$user}' AND password ='{$password}'";
-            $khachhang= pdo_query_one($sql);
-             if(is_array($khachhang)){
-             $_SESSION['user']=$khachhang;
-             header("location:index.php");                
-            } else {
-                $thongbao="tài khoản ko tồn tại hoặc bạn nhập sai";
-                        }
+                <?php
+                include './model/pdo.php';
+                session_start();
+                if (isset($_POST['submit'])) {
+                    $user = $_POST['username'];
+                    $password = $_POST['password'];
+                    $sql = "SELECT * FROM tai_khoan WHERE username='{$user}' AND password ='{$password}'";
+                    $khachhang = pdo_query_one($sql);
+                    if (is_array($khachhang)) {
+                        $_SESSION['user'] = $khachhang;
+                        header("location:index.php");
+                    } else {
+                        $thongbao = "tài khoản ko tồn tại hoặc bạn nhập sai";
+                    }
                 }
- ?>
-            <?php
-            if(isset($thongbao)){
-                echo'<p>'.$thongbao.'</p>';
-            }
-             ?>    
+                ?>
+                <?php
+                if (isset($thongbao)) {
+                    echo '<p>' . $thongbao . '</p>';
+                }
+                ?>
 
 
- <?php 
+                <?php
 
-if(isset($_POST['signin'])){
- $u=$_POST['username'];
- $pass=$_POST['password'];
- $repass=$_POST['repassword'];
- $email=$_POST['email'];
- $phone=$_POST['phone'];
- $thongbao="";
- if($pass!=$repass)$thongbao.="Hai mật khẩu không giống nhau";
+                if (isset($_POST['signin'])) {
+                    $u = $_POST['username'];
+                    $pass = $_POST['password'];
+                    $repass = $_POST['repassword'];
+                    $email = $_POST['email'];
+                    $phone = $_POST['phone'];
+                    
+                    $random =rand(10000,99999999) ;
+                    $id_tk= $random;
+                    $thongbao = "";
+                    if ($pass != $repass) $thongbao .= "Hai mật khẩu không giống nhau";
 
 
- if ($thongbao!=""){
-
- }else{
-    $sql="insert into users(name,password,email,phone)value(?,?,?,?)";
-    $kq=pdo_execute($sql,$u,$pass,$email,$phone);
- }
-} ?>
+                    if ($thongbao != "") {
+                    } else {
+                        $sql = "INSERT INTO tai_khoan(id_tai_khoan,username,password,email,sdt)value(?,?,?,?,?)";
+                        $kq = pdo_execute($sql,$id_tk , $u, $pass, $email, $phone);
+                    }
+                } ?>
                 <form action="" method="post" class="sign-up-form">
                     <h2 class="title">Đăng ký</h2>
                     <div class="input-field">

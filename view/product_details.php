@@ -6,13 +6,18 @@
 				<div class="breadcrumb-text">
 					<p>Xem thêm chi tiết</p>
 					<h1>Single Product</h1>
+
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
 <!-- end breadcrumb section -->
-
+<?php
+// $abc = test();
+// echo("<pre>");
+// print_r($abc);
+?>
 <!-- single product -->
 <div class="single-product mt-150 mb-150">
 	<div class="container">
@@ -21,25 +26,21 @@
 				<div class="single-product-img">
 					<!--<img src="assets/img/products/product-img-5.jpg"> -->
 					<div class="slideshow-container">
-
 						<?php
-							$nhom_th2 = loadOne_sp2();
-							if (is_array($nhom_th2)) {
-								extract($nhom_th2);
-								$file = explode(",", substr($image, 0));
-							} 
-							foreach($file as $id => $value){ 
-								echo('
+						if (is_array($onesp)) {
+							extract($onesp);
+							$file = explode(",", substr($image, 0));
+						}
+						foreach ($file as $id => $value) {
+							$hinh = $value;
+							echo ('
 								<div class="mySlides1">
-									<img src="upload/'.$value.'" style="width:100%">
+									<img src="upload/' . $value . '" style="width:100%">
 								</div>
 								');
-							}?>
-						
-						
+						} ?>
 						<a class="prev" onclick="plusSlides(-1, 0)">&#10094;</a>
 						<a class="next" onclick="plusSlides(1, 0)">&#10095;</a>
-
 					</div>
 					<script>
 						var slideIndex = [1, 1];
@@ -71,60 +72,68 @@
 
 
 			<?php
-			$nhom_th = loadOne_sp2();
-			if (is_array($nhom_th)) {
-				extract($nhom_th);
+			if (is_array($onesp)) {
+				extract($onesp);
 				$ma_nh = $ma_nhom_hang;
 				$ma_sp = $ma_san_pham;
 			?>
 				<div class="col-md-7">
 					<div class="single-product-content">
+					<form action="index.php?act=add" id="add" method="POST">
+
 						<h3><?= $ten_san_pham ?></h3>
-						<p class="single-product-pricing"><span>Per Kg</span> <?= $giam_gia ?></p>
+						<p class="single-product-pricing"><span>Per Products</span> <?= $gia_goc ?></p>
 						<p><?= $mo_ta ?></p>
 						<div class="them">
 							<div class="size">
 								<h2>Size:</h2>
-
-								<form action="" method="POST" name="tt" id="select">
+			<!-- form 1 lấy size -->
+								
+								
 									<?php
-									$sql = "SELECT*FROM thuoc_tinh WHERE ma_san_pham=$ma_sp";
-									$cungloai = pdo_query($sql);
-									foreach ($cungloai as $loai) {
+									$sql = "SELECT DISTINCT thuoc_tinh.size FROM thuoc_tinh WHERE thuoc_tinh.ma_san_pham= '$ma_sp'";
+									$getSize = pdo_query($sql);
+									foreach ($getSize as $loai) {
 										extract($loai);
-										echo '	<input name="size" type="radio" id="html" value="' . $size . '">
+										echo '	<input name="size" value="' . $size . '"; type="radio" id="html" value="' . $size . '">
 					  							<label for="html">' . $size . '</label>';
 									?>
 									<?php } ?>
-								</form>
 								
 							</div>
-							<div class="mau">
-								<h2>Màu</h2>
-								<?php
-								$sql = "SELECT*FROM thuoc_tinh WHERE ma_san_pham=$ma_sp";
-								$cungloai = pdo_query($sql);
-								$i=0;
-								foreach ($cungloai as $loai) {
-									extract($loai);
-									$i++;
-								?>
-									<input type="radio" class="radio" id="radio-<?= $i ?>" name="group" />
-									<label for="radio-<?= $i ?>" style="background: <?= $color ?>;"></label>
-								<?php } ?>
+							<div class="mau">								
+									<h2>Màu</h2>
+		<!-- form 1 lấy màu -->
+								
+									<?php
+									$i = 0;
+									$sql1 = "SELECT DISTINCT thuoc_tinh.color FROM thuoc_tinh WHERE thuoc_tinh.ma_san_pham= '$ma_sp'";
+									$getColor = pdo_query($sql1);
+									foreach ($getColor as $loai) {
+										extract($loai);
+										$i++;
+									?>
+										<input type="radio" class="radio" id="radio-<?= $i ?>" name="color" value="<?= $color ?>" />
+										<label for="radio-<?= $i ?>" style="background: <?= $color ?>;"></label>
+									<?php } ?>
 
+								
+								
 							</div>
 						</div>
 
-
-
-
 						<div class="single-product-form">
-							<form action="index.html">
-								<input type="number" placeholder="0">
+			<!-- form 3 lấy số lượng , mã sản phẩm-->
+							
+								<input type="number" name="quantity" value="1">
+								<input type="hidden" name="gia" value="<?= $gia_goc - $giam_gia ?>">
+								<input type="hidden" name="id" value="<?= $ma_san_pham ?>">
+
 							</form>
-							<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Thêm vào giỏ</a>
-							<p><strong>Categories: </strong><?= $ma_nh ?></p>
+							<input type="submit" name="add" form="add" value="Thêm vào giỏ">
+
+
+							<p><strong>Sản phẩm thuộc thương hiệu: </strong><?= $ten_thuong_hieu ?></p>
 						</div>
 						<h4>Share:</h4>
 						<ul class="product-share">
@@ -155,7 +164,7 @@
 		<div class="row">
 
 			<?php
-			$sql = "SELECT*FROM san_pham WHERE ma_nhom_hang=$ma_nh";
+			$sql = "SELECT*FROM san_pham WHERE ma_nhom_hang=$ma_nh LIMIT 3";
 			$cungloai = pdo_query($sql);
 
 			foreach ($cungloai as $loai) {
@@ -167,7 +176,7 @@
 							<a href="single-product.html"><img src="./upload/' . $file[0] . '" style="height:200px" ></a>
 						</div>
 						<h3>' . $ten_san_pham . '</h3>
-						<p class="product-price"><span>Per Kg</span> ' . $giam_gia . '$ </p>
+						<p class="product-price"> ' . $gia_goc . ' VND </p>
 						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Thêm vào giỏ</a>
 					</div>
 				</div>';
