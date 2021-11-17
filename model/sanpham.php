@@ -52,8 +52,15 @@ function load3_sp(){
     return pdo_query($sql);
 }
 function loadOne_sp($id){
-    $sql="SELECT*FROM san_pham WHERE ma_san_pham='$id'";
+    $sql="SELECT * FROM(san_pham INNER JOIN thuong_hieu ON san_pham.ma_thuong_hieu=thuong_hieu.ma_thuong_hieu)                               
+                            WHERE san_pham.ma_san_pham = '$id'";
             return pdo_query_one($sql);     
+}
+function test(){
+    $sql = "SELECT * FROM ((san_pham INNER JOIN thuong_hieu ON san_pham.ma_thuong_hieu=thuong_hieu.ma_thuong_hieu)
+                                INNER JOIN thuoc_tinh ON san_pham.ma_san_pham =thuoc_tinh.ma_san_pham)
+                                WHERE san_pham.ma_san_pham = 24082019";
+    return pdo_query_one($sql);  
 }
 
 function del_sp($id){
@@ -74,9 +81,5 @@ function tangSoLanXem($id=0){
     pdo_execute($sql); 
 }
 
-function loadOne_sp2(){
-    $sql="SELECT*FROM san_pham WHERE ma_san_pham='24082019'";
-            return pdo_query_one($sql);     
-}
 
 ?>

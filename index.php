@@ -5,10 +5,8 @@
      include './model/sanpham.php';   
      include './model/danhmuc.php';    
      include './model/thuonghieu.php';
-    
-     //include 
 
-	 if($_SESSION['user']){
+
 		include 'view/header.php';
 
 		//load
@@ -21,9 +19,27 @@
 				case 'trangchu':                
 					include 'view/home.php';
 					break;       
-	
+				case 'shop':
+					include 'view/shop.php';
+					break;
+				case 'chitiet_sp':
+					if(isset($_GET['id'])){
+						$id=$_GET['id'];
+					}
+					$onesp=loadOne_sp($id);
+					include 'view/product_details.php';
+
+				//include các file trên header
+				case 'about':                
+					include 'view/about.php';
+					break;
+				case 'contact':                
+					include 'view/contact.php';
+					break;  
+
+				//Chuyển hướng khi action sai
 				default :  
-					include 'view/product_details.php';         
+					include 'view/home.php';         
 						break;
 				}
 					
@@ -33,9 +49,7 @@
 	
 	
 		include 'view/footer.php';
-	 }else{
-		 header("Location:login.php");
-	 }
+	 
 
  
 

@@ -8,8 +8,8 @@
 							<p class="subtitle"> Thời trang luôn thay đổi </p>
 							<h1> Nhưng phong cách mãi mãi trường tồn</h1>
 							<div class="hero-btns">
-								<a href="shop.html" class="boxed-btn">Cửa hàng</a>
-								<a href="contact.html" class="boxed-btn">Liên hệ</a>
+								<a href="index.php?act=shop" class="boxed-btn">Cửa hàng</a>
+								<a href="index.php?act=contact" class="boxed-btn">Liên hệ</a>
 							</div>
 						</div>
 					</div>
@@ -90,15 +90,14 @@
 					<div class="col-lg-4 col-md-6 text-center">
 						<div class="single-product-item">
 							<div class="product-image">
-								<a href="single-product.html"><img src="upload/<?php echo($file[0]); ?>" alt=""></a>
+								<a href="index.php?act=chitiet_sp&id=<?= $ma_san_pham ?>"><img src="upload/<?php echo($file[0]); ?>" alt=""></a>
 							</div>
 							<h3><?= $ten_san_pham ?></h3>
-							<p class="product-price">
-								<span></span>
-								<?= $gia_goc ?> 
+							<p class="product-price">								
+								<?= $gia_goc ?><span>vnd</span>
 							</p>
-							<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Thêm vào giỏ</a>
-							</div>
+							<a href="index.php?act=chitiet_sp&id=<?= $ma_san_pham ?>" class="cart-btn"><i class="fas fa-shopping-cart"></i>Xem chi tiết</a>
+						</div>
 					</div>	
 				<?php }?>
 				

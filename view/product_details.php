@@ -6,13 +6,18 @@
 				<div class="breadcrumb-text">
 					<p>Xem thêm chi tiết</p>
 					<h1>Single Product</h1>
+					
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
 <!-- end breadcrumb section -->
-
+<?php 
+						// $abc = test();
+						// echo("<pre>");
+						// print_r($abc);
+					?>
 <!-- single product -->
 <div class="single-product mt-150 mb-150">
 	<div class="container">
@@ -21,11 +26,9 @@
 				<div class="single-product-img">
 					<!--<img src="assets/img/products/product-img-5.jpg"> -->
 					<div class="slideshow-container">
-
 						<?php
-							$nhom_th2 = loadOne_sp2();
-							if (is_array($nhom_th2)) {
-								extract($nhom_th2);
+							if (is_array($onesp)) {
+								extract($onesp);
 								$file = explode(",", substr($image, 0));
 							} 
 							foreach($file as $id => $value){ 
@@ -34,12 +37,9 @@
 									<img src="upload/'.$value.'" style="width:100%">
 								</div>
 								');
-							}?>
-						
-						
+						}?>					
 						<a class="prev" onclick="plusSlides(-1, 0)">&#10094;</a>
 						<a class="next" onclick="plusSlides(1, 0)">&#10095;</a>
-
 					</div>
 					<script>
 						var slideIndex = [1, 1];
@@ -71,9 +71,8 @@
 
 
 			<?php
-			$nhom_th = loadOne_sp2();
-			if (is_array($nhom_th)) {
-				extract($nhom_th);
+			if (is_array($onesp)) {
+				extract($onesp);
 				$ma_nh = $ma_nhom_hang;
 				$ma_sp = $ma_san_pham;
 			?>
@@ -116,15 +115,12 @@
 							</div>
 						</div>
 
-
-
-
 						<div class="single-product-form">
 							<form action="index.html">
 								<input type="number" placeholder="0">
 							</form>
 							<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Thêm vào giỏ</a>
-							<p><strong>Categories: </strong><?= $ma_nh ?></p>
+							<p><strong>Sản phẩm thuộc thương hiệu: </strong><?= $ten_thuong_hieu ?></p>
 						</div>
 						<h4>Share:</h4>
 						<ul class="product-share">
@@ -155,7 +151,7 @@
 		<div class="row">
 
 			<?php
-			$sql = "SELECT*FROM san_pham WHERE ma_nhom_hang=$ma_nh";
+			$sql = "SELECT*FROM san_pham WHERE ma_nhom_hang=$ma_nh LIMIT 3";
 			$cungloai = pdo_query($sql);
 
 			foreach ($cungloai as $loai) {
@@ -167,7 +163,7 @@
 							<a href="single-product.html"><img src="./upload/' . $file[0] . '" style="height:200px" ></a>
 						</div>
 						<h3>' . $ten_san_pham . '</h3>
-						<p class="product-price"><span>Per Kg</span> ' . $giam_gia . '$ </p>
+						<p class="product-price"> ' . $gia_goc . ' VND </p>
 						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Thêm vào giỏ</a>
 					</div>
 				</div>';
