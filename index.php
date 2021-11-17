@@ -9,9 +9,7 @@
 
 
 		include 'view/header.php';
-
-		//load
-		// $sanpham=load_all_sp($keyw,$id);
+		$danhmuc=loadAll_dm(); 
 		$ba_sp=load3_sp();
 	
 		if( isset($_GET['act']) ){
@@ -20,7 +18,20 @@
 				case 'trangchu':                
 					include 'view/home.php';
 					break;       
-				case 'shop':
+				case 'shop':					
+					if(isset($_POST['select'])){      
+						$id=$_POST['select'];      
+						settype($id,"int");      
+					}else{  
+						$id=0;   
+						}
+		
+					if(isset($_POST['timkiem'])){        
+						$keyw=$_POST['keyw'];         
+					}else{           
+						$keyw="";
+					}				
+					$sanpham=load_all_sp($keyw,$id);
 					include 'view/shop.php';
 					break;
 				case 'chitiet_sp':

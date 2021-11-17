@@ -79,7 +79,8 @@
 			?>
 				<div class="col-md-7">
 					<div class="single-product-content">
-					<form action="index.php?act=add" id="add" method="POST">
+					
+					<form action="index.php?act=add"  method="POST">
 
 						<h3><?= $ten_san_pham ?></h3>
 						<p class="single-product-pricing"><span>Per Products</span> <?= $gia_goc ?></p>
@@ -128,9 +129,9 @@
 								<input type="number" name="quantity" value="1">
 								<input type="hidden" name="gia" value="<?= $gia_goc - $giam_gia ?>">
 								<input type="hidden" name="id" value="<?= $ma_san_pham ?>">
-
+								<input type="submit" name="add" value="Thêm vào giỏ">
 							</form>
-							<input type="submit" name="add" form="add" value="Thêm vào giỏ">
+							
 
 
 							<p><strong>Sản phẩm thuộc thương hiệu: </strong><?= $ten_thuong_hieu ?></p>

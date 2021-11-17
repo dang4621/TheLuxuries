@@ -87,10 +87,10 @@
 					</span>
 					<div class="search-bar">
 						<div class="search-bar-tablecell">
-						<form action="#" method="post">
+						<form action="index.php" method="post">
 							<h3>Tìm kiếm</h3>
 							<input type="text" name="keyw">
-							<button type="submit">Tìm kiếm <i class="fas fa-search"></i></button>
+							<button type="submit" name="timkiem">Tìm kiếm <i class="fas fa-search"></i></button>
 						<form>
 						</div>
 					</div>
