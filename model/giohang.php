@@ -10,6 +10,11 @@
             AND thuoc_tinh.color= '$color'";
         return pdo_query_one($sql2);    
     }
+    function getid($ma_san_pham,$size,$color){
+        $id=lay_idTT($ma_san_pham,$size,$color);
+        extract($id);
+        return $id_tt;
+    }
     function themGH($ma_san_pham,$soluong,$gia,$size,$color) {
         // $sql="SELECT * FROM `san_pham` WHERE `ma_san_pham`='$ma_san_pham'";
         // $onesp=pdo_query_one($sql);
