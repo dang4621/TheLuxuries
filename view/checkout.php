@@ -1,4 +1,14 @@
 	<!-- breadcrumb-section -->
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    function showlert2(){
+        Swal.fire(
+  'Good job!',
+  'You clicked the button!',
+  'success'
+)
+    }
+</script>
 	<div class="breadcrumb-section breadcrumb-bg">
 		<div class="container">
 			<div class="row">
@@ -122,7 +132,7 @@
 								</tr>
 							</tbody>
 						</table>
-						<a href="#" class="boxed-btn">Đặt hàng</a>
+						<a href="#" class="boxed-btn" >Đặt hàng</a>
 					</div>
 				</div>
 			</div>

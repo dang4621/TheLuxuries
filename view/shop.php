@@ -21,13 +21,13 @@
             <div class="col-md-12">
                 <div class="product-filters">
                     <form action="index.php?act=shop" method="POST">
-                        <ul>
-                            <li class="active"><button class="custom-btn btn-11" name="select" value="0">Tất cả</button></li>
+                    <ul>
+                            <li><button class="showsp" name="select" value="0">Tất cả</button></li>
                             <?php
                             foreach ($danhmuc as $value) {
                                 extract($value);
                                 echo ('
-                                    <li><button class="custom-btn btn-11" name="select" value="'.$ma_nhom_hang.'">'.$ten_nhom_hang.'</button></li>
+                                    <li><button class="showsp" name="select" value="'.$ma_nhom_hang.'">'.$ten_nhom_hang.'</button></li>
                                 ');
                              }
                             ?>
