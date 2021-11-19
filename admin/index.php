@@ -110,6 +110,7 @@
                 if(isset($_SESSION['code'])){
                     unset($_SESSION['code']);
                 } 
+                $thuong_hieu=loadAll_th();
                 include '../admin/sanpham/sanpham.php'; 
                  break;
             case 'dssanpham':

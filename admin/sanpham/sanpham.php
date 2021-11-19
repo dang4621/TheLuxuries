@@ -16,8 +16,17 @@
 											echo '<option value="'.$ma_nhom_hang.'">'.$ten_nhom_hang.'</option>';
 										}   
 									?>
+							</select><br>
+							<b>Thương hiệu</b><br>
+							<select name="id_th" style="width:100px;">
+										<option value="">Trống</option>
+								 <?php                                 
+										foreach($thuong_hieu as $val){
+											extract($val);
+											echo '<option value="'.$ma_thuong_hieu.'">'.$ten_thuong_hieu.'</option>';
+										}   
+									?>
 							</select>
-							
 							<p>
 								<input type="text" placeholder="Tên" name="ten_sp" required>
 								<input type="number" min="1" max="999999999" placeholder="Giá" name="gia_goc">
@@ -26,17 +35,8 @@
 							<p>	<input type="file" name="anhsp[]" multiple="multiple" ></p>				
 							<p><textarea name="mota" id="mota" cols="30" rows="10" placeholder="Mô tả" required></textarea></p>							
 						</form>
-						<?php 
-							// if(isset($_SESSION['thuoctinh'])){
-							// 	foreach($_SESSION["thuoctinh"] as $value){
-							// 	extract($value);   
-							// 	echo("Size: ".$size." Màu : ".$color." Số lượng : ".$quantity."");
-							// 	echo("<br>");
-							// 	} 
-							// }
-							
-						?>				
-						<!-- kết thúc -->
+						
+						<!-- kết thúc form -->
 						<div class="button">
 								<!-- nút thêm trỏ tới form add_sp -->
 							<p><input form="add_sp" name="submit" type="submit" value="THÊM"></p>

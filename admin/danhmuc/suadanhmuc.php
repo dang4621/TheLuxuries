@@ -8,13 +8,9 @@
 					</div>
 					<div class="contact-form">
                     <?php if(is_array($nhom_hang)){
-                    extract($nhom_hang);
-                    } ?>
+							extract($nhom_hang);
+							} ?>
 						<form action="index.php?act=update_dm" method="post" id="fruitkha-contact"  name="">
-							<!-- <p>
-								<b>MÃ LOẠI</b><br>
-								<input type="text" name="maloai" style="width:100%;" disabled value="Auto">
-							</p> -->
 							<p>
 								<b>TÊN LOẠI SẢN PHẨM</b><br>
                                 <input type="hidden" name="id_dm" value="<?php echo($ma_nhom_hang) ?>">
