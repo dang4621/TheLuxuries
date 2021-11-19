@@ -134,8 +134,7 @@
                 break ;
             case 'update_sp':
                 $id=0;
-                if(isset($_POST['submit'])){
-                     
+                if(isset($_POST['submit'])){                     
                     $ma_nhom_hang=$_POST['id_dm'];
                     $ma_thuong_hieu = 4231423412;
                     $ten_san_pham=$_POST['ten_sp'];   
@@ -167,12 +166,9 @@
                     $timestamp = time();
                     $today=date("20y-m-d h:i:s", $timestamp);
                     $mo_ta=$_POST['mota'];  
-
-
                         update_sp($ma_san_pham,$ma_nhom_hang,$ten_san_pham,$gia_goc,$giam_gia,$image,$donvi,$mo_ta, $today);
                         echo ('<script>alert("Cập nhật thành công")</script>');
-                    }
-                    
+                    }                    
                     $sanpham=load_all_sp($keyw,$id);
                     include '../admin/sanpham/dssanpham.php';
                     break;
@@ -180,7 +176,7 @@
             case 'sp_confirm':
                 if(isset($_POST['submit'])){                   
                     $ma_nhom_hang=$_POST['id_dm'];
-                    $ma_thuong_hieu = 4231423412;
+                    $ma_thuong_hieu = $_POST['id_th'];
                     $ten_san_pham=$_POST['ten_sp'];   
 
                      //upload nhiều ảnh
