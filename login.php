@@ -71,26 +71,40 @@
 
 
                 <?php
-
+                include 'model/taikhoan.php';
                 if (isset($_POST['signin'])) {
                     $u = $_POST['username'];
-                    $pass = $_POST['password'];
-                    $repass = $_POST['repassword'];
-                    $email = $_POST['email'];
-                    $phone = $_POST['phone'];
-                    
-                    $random =rand(10000,99999999) ;
-                    $id_tk= $random;
-                    $thongbao = "";
-                    if ($pass != $repass) $thongbao .= "Hai mật khẩu không giống nhau";
-
-
-                    if ($thongbao != "") {
-                    } else {
-                        $sql = "INSERT INTO tai_khoan(id_tai_khoan,username,password,email,sdt)value(?,?,?,?,?)";
-                        $kq = pdo_execute($sql,$id_tk , $u, $pass, $email, $phone);
+                    $load_acc = lay_all_tk();
+                    foreach($load_acc as $val){
+                        extract($val);
+                        if( $u == $username){
+                            $thongbao = "username tồn tại" ;
+                        }else{
+                              $pass = $_POST['password'];
+                        $repass = $_POST['repassword'];
+                        $email = $_POST['email'];
+                        $phone = $_POST['phone'];
+                        
+                        $random =rand(10000,99999999) ;
+                        $id_tk= $random;
+                        $thongbao = "";
+                        if ($pass != $repass) {
+                            $thongbao .= "Hai mật khẩu không giống nhau";
+                        }
+                        if ($thongbao != "") {
+                        } else {
+                            $sql = "INSERT INTO tai_khoan(id_tai_khoan,username,password,email,sdt)value(?,?,?,?,?)";
+                            $kq = pdo_execute($sql,$id_tk , $u, $pass, $email, $phone);
+                        }
+                        }
                     }
+                  
                 } ?>
+                <?php
+                if (isset($thongbao)) {
+                    echo '<p>' . $thongbao . '</p>';
+                }
+                ?>
                 <form action="" method="post" class="sign-up-form">
                     <h2 class="title">Đăng ký</h2>
                     <div class="input-field">

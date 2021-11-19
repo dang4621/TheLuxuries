@@ -4,8 +4,8 @@
 			<div class="row">
 				<div class="col-lg-8 offset-lg-2 text-center">
 					<div class="breadcrumb-text">
-						<p>Fresh and Organic</p>
-						<h1>Giỏ Hàng</h1>
+						<p>Nhận hỗ trợ 24/7</p>
+						<h1>Liên hệ với chúng tôi</h1>
 					</div>
 				</div>
 			</div>

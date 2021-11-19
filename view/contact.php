@@ -1,3 +1,15 @@
+<div class="breadcrumb-section breadcrumb-bg">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 offset-lg-2 text-center">
+					<div class="breadcrumb-text">
+						<p>Nhận hỗ trợ 24/7</p>
+						<h1>Liên hệ với chúng tôi</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 <!-- contact form -->
 <div class="contact-from-section mt-150 mb-150">
 		<div class="container">
