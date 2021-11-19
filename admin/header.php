@@ -34,6 +34,8 @@
   <link rel="stylesheet" href="assets/css/responsive.css" />
   <!-- style -->
   <link rel="stylesheet" href="assets/css/style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
 <body>

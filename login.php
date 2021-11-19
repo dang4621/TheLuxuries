@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="view/assets/css/login.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <title>Đăng nhập & Đăng ký</title>
     <link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
 </head>
@@ -57,7 +59,7 @@
                         $_SESSION['user'] = $khachhang;
                         header("location:index.php");
                     } else {
-                        $thongbao = "tài khoản ko tồn tại hoặc bạn nhập sai";
+                        $thongbao =  '<script>swal ( "Rất tiếc", "Tài khoản hoặc mật khẩu đã sai!" ,  "error" );</script>';
                     }
                 }
                 ?>

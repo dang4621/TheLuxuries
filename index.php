@@ -49,7 +49,7 @@
 							$size=$_POST['size'];
 							$color=$_POST['color'];
 
-                            $alert=themGH($ma_san_pham,$soluong,$gia,$size,$color);   
+                            $alert=themGH($ma_san_pham,$soluong,$gia,$size,$color); 
                             header("Location: index.php?act=cart"); 
                             }
                         }else{

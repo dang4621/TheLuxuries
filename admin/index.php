@@ -18,7 +18,7 @@
                 if(isset($_POST['submit'])){
                     $ten_nhom_hang=$_POST['ten_dm'];                    
                     themDanhMuc($ten_nhom_hang);
-                    echo ('<script>alert("Thêm thành công")</script>');                  
+                    echo ('<script>swal("Thêm thành công!", "Bạn đã nhấp vào nút!", "success");</script>');                  
                 }     
                 break;
             case 'dsdanhmuc':
