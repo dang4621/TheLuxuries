@@ -1,0 +1,208 @@
+body{
+    font-family: "Open Sans", sans-serif;
+  }
+  .thongtin{
+    height:550px;
+    margin:0 auto;
+    border-radius:15px;
+    box-shadow: 0px 0px 10px rgb(145 140 140);
+    background-color:#f3f3f5;
+  }
+  .col-md-7.col-xs-12.pull-right { 
+    width: 70%;
+   margin-top: 40px;
+  } 
+  .cart_success_content { 
+    display: flex;
+  }
+  .price_cart { 
+    display: flex;
+    justify-content: space-around;
+  }
+  .waiting-spin-content-web { 
+    display: none;
+    background-color: rgba(255, 255, 255,.85);
+    bottom: 0;
+    color: #fff;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 9999;
+  }  
+  .waiting-spin-content-web img { 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: 0 auto;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+  }
+  .waiting-spin-content-web-shop { 
+    display: none;
+    background-color: rgba(255, 255, 255,.85);
+    bottom: 0;
+    color: #fff;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 9999;
+  }
+  .waiting-spin-content-web-shop img { 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: 0 auto;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+  } 
+  .centerpay { 
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  } 
+  .cart_item { 
+    padding: 10px 0;
+    border-bottom: 1px solid #a09ea0;
+  }.preorder_info { 
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid #a09ea0;
+    border-radius: 15px;
+  }
+  .order_info { 
+    margin: 40px 20px;
+  } 
+  #btOrderProduct {
+    margin: 20px auto;
+    float: right;
+    background: #0089d1;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 4px;
+    border: none;
+    padding: 7px 20px;
+  }
+  .notice { 
+    margin: 20px 0;
+  }
+  .notice p { 
+    text-align: justify;
+  }
+  .cart_tmp_price { 
+    padding: 5px 0;
+  }
+  .cart_item_price_right { 
+    margin-bottom: 5px;
+    font-size: 16px;
+    text-align: right;
+  }
+  .cart_item_ { 
+    padding: 6px 0;
+  }
+  .cart_item_total { 
+    border-top: 1px solid #a09ea0;
+    border-bottom: 1px solid #f8af6f;
+    padding: 10px 0;
+  }
+  .attention { 
+    color: #df0024;
+    font-weight: bold;
+  }.btn_return { 
+    background: #464646;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 4px;
+    border: none;
+    padding: 8px 20px;
+    float: left;
+    margin: 20px auto;
+  } 
+  .col-xs-12 td img{
+    padding: 15px 0;
+    width: 50px;
+    padding-left: 13px;
+    margin-top: -10px;
+    margin-left: 18px;
+  }
+  .col-xs-12 td p span{
+    color: rgb(242, 129, 35);
+    font-size: 16pt;
+    font-weight: 600;
+  }
+  .order_info .order_item_content h3{
+    padding-top: 10px;
+    text-align: center;
+    color: rgb(5, 25, 34);
+  }
+  .col-xs-12 td h3{
+    color: rgb(5, 25, 34);
+  }
+  .col-xs-12 td p{
+    font-size: 14pt;
+  }
+  .preorder_info p{
+    font-size: 14pt;
+  }
+  .cart_tmp_price{
+    font-size: 14pt;
+  }
+  .notice p{
+    font-size: 14pt;
+  }
+  div.col-xs-30{
+    display: flex;
+    justify-content: space-around;
+  }
+  .col-xs-30  a input{
+    font-size: 13pt;
+    border-radius: 30px;
+    border: none;
+    color: white;
+    background-color: rgb(242, 129, 35);
+  }
+  .col-xs-30 input:hover{
+    background-color: rgb(5, 25, 34);
+    color: rgb(242, 129, 35);
+  }
+  @media(max-width :767px) {
+    .sm-full { 
+      width: 100%;
+      display: block !important;
+      margin: 15px auto !important;
+    }
+    .cart_success_content.cart_header { 
+      text-align: center;
+    } 
+    #btOrderProduct {
+      font-size: 18px;
+      margin: 20px 0 0px 10px;
+    }
+    .btn_return {
+      font-size: 18px;
+      float: none;
+      margin: 20px 0 5px 0;
+    }
+    .preorder_info { 
+      margin: 0;
+    }
+    .order_info { 
+      margin: 40px 0px;
+    } 
+    .notice { 
+      margin: 20px 0;
+      border: 1px solid #e59178;
+      border-radius: 15px;
+      padding: 20px;
+    }
+    .cart_item_total { 
+      border-bottom: none;
+    }
+    .grey_cart { 
+      background: #fff;
+    } 
+  }

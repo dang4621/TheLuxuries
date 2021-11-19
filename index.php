@@ -115,6 +115,9 @@
 				case 'noti' :
 					include 'view/404.php';  
 					break;
+				case 'done' :
+						include 'view/done.php';  
+						break;
 				//Chuyển hướng khi action sai
 				default :  
 					include 'view/home.php';         
@@ -124,7 +127,7 @@
 			}else{
 				include 'view/home.php';
 			}            
-	
+	  
 			
 		include 'view/footer.php';
 	 
@@ -159,6 +162,7 @@
 	<link rel="stylesheet" href="view/assets/css/responsive.css">
 
 	<link rel="stylesheet" href="view/assets/css/css1.css">
+	<link rel="stylesheet" href="view/assets/css/css2.css">
 
     <script src="view/assets/js/jquery-1.11.3.min.js"></script>
 	<!-- bootstrap -->
