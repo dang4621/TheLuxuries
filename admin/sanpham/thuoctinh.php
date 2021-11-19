@@ -29,7 +29,11 @@
 
                     <?php             
                         if(isset($_POST['add_session'])){                   
-                            $row = ["size" => $_POST['size'] ,"color" =>  $_POST['favcolor'] ,"quantity" =>  $_POST['number'] ];              
+                            $row = [
+                                "size" => $_POST['size'] ,
+                                "color" =>  $_POST['favcolor'] ,
+                                "quantity" =>  $_POST['number'] 
+                            ];              
                             $_SESSION["thuoctinh"][$_POST['size'].$_POST['favcolor'].$_POST['number']]=$row;
                         }  
                         if(isset($_SESSION['thuoctinh'])){
