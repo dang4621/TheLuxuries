@@ -14,6 +14,8 @@
 	<!-- end breadcrumb section -->
 
 	<!-- check out section -->
+
+
 	<div class="checkout-section mt-150 mb-150">
 		<div class="container">
 			<div class="row">
@@ -32,13 +34,13 @@
 						    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
 						      <div class="card-body">
 						        <div class="billing-address-form">
-						        	<form action="index.html">
-						        		<p><input type="text" placeholder="Tên"></p>
-						        		<p><input type="email" placeholder="Email"></p>
-						        		<p><input type="text" placeholder="Địa chỉ"></p>
-						        		<p><input type="tel" placeholder="Số điện thoại"></p>
+								<form method="post" action="">
+						        		<p><input type="text" placeholder="Tên" name="name"></p>
+						        		<p><input type="email" placeholder="Email" name="email"></p>
+						        		<p><input type="text" placeholder="Địa chỉ" name="address"></p>
+						        		<p><input type="tel" placeholder="Số điện thoại" name="sdt"></p>
 						        		<p><textarea name="bill" id="bill" cols="30" rows="10" placeholder="Lời nhắn"></textarea></p>
-						        	</form>
+						    
 						        </div>
 						      </div>
 						    </div>
@@ -79,7 +81,7 @@
 
 					</div>
 				</div>
-
+		
 				<div class="col-lg-4">
 					<div class="order-details-wrap">
 						<table class="order-details">
@@ -94,18 +96,20 @@
 									<td>Sản phẩm</td>
 									<td>Tất cả</td>
 								</tr>
+                    <?php if(!empty($_SESSION['shopping_cart'])){
+                        $total=0;
+						$a=1;
+						foreach ($_SESSION['shopping_cart'] as $value){
+                          extract($value);
+						?>
 								<tr>
-									<td>Strawberry</td>
-									<td>$85.00</td>
+									<td><?= $ten_san_pham ?></td>
+									<td><?= $tt[$a]=$gia*$quantity ; ?></td>
 								</tr>
-								<tr>
-									<td>Berry</td>
-									<td>$70.00</td>
-								</tr>
-								<tr>
-									<td>Lemon</td>
-									<td>$35.00</td>
-								</tr>
+               <?php $a++; }
+
+
+			 } ?>
 							</tbody>
 							<tbody class="checkout-details">
 								<tr>
@@ -118,16 +122,53 @@
 								</tr>
 								<tr>
 									<td>Tất cả</td>
-									<td>$240</td>
+									<td><?php 
+									if(!empty($a)){
+											for($j=1;$j<$a;$j++){
+											$total+=$tt[$j];
+											}
+										print_r($total);
+										}
+									?></td>
 								</tr>
 							</tbody>
 						</table>
-						<a href="#" class="boxed-btn">Đặt hàng</a>
+						<input class="boxed-btn" type="submit" value="đồng ý đặt hàng" name="sethang"> 
 					</div>
+
+					<?php 
+                    	if(isset($_POST['sethang'])){
+							$ngaydathang=date('h:i:sa d/m/y');
+							$idtk=$_SESSION['user']['id_tai_khoan'];
+							$thanhtien=$total;
+							$phiship=5000;
+							$hoten=$_POST['name'];
+							$email=$_POST['email'];
+							$address=$_POST['address'];
+							$sdt=$_POST['sdt'];
+							$random =rand(10000,99999999) ;
+							$_SESSION['idchitiet']=$random;
+							$so_hoa_don=$_SESSION['idchitiet'];
+							$idtk=$_SESSION['user']['id_tai_khoan'];
+                                                  
+					$sql="insert into hoa_don(so_hoa_don,id_tai_khoan,ngay_hoa_don,thanh_tien,phi_ship,trang_thai,ho_ten,sdt,dia_chi ) value(?,?,?,?,?,?,?,?,?)";
+					pdo_execute($sql,$so_hoa_don,$idtk,$ngaydathang,$thanhtien,$phiship,1,$hoten,$sdt,$address);
+					header("Location:index.php?act=confirm");
+
+                       
+
+
+
+									}
+					?>
+
+
 				</div>
 			</div>
 		</div>
 	</div>
+
+		</form>
 	<!-- end check out section -->
 
 	<!-- logo carousel -->

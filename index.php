@@ -88,6 +88,24 @@
 					include 'view/contact.php';
 					break;  
 
+				case 'confirm':                
+					foreach ($_SESSION['shopping_cart'] as $value){
+						extract($value);
+						$tensp=$ten_san_pham;
+						$ma_sp=$ma_san_pham;
+						$soluong=$quantity;
+						$price=$gia;
+						$matt=13;
+						$ma_ct=$_SESSION['idchitiet'];
+						$idchitiet =rand(10000,999999) ;
+						$sql="insert into chi_tiet_hoa_don(id_cthd,so_hoa_don,id_tt,gia,so_luong) value(?,?,?,?,?)";
+						pdo_execute($sql,$idchitiet,$ma_ct,$matt,$price,$soluong);
+						unset($_SESSION['idchitiet']);
+						unset($_SESSION["shopping_cart"]);
+						header("Location:index.php");
+					}
+				 break;	
+
 				//Chuyển hướng khi action sai
 				default :  
 					include 'view/home.php';         
