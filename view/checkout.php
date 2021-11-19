@@ -24,67 +24,69 @@
 	<!-- end breadcrumb section -->
 
 	<!-- check out section -->
+
+
 	<div class="checkout-section mt-150 mb-150">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8">
 					<div class="checkout-accordion-wrap">
 						<div class="accordion" id="accordionExample">
-						  <div class="card single-accordion">
-						    <div class="card-header" id="headingOne">
-						      <h5 class="mb-0">
-						        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-						          Địa chỉ thanh toán
-						        </button>
-						      </h5>
-						    </div>
+							<div class="card single-accordion">
+								<div class="card-header" id="headingOne">
+									<h5 class="mb-0">
+										<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+											Địa chỉ thanh toán
+										</button>
+									</h5>
+								</div>
 
-						    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-						      <div class="card-body">
-						        <div class="billing-address-form">
-						        	<form action="index.html">
-						        		<p><input type="text" placeholder="Tên"></p>
-						        		<p><input type="email" placeholder="Email"></p>
-						        		<p><input type="text" placeholder="Địa chỉ"></p>
-						        		<p><input type="tel" placeholder="Số điện thoại"></p>
-						        		<p><textarea name="bill" id="bill" cols="30" rows="10" placeholder="Lời nhắn"></textarea></p>
-						        	</form>
-						        </div>
-						      </div>
-						    </div>
-						  </div>
-						  <div class="card single-accordion">
-						    <div class="card-header" id="headingTwo">
-						      <h5 class="mb-0">
-						        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-						          Địa chỉ vận chuyển
-						        </button>
-						      </h5>
-						    </div>
-						    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-						      <div class="card-body">
-						        <div class="shipping-address-form">
-						        	<p>Mẫu địa chỉ vận chuyển của bạn ở đây.</p>
-						        </div>
-						      </div>
-						    </div>
-						  </div>
-						  <div class="card single-accordion">
-						    <div class="card-header" id="headingThree">
-						      <h5 class="mb-0">
-						        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-						          Chi tiết thẻ
-						        </button>
-						      </h5>
-						    </div>
-						    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-						      <div class="card-body">
-						        <div class="card-details">
-						        	<p>Chi tiết thẻ của bạn đi đến đây.</p>
-						        </div>
-						      </div>
-						    </div>
-						  </div>
+								<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+									<div class="card-body">
+										<div class="billing-address-form">
+											<form method="post" action="index.php?act=confirm">
+												<p><input type="text" placeholder="Tên" name="name"></p>
+												<p><input type="email" placeholder="Email" name="email"></p>
+												<p><input type="text" placeholder="Địa chỉ" name="address"></p>
+												<p><input type="tel" placeholder="Số điện thoại" name="sdt"></p>
+												<p><textarea name="bill" id="bill" cols="30" rows="10" placeholder="Lời nhắn"></textarea></p>
+
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- <div class="card single-accordion">
+								<div class="card-header" id="headingTwo">
+									<h5 class="mb-0">
+										<button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+											Địa chỉ vận chuyển
+										</button>
+									</h5>
+								</div>
+								<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+									<div class="card-body">
+										<div class="shipping-address-form">
+											<p>Mẫu địa chỉ vận chuyển của bạn ở đây.</p>
+										</div>
+									</div>
+								</div>
+							</div> -->
+							<div class="card single-accordion">
+								<div class="card-header" id="headingThree">
+									<h5 class="mb-0">
+										<button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+											Thanh toán
+										</button>
+									</h5>
+								</div>
+								<div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+									<div class="card-body">
+										<div class="card-details">
+											<p>Chi tiết thẻ của bạn đi đến đây.</p>
+										</div>
+									</div>
+								</div>
+							</div>
 						</div>
 
 					</div>
@@ -96,48 +98,64 @@
 							<thead>
 								<tr>
 									<th>Chi tiết đơn hàng của bạn</th>
-									<th>Giá</th>
+									<th>Số lượng</th>
 								</tr>
 							</thead>
 							<tbody class="order-details-body">
-								<tr>
+								<!-- <tr>
 									<td>Sản phẩm</td>
 									<td>Tất cả</td>
-								</tr>
-								<tr>
-									<td>Strawberry</td>
-									<td>$85.00</td>
-								</tr>
-								<tr>
-									<td>Berry</td>
-									<td>$70.00</td>
-								</tr>
-								<tr>
-									<td>Lemon</td>
-									<td>$35.00</td>
-								</tr>
+								</tr> -->
+								<?php if (!empty($_SESSION['shopping_cart'])) {
+									$total = 0;
+									$a = 1;
+									foreach ($_SESSION['shopping_cart'] as $value) {
+										extract($value);
+										$tt[$a] = $gia * $quantity;
+								?>
+										<tr>
+											<td><?= $ten_san_pham ?></td>
+											<td><?=  $quantity; ?></td>
+										</tr>
+								<?php $a++;
+									}
+								} ?>
 							</tbody>
 							<tbody class="checkout-details">
 								<tr>
-									<td>Tổng phụ</td>
+									<td><b>Tổng phụ</b> </td>
 									<td>$190</td>
 								</tr>
 								<tr>
-									<td>Vận chuyển</td>
+									<td><b>Vận chuyển</b></td>
 									<td>$50</td>
 								</tr>
 								<tr>
-									<td>Tất cả</td>
-									<td>$240</td>
+									<td><b>Tất cả</b></td>
+									<td><?php
+										if (!empty($a)) {
+											for ($j = 1; $j < $a; $j++) {
+												$total += $tt[$j];
+											}
+											print_r($total);
+										}
+										?></td>
+										<input type="hidden" name="total" value="<?= $total ?>">
 								</tr>
 							</tbody>
 						</table>
+<<<<<<< HEAD
 						<a href="#" class="boxed-btn" >Đặt hàng</a>
+=======
+						<input class="boxed-btn" type="submit" value="đồng ý đặt hàng" name="sethang">
+>>>>>>> a0015a13c095de845842ac2b07ecf21c7202d713
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+
+		</form>
 	<!-- end check out section -->
 
 	<!-- logo carousel -->
