@@ -12,7 +12,9 @@
     }
     function getid($ma_san_pham,$size,$color){
         $id=lay_idTT($ma_san_pham,$size,$color);
-        extract($id);
+        if(is_array($id)){
+            extract($id);
+        }        
         return $id_tt;
     }
     function themGH($ma_san_pham,$soluong,$gia,$size,$color) {

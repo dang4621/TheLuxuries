@@ -118,6 +118,7 @@
 									$getSize = pdo_query($sql);
 									foreach ($getSize as $loai) {
 										extract($loai);
+                                        
 										echo '	<input name="size" value="' . $size . '"; type="radio" id="html" value="' . $size . '">
 					  							<label for="html">' . $size . '</label>';
 									?>
@@ -135,6 +136,7 @@
 									foreach ($getColor as $loai) {
 										extract($loai);
 										$i++;
+                                        print_r($color);
 									?>
                                 <input type="radio" class="radio" id="radio-<?= $i ?>" name="color"
                                     value="<?= $color ?>" />

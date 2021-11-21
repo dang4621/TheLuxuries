@@ -4,22 +4,12 @@
             <div class="col-lg-8 mb-5 mb-lg-0">
                 <form method="POST">
                     <p1>Thêm loại sản phẩm và số lượng của từng loại</p1><br>
-                    <p2>Chọn size:</p2>
-                    <input name="size" type="radio" id="html" value="S" checked>
-                    <label for="html">S</label>
-                    <input name="size" type="radio" id="css" value="M">
-                    <label for="css">M</label>
-                    <input name="size" type="radio" id="javascript" value="L">
-                    <label for="javascript">L</label>
-                    <input name="size" type="radio" id="javascript" value="XL">
-                    <label for="javascript">XL</label>
-                    <input name="size" type="radio" id="javascript" value="XXL">
-                    <label for="javascript">XXL</label><br>
-
-                    <label for="favcolor">Chọn màu sản phẩm:</label>
-                    <input type="color" id="favcolor" name="favcolor" value="#ff0000"><br><br>
-                    <label for="">Số lượng:</label>
-                    <input id="number" name="number" type="number" value="50"> <br>
+                    <p2>Size (vd : L,S,M):</p2>
+                        <input type="text" name="size"><br>
+                    <label for="">Màu sắc (vd : xanh , đỏ , tím )</label>
+                        <input type="text" name="color"><br>
+                    <!-- <label for="">Số lượng:</label>
+                    <input id="number" name="number" type="number" value="50"> <br> -->
                     <button type="submit" name="add_session">Thêm loại</button>
                 </form>
                 <br>
@@ -27,24 +17,45 @@
                 <a href="index.php?act=unset_tt">Nhập lại</a><br>
                 <br>
 
-                    <?php             
-                        if(isset($_POST['add_session'])){                   
-                            $row = [
-                                "size" => $_POST['size'] ,
-                                "color" =>  $_POST['favcolor'] ,
-                                "quantity" =>  $_POST['number'] 
-                            ];              
-                            $_SESSION["thuoctinh"][$_POST['size'].$_POST['favcolor'].$_POST['number']]=$row;
-                        }  
-                        if(isset($_SESSION['thuoctinh'])){
-                            foreach($_SESSION["thuoctinh"] as $value){
-                            extract($value);   
-                            echo("Size: ".$size." Màu : ".$color." Số lượng : ".$quantity."");
-                            echo("<br>");
-                            } 
-                        }else{
-                            echo("Chọn thuộc tính cho sản phẩm");
-                        } 
+                <?php             
+                        if(isset($_POST['add_session'])){                          
+                            $size = explode(',',trim($_POST['size']) );                      
+                           $color = explode(',',trim($_POST['color']) );
+                            ?>
+                            <form action="" method="POST" id="form_tt">
+                            <?php
+                            $i=1;
+                            foreach($size as $value){
+                                foreach($color as $val){
+                                    ?>                                    
+                                        Màu : <?= $value ?>
+                                        <input type="hidden" name="c_size_<?=$i?>" value="<?= $value ?>">
+                                        Size : <?= $val ?>
+                                        <input type="hidden" name="c_color_<?=$i?>" value="<?= $val ?>">
+                                            Nhập số lượng
+                                        <input type="number" name="quantity_<?=$i?>"><br>
+                                        <!-- <?=$i?> -->                                    
+                                    <?php
+                                    $i++;                                    
+                                }
+                            }    
+                            $_SESSION['i']=$i;                        
+                            ?>                           
+                              <input type="submit" name="add" form="form_tt">
+                              </form>
+                            <?php
+                        }
+                        if(isset($_POST['add'])){
+                            $i =  $_SESSION['i'];
+                            for($j = 1 ; $j <= $i ;$j++){
+                                $row = [
+                                    "size" => $_POST['c_size_'.$j] ,
+                                    "color" =>  $_POST['c_color_'.$j] ,
+                                    "quantity" =>  $_POST['quantity_'.$j] 
+                                    ]; 
+                                $_SESSION["thuoctinh"][$_POST['c_size_'.$j].$_POST['c_color_'.$j].$_POST['quantity_'.$j]]=$row;  
+                            }                            
+                        }                        
 					?>
             </div>
         </div>

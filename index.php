@@ -78,8 +78,9 @@
 							$so_hoa_don =  rand(10000, 99999999);	
 							$idtk = $_SESSION['user']['id_tai_khoan'];
 							$ngaydathang = date('h:i:sa d/m/y');
-							$pt_thanhtoan = 0;
+							$pt_thanhtoan = $_POST['payment'];
 							$thanhtien = $_POST['total'];
+							$_SESSION['total_money']= $thanhtien ;
 							$phiship = 5000;
 							$trang_thai = 0 ;
 							$hoten = $_POST['name'];
@@ -100,7 +101,11 @@
 								pdo_execute($sql,$idchitiet,$so_hoa_don,$matt,$price,$soluong);
 								unset($_SESSION["shopping_cart"]);
 							}
-							header("Location:index.php");
+							if($_POST['payment'] == '0'){
+								header("Location:index.php");
+							}else{
+								header('Location : ');
+							}
 						}                
 						
 					 break;	

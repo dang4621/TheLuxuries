@@ -50,7 +50,7 @@
 												<p><input type="text" placeholder="Địa chỉ" name="address"></p>
 												<p><input type="tel" placeholder="Số điện thoại" name="sdt"></p>
 												<p><textarea name="bill" id="bill" cols="30" rows="10" placeholder="Lời nhắn"></textarea></p>
-
+													
 										</div>
 									</div>
 								</div>
@@ -75,15 +75,16 @@
 								<div class="card-header" id="headingThree">
 									<h5 class="mb-0">
 										<button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-											Thanh toán
+											Phương thức thanh toán
 										</button>
 									</h5>
 								</div>
 								<div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
 									<div class="card-body">
-										<div class="card-details">
-											<p>Chi tiết thẻ của bạn đi đến đây.</p>
-										</div>
+											<input type="radio"  name="payment" value="0" checked>
+									  	<label for="html">Thanh toán lúc nhận hàng</label><br>
+									  		<input type="radio"  name="payment" value="1">
+									  	<label for="css">Thanh toán qua Vnpay </label><br>
 									</div>
 								</div>
 							</div>
@@ -116,6 +117,7 @@
 										<tr>
 											<td><?= $ten_san_pham ?></td>
 											<td><?=  $quantity; ?></td>
+									         <td><?= $color ." ". $size ." ".$ma_san_pham  ?></td>
 										</tr>
 								<?php $a++;
 									}
