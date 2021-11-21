@@ -18,7 +18,6 @@
             <div class="signin-signup">
 
                 <form action="" method="post" class="sign-in-form">
-
                     <h2 class="title">Đăng nhập</h2>
                     <div class="input-field">
                         <i class="fas fa-user"></i>
@@ -78,9 +77,9 @@
                     foreach($load_acc as $val){
                         extract($val);
                         if( $u == $username){
-                            $thongbao = "username tồn tại" ;
+                            $thongbao = '<script>swal ( "Rất tiếc", "User name đã tồn tại!" ,  "error" );</script>' ;
                         }else{
-                              $pass = $_POST['password'];
+                        $pass = $_POST['password'];
                         $repass = $_POST['repassword'];
                         $email = $_POST['email'];
                         $phone = $_POST['phone'];
@@ -89,12 +88,13 @@
                         $id_tk= $random;
                         $thongbao = "";
                         if ($pass != $repass) {
-                            $thongbao .= "Hai mật khẩu không giống nhau";
+                            $thongbao .= '<script>swal ( "Rất tiếc", "Mật khẩu không giống nhau!" ,  "error" );</script>';
                         }
                         if ($thongbao != "") {
                         } else {
                             $sql = "INSERT INTO tai_khoan(id_tai_khoan,username,password,email,sdt)value(?,?,?,?,?)";
                             $kq = pdo_execute($sql,$id_tk , $u, $pass, $email, $phone);
+                            $thongbao .= '<script>swal ( "Đăng ký thành công!", "Bạn đã nhấp vào nút!", "success");</script>';  
                         }
                         }
                     }
