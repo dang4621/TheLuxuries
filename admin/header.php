@@ -1,102 +1,128 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description"
-    content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/" />
-  <!-- title -->
-  <title>The luxuries</title>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>The Luxuries</title>
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+    <!-- Bootstrap core CSS     -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Animation library for notifications   -->
+    <link href="assets/css/animate.min.css" rel="stylesheet" />
+
+    <!--  Light Bootstrap Table core CSS    -->
+    <link href="assets/css/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet" />
 
 
+    <!--  CSS for Demo Purpose, don't include it in your project     -->
+    <link href="assets/css/demo.css" rel="stylesheet" />
 
-  <link rel="shortcut icon" type="image/png" href="assets/img/logo3.png" />
-  <!-- google font -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet" />
-  <!-- fontawesome -->
-  <link rel="stylesheet" href="assets/css/all.min.css" />
-  <!-- bootstrap -->
-  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
-  <!-- owl carousel -->
-  <link rel="stylesheet" href="assets/css/owl.carousel.css" />
-  <!-- magnific popup -->
-  <link rel="stylesheet" href="assets/css/magnific-popup.css" />
-  <!-- animate css -->
-  <link rel="stylesheet" href="assets/css/animate.css" />
-  <!-- mean menu css -->
-  <link rel="stylesheet" href="assets/css/meanmenu.min.css" />
-  <!-- main style -->
-  <link rel="stylesheet" href="assets/css/main.css" />
-  <!-- responsive -->
-  <link rel="stylesheet" href="assets/css/responsive.css" />
-  <!-- style -->
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+
+    <!--     Fonts and icons     -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+    <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 </head>
 
 <body>
-  <!--PreLoader
-  <div class="loader">
-    <div class="loader-inner">
-      <div class="circle"></div>
-    </div>
-  </div>
-  -->
-  <!--PreLoader Ends-->
 
-  <!-- header -->
-  <div class="top-header-area" id="sticker" style="background-color: #051922 ;">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 col-sm-12 text-center">
-          <div class="main-menu-wrap">
-            <!-- logo -->
-            <div class="site-logo">
-              <a href="admin.html">
-                <img src="assets/img/logo3.png" alt="" />
-              </a>
+    <div class="wrapper">
+        <div class="sidebar">
+
+            <div class="sidebar-wrapper">
+                <div class="logo">
+                    <img src="assets/img/logo3.png" width="100%">
+                </div>
+
+                <ul class="nav">
+                    <li class="active">
+                        <a href="">
+                            <i class="pe-7s-home"></i>
+                            <p>Trang chủ</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="index.php?act=dsdanhmuc">
+                            <i class="pe-7s-bookmarks"></i>
+                            <p>Danh mục</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="index.php?act=dssanpham">
+                            <i class="pe-7s-note2"></i>
+                            <p>Sản phẩm</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="index.php?act=dsthuonghie">
+                            <i class="pe-7s-news-paper"></i>
+                            <p>Thương hiệu</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="index.php?act=dsbill">
+                            <i class="pe-7s-cart"></i>
+                            <p>Đơn hàng</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="index.php?act=dstaikhoan">
+                            <i class="pe-7s-user"></i>
+                            <p>Tài khoản</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="index.php?act=dsbinhluan">
+                            <i class="pe-7s-comment"></i>
+                            <p>Bình luận</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="index.php?act=thongke1">
+                            <i class="pe-7s-graph"></i>
+                            <p>Thống kê</p>
+                        </a>
+                    </li>
+                    <li class="active-pro">
+                        <a href="#">
+                            <i class="pe-7s-shopbag"></i>
+                            <p>Shop The Luxuries</p>
+                        </a>
+                    </li>
+                </ul>
             </div>
-            <!-- logo -->
-
-            <!-- menu start -->
-            <nav class="main-menu">
-              <ul>
-                <li class="current-list-item">
-                  <a href="#">Trang chủ</a>
-                </li>
-                <li>
-                  <a href="#">Quản lý</a>
-                  <ul class="sub-menu">
-                    <li><a href="index.php?act=dsdanhmuc">Danh mục</a></li>
-                    <li><a href="index.php?act=dssanpham">Sản phẩm</a></li>
-                    <li><a href="index.php?act=dsthuonghie">Thương hiệu</a></li>
-                    <li><a href="donhang.html">Đơn hàng</a></li>
-                    <li><a href="taikhoan.html">Tài khoản</a></li>
-                    <li><a href="binhluan.html">Bình luận</a></li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="shop.html">Thống kê</a>
-                  <ul class="sub-menu">
-                    <li>
-                      <a href="thongkesanpham.html">Doanh số sản phẩm</a>
-                    </li>
-                    <li>
-                      <a href="thongkecuahang.html">Doanh thu cửa hàng</a>
-                    </li>
-                  </ul>
-                </li>
-                <li></li>
-              </ul>
-            </nav>
-            <div class="mobile-menu"></div>
-            <!-- menu end -->
-          </div>
         </div>
-      </div>
     </div>
-  </div>
+
+</body>
+
+<!--   Core JS Files   -->
+<script src="assets/js/jquery.3.2.1.min.js" type="text/javascript"></script>
+<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+
+<!--  Charts Plugin -->
+<script src="assets/js/chartist.min.js"></script>
+
+<!--  Notifications Plugin    -->
+<script src="assets/js/bootstrap-notify.js"></script>
+
+<!--  Google Maps Plugin    -->
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+
+<!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
+<script src="assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
+
+<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
+<script src="assets/js/demo.js"></script>
+
+</html>
