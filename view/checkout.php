@@ -44,7 +44,7 @@
 								<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
 									<div class="card-body">
 										<div class="billing-address-form">
-											<form method="post" action="index.php?act=confirm">
+											<form method="post" action="payment.php">
 												<p><input type="text" placeholder="Tên" name="name"></p>
 												<p><input type="email" placeholder="Email" name="email"></p>
 												<p><input type="text" placeholder="Địa chỉ" name="address"></p>

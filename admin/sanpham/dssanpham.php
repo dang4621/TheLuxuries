@@ -19,11 +19,18 @@
 							<?php
 							 foreach($sanpham as $value){ 
 								extract($value);
+								extract($value);
+									$url_hinh="";                                
+									if(isset($image)&&!$image==""){
+										$file = explode(",",substr($image, 0, -1));
+									}else{
+										$url_hinh="không có hình";
+									}; 
 									echo(' 
 										<tr class="table-body-row">
 											<td class="product-remove">'.$ma_san_pham.'</td>
 											<td class="product-name">'.$ten_san_pham.'</td>
-											<td class="product-image">'.$image.'</td>
+											<td class="product-image"><img src="../upload/'.$file[0].'" alt=""></td>
 											<td class="product-price">'.$gia_goc.'</td>
 											<td class="product-mota">'.$mo_ta.'</td>
 										<td>
