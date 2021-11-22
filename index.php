@@ -126,6 +126,9 @@
 				case 'done' :
 						include 'view/done.php';  
 						break;
+				case 'quenmk' :
+					    include 'view/quenmk.php';
+						break;
 				//Chuyển hướng khi action sai
 				default :  
 					include 'view/home.php';         
@@ -171,6 +174,7 @@
 
 	<link rel="stylesheet" href="view/assets/css/css1.css">
 	<link rel="stylesheet" href="view/assets/css/css2.css">
+	<link rel="stylesheet" href="view/assets/css/quenmk.css">
 
     <script src="view/assets/js/jquery-1.11.3.min.js"></script>
 	<!-- bootstrap -->
