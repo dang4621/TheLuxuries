@@ -118,24 +118,19 @@
                             <div class="size">
                                 <h2>Size:</h2>
                                 <!-- form 1 lấy size -->
-
-
                                 <?php
 									$sql = "SELECT DISTINCT thuoc_tinh.size FROM thuoc_tinh WHERE thuoc_tinh.ma_san_pham= '$ma_sp'";
 									$getSize = pdo_query($sql);
 									foreach ($getSize as $loai) {
-										extract($loai);
-                                        
-										echo '	<input name="size" value="' . $size . '"; type="radio" id="html" value="' . $size . '">
+										extract($loai);                                        
+										echo '	<input name="size" required value="' . $size . '"; type="radio" id="html" value="' . $size . '">
 					  							<label for="html">' . $size . '</label>';
 									?>
                                 <?php } ?>
-
                             </div>
                             <div class="mau">
                                 <h2>Màu</h2>
                                 <!-- form 1 lấy màu -->
-
                                 <?php
 									$i = 0;
 									$sql1 = "SELECT DISTINCT thuoc_tinh.color FROM thuoc_tinh WHERE thuoc_tinh.ma_san_pham= '$ma_sp'";
@@ -146,12 +141,9 @@
                                         print_r($color);
 									?>
                                 <input type="radio" class="radio" id="radio-<?= $i ?>" name="color"
-                                    value="<?= $color ?>" />
+                                    value="<?= $color ?>" required />
                                 <label for="radio-<?= $i ?>" style="background: <?= $color ?>;"></label>
                                 <?php } ?>
-
-
-
                             </div>
                         </div>
 
