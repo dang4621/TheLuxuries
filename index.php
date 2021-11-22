@@ -80,7 +80,7 @@
 							$ngaydathang = date('h:i:sa d/m/y');
 							$pt_thanhtoan = $_POST['payment'];
 							$thanhtien = $_POST['total'];
-							$_SESSION['total_money']= $thanhtien ;
+							// $_SESSION['total_money']= $thanhtien ;
 							$phiship = 5000;
 							$trang_thai = 0 ;
 							$hoten = $_POST['name'];
