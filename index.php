@@ -65,11 +65,17 @@
                     }
                 }
 				case 'cart':
-					include 'view/mycart.php';
+					if(isset($_SESSION["user"])){
+						include 'view/mycart.php';  
+					 }
+					 else{
+						 header("Location: login.php"); 
+					 }  					
 					break;
 				case 'checkout':
 					include 'view/checkout.php';
-					break;		
+					break;
+							
 				case 'test':                
 					include 'view/test.php';
 					break;
@@ -108,7 +114,11 @@
 							}
 						}                
 						
-					 break;	
+					 break;
+					case 'logout':
+						unset($_SESSION['user']);
+						header("Location: index.php?");  
+						break;	
 				//include các file trên header
 				case 'about':                
 					include 'view/about.php';
@@ -121,8 +131,8 @@
 					include 'view/404.php';  
 					break;
 				case 'done' :
-						include 'view/done.php';  
-						break;
+					include 'view/done.php';  
+					break;
 				//Chuyển hướng khi action sai
 				default :  
 					include 'view/home.php';         
