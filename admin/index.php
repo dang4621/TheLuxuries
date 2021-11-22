@@ -36,15 +36,15 @@
                     $ma_nhom_hang=$_POST['id_dm'];
                     $ten_nhom_hang=$_POST['ten_dm'];
                     update_dm($ten_nhom_hang,$ma_nhom_hang);
-                    echo ('<script>alert("Cập nhật thành công")</script>');
+                    echo ('<script>swal("Cập nhật thành công!", "Bạn đã nhấp vào nút!", "success");</script>');                  
                 }
-                include '../admin/danhmuc/dsdanhmuc.php';
+                include '../admin/danhmuc/danhmuc.php';
                 break;
             case 'del_dm':
                 if(isset($_GET['id'])){
                     $id=$_GET['id'];
                     del_dm($id);
-                    echo ('<script>alert("Xóa thành công")</script>');
+                    echo ('<script>swal("Xóa thành công!", "Bạn đã nhấp vào nút!", "success");</script>');                  
                 }
                 include '../admin/danhmuc/dsdanhmuc.php';      
                 break; 
@@ -64,7 +64,7 @@
                     $math=rand(1000000000,9999999999);
                     settype($math,"int");
                     themthuonghieu($math,$tenth,$xuatxu,$filename);                   
-                    echo ('<script>alert("Cập nhật thành công")</script>');
+                    echo ('<script>swal("Thêm thành công!", "Bạn đã nhấp vào nút!", "success");</script>');                  
                 }
                 break;                
             case 'up_th':
@@ -84,8 +84,7 @@
                     $sql="UPDATE thuong_hieu SET ten_thuong_hieu = '$tenth',xuat_xu= '$xuatxu' WHERE ma_thuong_hieu='$id'";
                      pdo_execute($sql);
                     }
-                    echo ('<script>alert("Cập nhật thành công")</script>');                   
-                    header('location:index.php?act=dsthuonghie');                    
+                    echo ('<script>swal("Cập nhật thành công!", "Bạn đã nhấp vào nút!", "success");</script>');                  
                 }                
                 include '../admin/thuonghieu/upthuonghieu.php';                
                 break;                
@@ -93,6 +92,8 @@
                 if(isset($_GET['id'])){
                     $id=$_GET['id'];
                     del_th($id);
+                    echo ('<script>swal("Xóa thành công!", "Bạn đã nhấp vào nút!", "success");</script>');                  
+
                 }
                 include '../admin/thuonghieu/dsthuonghieu.php';      
                 break; 
@@ -115,6 +116,7 @@
                  break;
             case 'dssanpham':
                 $id=0;
+                $keyw="";
                 $sanpham=load_all_sp($keyw,$id);
                 include '../admin/sanpham/dssanpham.php';   
                 break;
@@ -123,6 +125,9 @@
                     $id=$_GET['id'];
                     del_sp($id);
                 }
+                 $id=0;
+                $keyw="";
+                $sanpham=load_all_sp($keyw,$id);
                 include '../admin/sanpham/dssanpham.php';      
                 break; 
             case 'edit_sp':
@@ -131,6 +136,7 @@
                 $sanpham=loadOne_sp($id) ;                
                 include '../admin/sanpham/suasanpham.php';
                 }
+
                 break ;
             case 'update_sp':
                 $id=0;
@@ -167,7 +173,7 @@
                     $today=date("20y-m-d h:i:s", $timestamp);
                     $mo_ta=$_POST['mota'];  
                         update_sp($ma_san_pham,$ma_nhom_hang,$ten_san_pham,$gia_goc,$giam_gia,$image,$donvi,$mo_ta, $today);
-                        echo ('<script>alert("Cập nhật thành công")</script>');
+                        echo ('<script>swal("Cập nhật thành công!", "Bạn đã nhấp vào nút!", "success");</script>');                  
                     }                    
                     $sanpham=load_all_sp($keyw,$id);
                     include '../admin/sanpham/dssanpham.php';
@@ -176,7 +182,7 @@
             case 'sp_confirm':
                 if(isset($_POST['submit'])){                   
                     $ma_nhom_hang=$_POST['id_dm'];
-                    $ma_thuong_hieu = $_POST['id_th'];
+                    $ma_thuong_hieu= $_POST['id_th'];
                     $ten_san_pham=$_POST['ten_sp'];   
 
                      //upload nhiều ảnh
@@ -235,11 +241,22 @@
                 break;
             case 'dssanpham':                
                 include '../admin/sanpham/dssanpham.php';     
-                break;                
+                break;
+            case 'dstaikhoan':
+                include '../admin/taikhoan/dstaikhoan.php';
+                break;    
+            case 'dsbinhluan':
+                include '../admin/binhluan/dsbinhluan.php';
+                break; 
+            case 'dsbill':
+                include '../admin/bill/dsbill.php';
+                break;
+            case 'thongke1':
+                include '../admin/thongke/thongke1.php';
+                break;                        
             }   
         }else{
         include '../admin/home.php';  
     }
 
 
-    include 'footer.php';

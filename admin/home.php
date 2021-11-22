@@ -1,1 +1,2 @@
-<h1>TRANG CHỦ</h1>
+<h4 class="title">Trang Chủ</h4>
+                                    <p class="category"></p>

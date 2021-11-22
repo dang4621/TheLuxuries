@@ -50,7 +50,7 @@
 							$color=$_POST['color'];
 
                             $alert=themGH($ma_san_pham,$soluong,$gia,$size,$color); 
-                            header("Location: index.php?act=cart"); 
+                            header("Location: index.php?act=cart");							 
                             }
                         }else{
                         	header("Location: login.php"); 
@@ -61,7 +61,7 @@
                     if(isset($_SESSION["user"])){
                         if(isset($_GET['id'])){
                             $ma_san_pham=$_GET['id'];
-                            xoaSP($ma_san_pham);  
+                            xoaSP($ma_san_pham);                  
                     }
                 }
 				case 'cart':
@@ -231,7 +231,9 @@
 	<script src="view/assets/js/sticker.js"></script>
 	<!-- main js -->
 	<script src="view/assets/js/main.js"></script>
-
+	<!-- sweetalert -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 
 

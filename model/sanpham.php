@@ -65,7 +65,7 @@ function test(){
 
 function del_sp($id){
     $sql="DELETE FROM san_pham where ma_san_pham='$id'";
-    return pdo_query($sql);
+    pdo_execute($sql);
 }
 
 function update_sp($ma_san_pham,$ma_nhom_hang,$ten_san_pham,$gia_goc,$giam_gia,$image,$donvi,$mo_ta, $today){
