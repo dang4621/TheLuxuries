@@ -84,7 +84,7 @@
 								<?php 
 								$pay=$_GET['pay'];
 								if(isset($_GET['pay'])) {
-                     echo'asdasd';
+                     
 								}else { ?>
 								
 								<div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">

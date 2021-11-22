@@ -82,7 +82,7 @@
 							if(isset($_POST['payment'])){
 								$pt_thanhtoan = $_POST['payment'];
 							}else{
-								$pt_thanhtoan="paypal pocket";
+								$pt_thanhtoan=1;
 							}
 							$thanhtien = $_POST['total'];
 							// $_SESSION['total_money']= $thanhtien ;
@@ -99,18 +99,14 @@
 							foreach ($_SESSION['shopping_cart'] as $value){
 								extract($value);
 								$idchitiet =rand(10000,999999) ;
-								$matt=30;	
+								$matt=getid($ma_san_pham,$size,$color);	
 								$soluong=$quantity;
 								$price=$gia;												
 								$sql="insert into chi_tiet_hoa_don(id_cthd,so_hoa_don,id_tt,gia,so_luong) value(?,?,?,?,?)";
 								pdo_execute($sql,$idchitiet,$so_hoa_don,$matt,$price,$soluong);
 								unset($_SESSION["shopping_cart"]);
 							}
-							if($_POST['payment'] == '0'){
-								header("Location:index.php");
-							}else{
-								header('Location : ');
-							}
+							header("Location:index.php");
 						}                
 						
 					 break;			
