@@ -1,25 +1,32 @@
 <!-- breadcrumb-section -->
 <style>
-    .binhluan table th {
+.user {
+    font-weight: bold;
     color: black;
 }
-.binhluan table{
-    background-color: white;
-    padding: 10px;
-}
-.binhluan table td:nth-child(1){
-    width: 20%;
-}
-.binhluan table td:nth-child(2){
-    width: 50%;
-}
-.binhluan table td:nth-child(3){
-    width: 10%;
-}
-.binhluan table td:nth-child(4){
-    width: 20%;
+
+.time {
+    color: gray;
 }
 
+.userComment {
+    color: #000;
+    margin-right: 20px;
+}
+
+.replies .comment {
+    margin-top: 20px;
+
+}
+
+.replies {
+    margin-left: 20px;
+}
+
+#registerModal input,
+#logInModal input {
+    margin-top: 10px;
+}
 </style>
 <div class="breadcrumb-section breadcrumb-bg">
     <div class="container">
@@ -213,39 +220,39 @@
 </div>
 <!-- end more products -->
 <!-- binh luan -->
-<div class="cmt" style="width:100%;">
-        <h3 style="text-align:center;">Bình luận</h3>
-        <div class="binhluan">
-            <table>
-            <tr>
-                <th>Tên</th>
-                <th>Nội dung</th>
-                <th>Mã Sản phẩm</th>
-                <th>Ngày bình luận</th>
-             </tr>
-             <tr>
-                <td>Truyen</td>
-                <td>Văn bản là một loại hình phương tiện để ghi nhận, lưu giữ và truyền đạt các thông tin</td>
-                <td>10</td>
-                <td>18-11-2021</td>
-             </tr>
-             <tr>
-                <td>Truyen</td>
-                <td>Văn bản là một loại hình phương tiện để ghi nhận, lưu giữ và truyền đạt các thông tin</td>
-                <td>10</td>
-                <td>18-11-2021</td>
-             </tr>
-             </table>
+<div class="cmt">
+    <form action="=" method="post">
+        <div class="col-md-12" style="width:60%">
+            <input type="hidden" name="idpro" value="">
+            <input class="form-control" type="text" name="noidung" placeholder="Nhập nội dung bình luận"><br>
+            <button style="float:right" class="btn-primary btn" id="binhluan" name="binhluan">Bình luận</button>
         </div>
-        <br>
-        <div class="binhluanform">
-            <form action="" method="post" style="text-align:center;">
-                <input type="hidden" name="idpro" value="">
-                <input type="text" name="noidung" style="text-align:center;width:500px;height:50px">
-                <input type="submit" id="sm" name="guibinhluan" value="Gửi bình luận" >
-            </form>
-        </div>  
+    </form>
+    <br>
+    <div class="row">
+        <div class="col-md-12">
+            <h4>125 Bình luận</h4>
+            <div class="userComments">
+                <div class="comment">
+                    <div class="user">Truyền
+                        <span class="time">2021-11-20 10:19:01</span>
+                    </div>
+                    <div class="binhluan">Sản phẩm tốt</div>
+                    <hr>
+                    <div class="user">Truyền
+                        <span class="time">2021-11-20 10:19:01</span>
+                    </div>
+                    <div class="binhluan">Sản phẩm tốt</div>
+                    <hr>
+                    <div class="user">Truyền
+                        <span class="time">2021-11-20 10:19:01</span>
+                    </div>
+                    <div class="binhluan">Sản phẩm tốt</div>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
 <!-- end binh luan -->
 <!-- logo carousel -->
 <div class="logo-carousel-section">

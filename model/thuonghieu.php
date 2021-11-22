@@ -22,6 +22,6 @@ function update_th($tenth,$xuatxu,$logo){
 
 function del_th($id){
     $sql="DELETE FROM thuong_hieu where ma_thuong_hieu='$id'";
-    return pdo_query($sql);
+    pdo_execute($sql);
 }
 ?>

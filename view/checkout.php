@@ -86,6 +86,7 @@
 									  		<input type="radio"  name="payment" value="1">
 									  	<label for="css">Thanh toán qua Vnpay </label><br>
 									</div>
+									<?php require 'view/paybutton.php'; ?>
 								</div>
 							</div>
 						</div>
