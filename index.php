@@ -84,7 +84,12 @@
 							$so_hoa_don =  rand(10000, 99999999);	
 							$idtk = $_SESSION['user']['id_tai_khoan'];
 							$ngaydathang = date('h:i:sa d/m/y');
-							$pt_thanhtoan = $_POST['payment'];
+							
+							if(isset($_POST['payment'])){
+								$pt_thanhtoan = $_POST['payment'];
+							}else{
+								$pt_thanhtoan=1;
+							}
 							$thanhtien = $_POST['total'];
 							// $_SESSION['total_money']= $thanhtien ;
 							$phiship = 5000;
@@ -107,11 +112,7 @@
 								pdo_execute($sql,$idchitiet,$so_hoa_don,$matt,$price,$soluong);
 								unset($_SESSION["shopping_cart"]);
 							}
-							if($_POST['payment'] == '0'){
-								header("Location:index.php");
-							}else{
-								header('Location : ');
-							}
+							header("Location:index.php");
 						}                
 						
 					 break;
@@ -159,6 +160,7 @@
 							}                
 							
 						 break;			
+					 break;			
 
 
 				//include các file trên header

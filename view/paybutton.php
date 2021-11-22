@@ -63,7 +63,7 @@
             // element.innerHTML = '';
             // element.innerHTML = '<h3>Thank you for your payment!</h3>';
             // Or go to another URL:  actions.redirect('thank_you.html');
-            window.location.assign("http://localhost/TheLuxuries/index.php?act=checkout")
+            window.location.assign("http://localhost/TheLuxuries/index.php?act=checkout&pay=paypal")
           });
         }
       }).render('#paypal-button-container');

@@ -44,7 +44,9 @@
 								<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
 									<div class="card-body">
 										<div class="billing-address-form">
-											<form method="post" action="payment.php">
+
+										
+										<form method="post" action="index.php?act=confirm">
 												<p><input type="text" placeholder="Tên" name="name"></p>
 												<p><input type="email" placeholder="Email" name="email"></p>
 												<p><input type="text" placeholder="Địa chỉ" name="address"></p>
@@ -79,6 +81,12 @@
 										</button>
 									</h5>
 								</div>
+								<?php 
+								$pay=$_GET['pay'];
+								if(isset($_GET['pay'])) {
+                     
+								}else { ?>
+								
 								<div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
 									<div class="card-body">
 											<input type="radio"  name="payment" value="0" checked>
@@ -86,8 +94,9 @@
 									  		<input type="radio"  name="payment" value="1">
 									  	<label for="css">Thanh toán qua Vnpay </label><br>
 									</div>
-									<?php require 'view/paybutton.php'; ?>
+									
 								</div>
+							<?php }?>
 							</div>
 						</div>
 

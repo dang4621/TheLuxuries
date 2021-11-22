@@ -97,8 +97,10 @@
 					<div class="cart-buttons">
 						<!-- <input class="boxed-btn" type="submit" name="cartup" value="cập nhập giỏ hàng"> -->
 						<a href="index.php?act=checkout" class="boxed-btn black">Tiến hành thanh toán</a>
+						
 						<input class="boxed-btn" type="submit" name="cartup" value="cập nhập">
 					</div>
+					<?php require 'view/paybutton.php'; ?>
 			</form>
 					<?php
 
