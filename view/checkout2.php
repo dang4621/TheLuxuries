@@ -46,7 +46,7 @@
 										<div class="billing-address-form">
 
 										
-											<form method="post" action="index.php?act=confirm">
+											<form method="post" action="index.php?act=confirm2">
 												<p><input type="text" placeholder="Tên" name="name"></p>
 												<p><input type="email" placeholder="Email" name="email"></p>
 												<p><input type="text" placeholder="Địa chỉ" name="address"></p>

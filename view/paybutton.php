@@ -27,7 +27,7 @@
                 }
                 ?>
 
-    <input type="hidden" value="<?= $total?>" name="sethang" id="sethang"> 
+    <input type="hidden" value="<?= $total?>" name="sethang2" id="sethang2"> 
 
     <div id="paypal-button-container"></div>
 
@@ -43,7 +43,7 @@
           return actions.order.create({
             purchase_units: [{
               amount: {
-                value: document.getElementById('sethang').value // Can reference variables or functions. Example: `value: document.getElementById('...').value`
+                value: document.getElementById('sethang2').value // Can reference variables or functions. Example: `value: document.getElementById('...').value`
               
               }
             }]

@@ -114,7 +114,7 @@
 						break;
 
 
-						case 'confirm':
+						case 'confirm2':
 							if (isset($_POST['sethang'])) {						 					
 								$so_hoa_don =  rand(10000, 99999999);	
 								$idtk = $_SESSION['user']['id_tai_khoan'];
