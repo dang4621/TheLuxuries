@@ -109,6 +109,49 @@
 						}                
 						
 					 break;	
+					 case 'checkout2':
+						include 'view/checkout2.php';
+						break;
+
+
+						case 'confirm':
+							if (isset($_POST['sethang'])) {						 					
+								$so_hoa_don =  rand(10000, 99999999);	
+								$idtk = $_SESSION['user']['id_tai_khoan'];
+								$ngaydathang = date('h:i:sa d/m/y');
+								$pt_thanhtoan = $_POST['payment'];
+								$thanhtien = $_POST['total'];
+								$_SESSION['total_money']= $thanhtien ;
+								$phiship = 5000;
+								$trang_thai = 1 ;
+								$hoten = $_POST['name'];
+								$sdt = $_POST['sdt'];
+								$email = $_POST['email'];
+								$address = $_POST['address'];
+								$loi_nhan = $_POST['bill'];
+								
+								$sql = "INSERT INTO hoa_don(so_hoa_don,id_tai_khoan, ngay_hoa_don,  pt_thanhtoan,   thanh_tien, phi_ship, trang_thai, ho_ten,	sdt,	dia_chi, loi_nhan ) value(?,?,?,?,?,?,?,?,?,?,?)";
+								pdo_execute($sql, 			$so_hoa_don, $idtk, 	$ngaydathang,   $pt_thanhtoan , $thanhtien, $phiship, $trang_thai , $hoten, $sdt, $address, $loi_nhan);
+								foreach ($_SESSION['shopping_cart'] as $value){
+									extract($value);
+									$idchitiet =rand(10000,999999) ;
+									$matt=getid($ma_san_pham,$size,$color);	
+									$soluong=$quantity;
+									$price=$gia;												
+									$sql="insert into chi_tiet_hoa_don(id_cthd,so_hoa_don,id_tt,gia,so_luong) value(?,?,?,?,?)";
+									pdo_execute($sql,$idchitiet,$so_hoa_don,$matt,$price,$soluong);
+									unset($_SESSION["shopping_cart"]);
+								}
+								if($_POST['payment'] == '0'){
+									header("Location:index.php");
+								}else{
+									header('Location : ');
+								}
+							}                
+							
+						 break;			
+
+
 				//include các file trên header
 				case 'about':                
 					include 'view/about.php';
