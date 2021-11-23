@@ -1,12 +1,13 @@
-<?php 
-     ob_start();
+<?php ob_start();
      session_start();
      include './model/pdo.php';
      include './model/sanpham.php';   
      include './model/danhmuc.php';    
      include './model/thuonghieu.php';
 	 include './model/giohang.php';
-
+	 include './model/taikhoan.php';
+		include 'mail/index.php';
+		$mail = new Mailler();
 
 		include 'view/header.php';
 		$danhmuc=loadAll_dm(); 
@@ -114,9 +115,33 @@
 					 break;
 				case 'logout':
 					unset($_SESSION['user']);
-					header("Location: index.php?");  
+					header("Location: index.php");  
 					break;			
-					
+				// case 'quenmk' :
+				// 	if(isset($_POST['submit'])){
+				// 		$error = array();
+				// 		$email = $_POST['email'];
+				// 		if($email == ""){
+				// 			$error['email']= 'Email không được để trống';
+				// 		}else{
+				// 			$result = get_email($email);
+				// 			if (is_array($result)) {
+				// 				$code = substr(rand(0,999999),0,6);
+				// 				$title = "Quên mật khẩu";
+				// 				$content = "Mã xác nhận của bạn là : <span style = 'color : green '>".$code."</span>";
+				// 				$mail->sendMail($title,$content,$email);
+			
+				// 				$_SESSION['mail']= $email ;
+				// 				$_SESSION['codes'] = $code;
+				// 				header("Location: forget_pass/quenmk.php");
+				// 				// header('location : view/forget_pass/xacnhan.php');
+				// 			} else {
+				// 				echo("<h3 style='color : red ;'>Email không tồn tại</h3><br>");
+				// 			}
+				// 		}
+				// 	}
+				// 	include 'view/forget_pass/quenmk.php';
+				// 	break;	
 				//include các file trên header
 				case 'about':                
 					include 'view/about.php';
@@ -131,6 +156,7 @@
 				case 'done' :
 					include 'view/done.php';  
 					break;
+				
 				//Chuyển hướng khi action sai
 				default :  
 					include 'view/home.php';         
@@ -176,6 +202,7 @@
 
 	<link rel="stylesheet" href="view/assets/css/css1.css">
 	<link rel="stylesheet" href="view/assets/css/css2.css">
+	<link rel="stylesheet" href="view/assets/css/quenmk.css">
 
     <script src="view/assets/js/jquery-1.11.3.min.js"></script>
 	<!-- bootstrap -->

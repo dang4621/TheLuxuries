@@ -66,7 +66,7 @@
 												?>
 												<li><a href="#">Đơn hàng của tôi</a></li>
 												<li><a href="#">Cập nhật thông tin</a></li>
-												<li><a href="#">Quên mật khẩu</a></li>
+												<li><a href="index.php?act=quenmk">Quên mật khẩu</a></li>
 												<?php 
 												if(isset($_SESSION['user'])){
 													echo('<li><a href="index.php?act=logout">Đăng xuất</a></li>');

@@ -88,7 +88,7 @@
                 </div>
                 <div class="notice">
                     <p>
-                        <span class="attention">* </span>Đơn hàng của quý khách sẽ được giao trong giờ hành chính,
+                        <span class="attention">* </span>Đơn hàng của bạn sẽ được giao trong giờ hành chính,
                         từ thứ 2 - thứ 7. Quý khách vui lòng chú ý điện thoại để nhận hàng nhanh nhất nhé!
                     </p>
                 </div>

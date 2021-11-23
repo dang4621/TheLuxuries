@@ -29,6 +29,7 @@
                         <input type="password" placeholder="Mật khẩu" name="password" />
                     </div>
                     <input type="submit" value="Đăng nhập" class="btn solid" name="submit" />
+                    <a href="forget_pass/quenmk.php" style="text-decoration: none;">Quên mật khẩu</a>
                     <p class="social-text">Hoặc đăng nhập bằng các nền tảng xã hội</p>
                     <div class="social-media">
                         <a href="<?= $loginUrl ?>" class="social-icon">
