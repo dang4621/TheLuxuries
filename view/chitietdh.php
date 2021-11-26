@@ -56,6 +56,13 @@
 	                                    <li class="list-group-item items">
 	                                        <div class="media22">
 	                                            <h4 class="title">DANH SÁCH SẢN PHẨM</h4>
+										<?php 
+                                        $donhang=load_sp_dh();
+							            foreach($donhang as $value){ 
+								         extract($value); 
+
+							
+										 ?>
 
 
 	                                            <div class="sanpham">
@@ -86,6 +93,9 @@
 	                                            </div>
 	                                            <hr>
 
+                                <?php } ?>
+
+
 	                                        </div>
 	                                    </li>
 	                                </div>
@@ -93,14 +103,15 @@
 	                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 group-right calculate">
 	                                <div class="media22">
 	                                    <div class="media-body">
+											
 	                                        <h4 class="title">THANH TOÁN</h4>
 	                                        <h4><span class="pleft">Trị giá đơn hàng:</span><span
-	                                                class="pright bold">550.000 <span>VNĐ</span></span>
+	                                                class="pright bold"><?php echo $thanh_tien;?> <span>VNĐ</span></span>
 	                                        </h4>
-	                                        <h4><span class="pleft">Giảm giá:</span><span class="pright bold">-220.000
+	                                        <h4><span class="pleft">Giảm giá:</span><span class="pright bold">-0
 	                                                <span>VNĐ</span></span>
 	                                        </h4>
-	                                        <h4><span class="pleft">Phí giao hàng:</span><span class="pright bold">30.000
+	                                        <h4><span class="pleft">Phí giao hàng:</span><span class="pright bold"><?php echo $phi_ship;?>
 	                                                <span>VNĐ</span></span>
 	                                        </h4>
 	                                        <h4><span class="pleft">Phí thanh toán:</span><span class="pright bold">0
@@ -110,7 +121,7 @@
 
 	                                        <h4>
 	                                            <span class="pleft ">Tổng thanh toán:</span><span
-	                                                class="pright bold">360.000 <span>VNĐ</span></span>
+	                                                class="pright bold"><?php echo $thanh_tien + $phi_ship ; ?> <span>VNĐ</span></span>
 	                                        </h4>
 	                                        <br>
 	                                    </div>
