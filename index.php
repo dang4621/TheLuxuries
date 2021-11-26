@@ -109,7 +109,17 @@
 							header("Location:index.php");
 						}                
 						
-					 break;			
+					 break;	
+					 
+					 case 'cartdetails':
+						                
+						include 'view/trangthaidh.php';
+						break;
+
+						case 'cartde':
+						                
+							include 'view/chitietdh.php';
+							break;	
 
 
 				//include các file trên header

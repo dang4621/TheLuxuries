@@ -49,7 +49,7 @@
 								<li><a href="index.php?act=shop">Shop</a>
 									<ul class="sub-menu">
 										<li><a href="index.php?act=shop">Sản phẩm</a></li>
-										<li><a href="index.php?act=about">Đơn hàng của tôi</a></li>
+										<li><a href="index.php?act=cartdetails">Đơn hàng của tôi</a></li>
 										<li><a href="index.php?act=about">Single Product</a></li>
 										<li><a href="index.php?act=cart">Giỏ Hàng</a></li>
 									</ul>
@@ -64,7 +64,7 @@
 													echo("<li>Hi !".$_SESSION['user']['username']." </li>");
 												}
 												?>
-												<li><a href="#">Đơn hàng của tôi</a></li>
+												<li><a href="index.php?act=cartdetails">Đơn hàng của tôi</a></li>
 												<li><a href="#">Cập nhật thông tin</a></li>
 												<li><a href="#">Quên mật khẩu</a></li>
 												<?php 
