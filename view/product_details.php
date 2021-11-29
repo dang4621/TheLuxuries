@@ -158,7 +158,7 @@
                         <div class="single-product-form">
                             <!-- form 3 lấy số lượng , mã sản phẩm-->
 
-                            <input type="number" name="quantity" value="1">
+                            <input type="number" name="quantity" value="1" min="1">
                             <input type="hidden" name="gia" value="<?= $gia_goc - $giam_gia ?>">
                             <input type="hidden" name="id" value="<?= $ma_san_pham ?>">
                             <input type="submit" name="add" value="Thêm vào giỏ">
