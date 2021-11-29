@@ -1,0 +1,38 @@
+.tracuu{
+    background-color:#f3f3f5;
+    margin: 0 auto;
+    border-radius: 10px;
+    font-family: "Open Sans", sans-serif;
+    box-shadow: 0px 0px 10px rgb(145 140 140);
+}
+.tracuu h2{
+    text-align: center;
+    padding:15px;
+    background-color: #051922;
+    color: white;
+    border-radius: 10px 10px 0px 0px;
+}
+.tracuu h2 span2{
+    border-bottom: 2px solid white;
+    padding: 5px;
+}
+.tracuu table{
+    line-height: 80px;
+    text-align: center;
+    margin: 0 auto;
+    border-collapse:separate ;
+    border-spacing: 50px 0px;
+    margin-top:-15px;
+}
+.tracuu table tr td span1{ 
+    border: 1px solid;
+    border-radius: 5px;
+    padding: 3px;
+    background-color: #F28123;
+    color: white;
+}
+.tracuu tr td a{
+    text-decoration: none;
+    color: #85858a;
+    font-style:italic;
+}
