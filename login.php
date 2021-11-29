@@ -11,7 +11,9 @@
     <title>Đăng nhập & Đăng ký</title>
     <link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
 </head>
-<?php include './facebook_source.php'; ?>
+<?php include './facebook_source.php';
+include './google_source.php';
+ ?>
 <body>
     <div class="container">
         <div class="forms-container">
@@ -37,7 +39,7 @@
                         <a href="#" class="social-icon">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="#" class="social-icon">
+                        <a href="<?=$authUrl?>" class="social-icon">
                             <i class="fab fa-google"></i>
                         </a>
                         <a href="#" class="social-icon">
@@ -139,7 +141,7 @@
                         <a href="#" class="social-icon">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="#" class="social-icon">
+                        <a href="<?=$authUrl?>" class="social-icon">
                             <i class="fab fa-google"></i>
                         </a>
                         <a href="#" class="social-icon">

@@ -1,17 +1,15 @@
 <?php
-include './model/pdo.php';
+
 //Hàm login sau khi mạng xã hội trả dữ liệu về
 function loginFromSocialCallBack($socialUser) {
-    
-
-
+    include './model/pdo.php';
     $sql = "Select * from `tai_khoan` WHERE `email` ='" . $socialUser['email'] . "'";
     $khachhang = pdo_query_one($sql);
     if (!is_array($khachhang)) {
         $random =rand(10000,99999999) ;
         $id_tk= $random;
         $sql = "INSERT INTO tai_khoan(id_tai_khoan,username,email)value(?,?,?)";
-        $khachhang = pdo_execute($sql,$id_tk ,$socialUser['name'], $socialUser['email'], );
+        $khachhang = pdo_execute($sql,$id_tk ,$socialUser['name'], $socialUser['email'] );
   
         $sql = "Select * from `tai_khoan` WHERE `email` ='" . $socialUser['email'] . "'";
         $khachhang = pdo_query_one($sql);
