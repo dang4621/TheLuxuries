@@ -98,7 +98,6 @@
                            <?php
 							 foreach($sanpham as $value){ 
 								extract($value);
-<<<<<<< HEAD
                                 $url_hinh="";                                
                                 if(isset($image)&&!$image==""){
                                     $file = explode(",",substr($image, 0, -1));
@@ -131,7 +130,6 @@
             </div>
         </div>
     </div>
-=======
 								extract($value);
 									$url_hinh="";                                
 									if(isset($image)&&!$image==""){
@@ -199,4 +197,3 @@
 			</div>
 		</div>
 	</div>
->>>>>>> 3451a03cc7450f8491f955615894418c881c797d

@@ -19,7 +19,13 @@
 	            <div class="row">
 	                    <div class="order-track container-fluid">
 	                        <div class="group">
-	                            
+							<?php if(isset($_GET['id'])){ 
+								$id=$_GET['id'];
+								$nhom_hang=load_chitiet($id);
+								 if(is_array($nhom_hang)){
+									extract($nhom_hang);
+									} 
+								?>
 	                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 group-left">
 	                                    <div class="media22">
 	                                        <div class="media-body">
@@ -27,28 +33,38 @@
 	                                            <div class="khachhang">
 	                                                <div class="ttkh">
 	                                                    <div class="text-1"> Họ tên:</div>&nbsp;&nbsp;
-	                                                    <div class="text-2"> Phan Công Đỉnh</div>
+	                                                    <div class="text-2"> <?=$ho_ten?></div>
 	                                                </div>
 	                                                <div class="ttkh">
 	                                                    <div class="text-1"> Điện thoại:</div>&nbsp;&nbsp;
-	                                                    <div class="text-3"> 0965261592</div>
+	                                                    <div class="text-3"> <?=$sdt?></div>
 	                                                </div>
 	                                                <div class="ttkh">
 	                                                    <div class="text-1"> Email:</div>&nbsp;&nbsp;
-	                                                    <div class="text-4"> phandinh2122001@gmail.com</div>
+	                                                    <div class="text-4"> <?php echo $_SESSION['user']['email'];; ?></div>
 	                                                </div>
 	                                                <div class="ttkh">
 	                                                    <div class="text-1"> Địa chỉ:</div>&nbsp;&nbsp;
-	                                                    <div class="text-4"> Chợ Gạo, Tiền Giang</div>
+	                                                    <div class="text-4"> <?=$dia_chi?></div>
 	                                                </div>
 	                                            </div>
 	                                        </div>
 	                                    </div>
 	                                </div>
+									<?php } ?>
 	                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 group-left">
 	                                    <li class="list-group-item items">
 	                                        <div class="media22">
 	                                            <h4 class="title">DANH SÁCH SẢN PHẨM</h4>
+										<?php 
+                                        $donhang=load_sp_dh();
+							            foreach($donhang as $value){ 
+								         extract($value); 
+
+							
+										 ?>
+
+
 	                                            <div class="sanpham">
 	                                                <div class="media-left">
 	                                                    <img class="media-object"
@@ -76,32 +92,10 @@
 	                                                </div>
 	                                            </div>
 	                                            <hr>
-	                                            <div class="sanpham">
-	                                                <div class="media-left">
-	                                                    <img class="media-object"
-	                                                        src="https://ananas.vn/wp-content/uploads/pro_A61104_1.jpg"
-	                                                        data-holder-rendered="true">
-	                                                </div>
-	                                                <div class="media-body">
-	                                                    <h4 class="media-heading">Urbas Irrelevant - Low Top - Storm/A.Gold
-	                                                    </h4>
-	                                                    <h5>
-	                                                        <span class="price">Giá: </span><span class="value">550.000
-	                                                            VNĐ</span>
-	                                                    </h5>
-	                                                    <h5>
-	                                                        <span class="size">Size: </span><span class="value">43</span>
-	                                                    </h5>
-	                                                    <h5>
-	                                                        <span class="quantity">Số lượng: </span><span
-	                                                            class="value">1</span>
-	                                                    </h5>
-	                                                    <br>
-	                                                    <h5>
-	                                                        <span class="total">550.000 VNĐ</span>
-	                                                    </h5>
-	                                                </div>
-	                                            </div>
+
+                                <?php } ?>
+
+
 	                                        </div>
 	                                    </li>
 	                                </div>
@@ -109,14 +103,15 @@
 	                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 group-right calculate">
 	                                <div class="media22">
 	                                    <div class="media-body">
+											
 	                                        <h4 class="title">THANH TOÁN</h4>
 	                                        <h4><span class="pleft">Trị giá đơn hàng:</span><span
-	                                                class="pright bold">550.000 <span>VNĐ</span></span>
+	                                                class="pright bold"><?php echo $thanh_tien;?> <span>VNĐ</span></span>
 	                                        </h4>
-	                                        <h4><span class="pleft">Giảm giá:</span><span class="pright bold">-220.000
+	                                        <h4><span class="pleft">Giảm giá:</span><span class="pright bold">-0
 	                                                <span>VNĐ</span></span>
 	                                        </h4>
-	                                        <h4><span class="pleft">Phí giao hàng:</span><span class="pright bold">30.000
+	                                        <h4><span class="pleft">Phí giao hàng:</span><span class="pright bold"><?php echo $phi_ship;?>
 	                                                <span>VNĐ</span></span>
 	                                        </h4>
 	                                        <h4><span class="pleft">Phí thanh toán:</span><span class="pright bold">0
@@ -126,7 +121,7 @@
 
 	                                        <h4>
 	                                            <span class="pleft ">Tổng thanh toán:</span><span
-	                                                class="pright bold">360.000 <span>VNĐ</span></span>
+	                                                class="pright bold"><?php echo $thanh_tien + $phi_ship ; ?> <span>VNĐ</span></span>
 	                                        </h4>
 	                                        <br>
 	                                    </div>

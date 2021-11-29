@@ -1,31 +1,31 @@
 <!-- breadcrumb-section -->
 <style>
-.user {
-    font-weight: bold;
-    color: black;
-}
+    .user {
+        font-weight: bold;
+        color: black;
+    }
 
-.time {
-    color: gray;
-}
+    .time {
+        color: gray;
+    }
 
-.userComment {
-    color: #000;
-    margin-right: 20px;
-}
+    .userComment {
+        color: #000;
+        margin-right: 20px;
+    }
 
-.replies .comment {
-    margin-top: 20px;
+    .replies .comment {
+        margin-top: 20px;
 
-}
+    }
 
-.replies {
-    margin-left: 20px;
-}
+    .replies {
+        margin-left: 20px;
+    }
 
-#registerModal input,
-#logInModal input {
-    margin-top: 10px;
+    #registerModal input,
+    #logInModal input {
+        margin-top: 10px;
 }
 </style>
 <div class="breadcrumb-section breadcrumb-bg">
@@ -56,8 +56,10 @@
                     <!--<img src="assets/img/products/product-img-5.jpg"> -->
                     <div class="slideshow-container">
                         <?php
+                       
 						if (is_array($onesp)) {
 							extract($onesp);
+                            tangSoLanXem($ma_san_pham);
 							$file = explode(",", substr($image, 0));
 						}
 						foreach ($file as $id => $value) {
@@ -118,24 +120,19 @@
                             <div class="size">
                                 <h2>Size:</h2>
                                 <!-- form 1 lấy size -->
-
-
                                 <?php
 									$sql = "SELECT DISTINCT thuoc_tinh.size FROM thuoc_tinh WHERE thuoc_tinh.ma_san_pham= '$ma_sp'";
 									$getSize = pdo_query($sql);
 									foreach ($getSize as $loai) {
-										extract($loai);
-                                        
-										echo '	<input name="size" value="' . $size . '"; type="radio" id="html" value="' . $size . '">
+										extract($loai);                                        
+										echo '	<input name="size" required value="' . $size . '"; type="radio" id="html" value="' . $size . '">
 					  							<label for="html">' . $size . '</label>';
 									?>
                                 <?php } ?>
-
                             </div>
                             <div class="mau">
                                 <h2>Màu</h2>
                                 <!-- form 1 lấy màu -->
-
                                 <?php
 									$i = 0;
 									$sql1 = "SELECT DISTINCT thuoc_tinh.color FROM thuoc_tinh WHERE thuoc_tinh.ma_san_pham= '$ma_sp'";
@@ -146,12 +143,9 @@
                                         print_r($color);
 									?>
                                 <input type="radio" class="radio" id="radio-<?= $i ?>" name="color"
-                                    value="<?= $color ?>" />
+                                    value="<?= $color ?>" required />
                                 <label for="radio-<?= $i ?>" style="background: <?= $color ?>;"></label>
                                 <?php } ?>
-
-
-
                             </div>
                         </div>
 

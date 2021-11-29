@@ -30,39 +30,27 @@
                                 <th>TRẠNG THÁI</th>
                                 <th>TỔNG TIỀN</th>
                             </tr>
+							<?php 
+                             $donhang=load_dh();
+							foreach($donhang as $value){ 
+								    extract($value); ?>
                             <tr>
-                                <td>01</td>
-                                <td>Phan Công Đỉnh</td>
-                                <td>0965261592</td>
-                                <td>24/11/2021</td>
+                                <td><?php echo $so_hoa_don; ?></td>
+                                <td><?php echo $ho_ten; ?></td>
+                                <td><?php echo $sdt; ?></td>
+                                <td><?php echo $ngay_hoa_don; ?></td>
                                 <td>
-                                    <span1>Đang xử lý</span1>
+                                    <span1><?php if($pt_thanhtoan==1){echo'đã thanh toán';}elseif($pt_thanhtoan==0){
+                                         echo'chưa thanh toán';
+									} 
+
+
+									?></span1>
                                 </td>
-                                <td>500<span>&nbsp;VNĐ</span></td>
-                                <td><a href="#">Chi tiết</a></td>
+                                <td><?php echo $thanh_tien; ?><span>&nbsp;USĐ</span></td>
+                                <td><a href="index.php?act=cartde&id=<?php echo $so_hoa_don; ?>">Chi tiết</a></td>
                             </tr>
-                            <tr>
-                                <td>02</td>
-                                <td>Hoàng Hải Đăng</td>
-                                <td>0123455667</td>
-                                <td>25/11/2021</td>
-                                <td>
-                                    <span1>Đang giao hàng</span1>
-                                </td>
-                                <td>700<span>&nbsp;VNĐ</span></td>
-                                <td><a href="#">Chi tiết</a></td>
-                            </tr>
-                            <tr>
-                                <td>03</td>
-                                <td>Chế Hoài Anh</td>
-                                <td>0965645476</td>
-                                <td>23/11/2021</td>
-                                <td>
-                                    <span1>Đã giao hàng</span1>
-                                </td>
-                                <td>800<span>&nbsp;VNĐ</span></td>
-                                <td><a href="chitietdh.php">Chi tiết</a></td>
-                            </tr>
+							<?php }?>
                         </table>
                     </div>				
 				</div>

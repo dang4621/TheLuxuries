@@ -91,4 +91,22 @@
         $sql="UPDATE hoa_don SET trang_thai = '$trangthai' WHERE so_hoa_don='$so_hoa_don'";
         return pdo_execute($sql);
     }
+
+    function load_dh(){
+        $id=$_SESSION['user']['id_tai_khoan'];
+        $sql="SELECT*FROM hoa_don WHERE id_tai_khoan='$id'";
+                return pdo_query($sql);     
+    }
+
+    function load_chitiet(){
+        $id=$_GET['id'];
+        $sql="SELECT*FROM hoa_don WHERE so_hoa_don='$id'";
+                return pdo_query_one($sql);     
+    }
+
+    function load_sp_dh(){
+        $id=$_GET['id'];
+        $sql="SELECT*FROM chi_tiet_hoa_don WHERE so_hoa_don='$id'";
+                return pdo_query($sql);     
+    }
 ?>

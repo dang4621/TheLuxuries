@@ -11,7 +11,9 @@
     <title>Đăng nhập & Đăng ký</title>
     <link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
 </head>
-<?php include './facebook_source.php'; ?>
+<?php include './facebook_source.php';
+include './google_source.php';
+ ?>
 <body>
     <div class="container">
         <div class="forms-container">
@@ -29,6 +31,8 @@
                         <input type="password" placeholder="Mật khẩu" name="password" />
                     </div>
                     <input type="submit" value="Đăng nhập" class="btn solid" name="submit" />
+                    <a href="forget_pass/quenmk.php" style="text-decoration: none;">Quên mật khẩu</a>
+                    <a href="index.php?" style="text-decoration: none;">Quay trở lại trang chủ</a>
                     <p class="social-text">Hoặc đăng nhập bằng các nền tảng xã hội</p>
                     <div class="social-media">
                         <a href="<?= $loginUrl ?>" class="social-icon">
@@ -37,7 +41,7 @@
                         <a href="#" class="social-icon">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="#" class="social-icon">
+                        <a href="<?=$authUrl?>" class="social-icon">
                             <i class="fab fa-google"></i>
                         </a>
                         <a href="#" class="social-icon">
@@ -139,7 +143,7 @@
                         <a href="#" class="social-icon">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="#" class="social-icon">
+                        <a href="<?=$authUrl?>" class="social-icon">
                             <i class="fab fa-google"></i>
                         </a>
                         <a href="#" class="social-icon">

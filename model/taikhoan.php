@@ -133,4 +133,12 @@ function xoa_dh($so_hoa_don,$ma_kh){
             DELETE FROM khach_hang where ma_kh='$ma_kh';";
     pdo_execute($sql);
 }
+function get_email($email){
+    $sql = "SELECT * FROM tai_khoan WHERE email ='$email'";
+   return pdo_query_one($sql);
+}
+function reset_pass($new_password , $email){
+    $sql = "UPDATE tai_khoan SET password = '$new_password' WHERE email = '$email'";
+    return pdo_execute($sql);
+}
 ?>

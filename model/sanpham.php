@@ -26,10 +26,10 @@ function load_all_sp($keyw,$id){
         $sql.=" ORDER BY view DESC";
     }
     if($id==997){
-        $sql.=" ORDER BY gia";
+        $sql.=" ORDER BY gia_goc";
     }
     if($id==996){
-        $sql.=" ORDER BY gia DESC";
+        $sql.=" ORDER BY gia_goc DESC";
     }
     if($id=0){
         $sql.=" ORDER BY ma_nhom_hang";
