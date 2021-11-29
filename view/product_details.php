@@ -1,31 +1,31 @@
 <!-- breadcrumb-section -->
 <style>
-.user {
-    font-weight: bold;
-    color: black;
-}
+    .user {
+        font-weight: bold;
+        color: black;
+    }
 
-.time {
-    color: gray;
-}
+    .time {
+        color: gray;
+    }
 
-.userComment {
-    color: #000;
-    margin-right: 20px;
-}
+    .userComment {
+        color: #000;
+        margin-right: 20px;
+    }
 
-.replies .comment {
-    margin-top: 20px;
+    .replies .comment {
+        margin-top: 20px;
 
-}
+    }
 
-.replies {
-    margin-left: 20px;
-}
+    .replies {
+        margin-left: 20px;
+    }
 
-#registerModal input,
-#logInModal input {
-    margin-top: 10px;
+    #registerModal input,
+    #logInModal input {
+        margin-top: 10px;
 }
 </style>
 <div class="breadcrumb-section breadcrumb-bg">
@@ -56,8 +56,10 @@
                     <!--<img src="assets/img/products/product-img-5.jpg"> -->
                     <div class="slideshow-container">
                         <?php
+                       
 						if (is_array($onesp)) {
 							extract($onesp);
+                            tangSoLanXem($ma_san_pham);
 							$file = explode(",", substr($image, 0));
 						}
 						foreach ($file as $id => $value) {

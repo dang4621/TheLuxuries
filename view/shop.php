@@ -37,7 +37,15 @@
                 <!-- test -->
             </div>
         </div>
-
+        <form method="POST">
+            <Select name="select" onChange="this.form.submit()">
+              <option value="0">Tất cả</option>
+              <option value="999">Sắp xếp theo lượt xem ít</option>
+              <option value="998">Sắp xếp theo lượt xem nhiều</option>
+              <option value="997">Sắp xếp giá nhỏ nhất</option>
+              <option value="996">Sắp xếp giá lớn nhất</option>
+            </Select>
+        </form>   
         <div class="row product-lists">
             <?php
             foreach ($sanpham as $value) {
