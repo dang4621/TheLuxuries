@@ -1,32 +1,29 @@
-	<?php   ob_start(); 
+	<?php  
 		session_start();
 		include '../model/pdo.php';
- 		include '../model/taikhoan.php';
+ 		include '../model/taikhoan.php';		
 		include '../mail/index.php';
-		$mail = new Mailler();
+		
 		if(isset($_POST['submit'])){
 			$error = array();
 			$email = $_POST['email'];
-			if($email == ""){
-				$error['email']= 'Email không được để trống';
-			}else{
+			if($email == ''){
+				$error['email']="không được để trống";
+			}
+			if(empty($error)){
 				$result = get_email($email);
-				if (is_array($result)) {
-					$code = substr(rand(0,999999),0,6);
-					$title = "Quên mật khẩu";
-					$content = "Mã xác nhận của bạn là : <span style = 'color : green '>".$code."</span>";
-					$mail->sendMail($title,$content,$email);
-
-					$_SESSION['mail']= $email ;
-					$_SESSION['codes'] = $code;
-					header('location : xacnhan.php');
-				} else {
-					echo("<h3 style='color : red ;'>Email không tồn tại</h3><br>");
-				}
+				$code = substr(rand(0,999999),0,6);
+				$title = "The luxuries Forget Password";
+				$content = "Mã xác nhận của bạn là : <span style = 'color : green '>".$code."</span>";
+				$_SESSION['mail']=$email;
+				$_SESSION['code']=$code;
+					mail::sendMail($title,$content,$email);
+					header('location: xacnhan.php');
+					exit();
 			}
 		}
+	
 	?>
-		<link rel="stylesheet" href="../view/assets/css/quenmk.css">
 	<div class="full-height-section error-section">
 	    <div class="full-height-tablecell20">
 	        <div class="container">
@@ -84,3 +81,5 @@
 	    </div>
 	</div>
 	<!-- end logo carousel -->
+	
+	<link rel="stylesheet" href="../view/assets/css/quenmk.css">

@@ -7,7 +7,7 @@
 	 include './model/giohang.php';
 	 include './model/taikhoan.php';
 		include 'mail/index.php';
-		$mail = new Mailler();
+
 
 		include 'view/header.php';
 		$danhmuc=loadAll_dm(); 

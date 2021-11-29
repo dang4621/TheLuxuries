@@ -137,4 +137,8 @@ function get_email($email){
     $sql = "SELECT * FROM tai_khoan WHERE email ='$email'";
    return pdo_query_one($sql);
 }
+function reset_pass($new_password , $email){
+    $sql = "UPDATE tai_khoan SET password = '$new_password' WHERE email = '$email'";
+    return pdo_execute($sql);
+}
 ?>

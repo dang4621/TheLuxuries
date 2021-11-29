@@ -1,11 +1,17 @@
-	<?php
+<?php
 		session_start();
+		include '../model/pdo.php';
+ 		include '../model/taikhoan.php';	
 		if(isset($_POST['submit'])){
 			$error = array();
-			if($_POST['code'] != $_SESSION['code']){
-				$error['fail'] = '<p style="color: red;">Mã xác nhận không hợp lệ</p>';
+			if($_POST['newpass'] != $_POST['repass'] ){
+				$error['fail_pass'] = '<p style="color: red;">Mật khẩu không khớp</p>';
 			}else{
-				header('location: resetpass.php');
+				$new_password = $_POST['newpass'];
+				$email = $_SESSION['mail'];
+				reset_pass($new_password , $email);
+				header('location: ../login.php');
+				// alert sửa thành công
 			}
 		}
 	?>
@@ -17,14 +23,15 @@
 	                    <div class="sign-up1">
 	                        <form class="sign-up__form"  method="post">
 	                            <div class="sign-up__content">
-	                                <h2 class="sign-up__title">Xác nhận mã code</h2>
+	                                <h2 class="sign-up__title">Thay đổi mật khẩu</h2>
 									<!-- <p style="color: red;">Mã xác nhận không hợp lệ</p> -->
 									<?php if(isset($error['fail'])):?>
-										<?= $error['fail'] ?>
+										<?= $error['fail_pass'] ?>
 									<?php endif ?>
 	                                <br>
 	                                <br>
-	                                <input class="sign-up__inp" name="code" type="text" placeholder="CODE" required="required" />
+	                                <input class="sign-up__inp" name="newpass" type="text" placeholder="Mật khẩu mới" required="required" />
+                                    <input class="sign-up__inp" name="repass" type="text" placeholder="Nhập lại mật khẩu" required="required" />
 	                                <div class="test11">
 	                                    <a class="forgot__password">Bạn chưa có tài khoản?</a>
 	                                    <a href="#"> ĐĂNG KÍ</a>
