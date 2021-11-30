@@ -5,10 +5,13 @@
   --gray-dark: #2e3c54;
   --font: "Montserrat", sans-serif;
 }
-.full-height-tablecell20{
+body{
+  background-image: url(../img/baner20.png);
+}
+/*.full-height-tablecell20{
   background-image: url(../img/baner20.png);
   margin-top: 58px;
-}
+}*/
 a {
   text-decoration: none;
 }
