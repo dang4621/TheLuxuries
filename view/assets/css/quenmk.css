@@ -5,8 +5,8 @@
   --gray-dark: #2e3c54;
   --font: "Montserrat", sans-serif;
 }
-body{
-  background-image: url(../img/baner20.png);
+.row40{
+  background-image: url(../img/baner22.jpg);
 }
 /*.full-height-tablecell20{
   background-image: url(../img/baner20.png);
