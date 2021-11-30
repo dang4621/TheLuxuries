@@ -34,9 +34,21 @@ button {
   align-items: center;
   justify-content: center;
 }
+.sign-up12{
+  font-family: var(--font);
+  width: 100%;
+  max-width: 800px;
+  height: 800px;
+  margin: 25px auto;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .sign-up__form {
   background-color: white;
-  width: 80%;
+  width: 95%;
   height: 70%;
   margin: 0 auto;
   position: relative;
@@ -105,8 +117,10 @@ button {
     justify-content: center;
     margin-top: 50px;
 }
-.sign-up1 .sign-up__buttons button:hover{
-    color: #F28123;
+.sign-up__buttons .btn--signin:hover{
+  color: #F28123;
 }
-
+.sign-up__buttons .btn--register:hover{
+  color: #051922;
+}
 

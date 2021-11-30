@@ -20,7 +20,7 @@
 	        <div class="container">
 	            <div class="row40">
 	                <div class="img20">
-	                    <div class="sign-up1">
+	                    <div class="sign-up12">
 	                        <form class="sign-up__form"  method="post">
 	                            <div class="sign-up__content">
 	                                <h2 class="sign-up__title">Thay đổi mật khẩu</h2>
