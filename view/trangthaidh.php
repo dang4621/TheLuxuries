@@ -43,8 +43,6 @@
                                     <span1><?php if($pt_thanhtoan==1){echo'đã thanh toán';}elseif($pt_thanhtoan==0){
                                          echo'chưa thanh toán';
 									} 
-
-
 									?></span1>
                                 </td>
                                 <td><?php echo $thanh_tien; ?><span>&nbsp;USĐ</span></td>

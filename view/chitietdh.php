@@ -59,12 +59,8 @@
 										<?php 
                                         $donhang=load_sp_dh();
 							            foreach($donhang as $value){ 
-								         extract($value); 
-
-							
+								         extract($value); 							
 										 ?>
-
-
 	                                            <div class="sanpham">
 	                                                <div class="media-left">
 	                                                    <img class="media-object"
