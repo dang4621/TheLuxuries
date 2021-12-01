@@ -141,4 +141,14 @@ function reset_pass($new_password , $email){
     $sql = "UPDATE tai_khoan SET password = '$new_password' WHERE email = '$email'";
     return pdo_execute($sql);
 }
+
+function get_tk_up($matk){
+    $sql = "SELECT * FROM tai_khoan WHERE id_tai_khoan ='$matk'";
+   return pdo_query_one($sql);
+}
+
+function update_tk($username ,$email,$phone,$pass,$matk){
+    $sql = "UPDATE tai_khoan SET username = '$username' ,email = '$email' ,sdt = '$phone' ,password = '$pass'  WHERE id_tai_khoan = '$matk'";
+    return pdo_execute($sql);
+}
 ?>
