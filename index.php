@@ -77,6 +77,7 @@
 					include 'view/checkout.php';
 					break;
 				case 'confirm':
+					include 'mail/index.php';
 					if (isset($_POST['sethang'])) {						 					
 						$so_hoa_don =  rand(10000, 99999999);	
 						$idtk = $_SESSION['user']['id_tai_khoan'];
@@ -109,6 +110,11 @@
 							pdo_execute($sql,$idchitiet,$so_hoa_don,$matt,$price,$soluong);
 							unset($_SESSION["shopping_cart"]);
 						}
+							$title = "The luxuries Forget Password";
+							$content = "";
+							$_SESSION['user']['email']=$email;
+
+							mail::sendMail($title,$content,$email);
 						header("Location:index.php");
 					}                
 					
