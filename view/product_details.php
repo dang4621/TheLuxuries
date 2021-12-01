@@ -1,31 +1,31 @@
 <!-- breadcrumb-section -->
 <style>
-    .user {
-        font-weight: bold;
-        color: black;
-    }
+.user {
+    font-weight: bold;
+    color: black;
+}
 
-    .time {
-        color: gray;
-    }
+.time {
+    color: gray;
+}
 
-    .userComment {
-        color: #000;
-        margin-right: 20px;
-    }
+.userComment {
+    color: #000;
+    margin-right: 20px;
+}
 
-    .replies .comment {
-        margin-top: 20px;
+.replies .comment {
+    margin-top: 20px;
 
-    }
+}
 
-    .replies {
-        margin-left: 20px;
-    }
+.replies {
+    margin-left: 20px;
+}
 
-    #registerModal input,
-    #logInModal input {
-        margin-top: 10px;
+#registerModal input,
+#logInModal input {
+    margin-top: 10px;
 }
 </style>
 <div class="breadcrumb-section breadcrumb-bg">
@@ -214,40 +214,18 @@
 </div>
 <!-- end more products -->
 <!-- binh luan -->
-<div class="cmt">
-    <form action="=" method="post">
-        <div class="col-md-12" style="width:60%">
-            <input type="hidden" name="idpro" value="">
-            <input class="form-control" type="text" name="noidung" placeholder="Nhập nội dung bình luận"><br>
-            <button style="float:right" class="btn-primary btn" id="binhluan" name="binhluan">Bình luận</button>
-        </div>
-    </form>
-    <br>
-    <div class="row">
-        <div class="col-md-12">
-            <h4>125 Bình luận</h4>
-            <div class="userComments">
-                <div class="comment">
-                    <div class="user">Truyền
-                        <span class="time">2021-11-20 10:19:01</span>
-                    </div>
-                    <div class="binhluan">Sản phẩm tốt</div>
-                    <hr>
-                    <div class="user">Truyền
-                        <span class="time">2021-11-20 10:19:01</span>
-                    </div>
-                    <div class="binhluan">Sản phẩm tốt</div>
-                    <hr>
-                    <div class="user">Truyền
-                        <span class="time">2021-11-20 10:19:01</span>
-                    </div>
-                    <div class="binhluan">Sản phẩm tốt</div>
-                </div>
-            </div>
-        </div>
-    </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+    $("#binhluan").load("view/binhluan/binhluanform.php", {
+        ma_san_pham: <?=$ma_san_pham?>
+    });
+});
+</script>
+<div class="cmt" id="binhluan">
+
 </div>
-<!-- end binh luan -->
+<!--end binh luận-->
 <!-- logo carousel -->
 <div class="logo-carousel-section">
     <div class="container">
