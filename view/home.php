@@ -230,7 +230,7 @@
 	<!-- shop banner -->
 	<section class="shop-banner">
 		<div class="container">
-			<h3>Giảm giá tháng 11 đang diễn ra! <br> với chiết khấu <span class="orange-text">LỚN...</span></h3>
+			<h3>Giảm giá tháng 12 đang diễn ra! <br> với chiết khấu <span class="orange-text">LỚN...</span></h3>
 			<div class="sale-percent"><span>Doanh thu! <br> Lên đến</span>50%</div>
 			<a href="shop.html" class="cart-btn btn-lg">Mua Ngay</a>
 		</div>
@@ -245,19 +245,19 @@
 				<div class="col-lg-12">
 					<div class="logo-carousel-inner">
 						<div class="single-logo-item">
-							<img src="assets/img/company-logos/1.png" alt="">
+							<img src="view/assets/img/company-logos/1.png" alt="">
 						</div>
 						<div class="single-logo-item">
-							<img src="assets/img/company-logos/2.png" alt="">
+							<img src="view/assets/img/company-logos/2.png" alt="">
 						</div>
 						<div class="single-logo-item">
-							<img src="assets/img/company-logos/3.png" alt="">
+							<img src="view/assets/img/company-logos/3.png" alt="">
 						</div>
 						<div class="single-logo-item">
-							<img src="assets/img/company-logos/4.png" alt="">
+							<img src="view/assets/img/company-logos/4.png" alt="">
 						</div>
 						<div class="single-logo-item">
-							<img src="assets/img/company-logos/5.png" alt="">
+							<img src="view/assets/img/company-logos/5.png" alt="">
 						</div>
 					</div>
 				</div>

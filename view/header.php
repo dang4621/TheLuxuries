@@ -75,7 +75,7 @@
 												}
 												?>
                                         </ul>
-										
+                                          
                                         <a class="shopping-cart" href="index.php?act=cart">
                                             <i class="fas fa-shopping-cart"></i>
 										</a>

@@ -17,7 +17,7 @@
 				<div class="col-lg-8 mb-5 mb-lg-0">
 					<div class="form-title">
 						<h2>Hãy đặt câu hỏi cho chúng tôi ?</h2>
-						<p>Sự phản hồi của khách hàng là động lực giúp chúng tôi phát triển hơn trong tương lai !</p>
+						<p3>Sự phản hồi của khách hàng là động lực giúp chúng tôi phát triển hơn trong tương lai !</p3>
 					</div>
 				 	<div id="form_status"></div>
 					<div class="contact-form">

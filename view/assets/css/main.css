@@ -1500,7 +1500,12 @@ input[type="submit"] {
   padding: 15px 25px;
   border-radius: 3px;
 }
-
+input[name="cartup"]{
+  padding:9px 34px;
+  color:white;
+  font-weight:500;
+  text-transform: none;
+}
 .homepage-bg-1 {
   background-image: url(../img/hero-bg.jpg);
 }
@@ -2427,7 +2432,6 @@ ul.social-link-team li a {
   display: inline-block;
   font-weight: 700;
   font-size: 18px;
-  margin: 15px;
   color: #323232;
   cursor: pointer;
   padding: 8px 20px;
@@ -2436,15 +2440,16 @@ ul.social-link-team li a {
 }
 
 .showsp{
-  font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif;
     display: inline-block;
     background-color: #F28123;
     color: #fff;
-    padding: 10px 20px;
-    border-radius: 25px;
+    padding: 0px 15px;
+    border-radius: 20px;
     font-size: 20px;
     transform: 0.2s;
     border: none;
+    height: 50px;
 }
 .showsp:hover{
   font-family: 'Poppins', sans-serif;
