@@ -45,7 +45,8 @@
               <option value="997">Sắp xếp giá nhỏ nhất</option>
               <option value="996">Sắp xếp giá lớn nhất</option>
             </Select>
-        </form>   
+        </form>  
+        <br> 
         <div class="row product-lists">
             <?php
             foreach ($sanpham as $value) {

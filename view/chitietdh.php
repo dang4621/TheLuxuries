@@ -59,8 +59,7 @@
 										<?php 
                                         $donhang=load_sp_dh();
 							            foreach($donhang as $value){ 
-								         extract($value); 
-
+								         extract($value); 							
 							               $idtt= $id_tt;
 
 										  
@@ -77,8 +76,6 @@
 											  }; 
 									  $imgpath = "upload/" . $file[0];
 										 ?>
-
-
 	                                            <div class="sanpham">
 	                                                <div class="media-left">
 	                                                    <img class="media-object"
@@ -146,6 +143,8 @@
 	                            </div>
 	                            <div class="butn">
 	                                <a href="#"><input type="submit" value="Quay lại"></a>
+									<a href="index.php?act=sua_tt&ma_hoa_don=<?= $so_hoa_don ?>&tt=4">Hủy đơn hàng</a><br>
+           							<a href="index.php?act=sua_tt&ma_hoa_don=<?= $so_hoa_don ?>&tt=3">Đã nhận được hàng</a><br>
 	                            </div>
 
 	                        </div>
