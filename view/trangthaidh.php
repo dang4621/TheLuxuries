@@ -40,12 +40,22 @@
                                 <td><?php echo $sdt; ?></td>
                                 <td><?php echo $ngay_hoa_don; ?></td>
                                 <td>
-                                    <span1><?php if($pt_thanhtoan==1){echo'đã thanh toán';}elseif($pt_thanhtoan==0){
-                                         echo'chưa thanh toán';
+                                    <?php 
+									if($trang_thai==1){
+										echo'<span1 style="background-color: #D3E4CD;">Đang chuẩn bị hàng</span1>';
+									}elseif($trang_thai==0){
+                                         echo'<span1 style="background-color: #F3950D;">Đang xác nhận</span1>';
 									} 
-
-
-									?></span1>
+									elseif($trang_thai==2){
+										echo'<span1 style="background-color: #FF87CA;">Đang giao</span1>';
+								   } 
+								   elseif($trang_thai==3){
+									echo'<span1 style="background-color: #71DFE7;">Đã giao</span1>';
+							   		} 
+									    elseif($trang_thai==4){
+									echo'<span1 style="background-color: #71DFE7;">Đã hủy</span1>';
+							   		} 
+									?>
                                 </td>
                                 <td><?php echo $thanh_tien; ?><span>&nbsp;USĐ</span></td>
                                 <td><a href="index.php?act=cartde&id=<?php echo $so_hoa_don; ?>">Chi tiết</a></td>

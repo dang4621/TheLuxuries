@@ -109,4 +109,20 @@
         $sql="SELECT*FROM chi_tiet_hoa_don WHERE so_hoa_don='$id'";
                 return pdo_query($sql);     
     }
+//     SELECT  chi_tiet_hoa_don.so_hoa_don, chi_tiet_hoa_don.gia , chi_tiet_hoa_don.so_luong ,thuoc_tinh.size ,thuoc_tinh.color ,san_pham.ten_san_pham ,san_pham.image ,san_pham.gia_goc
+// FROM    ((chi_tiet_hoa_don INNER JOIN hoa_don ON chi_tiet_hoa_don.so_hoa_don = hoa_don.so_hoa_don)
+//                 INNER JOIN thuoc_tinh ON chi_tiet_hoa_don.id_tt = thuoc_tinh.id_tt)
+//                 INNER JOIN san_pham ON thuoc_tinh.ma_san_pham = san_pham.ma_san_pham
+// WHERE   chi_tiet_hoa_don.so_hoa_don = '30800868'
+
+
+    function load_sp_theo_dh($so_hoa_don){
+        
+        $sql="SELECT  chi_tiet_hoa_don.so_hoa_don, chi_tiet_hoa_don.gia , chi_tiet_hoa_don.so_luong ,thuoc_tinh.size ,thuoc_tinh.color ,san_pham.ten_san_pham ,san_pham.image ,san_pham.gia_goc
+										   FROM    ((chi_tiet_hoa_don INNER JOIN hoa_don ON chi_tiet_hoa_don.so_hoa_don = hoa_don.so_hoa_don)
+														   INNER JOIN thuoc_tinh ON chi_tiet_hoa_don.id_tt = thuoc_tinh.id_tt)
+														   INNER JOIN san_pham ON thuoc_tinh.ma_san_pham = san_pham.ma_san_pham
+										   WHERE   chi_tiet_hoa_don.so_hoa_don = $so_hoa_don ";
+										 return pdo_query_one($sql);     
+    }
 ?>
