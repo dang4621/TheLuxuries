@@ -65,7 +65,7 @@
 												}
 												?>
                                             <li><a href="index.php?act=cartdetails">Đơn hàng của tôi</a></li>
-                                            <li><a href="#">Cập nhật thông tin</a></li>
+                                            <li><a href="update_information/capnhatthongtin.php">Cập nhật thông tin</a></li>
                                             <li><a href="index.php?act=quenmk">Quên mật khẩu</a></li>
                                             <?php 
 												if(isset($_SESSION['user'])){
