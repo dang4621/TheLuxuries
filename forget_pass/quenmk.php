@@ -12,7 +12,8 @@
 			}
 			if(empty($error)){
 				$result = get_email($email);
-				$code = substr(rand(0,999999),0,6);
+				if(!empty($result)){
+					$code = substr(rand(0,999999),0,6);
 				$title = "The luxuries Forget Password";
 				$content = '<head>
 							<title></title>
@@ -360,6 +361,10 @@
 					mail::sendMail($title,$content,$email);
 					header('location: xacnhan.php');
 					exit();
+				}else{
+					//thư viện alert thông báo email không tồn tại
+				}
+				
 			}
 		}
 	
