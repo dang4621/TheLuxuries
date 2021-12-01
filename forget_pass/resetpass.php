@@ -11,7 +11,7 @@
 				$email = $_SESSION['mail'];
 				reset_pass($new_password , $email);
 				header('location: ../login.php');
-				// alert sửa thành công
+				// alert Thay đổi thành công
 			}
 		}
 	?>
@@ -24,7 +24,6 @@
 	                        <form class="sign-up__form"  method="post">
 	                            <div class="sign-up__content">
 	                                <h2 class="sign-up__title">Thay đổi mật khẩu</h2>
-									<!-- <p style="color: red;">Mã xác nhận không hợp lệ</p> -->
 									<?php if(isset($error['fail'])):?>
 										<?= $error['fail_pass'] ?>
 									<?php endif ?>

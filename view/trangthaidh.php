@@ -48,11 +48,11 @@
 									} 
 									elseif($trang_thai==2){
 										echo'<span1 style="background-color: #FF87CA;">Đang giao</span1>';
-								   } 
-								   elseif($trang_thai==3){
+								   	} 
+								   	elseif($trang_thai==3){
 									echo'<span1 style="background-color: #71DFE7;">Đã giao</span1>';
 							   		} 
-									    elseif($trang_thai==4){
+									elseif($trang_thai==4){
 									echo'<span1 style="background-color: #71DFE7;">Đã hủy</span1>';
 							   		} 
 									?>

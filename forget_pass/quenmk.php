@@ -1,4 +1,6 @@
-	<?php  
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script><?php  
 		session_start();
 		include '../model/pdo.php';
  		include '../model/taikhoan.php';		
@@ -12,7 +14,8 @@
 			}
 			if(empty($error)){
 				$result = get_email($email);
-				$code = substr(rand(0,999999),0,6);
+				if(!empty($result)){
+					$code = substr(rand(0,999999),0,6);
 				$title = "The luxuries Forget Password";
 				$content = '<head>
 							<title></title>
@@ -360,9 +363,18 @@
 					mail::sendMail($title,$content,$email);
 					header('location: xacnhan.php');
 					exit();
+				}else{
+				 $thongbao = '<script>swal ( "Email không tồn tại", "Bạn đã nhập sai email", "error");</script>';
+				}
+				
 			}
 		}
 	
+	?>
+	<?php 
+		if (isset($thongbao)) {
+			echo '<p>' . $thongbao . '</p>';
+		}
 	?>
 	<div class="full-height-section error-section">
 	    <div class="full-height-tablecell20">
