@@ -61,33 +61,50 @@
 							            foreach($donhang as $value){ 
 								         extract($value); 
 
-							
+							               $idtt= $id_tt;
+
+										  
+										   $nhom_hang1=load_sp_theo_dh($so_hoa_don);
+										   if(is_array($nhom_hang1)){
+											  extract($nhom_hang1);
+											  } 
+
+											  $url_hinh="";                                
+											  if(isset($image)&&!$image==""){
+												  $file = explode(",",substr($image, 0, -1));
+											  }else{
+												  $url_hinh="không có hình";
+											  }; 
+									  $imgpath = "upload/" . $file[0];
 										 ?>
 
 
 	                                            <div class="sanpham">
 	                                                <div class="media-left">
 	                                                    <img class="media-object"
-	                                                        src="https://ananas.vn/wp-content/uploads/pro_A61104_1.jpg"
+	                                                        src="<?php echo $imgpath; ?>"
 	                                                        data-holder-rendered="true">
 	                                                </div>
 	                                                <div class="media-body">
-	                                                    <h4 class="media-heading">Urbas Irrelevant - Low Top - Storm/A.Gold
+	                                                    <h4 class="media-heading"><?php echo $ten_san_pham; ?>
 	                                                    </h4>
 	                                                    <h5>
-	                                                        <span class="price">Giá: </span><span class="value">550.000
+	                                                        <span class="price">Giá: </span><span class="value"><?php echo $gia_goc; ?>
 	                                                            VNĐ</span>
 	                                                    </h5>
+
+
+
 	                                                    <h5>
-	                                                        <span class="size">Size: </span><span class="value">43</span>
+	                                                        <span class="size">size </span><span class="value"><?php echo $size; ?></span>
 	                                                    </h5>
 	                                                    <h5>
 	                                                        <span class="quantity">Số lượng: </span><span
-	                                                            class="value">1</span>
+	                                                            class="value"><?php echo $so_luong; ?> </span>
 	                                                    </h5>
 	                                                    <br>
 	                                                    <h5>
-	                                                        <span class="total">550.000 VNĐ</span>
+	                                                        <span class="total"><?php echo $gia_goc; ?> VNĐ</span>
 	                                                    </h5>
 	                                                </div>
 	                                            </div>

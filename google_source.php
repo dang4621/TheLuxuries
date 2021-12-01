@@ -9,15 +9,15 @@ include './function.php';
 
 //Insert your cient ID and secret 
 //You can get it from : https://console.developers.google.com/
-$client_id = '925660983740-ikrggu7obrjphqvqqu73f8nm01itvlfs.apps.googleusercontent.com';
+$client_id = '405255702276-ve2r4aur0fnj375b9q8qd02nleurrs4l.apps.googleusercontent.com';
 $client_secret = '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';
 $redirect_uri = 'http://localhost/TheLuxuries/google_source.php';
 
 
 
 $client = new Google_Client();
-$client->setClientId('925660983740-ikrggu7obrjphqvqqu73f8nm01itvlfs.apps.googleusercontent.com');
-$client->setClientSecret('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');
+$client->setClientId('405255702276-ve2r4aur0fnj375b9q8qd02nleurrs4l.apps.googleusercontent.com');
+$client->setClientSecret('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');
 $client->setRedirectUri($redirect_uri);
 $client->addScope("email");
 $client->addScope("profile");
