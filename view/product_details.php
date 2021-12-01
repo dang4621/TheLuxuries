@@ -56,8 +56,10 @@
                     <!--<img src="assets/img/products/product-img-5.jpg"> -->
                     <div class="slideshow-container">
                         <?php
+                       
 						if (is_array($onesp)) {
 							extract($onesp);
+                            tangSoLanXem($ma_san_pham);
 							$file = explode(",", substr($image, 0));
 						}
 						foreach ($file as $id => $value) {
@@ -118,24 +120,19 @@
                             <div class="size">
                                 <h2>Size:</h2>
                                 <!-- form 1 lấy size -->
-
-
                                 <?php
 									$sql = "SELECT DISTINCT thuoc_tinh.size FROM thuoc_tinh WHERE thuoc_tinh.ma_san_pham= '$ma_sp'";
 									$getSize = pdo_query($sql);
 									foreach ($getSize as $loai) {
-										extract($loai);
-                                        
-										echo '	<input name="size" value="' . $size . '"; type="radio" id="html" value="' . $size . '">
+										extract($loai);                                        
+										echo '	<input name="size" required value="' . $size . '"; type="radio" id="html" value="' . $size . '">
 					  							<label for="html">' . $size . '</label>';
 									?>
                                 <?php } ?>
-
                             </div>
                             <div class="mau">
                                 <h2>Màu</h2>
                                 <!-- form 1 lấy màu -->
-
                                 <?php
 									$i = 0;
 									$sql1 = "SELECT DISTINCT thuoc_tinh.color FROM thuoc_tinh WHERE thuoc_tinh.ma_san_pham= '$ma_sp'";
@@ -146,19 +143,16 @@
                                         print_r($color);
 									?>
                                 <input type="radio" class="radio" id="radio-<?= $i ?>" name="color"
-                                    value="<?= $color ?>" />
+                                    value="<?= $color ?>" required />
                                 <label for="radio-<?= $i ?>" style="background: <?= $color ?>;"></label>
                                 <?php } ?>
-
-
-
                             </div>
                         </div>
 
                         <div class="single-product-form">
                             <!-- form 3 lấy số lượng , mã sản phẩm-->
 
-                            <input type="number" name="quantity" value="1">
+                            <input type="number" name="quantity" value="1" min="1">
                             <input type="hidden" name="gia" value="<?= $gia_goc - $giam_gia ?>">
                             <input type="hidden" name="id" value="<?= $ma_san_pham ?>">
                             <input type="submit" name="add" value="Thêm vào giỏ">
@@ -220,40 +214,18 @@
 </div>
 <!-- end more products -->
 <!-- binh luan -->
-<div class="cmt">
-    <form action="=" method="post">
-        <div class="col-md-12" style="width:60%">
-            <input type="hidden" name="idpro" value="">
-            <input class="form-control" type="text" name="noidung" placeholder="Nhập nội dung bình luận"><br>
-            <button style="float:right" class="btn-primary btn" id="binhluan" name="binhluan">Bình luận</button>
-        </div>
-    </form>
-    <br>
-    <div class="row">
-        <div class="col-md-12">
-            <h4>125 Bình luận</h4>
-            <div class="userComments">
-                <div class="comment">
-                    <div class="user">Truyền
-                        <span class="time">2021-11-20 10:19:01</span>
-                    </div>
-                    <div class="binhluan">Sản phẩm tốt</div>
-                    <hr>
-                    <div class="user">Truyền
-                        <span class="time">2021-11-20 10:19:01</span>
-                    </div>
-                    <div class="binhluan">Sản phẩm tốt</div>
-                    <hr>
-                    <div class="user">Truyền
-                        <span class="time">2021-11-20 10:19:01</span>
-                    </div>
-                    <div class="binhluan">Sản phẩm tốt</div>
-                </div>
-            </div>
-        </div>
-    </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+    $("#binhluan").load("view/binhluan/binhluanform.php", {
+        ma_san_pham: <?=$ma_san_pham?>
+    });
+});
+</script>
+<div class="cmt" id="binhluan">
+
 </div>
-<!-- end binh luan -->
+<!--end binh luận-->
 <!-- logo carousel -->
 <div class="logo-carousel-section">
     <div class="container">

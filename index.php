@@ -1,11 +1,12 @@
-<?php 
-     ob_start();
+<?php ob_start();
      session_start();
      include './model/pdo.php';
      include './model/sanpham.php';   
      include './model/danhmuc.php';    
      include './model/thuonghieu.php';
 	 include './model/giohang.php';
+	 include './model/taikhoan.php';
+		include 'mail/index.php';
 
 
 		include 'view/header.php';
@@ -65,50 +66,82 @@
                     }
                 }
 				case 'cart':
-					include 'view/mycart.php';
+					if(isset($_SESSION["user"])){
+						include 'view/mycart.php';  
+					 }
+					 else{
+						 header("Location: login.php"); 
+					 }  					
 					break;
 				case 'checkout':
 					include 'view/checkout.php';
-					break;		
-				case 'test':                
-					include 'view/test.php';
 					break;
 				case 'confirm':
-						if (isset($_POST['sethang'])) {						 					
-							$so_hoa_don =  rand(10000, 99999999);	
-							$idtk = $_SESSION['user']['id_tai_khoan'];
-							$ngaydathang = date('h:i:sa d/m/y');
-							
-							if(isset($_POST['payment'])){
-								$pt_thanhtoan = $_POST['payment'];
-							}else{
-								$pt_thanhtoan=1;
-							}
-							$thanhtien = $_POST['total'];
-							// $_SESSION['total_money']= $thanhtien ;
-							$phiship = 5000;
-							$trang_thai = 0 ;
-							$hoten = $_POST['name'];
-							$sdt = $_POST['sdt'];
-							$email = $_POST['email'];
-							$address = $_POST['address'];
-							$loi_nhan = $_POST['bill'];
-							
-							$sql = "INSERT INTO hoa_don(so_hoa_don,id_tai_khoan, ngay_hoa_don,  pt_thanhtoan,   thanh_tien, phi_ship, trang_thai, ho_ten,	sdt,	dia_chi, loi_nhan ) value(?,?,?,?,?,?,?,?,?,?,?)";
-							pdo_execute($sql, 			$so_hoa_don, $idtk, 	$ngaydathang,   $pt_thanhtoan , $thanhtien, $phiship, $trang_thai , $hoten, $sdt, $address, $loi_nhan);
-							foreach ($_SESSION['shopping_cart'] as $value){
-								extract($value);
-								$idchitiet =rand(10000,999999) ;
-								$matt=getid($ma_san_pham,$size,$color);	
-								$soluong=$quantity;
-								$price=$gia;												
-								$sql="insert into chi_tiet_hoa_don(id_cthd,so_hoa_don,id_tt,gia,so_luong) value(?,?,?,?,?)";
-								pdo_execute($sql,$idchitiet,$so_hoa_don,$matt,$price,$soluong);
-								unset($_SESSION["shopping_cart"]);
-							}
-							header("Location:index.php");
-						}                
+					if (isset($_POST['sethang'])) {						 					
+						$so_hoa_don =  rand(10000, 99999999);	
+						$idtk = $_SESSION['user']['id_tai_khoan'];
+						$ngaydathang = date('h:i:sa d/m/y');
 						
+						if(isset($_POST['payment'])){
+							$pt_thanhtoan = $_POST['payment'];
+						}else{
+							$pt_thanhtoan=1;
+						}
+						$thanhtien = $_POST['total'];
+						// $_SESSION['total_money']= $thanhtien ;
+						$phiship = 5000;
+						$trang_thai = 0 ;
+						$hoten = $_POST['name'];
+						$sdt = $_POST['sdt'];
+						$email = $_POST['email'];
+						$address = $_POST['address'];
+						$loi_nhan = $_POST['bill'];
+						
+						$sql = "INSERT INTO hoa_don(so_hoa_don,id_tai_khoan, ngay_hoa_don,  pt_thanhtoan,   thanh_tien, phi_ship, trang_thai, ho_ten,	sdt,	dia_chi, loi_nhan ) value(?,?,?,?,?,?,?,?,?,?,?)";
+						pdo_execute($sql, 			$so_hoa_don, $idtk, 	$ngaydathang,   $pt_thanhtoan , $thanhtien, $phiship, $trang_thai , $hoten, $sdt, $address, $loi_nhan);
+						foreach ($_SESSION['shopping_cart'] as $value){
+							extract($value);
+							$idchitiet =rand(10000,999999) ;
+							$matt=getid($ma_san_pham,$size,$color);	
+							$soluong=$quantity;
+							$price=$gia;												
+							$sql="insert into chi_tiet_hoa_don(id_cthd,so_hoa_don,id_tt,gia,so_luong) value(?,?,?,?,?)";
+							pdo_execute($sql,$idchitiet,$so_hoa_don,$matt,$price,$soluong);
+							unset($_SESSION["shopping_cart"]);
+						}
+						header("Location:index.php");
+					}                
+					
+					 break;
+				case 'logout':
+					unset($_SESSION['user']);
+					header("Location: index.php");  
+					break;			
+				// case 'quenmk' :
+				// 	if(isset($_POST['submit'])){
+				// 		$error = array();
+				// 		$email = $_POST['email'];
+				// 		if($email == ""){
+				// 			$error['email']= 'Email không được để trống';
+				// 		}else{
+				// 			$result = get_email($email);
+				// 			if (is_array($result)) {
+				// 				$code = substr(rand(0,999999),0,6);
+				// 				$title = "Quên mật khẩu";
+				// 				$content = "Mã xác nhận của bạn là : <span style = 'color : green '>".$code."</span>";
+				// 				$mail->sendMail($title,$content,$email);
+			
+				// 				$_SESSION['mail']= $email ;
+				// 				$_SESSION['codes'] = $code;
+				// 				header("Location: forget_pass/quenmk.php");
+				// 				// header('location : view/forget_pass/xacnhan.php');
+				// 			} else {
+				// 				echo("<h3 style='color : red ;'>Email không tồn tại</h3><br>");
+				// 			}
+				// 		}
+				// 	}
+				// 	include 'view/forget_pass/quenmk.php';
+				// 	break;	
 					 break;	
 					 
 					 case 'cartdetails':
@@ -134,6 +167,9 @@
 					include 'view/404.php';  
 					break;
 				case 'done' :
+					include 'view/done.php';  
+					break;
+				
 						include 'view/done.php';  
 						break;
 				case 'quenmk' :

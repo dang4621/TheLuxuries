@@ -1,38 +1,39 @@
-	<!-- breadcrumb-section -->
-	<div class="breadcrumb-section breadcrumb-bg">
-	    <div class="container">
-	        <div class="row">
-	            <div class="col-lg-8 offset-lg-2 text-center">
-	                <div class="breadcrumb-text">
-	                    <p>Fresh adn Organic</p>
-	                    <h1>404 - Không tìm thấy</h1>
-	                </div>
-	            </div>
-	        </div>
-	    </div>
-	</div>
-	<!-- end breadcrumb section -->
-	<!-- error section -->
-	<div class="full-height-section error-section">
+	<?php
+		session_start();
+		if(isset($_POST['submit'])){
+			$error = array();
+			if($_POST['code'] != $_SESSION['code']){
+				$error['fail'] = '<p style="color: red;">Mã xác nhận không hợp lệ</p>';
+			}else{
+				header('location: resetpass.php');
+			}
+		}
+	?>
+    <div class="full-height-section error-section">
 	    <div class="full-height-tablecell20">
 	        <div class="container">
 	            <div class="row40">
 	                <div class="img20">
 	                    <div class="sign-up1">
-	                        <form class="sign-up__form" action="javascript:void(0)" method="post">
+	                        <form class="sign-up__form"  method="post">
 	                            <div class="sign-up__content">
-	                                <h2 class="sign-up__title">Quên Mật Khẩu</h2>
+	                                <h2 class="sign-up__title">Xác nhận mã code</h2>
+									<!-- <p style="color: red;">Mã xác nhận không hợp lệ</p> -->
+									<?php if(isset($error['fail'])):?>
+										<?= $error['fail'] ?>
+									<?php endif ?>
 	                                <br>
 	                                <br>
-	                                <input class="sign-up__inp" type="email" placeholder="EMAIL" required="required" />
+	                                <input class="sign-up__inp" name="code" type="text" placeholder="CODE" required="required" />
 	                                <div class="test11">
 	                                    <a class="forgot__password">Bạn chưa có tài khoản?</a>
 	                                    <a href="#"> ĐĂNG KÍ</a>
 	                                </div>
 	                            </div>
 	                            <div class="sign-up__buttons">
-	                                <a class="btn btn--register" href="#">Gửi yêu cầu</a>
-	                                <button class="btn btn--signin" type="reset">Nhập lại</button>
+									<button class="btn btn--register" type="submit" name="submit">Xác nhận</button>
+	                               
+	                                <button class="btn btn--signin" type="reset">Trở về trang chủ</button>
 	                            </div>
 	                        </form>
 	                    </div>
@@ -69,3 +70,4 @@
 	    </div>
 	</div>
 	<!-- end logo carousel -->
+	<link rel="stylesheet" href="../view/assets/css/quenmk.css">
