@@ -282,7 +282,7 @@
                     }
                     $values = lay_dtt($thang);
                 }else{
-                    $thang = (substr(date("Y/m/d"), 8).",");
+                    $thang = (substr(date("Y/m/d"),5,2).",");
                     if($thang == 10||$thang == 11||$thang == 12){
                         $thang = $_POST['thang'];
                     }else{
