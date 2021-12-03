@@ -52,7 +52,7 @@
 									<td class="product-image"><?= 	$hinhp ?></td>
 									<td class="product-name"><?= $ten_san_pham ?></td>
 									<td class="product-price"><?= $gia ?></td>
-									<td class="product-quantity"><input type="number" name="quan[<?php echo $key ;?>]"  value="<?=$quantity?>">	</td>
+									<td class="product-quantity"><input type="number" name="quan[<?php echo $key ;?>]"  value="<?=$quantity?>" min="1">	</td>
 									<td class="product-size"><?= $size ?></td>
 									<td class="product-color"><?= $color ?></td>
 									<td class="product-total"><?= $tt[$a]=$gia*$quantity ; ?></td>

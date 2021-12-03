@@ -1,71 +1,72 @@
-body {
-  padding: 1rem;
-  font-family: "Open Sans", sans-serif;
+.dinh h1{
+    font-size: 16pt;
 }
-.test {
-    width: 35%;
+.dinh .test {
     display: flex;
-    flex-flow: row wrap;
+    margin-top:-30px;
 }
-.test .a {
-    flex: 1;
-    padding: 0.5rem;
-}
-.test .a input[type="radio"] {
+.dinh .test .a input[type="radio"] {
     display: none;
   }
-  .test .a label {
-    display: block;
-    background: #f27f21;
-    border:none;
-    border-radius: 20px;
-    padding: 1rem;
-    margin: 1rem;
-    text-align: center;
-    position: relative;
-    color:white;
+  .dinh .test .a label {
+      display: block;
+      background-color: #f27f21;
+      border: none;
+      border-radius: 20px;
+      padding: 0px;
+      margin: 1rem;
+      text-align: center;
+      position: relative;
+      color: white;
+      width: 60px;
+      height: 40px;
+      min-width: 60px;
   }
-  .test h2{
+  .dinh .test h2{
     margin:0px;
     font-size:11pt;
     font-weight: 600;
   }
-  .test .a input[type="radio"]:checked + label{
-    background: hsl(199deg 74% 8%);
-    color: hsl(27deg 89% 54%);
+  .dinh .test .a input[type="radio"]:checked + label{
+    background-color: hsl(199deg 74% 8%);
+    color: hsl(27deg 13% 91%);
     border: none;
   }
+  .dinh .test .a input[type="radio"]:checked + label h2{
+      color: white;
+  }
 
-section {
-  width: 30%;
+  .dinh section {
   display: flex;
-  flex-flow: row wrap;
+  margin-top:-25px;
 }
-section > div {
-  flex: 1;
-}
-section input[type="radio"] {
+.dinh section input[type="radio"] {
   display: none;
 }
-section label {
+.dinh section label {
   display: block;
-  background: #f27f21;
+  background-color: #f27f21;
   border: none;
   border-radius: 20px;
-  padding: 1rem;
+  padding: 0px;
   margin: 1rem;
   text-align: center;
   position: relative;
   color:white;
+  width:60px;
+  height:40px;
+  min-width:60px;
 }
-section h2{
+.dinh section h2{
   margin:0px;
   font-size:11pt;
   font-weight: 600;
 }
-section input[type="radio"]:checked + label {
-  background: hsl(199deg 74% 8%);
+.dinh section input[type="radio"]:checked + label {
+  background-color: hsl(199deg 74% 8%);
   color: hsl(27deg 89% 54%);
   border: none;
 }
-
+.dinh section input[type="radio"]:checked + label h2 {
+    color: white;
+  }

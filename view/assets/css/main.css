@@ -342,9 +342,9 @@ p:last-child {
 }
 
 @media only screen and (max-width: 767.96px) {
-  .pt-80 {
+  /*.pt-80 {
     padding-top: 50px;
-  }
+  }*/
 }
 
 .pb-80 {
@@ -610,7 +610,7 @@ nav.main-menu > ul li:last-child {
   float: right;
 }
 /*test danhnhap*/
-nav.main-menu ul ul.sub-dangnhap {
+nav.main-menu ul ul.sub-dangnhap2 {
   position: absolute;
   background-color: #fff;
   width: 220px;
@@ -627,17 +627,26 @@ nav.main-menu ul ul.sub-dangnhap {
   -webkit-box-shadow: 0 0 20px #555555;
   box-shadow: 0 0 20px #555555;
 }
-nav.main-menu ul ul.sub-dangnhap li {
+#btn-dangnhap:hover .sub-dangnhap2{
+  visibility: inherit;
+}
+nav.main-menu ul ul.sub-dangnhap2 li {
   display: block;
   text-align: left;
 }
-nav.main-menu ul ul.sub-dangnhap li a {
+nav.main-menu ul ul.sub-dangnhap2 li a {
   color: #555;
   font-weight: 600;
   padding: 7px 10px;
   font-size: 13px;
 }
-nav.main-menu ul ul.sub-dangnhap li a:hover{
+nav.main-menu ul ul.sub-dangnhap2 li a:hover {
+  color: #F28123;
+}
+.mobile-hide.search-bar-icon{
+  color: white;
+}
+.mobile-hide.search-bar-icon:hover{
   color: #F28123;
 }
 /*end dangnhap*/
@@ -897,7 +906,7 @@ a.mobile-show {
   background-color: #051922;
   color: #fff;
   padding: 100px 0;
-  height: 500px;
+  height: auto;
 }
 
 h2.widget-title {
@@ -1433,10 +1442,10 @@ html, body {
 
 .hero-text p.subtitle {
   color: #F28123;
-  font-weight: 700;
+  font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 7px;
-  font-size: 25px;
+  font-size: 30px;
 }
 
 .hero-text h1 {
@@ -2450,12 +2459,16 @@ ul.social-link-team li a {
     transform: 0.2s;
     border: none;
     height: 50px;
+    min-width: 100px;
 }
 .showsp:hover{
   font-family: 'Poppins', sans-serif;
   background-color: #051922;
   color: #F28123;
-
+}
+.showsp.active{
+  background-color:red ;
+  color: #012738;
 }
 .single-product-item {
   margin-bottom: 30px;
