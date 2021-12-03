@@ -610,7 +610,7 @@ nav.main-menu > ul li:last-child {
   float: right;
 }
 /*test danhnhap*/
-nav.main-menu ul ul.sub-dangnhap {
+nav.main-menu ul ul.sub-dangnhap2 {
   position: absolute;
   background-color: #fff;
   width: 220px;
@@ -627,18 +627,18 @@ nav.main-menu ul ul.sub-dangnhap {
   -webkit-box-shadow: 0 0 20px #555555;
   box-shadow: 0 0 20px #555555;
 }
-nav.main-menu ul ul.sub-dangnhap li {
+#btn-dangnhap:hover .sub-dangnhap2{
+  visibility: inherit;
+}
+nav.main-menu ul ul.sub-dangnhap2 li {
   display: block;
   text-align: left;
 }
-nav.main-menu ul ul.sub-dangnhap li a {
+nav.main-menu ul ul.sub-dangnhap2 li a {
   color: #555;
   font-weight: 600;
   padding: 7px 10px;
   font-size: 13px;
-}
-nav.main-menu ul ul.sub-dangnhap li a:hover{
-  color: #F28123;
 }
 /*end dangnhap*/
 .site-logo {
