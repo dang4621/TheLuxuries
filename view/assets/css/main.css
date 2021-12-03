@@ -19,7 +19,7 @@ html {
 }
 
 body {
-  font-family: "Open Sans", sans-serif;
+  /*font-family: "Open Sans", sans-serif;*/
   font-weight: 400;
   font-size: 1rem;
   letter-spacing: 0.1px;
@@ -51,8 +51,8 @@ h2, .h2,
 h4, .h4,
 h5, .h5,
 h6, .h6 {
-  font-family: "Poppins", sans-serif;
-  font-weight: 700;
+  /*font-family: "Poppins", sans-serif;*/
+  font-weight: 600;
   margin: 0 0 1.25rem 0;
   color: #051922;
 }
@@ -1501,7 +1501,7 @@ html, body {
 input[type="submit"] {
   background-color: #F28123;
   color: #051922;
-  font-weight: 700;
+  font-weight: 600;
   text-transform: uppercase;
   font-size: 15px;
   border: none !important;
@@ -2483,7 +2483,7 @@ ul.social-link-team li a {
   width: 90%;
   border-radius: 5px;
   margin-bottom: 20px;
-  height: 180px;
+  height: auto;
 }
 
 .single-product-item h3 {

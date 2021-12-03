@@ -106,7 +106,7 @@
                                 <?php             
                         if(isset($_POST['add_session'])){                          
                             $size = explode(',',trim($_POST['size']) );                      
-                           $color = explode(',',trim($_POST['color']) );
+                            $color = explode(',',trim($_POST['color']) );
                             ?>
                             <form action="" method="POST" id="form_tt">
                             <?php
@@ -127,8 +127,9 @@
                                 }
                             }    
                             $_SESSION['i']=$i;                        
-                            ?>                           
-                              <input type="submit" name="add" form="form_tt">
+                            ?>     
+                            <br>                      
+                              <input type="submit" class="gui" name="add" form="form_tt">
                               </form>
                             <?php
                         }

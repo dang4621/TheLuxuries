@@ -84,19 +84,18 @@
                                 <p class="category"></p>
                             </div>
                             <br>
-                  <form action="" method="post">          
+             <form action="" method="post">          
                     <label for="cars">Chọn sản phẩm bạn muốn lọc:</label>
-                     <select name="cars" id="cars">
-                      <?php $sp=loadsp_all();
+                     <select name="myselect" id="myselect" onchange="this.form.submit()">
+                     <?php $sp=loadsp_all();
                             foreach($sp as $pro){
                                 extract($pro);
                        ?>   
                         <option value="<?php echo $ma_san_pham?>"><?php echo $ten_san_pham?></option>
 
                         <?php } ?>
-                     </select>
-                     <input  name="submit" type="submit" value="Lọc Sản phẩm">
-                   </form> 
+                      </select>
+                 </form> 
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-hover">
                                     <thead>
@@ -110,8 +109,8 @@
                                     </thead>
                                     <tbody>
                                      <?php
-                                     if(isset($_POST['submit'])){
-                                         $car=$_POST['cars'];
+                                     if(isset($_POST['myselect'])){
+                                         $car=$_POST['myselect'];
                                          echo $car;
                                      }
 

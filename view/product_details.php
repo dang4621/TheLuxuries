@@ -28,6 +28,7 @@
     margin-top: 10px;
 }
 </style>
+<script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
 <div class="breadcrumb-section breadcrumb-bg">
     <div class="container">
         <div class="row">
@@ -121,59 +122,41 @@
                             <div class="size">
                                 <h1>Size:</h1>
                                 <div class="test">
-                                    <div class="a">
-                                        <input type="radio" id="size-1" name="select-1" value="1">
-                                        <label for="size-1">
-                                            <h2>XL</h2>
-                                        </label>
-                                    </div>
-                                    <div class="a">
-                                        <input type="radio" id="size-2" name="select-1" value="2">
-                                        <label for="size-2">
-                                            <h2>XXL</h2>
-                                        </label>
-                                    </div>
-                                    <div class="a">
-                                        <input type="radio" id="size-3" name="select-1" value="3">
-                                        <label for="size-3">
-                                            <h2>XXXL</h2>
-                                        </label>
-                                    </div>
-                                    <div class="a">
-                                        <input type="radio" id="size-4" name="select-1" value="4">
-                                        <label for="size-4">
-                                            <h2>MSX</h2>
-                                        </label>
-                                    </div>
+                                    <?php
+                                        $a=0;
+                                        $sql = "SELECT DISTINCT thuoc_tinh.size FROM thuoc_tinh WHERE thuoc_tinh.ma_san_pham= '$ma_sp'";
+                                        $getSize = pdo_query($sql);
+                                        foreach ($getSize as $loai) {
+                                            extract($loai);
+                                            $a++   ?>                                      
+                                        <div class="a">
+                                            <input type="radio" id="size-<?=$a?>" name="select-1" value="<?=$size?>">
+                                            <label for="size-<?=$a?>">
+                                                <h2><?= $size ?></h2>
+                                            </label>
+                                        </div>    
+                                    
+                                    <?php } ?>                                  
                                 </div>
                             </div>
                             <div class="mau">
                                 <h1>Màu:</h1>
                                 <section>
-                                    <div>
-                                        <input type="radio" id="control_01" name="select-2" value="5">
-                                        <label for="control_01">
-                                            <h2>Đỏ</h2>
-                                        </label>
-                                    </div>
-                                    <div>
-                                        <input type="radio" id="control_02" name="select-2" value="6">
-                                        <label for="control_02">
-                                            <h2>Đen</h2>
-                                        </label>
-                                    </div>
-                                    <div>
-                                        <input type="radio" id="control_03" name="select-2" value="7">
-                                        <label for="control_03">
-                                            <h2>Trắng</h2>
-                                        </label>
-                                    </div>
-                                    <div>
-                                        <input type="radio" id="control_04" name="select-2" value="8">
-                                        <label for="control_04">
-                                            <h2>Xanh</h2>
-                                        </label>
-                                    </div>
+                                    <?php
+									$i = 0;
+									$sql1 = "SELECT DISTINCT thuoc_tinh.color FROM thuoc_tinh WHERE thuoc_tinh.ma_san_pham= '$ma_sp'";
+									$getColor = pdo_query($sql1);
+									foreach ($getColor as $loai) {
+										extract($loai);
+										$i++;
+									?>
+                                        <div>
+                                            <input type="radio" id="control_0<?= $i ?>" name="select-2" value="<?= $color ?>">
+                                            <label for="control_0<?= $i ?>">
+                                                <h2><?= $color ?></h2>
+                                            </label>
+                                        </div>
+                                    <?php } ?>   
                                 </section>
                             </div>
                         </div>
@@ -230,6 +213,27 @@
                     <li><a href=""><i class="fab fa-google-plus-g"></i></a></li>
                     <li><a href=""><i class="fab fa-linkedin"></i></a></li>
                 </ul>
+
+                <?php 
+ 						$id=$_GET['id'];
+                         $iduser=$_SESSION['user']['id_tai_khoan'];
+                             
+                         $sql="SELECT count(yeu_thich.ma_san_pham) as countsp FROM yeu_thich WHERE id_tai_khoan='$iduser' and ma_san_pham='$id'";
+                         $yeuthich= pdo_query($sql);
+                         $idchitiet =rand(10000,999999) ;
+                         foreach ($yeuthich as $like){
+                           extract($like);
+                           $number= $countsp;
+                        if($number==0){ ?>
+                        <a href="index.php?act=like&id=<?=$id?>"><i class="fas fa-heart" style="font-size:50px;color:black"></i></a>
+
+                      <?php   }elseif($number>0){ ?>
+                        <a href="index.php?act=like&id=<?=$id?>"><i class="fas fa-heart" style="font-size:50px;color:red"></i></a>
+                         <?php }
+                     }
+                ?>
+                
+                
             </div>
             <?php } ?>
         </div>

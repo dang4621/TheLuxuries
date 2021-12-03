@@ -1,3 +1,51 @@
+<link rel="shortcut icon" type="image/png" href="view/assets/img/favicon.png">
+<!-- google font -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+<!-- fontawesome -->
+<link rel="stylesheet" href="view/assets/css/all.min.css">
+<!-- bootstrap -->
+<link rel="stylesheet" href="view/assets/bootstrap/css/bootstrap.min.css">
+<!-- owl carousel -->
+<link rel="stylesheet" href="view/assets/css/owl.carousel.css">
+<!-- magnific popup -->
+<link rel="stylesheet" href="view/assets/css/magnific-popup.css">
+<!-- animate css -->
+<link rel="stylesheet" href="view/assets/css/animate.css">
+<!-- mean menu css -->
+<link rel="stylesheet" href="view/assets/css/meanmenu.min.css">
+<!-- main style -->
+<link rel="stylesheet" href="view/assets/css/main.css">
+<!-- responsive -->
+<link rel="stylesheet" href="view/assets/css/responsive.css">
+<link rel="stylesheet" href="view/assets/css/css3.css">
+<link rel="stylesheet" href="view/assets/css/css2.css">
+<link rel="stylesheet" href="view/assets/css/quenmk.css">
+<link rel="stylesheet" href="view/assets/css/trangthaidh.css">
+<link rel="stylesheet" href="view/assets/css/chitietdh.css">
+
+<script src="view/assets/js/jquery-1.11.3.min.js"></script>
+<!-- bootstrap -->
+<script src="view/assets/bootstrap/js/bootstrap.min.js"></script>
+<!-- count down -->
+<script src="view/assets/js/jquery.countdown.js"></script>
+<!-- isotope -->
+<script src="view/assets/js/jquery.isotope-3.0.6.min.js"></script>
+<!-- waypoints -->
+<script src="view/assets/js/waypoints.js"></script>
+<!-- owl carousel -->
+<script src="view/assets/js/owl.carousel.min.js"></script>
+<!-- magnific popup -->
+<script src="view/assets/js/jquery.magnific-popup.min.js"></script>
+<!-- mean menu -->
+<script src="view/assets/js/jquery.meanmenu.min.js"></script>
+<!-- sticker js -->
+<script src="view/assets/js/sticker.js"></script>
+<!-- main js -->
+<script src="view/assets/js/main.js"></script>
+<!-- sweetalert -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <?php ob_start();
      session_start();
      include './model/pdo.php';
@@ -45,8 +93,8 @@
                             $ma_san_pham=$_POST['id'];
                             $soluong=$_POST['quantity'];
 							$gia = $_POST['gia'];
-							$size=$_POST['size'];
-							$color=$_POST['color'];
+							$size=$_POST['select-1'];
+							$color=$_POST['select-2'];
 
                             $alert=themGH($ma_san_pham,$soluong,$gia,$size,$color); 
                             header("Location: index.php?act=cart");							 
@@ -847,16 +895,49 @@
 				case 'contact':                
 					include 'view/contact.php';
 					break;  
-					break;	
+					
 				case 'noti' :
 					include 'view/404.php';  
 					break;
 				case 'done' :
 					include 'view/done.php';  
 					break;
+					
+					case 'like':                
+						$id=$_GET['id'];
+						$iduser=$_SESSION['user']['id_tai_khoan'];
+							
+						$sql="SELECT count(yeu_thich.ma_san_pham) as countsp FROM yeu_thich WHERE id_tai_khoan='$iduser' and ma_san_pham='$id'";
+						$yeuthich= pdo_query($sql);
+						$idchitiet =rand(10000,999999) ;
+						foreach ($yeuthich as $like){
+						  extract($like);
+						  $number= $countsp;
+					   if($number==0){
+						   $sql="insert into yeu_thich(id_yt,ma_san_pham,id_tai_khoan,trang_thai) values('$idchitiet','$id','$iduser','1')";
+							pdo_execute($sql);
+						}elseif($number>0){
+							$sql="delete from yeu_thich where ma_san_pham='$id' and id_tai_khoan='$iduser' ";
+							pdo_execute($sql);
+						}
+					}
+					if(isset($_GET['id'])){
+						$id=$_GET['id'];
+					}
+					$onesp=loadOne_sp($id);
+					include 'view/product_details.php';
+					
+						break; 
+
 				case 'quenmk' :
 					    include 'view/quenmk.php';
 						break;
+
+
+
+				
+
+				
 				//Chuyển hướng khi action sai
 				default :  
 					include 'view/home.php';         
@@ -875,64 +956,3 @@
  
 
 ?>
-
-
-
-
-<link rel="shortcut icon" type="image/png" href="view/assets/img/favicon.png">
-	<!-- google font -->
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
-	<!-- fontawesome -->
-	<link rel="stylesheet" href="view/assets/css/all.min.css">
-	<!-- bootstrap -->
-	<link rel="stylesheet" href="view/assets/bootstrap/css/bootstrap.min.css">
-	<!-- owl carousel -->
-	<link rel="stylesheet" href="view/assets/css/owl.carousel.css">
-	<!-- magnific popup -->
-	<link rel="stylesheet" href="view/assets/css/magnific-popup.css">
-	<!-- animate css -->
-	<link rel="stylesheet" href="view/assets/css/animate.css">
-	<!-- mean menu css -->
-	<link rel="stylesheet" href="view/assets/css/meanmenu.min.css">
-	<!-- main style -->
-	<link rel="stylesheet" href="view/assets/css/main.css">
-	<!-- responsive -->
-	<link rel="stylesheet" href="view/assets/css/responsive.css">
-	<link rel="stylesheet" href="view/assets/css/css3.css">
-	<link rel="stylesheet" href="view/assets/css/css2.css">
-	<link rel="stylesheet" href="view/assets/css/quenmk.css">
-	<link rel="stylesheet" href="view/assets/css/trangthaidh.css">
-	<link rel="stylesheet" href="view/assets/css/chitietdh.css">
-
-    <script src="view/assets/js/jquery-1.11.3.min.js"></script>
-	<!-- bootstrap -->
-	<script src="view/assets/bootstrap/js/bootstrap.min.js"></script>
-	<!-- count down -->
-	<script src="view/assets/js/jquery.countdown.js"></script>
-	<!-- isotope -->
-	<script src="view/assets/js/jquery.isotope-3.0.6.min.js"></script>
-	<!-- waypoints -->
-	<script src="view/assets/js/waypoints.js"></script>
-	<!-- owl carousel -->
-	<script src="view/assets/js/owl.carousel.min.js"></script>
-	<!-- magnific popup -->
-	<script src="view/assets/js/jquery.magnific-popup.min.js"></script>
-	<!-- mean menu -->
-	<script src="view/assets/js/jquery.meanmenu.min.js"></script>
-	<!-- sticker js -->
-	<script src="view/assets/js/sticker.js"></script>
-	<!-- main js -->
-	<script src="view/assets/js/main.js"></script>
-	<!-- sweetalert -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
-
-
-
-
-
-
-
-
