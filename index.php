@@ -45,8 +45,8 @@
                             $ma_san_pham=$_POST['id'];
                             $soluong=$_POST['quantity'];
 							$gia = $_POST['gia'];
-							$size=$_POST['size'];
-							$color=$_POST['color'];
+							$size=$_POST['select-1'];
+							$color=$_POST['select-2'];
 
                             $alert=themGH($ma_san_pham,$soluong,$gia,$size,$color); 
                             header("Location: index.php?act=cart");							 
