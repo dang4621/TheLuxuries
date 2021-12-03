@@ -57,22 +57,6 @@
 									</div>
 								</div>
 							</div>
-							<!-- <div class="card single-accordion">
-								<div class="card-header" id="headingTwo">
-									<h5 class="mb-0">
-										<button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-											Địa chỉ vận chuyển
-										</button>
-									</h5>
-								</div>
-								<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-									<div class="card-body">
-										<div class="shipping-address-form">
-											<p>Mẫu địa chỉ vận chuyển của bạn ở đây.</p>
-										</div>
-									</div>
-								</div>
-							</div> -->
 							<div class="card single-accordion">
 								<div class="card-header" id="headingThree">
 									<h5 class="mb-0">
@@ -82,9 +66,11 @@
 									</h5>
 								</div>
 								<?php 
-								$pay=$_GET['pay'];
+							
 								if(isset($_GET['pay'])) {
-                     
+									?>
+									<input type="radio"  name="payment" value="1">
+									<?php
 								}else { ?>
 								
 								<div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
@@ -127,7 +113,6 @@
 										<tr>
 											<td><?= $ten_san_pham ?></td>
 											<td><?=  $quantity; ?></td>
-									         <td><?= $color ." ". $size ." ".$ma_san_pham  ?></td>
 										</tr>
 								<?php $a++;
 									}

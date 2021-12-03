@@ -104,19 +104,17 @@
 			</form>
 			
 					<?php
-
-
-     if (isset($_POST['cartup'])) {
-	      foreach ($_POST['quan'] as $key2 => $val){
-		  if($val==0){
-			unset($_SESSION['shopping_cart'][$key2]);
-		 }else{
-			$_SESSION['shopping_cart'][$key2]['quantity']=$val;
-		 }
-	 }
-	  header("Location:index.php?act=cart");
-}
-?>
+					if (isset($_POST['cartup'])) {
+						foreach ($_POST['quan'] as $key2 => $val){
+						if($val==0){
+							unset($_SESSION['shopping_cart'][$key2]);
+						}else{
+							$_SESSION['shopping_cart'][$key2]['quantity']=$val;
+						}
+					}
+					header("Location:index.php?act=cart");
+				}
+				?>
 				</div>
 			</div>
 		</div>
