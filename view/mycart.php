@@ -52,7 +52,7 @@
 									<td class="product-image"><?= 	$hinhp ?></td>
 									<td class="product-name"><?= $ten_san_pham ?></td>
 									<td class="product-price"><?= $gia ?></td>
-									<td class="product-quantity"><input type="number" name="quan[<?php echo $key ;?>]"  value="<?=$quantity?>">	</td>
+									<td class="product-quantity"><input type="number" name="quan[<?php echo $key ;?>]"  value="<?=$quantity?>" min="1">	</td>
 									<td class="product-size"><?= $size ?></td>
 									<td class="product-color"><?= $color ?></td>
 									<td class="product-total"><?= $tt[$a]=$gia*$quantity ; ?></td>
@@ -104,19 +104,17 @@
 			</form>
 			
 					<?php
-
-
-     if (isset($_POST['cartup'])) {
-	      foreach ($_POST['quan'] as $key2 => $val){
-		  if($val==0){
-			unset($_SESSION['shopping_cart'][$key2]);
-		 }else{
-			$_SESSION['shopping_cart'][$key2]['quantity']=$val;
-		 }
-	 }
-	  header("Location:index.php?act=cart");
-}
-?>
+					if (isset($_POST['cartup'])) {
+						foreach ($_POST['quan'] as $key2 => $val){
+						if($val==0){
+							unset($_SESSION['shopping_cart'][$key2]);
+						}else{
+							$_SESSION['shopping_cart'][$key2]['quantity']=$val;
+						}
+					}
+					header("Location:index.php?act=cart");
+				}
+				?>
 				</div>
 			</div>
 		</div>

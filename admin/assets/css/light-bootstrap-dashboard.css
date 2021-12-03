@@ -4071,7 +4071,25 @@ form#fruitkha-contact12 button:hover{
     background-color: #051922;
     color: #F28123;
 }
-form#fruitkha-contact12 input[type="button"]{
+form#fruitkha-contact12 a{
+    text-align: center;
+    border: none;
+    width: 100px;
+    margin: 0 auto;
+    height: 30px;
+    font-size: 14pt;
+    border-radius: 5px;
+    background-color: #F28123;
+    margin-top: 5px;
+    font-weight: 700;
+    color: white;
+    padding:3px; 
+}
+form#fruitkha-contact12 a:hover{
+    background-color: #051922;
+    color: #F28123;
+}
+/*form#fruitkha-contact12 input[type="button"]{
     border-radius: 5px;
     border: none;
     height: 30px;
@@ -4096,5 +4114,6 @@ form#fruitkha-contact12 input[type="reset"]{
 form#fruitkha-contact12 input[type="reset"]:hover{
     background-color: #051922;
     color: #F28123;
-}
+}*/
+
 /*end thuoc tinh*/

@@ -130,7 +130,7 @@
             </div>
         </div>
     </div>
-								extract($value);
+								<!-- extract($value);
 									$url_hinh="";                                
 									if(isset($image)&&!$image==""){
 										$file = explode(",",substr($image, 0, -1));
@@ -156,7 +156,7 @@
 										
 										');
 
-							} ?>			
+							} ?>			 -->
 								<!-- <tr class="table-body-row">
 									<td class="product-remove">1</td>
 									<td class="product-name">Strawberry</td>
@@ -187,11 +187,11 @@
 									<a href=""><input type="button" value="Xóa"></a>
 								    </td>
 								</tr> -->
-							</tbody>
+							<!-- </tbody>
 						</table>
 						<div class="buttons">
 							<a href="index.php?act=add_sp" class="boxed-btn">Nhập thêm</a>
-						</div>
+						</div> -->
 					</div>
 				</div>
 			</div>

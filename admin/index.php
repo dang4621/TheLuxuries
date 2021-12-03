@@ -247,7 +247,15 @@
                 break;
             case 'dstaikhoan':
                 include '../admin/taikhoan/dstaikhoan.php';
-                break;    
+                break;
+                case 'del_tk':
+                    if(isset($_GET['id'])){
+                        $id=$_GET['id'];
+                        del_tk($id);
+                        echo ('<script>swal("Xóa thành công!", "Bạn đã nhấp vào nút!", "success");</script>');                  
+                    }
+                    include '../admin/taikhoan/dstaikhoan.php';      
+                    break;    
             case 'dsbinhluan':
                 include '../admin/binhluan/dsbinhluan.php';
                 break; 

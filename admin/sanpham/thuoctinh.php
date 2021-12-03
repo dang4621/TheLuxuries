@@ -100,8 +100,8 @@
                                 <!-- <label for="">Số lượng sản phẩm:</label>
                                 <input id="number" name="number" type="number" value="50"> <br> -->
                                 <button type="submit" name="add_session">Thêm loại</button>
-                                <a href="index.php?act=thuoctinh">Xác nhận</a><br>
-                                <a href="index.php?act=unset_tt">Nhập lại</a><br>
+                                <a href="index.php?act=thuoctinh">Xác nhận</a><br><br>
+                                <a href="index.php?act=unset_tt">Nhập lại</a>
                             </form>
                                 <?php             
                         if(isset($_POST['add_session'])){                          

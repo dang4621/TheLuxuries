@@ -899,8 +899,7 @@
 	<link rel="stylesheet" href="view/assets/css/main.css">
 	<!-- responsive -->
 	<link rel="stylesheet" href="view/assets/css/responsive.css">
-
-	<link rel="stylesheet" href="view/assets/css/css1.css">
+	<link rel="stylesheet" href="view/assets/css/css3.css">
 	<link rel="stylesheet" href="view/assets/css/css2.css">
 	<link rel="stylesheet" href="view/assets/css/quenmk.css">
 	<link rel="stylesheet" href="view/assets/css/trangthaidh.css">

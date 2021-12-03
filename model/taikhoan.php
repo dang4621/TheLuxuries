@@ -37,6 +37,10 @@ function loadAll_tk(){
     $sql="SELECT*FROM tai_khoan ORDER BY id_tai_khoan";
     return pdo_query($sql);
 }
+function del_tk($id){
+    $sql="DELETE FROM tai_khoan where id_tai_khoan='$id'";
+    pdo_execute($sql);
+}
 function kt_taikhoan($username,$password){
     $sql="SELECT*FROM dang_ky_kh WHERE username='$username' AND password='$password'";
     $kq= pdo_query_one($sql);

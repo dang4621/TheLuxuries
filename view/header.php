@@ -46,7 +46,8 @@
                                 <li><a href="index.php">Trang Chủ</a></li>
                                 <li><a href="index.php?act=about">Giới Thiệu</a></li>
                                 <li><a href="index.php?act=contact">Liên Hệ</a></li>
-                                <li><a href="index.php?act=shop">Shop</a>
+                                <li>
+                                    <a href="index.php?act=shop">Shop</a>
                                     <ul class="sub-menu">
                                         <li><a href="index.php?act=shop">Sản phẩm</a></li>
                                         <li><a href="index.php?act=cartdetails">Đơn hàng của tôi</a></li>
@@ -56,43 +57,53 @@
                                 </li>
                                 <li>
                                     <div class="header-icons">
-                                        <a class="dangnhap" href="login.php"> 
-											<i class="fa fa-user"></i></a>
-                                        <ul class="sub-dangnhap">
+                                        <li>
+                                        <a class="dangnhap" href="login.php" id="btn-dangnhap">
+                                        <i class="fa fa-user"></i></a>
+                                        <ul class="sub-dangnhap2">
                                             <?php 
 												if(isset($_SESSION['user'])){
-													echo("<li>Hi !".$_SESSION['user']['username']." </li>");
+													echo("<li>&nbsp;&nbsp;&nbsp;Hi !".$_SESSION['user']['username']." </li>");
 												}
-												?>
-                                            <li><a href="index.php?act=cartdetails">Đơn hàng của tôi</a></li>
-                                            <li><a href="update_information/capnhatthongtin.php">Cập nhật thông tin</a></li>
-                                            <li><a href="index.php?act=quenmk">Quên mật khẩu</a></li>
+											?>
+                                            <li>
+                                                <a href="index.php?act=cartdetails">Đơn hàng của tôi</a>
+                                            </li>
+                                            <li>
+                                                <a href="update_information/capnhatthongtin.php">Cập nhật thông tin</a>
+                                            </li>
+                                            <li>
+                                                <a href="index.php?act=quenmk">Quên mật khẩu</a>
+                                            </li>
                                             <?php 
-												if(isset($_SESSION['user'])){
-													echo('<li><a href="index.php?act=logout">Đăng xuất</a></li>');
-												}else{
-													echo('<li><a href="login.php">Đăng nhập</a></li>');
-												}
-												?>
+											    if(isset($_SESSION['user'])){
+												    echo('<li><a href="index.php?act=logout">Đăng xuất</a></li>');
+											    }else{
+												    echo('<li><a href="login.php">Đăng nhập</a></li>');
+											    }
+										    ?>
                                         </ul>
-                                          
-                                        <a class="shopping-cart" href="index.php?act=cart">
+                                           <li> 
+                                        <li><a class="shopping-cart" href="index.php?act=cart">
                                             <i class="fas fa-shopping-cart"></i>
-										</a>
+                                        </a></li>
                                         <a class="mobile-hide search-bar-icon" href="#">
                                             <i class="fas fa-search"></i>
-										</a>
+                                        </a>
                                     </div>
                                 </li>
                             </ul>
                         </nav>
-                        <a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
-                        <div class="mobile-menu"></div>
-                        <!-- menu end -->
-                    </div>
+                    </div>    
                 </div>
+                <a class="mobile-show search-bar-icon" href="#">
+                    <i class="fas fa-search"></i>
+                </a>
+                <div class="mobile-menu"></div>
+                <!-- menu end -->
             </div>
         </div>
+    </div>
     </div>
     <!-- end header -->
     <!-- search area -->

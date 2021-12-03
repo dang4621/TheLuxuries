@@ -137,10 +137,24 @@
   border: none;
   border-radius: 10px;
   color: white;
-  height: 50px;
-  padding: 10px;
+  height: 40px;
+  padding: 3px;
+  text-transform: none;
 }
 .butn input:hover{
+  background-color: #051922;
+  color: #F28123;
+}
+.butn a{
+  background-color:#F28123;
+  font-size: 14pt;
+  border: none;
+  border-radius: 50px;
+  color: white;
+  padding:7px;
+  font-weight:700
+}
+.butn a:hover{
   background-color: #051922;
   color: #F28123;
 }
