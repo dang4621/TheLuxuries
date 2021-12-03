@@ -127,8 +127,9 @@
                                 }
                             }    
                             $_SESSION['i']=$i;                        
-                            ?>                           
-                              <input type="submit" name="add" form="form_tt">
+                            ?>     
+                            <br>                      
+                              <input type="submit" class="gui" name="add" form="form_tt">
                               </form>
                             <?php
                         }

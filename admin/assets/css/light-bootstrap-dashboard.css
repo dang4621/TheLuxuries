@@ -4089,6 +4089,29 @@ form#fruitkha-contact12 a:hover{
     background-color: #051922;
     color: #F28123;
 }
+form#form_tt{
+    border: none;
+    width: 30%;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 10px;
+    box-shadow: 0px 0px 10px rgb(145 140 140);
+    padding: 10px;
+    border-radius: 5px;
+    background-color: white;
+}
+form#form_tt .gui{
+    background-color: #F28123;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 14pt;
+    height: 30px;
+}
+form#form_tt .gui:hover{
+    background-color: #051922;
+    color: #F28123;
+}
 /*form#fruitkha-contact12 input[type="button"]{
     border-radius: 5px;
     border: none;
