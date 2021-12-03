@@ -4,7 +4,13 @@
     include '../model/sanpham.php';   
     include '../model/danhmuc.php';    
     include '../model/thuonghieu.php';
+<<<<<<< HEAD
+    include '../model/taikhoan.php';
+    
+
+=======
     include '../admin/quanly/binhluan.php';
+>>>>>>> 691bef915a27f615526a93b63160e98e611ea5b3
     include 'header.php';
     $danhmuc = loadAll_dm();
     if( isset($_GET['act']) ){
@@ -123,6 +129,8 @@
                 if(isset($_GET['id'])){
                     $id=$_GET['id'];
                     del_sp($id);
+                    echo ('<script>swal("Xóa thành công!", "Bạn đã nhấp vào nút!", "success");</script>');                  
+
                 }
                  $id=0;
                 $keyw="";
@@ -243,7 +251,15 @@
                 break;
             case 'dstaikhoan':
                 include '../admin/taikhoan/dstaikhoan.php';
-                break;    
+                break;
+                case 'del_tk':
+                    if(isset($_GET['id'])){
+                        $id=$_GET['id'];
+                        del_tk($id);
+                        echo ('<script>swal("Xóa thành công!", "Bạn đã nhấp vào nút!", "success");</script>');                  
+                    }
+                    include '../admin/taikhoan/dstaikhoan.php';      
+                    break;    
             case 'dsbinhluan':
                 include '../admin/binhluan/dsbinhluan.php';
                 break;
