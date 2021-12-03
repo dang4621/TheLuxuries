@@ -2483,7 +2483,7 @@ ul.social-link-team li a {
   width: 90%;
   border-radius: 5px;
   margin-bottom: 20px;
-  height: 180px;
+  height: auto;
 }
 
 .single-product-item h3 {
