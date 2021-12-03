@@ -88,67 +88,50 @@
                 <div class="content table-responsive table-full-width">
                   <table class="table table-hover">
                     <thead>
-                      <th class="product-id">ID</th>
-                      <th class="product-tentk">Tên tài khoản</th>
-                      <th class="product-hinh">Hình ảnh</th>
-                      <th class="product-diachi">Địa chỉ</th>
-                      <th class="product-gia">Giá</th>
-                      <th class="product-pttt">Phương thức thanh toán</th>
-                      <th class="product-trangthai">Trạng thái</th>
+                      <th class="product-id">MÃ HOÁ ĐƠN</th>
+                      <th class="product-tentk">HỌ TÊN</th>
+                      <th class="product-hinh">SỐ ĐIỆN THOẠI</th>
+                      <th class="product-diachi">NGÀY ĐẶT</th>
+                      <th class="product-gia">TRẠNG THÁI</th>
+                      <th class="product-pttt">TỔNG TIỀN</th>
+                      <th class="product-trangthai"></th>
                       <th></th>
                     </thead>
                     <tbody>
+                    <?php 
+              $donhang=load_dh();
+							foreach($donhang as $value){ 
+								    extract($value); ?>
                       <tr>
-                        <td class="product-id">1</td>
-                        <td class="product-tentk">Phan Công Đỉnh</td>
-                        <td class="product-hinh">
-                          <img src="../BS3/assets/img/product-img-2.jpg" max-width="50px" alt="">
+                        <td class="product-id"><?php echo $so_hoa_don; ?></td>
+                        <td class="product-tentk"><?php echo $ho_ten; ?></td>
+                        <td class="product-diachi"><?php echo $sdt; ?></td>
+                        <td class="product-gia"><?php echo $ngay_hoa_don; ?></td>
+                        <td class="product-pttt">
+                        <?php 
+									if($trang_thai==1){
+										echo'<span1 style="background-color: #D3E4CD;">Đang chuẩn bị hàng</span1>';
+									}elseif($trang_thai==0){
+                                         echo'<span1 style="background-color: #F3950D;">Đang xác nhận</span1>';
+									} 
+									elseif($trang_thai==2){
+										echo'<span1 style="background-color: #FF87CA;">Đang giao</span1>';
+								   	} 
+								   	elseif($trang_thai==3){
+									echo'<span1 style="background-color: #71DFE7;">Đã giao</span1>';
+							   		} 
+									elseif($trang_thai==4){
+									echo'<span1 style="background-color: #71DFE7;">Đã hủy</span1>';
+							   		} 
+									?>
                         </td>
-                        <td class="product-diachi">Chợ Gạo, Tiền Giang</td>
-                        <td class="product-gia">800 VND</td>
-                        <td class="product-pttt">CHuyển khoản</td>
-                        <td class="product-trangthai">Đang giao</td>
+                        <td class="product-trangthai"><?php echo $thanh_tien; ?><span>&nbsp;USĐ</span></td>
                         <td>
-                          <!--sửa-->
-                          <a href="#"><input type="button"><i class="pe-7s-plus fa-2x"></i></a>
-                          <!--Xoá-->
+                          <a href="index.php?act=cartde&id=<?php echo $so_hoa_don; ?>"><input type="button"><i class="pe-7s-plus fa-2x"></i></a>
                           <a href="#"><input type="button"><i class="pe-7s-trash fa-2x"></i></a>
                         </td>
                       </tr>
-                      <tr>
-                        <td class="product-id">2</td>
-                        <td class="product-tentk">Phan Công Đỉnh</td>
-                        <td class="product-hinh">
-                          <img src="../BS3/assets/img/product-img-2.jpg" max-width="50px" alt="">
-                        </td>
-                        <td class="product-diachi">Chợ Gạo, Tiền Giang</td>
-                        <td class="product-gia">800 VND</td>
-                        <td class="product-pttt">CHuyển khoản</td>
-                        <td class="product-trangthai">Đang giao</td>
-                        <td>
-                          <!--sửa-->
-                          <a href="#"><input type="button"><i class="pe-7s-plus fa-2x"></i></a>
-                          <!--Xoá-->
-                          <a href="#"><input type="button"><i class="pe-7s-trash fa-2x"></i></a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="product-id">3</td>
-                        <td class="product-tentk">Phan Công Đỉnh</td>
-                        <td class="product-hinh">
-                          <img src="../BS3/assets/img/product-img-2.jpg" max-width="50px" alt="">
-                        </td>
-                        <td class="product-diachi">Chợ Gạo, Tiền Giang</td>
-                        <td class="product-gia">800 VND</td>
-                        <td class="product-pttt">CHuyển khoản</td>
-                        <td class="product-trangthai">Đang giao</td>
-                        <td>
-                          <!--sửa-->
-                          <a href="#"><input type="button"><i class="pe-7s-plus fa-2x"></i></a>
-                          <!--Xoá-->
-                          <a href="#"><input type="button"><i class="pe-7s-trash fa-2x"></i></a>
-                        </td>
-                      </tr>
+                      <?php }?>
                     </tbody>
                   </table>
                 </div>

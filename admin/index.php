@@ -7,6 +7,7 @@
     include '../model/taikhoan.php';
     include '../model/thongke.php';
     include '../admin/quanly/binhluan.php';
+    include '../model/giohang.php';
     include 'header.php';
     $danhmuc = loadAll_dm();
     if( isset($_GET['act']) ){
@@ -271,6 +272,26 @@
             case 'dsbill':
                 include '../admin/bill/dsbill.php';
                 break;
+            case 'cartde':						                
+				include '../admin/bill/chitietdh.php';
+				break;        
+            case 'sua_tt':
+				if(isset($_GET['ma_hoa_don'])){
+                 if(isset($_GET['tt'])){
+                    $trangthai=$_GET['tt'];
+                    $so_hoa_don=$_GET['ma_hoa_don'];
+                    sua_tt($trangthai,$so_hoa_don);
+                    }else if(isset($_GET['huy'])){
+                    $so_hoa_don=$_GET['ma_hoa_don'];
+                    $ma_kh=$_GET['huy'];
+                    xoa_dh($so_hoa_don,$ma_kh);                            
+                    }                     
+                    include '../admin/bill/dsbill.php';                
+                }
+				break;
+                case 'chitietdh':
+					include '..admin/bill/chitietdh.php';
+					break;        
             case 'thongke1':
                 if(isset($_POST['thang'])){
                     $thang = $_POST['thang'];
