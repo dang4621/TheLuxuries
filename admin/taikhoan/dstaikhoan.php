@@ -92,40 +92,25 @@
                                             <th class="product-id">ID</th>
                                             <th class="product-tentk">Tên tài khoản</th>
                                             <th class="product-email">Email</th>
-                                            <th class="product-diachi">Địa chỉ</th>
+                                            <th class="product-diachi">Số điện thoại</th>
                                             <th></th>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td class="product-id">1</td>
-                                                <td class="product-tentk">Phan Công Đỉnh</td>
-                                                <td class="product-email">dinhpcps16993@fpt.edu.vn</td>
-                                                <td class="product-diachi">Chợ Gạo, Tiền Giang</td>
+                                        <?php
+                                        $taikhoan=loadAll_tk(); 
+                                         foreach($taikhoan as $value){ 
+								         extract($value);
+                                         echo('<tr>
+                                                <td class="product-id">'.$id_tai_khoan.'</td>
+                                                <td class="product-tentk">'.$username.'</td>
+                                                <td class="product-email">'.$email.'</td>
+                                                <td class="product-sdt">'.$sdt.'</td>
                                                 <td>
                                                     <!--Xoá-->
-                                                    <a href="#"><input type="button"><i class="pe-7s-trash fa-2x"></i></a>
+                                                    <a href="index.php?act=del_tk&id='.$id_tai_khoan.'"><input type="button"><i class="pe-7s-trash fa-2x"></i></a>
                                                 </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="product-id">2</td>
-                                                <td class="product-tentk">Phan Công Đỉnh</td>
-                                                <td class="product-email">dinhpcps16993@fpt.edu.vn</td>
-                                                <td class="product-diachi">Chợ Gạo, Tiền Giang</td>
-                                                <td>
-                                                    <!--Xoá-->
-                                                    <a href="#"><input type="button"><i class="pe-7s-trash fa-2x"></i></a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="product-id">3</td>
-                                                <td class="product-tentk">Phan Công Đỉnh</td>
-                                                <td class="product-email">dinhpcps16993@fpt.edu.vn</td>
-                                                <td class="product-diachi">Chợ Gạo, Tiền Giang</td>
-                                                <td>
-                                                    <!--Xoá-->
-                                                    <a href="#"><input type="button"><i class="pe-7s-trash fa-2x"></i></a>
-                                                </td>
-                                            </tr>
+                                            </tr> ');
+                                        } ?>
                                         </tbody>
                                     </table>
                                 </div>

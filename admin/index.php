@@ -4,8 +4,7 @@
     include '../model/sanpham.php';   
     include '../model/danhmuc.php';    
     include '../model/thuonghieu.php';
-    
-
+    include '../admin/quanly/binhluan.php';
     include 'header.php';
     $danhmuc = loadAll_dm();
     if( isset($_GET['act']) ){
@@ -124,6 +123,8 @@
                 if(isset($_GET['id'])){
                     $id=$_GET['id'];
                     del_sp($id);
+                    echo ('<script>swal("Xóa thành công!", "Bạn đã nhấp vào nút!", "success");</script>');                  
+
                 }
                  $id=0;
                 $keyw="";
@@ -244,10 +245,27 @@
                 break;
             case 'dstaikhoan':
                 include '../admin/taikhoan/dstaikhoan.php';
-                break;    
+                break;
+                case 'del_tk':
+                    if(isset($_GET['id'])){
+                        $id=$_GET['id'];
+                        del_tk($id);
+                        echo ('<script>swal("Xóa thành công!", "Bạn đã nhấp vào nút!", "success");</script>');                  
+                    }
+                    include '../admin/taikhoan/dstaikhoan.php';      
+                    break;    
             case 'dsbinhluan':
                 include '../admin/binhluan/dsbinhluan.php';
-                break; 
+                break;
+                case 'del_bl':
+                    if(isset($_GET['id'])){
+                        $id=$_GET['id'];
+                        del_bl($id);
+                        echo ('<script>swal("Xóa thành công!", "Bạn đã nhấp vào nút!", "success");</script>');                  
+                    }
+                    include '../admin/binhluan/dsbinhluan.php';      
+                    break;    
+                
             case 'dsbill':
                 include '../admin/bill/dsbill.php';
                 break;
