@@ -1,0 +1,72 @@
+.dinh h1{
+    font-size: 16pt;
+}
+.dinh .test {
+    display: flex;
+    margin-top:-30px;
+}
+.dinh .test .a input[type="radio"] {
+    display: none;
+  }
+  .dinh .test .a label {
+      display: block;
+      background-color: #f27f21;
+      border: none;
+      border-radius: 20px;
+      padding: 0px;
+      margin: 1rem;
+      text-align: center;
+      position: relative;
+      color: white;
+      width: 60px;
+      height: 40px;
+      min-width: 60px;
+  }
+  .dinh .test h2{
+    margin:0px;
+    font-size:11pt;
+    font-weight: 600;
+  }
+  .dinh .test .a input[type="radio"]:checked + label{
+    background-color: hsl(199deg 74% 8%);
+    color: hsl(27deg 13% 91%);
+    border: none;
+  }
+  .dinh .test .a input[type="radio"]:checked + label h2{
+      color: white;
+  }
+
+  .dinh section {
+  display: flex;
+  margin-top:-25px;
+}
+.dinh section input[type="radio"] {
+  display: none;
+}
+.dinh section label {
+  display: block;
+  background-color: #f27f21;
+  border: none;
+  border-radius: 20px;
+  padding: 0px;
+  margin: 1rem;
+  text-align: center;
+  position: relative;
+  color:white;
+  width:60px;
+  height:40px;
+  min-width:60px;
+}
+.dinh section h2{
+  margin:0px;
+  font-size:11pt;
+  font-weight: 600;
+}
+.dinh section input[type="radio"]:checked + label {
+  background-color: hsl(199deg 74% 8%);
+  color: hsl(27deg 89% 54%);
+  border: none;
+}
+.dinh section input[type="radio"]:checked + label h2 {
+    color: white;
+  }

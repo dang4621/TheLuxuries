@@ -4,8 +4,8 @@
 	        <div class="row">
 	            <div class="col-lg-8 offset-lg-2 text-center">
 	                <div class="breadcrumb-text">
-	                    <p>Fresh adn Organic</p>
-	                    <h1>404 - Không tìm thấy</h1>
+	                    <p>Tôi chính là thời trang</p>
+	                    <h1>Chi tiết đơn hàng</h1>
 	                </div>
 	            </div>
 	        </div>
@@ -142,9 +142,9 @@
 	                                </div>
 	                            </div>
 	                            <div class="butn">
-	                                <a href="#"><input type="submit" value="Quay lại"></a>
-									<a href="index.php?act=sua_tt&ma_hoa_don=<?= $so_hoa_don ?>&tt=4">Hủy đơn hàng</a><br>
-           							<a href="index.php?act=sua_tt&ma_hoa_don=<?= $so_hoa_don ?>&tt=3">Đã nhận được hàng</a><br>
+	                                <input type="submit" class="dinh2" value="Quay lại">&nbsp;&nbsp;
+									<a href="index.php?act=sua_tt&ma_hoa_don=<?= $so_hoa_don ?>&tt=4">Hủy đơn hàng</a><br><br>
+           							<a href="index.php?act=sua_tt&ma_hoa_don=<?= $so_hoa_don ?>&tt=3">Đã nhận được hàng</a>
 	                            </div>
 
 	                        </div>

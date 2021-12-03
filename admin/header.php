@@ -45,8 +45,8 @@
                 </div>
 
                 <ul class="nav">
-                    <li class="active">
-                        <a href="">
+                    <li>
+                        <a href="#">
                             <i class="pe-7s-home"></i>
                             <p>Trang chủ</p>
                         </a>
