@@ -84,6 +84,19 @@
                                 <p class="category"></p>
                             </div>
                             <br>
+                  <form action="" method="post">          
+                    <label for="cars">Chọn sản phẩm bạn muốn lọc:</label>
+                     <select name="cars" id="cars">
+                      <?php $sp=loadsp_all();
+                            foreach($sp as $pro){
+                                extract($pro);
+                       ?>   
+                        <option value="<?php echo $ma_san_pham?>"><?php echo $ten_san_pham?></option>
+
+                        <?php } ?>
+                     </select>
+                     <input  name="submit" type="submit" value="Lọc Sản phẩm">
+                   </form> 
                             <div class="content table-responsive table-full-width">
                                 <table class="table table-hover">
                                     <thead>
@@ -96,45 +109,47 @@
                                         <th></th>
                                     </thead>
                                     <tbody>
+                                     <?php
+                                     if(isset($_POST['submit'])){
+                                         $car=$_POST['cars'];
+                                         echo $car;
+                                     }
+
+                                     if(isset($car)){
+                                        $binhluan= loadAll_bl_sanpham($car);
+                                     }else{
+                                        $binhluan=loadAll_bl();
+                                     }
+
+                                     
+                                     foreach($binhluan as $com){
+                                         extract($com);
+                                         $ma_sp=$ma_san_pham;
+                                            $sanpham=loadsp($ma_sp);
+                                            extract($sanpham);
+                                            $url_hinh="";                                
+                                            if(isset($image)&&!$image==""){
+                                                $file = explode(",",substr($image, 0, -1));
+                                            }else{
+                                                $url_hinh="không có hình";
+                                            }; 
+                                    $imgpath = "../upload/" . $file[0];
+                                      ?>   
                                         <tr>
-                                            <td class="product-id">1</td>
-                                            <td class="product-ten">Đỉnh</td>
-                                            <td class="product-tenloai">Strawberry</td>
+                                            <td class="product-id"><?php  echo $ma_bl ?></td>
+                                            <td class="product-ten"><?php  echo $username ?></td>
+                                            <td class="product-tenloai"><?php  echo $ten_san_pham;?></td>
                                             <td class="product-hinh">
-                                                <img src="../BS3/assets/img/product-img-2.jpg" max-width="50px" alt="">
+                                                <img src="<?=$imgpath?>" max-width="50px" alt="">
                                             </td>
-                                            <td class="product-noidung">Quá đỉnh luôn pro ơi</td>
-                                            <td class="product-thoigian">16/11/2021</td>
+                                            <td class="product-noidung"><?php  echo $noi_dung ?></td>
+                                            <td class="product-thoigian"><?php  echo $ngay_bl ?></td>
                                             <td>
-                                                <a href="#"><input type="button" ><i class="pe-7s-trash fa-2x"></i></a>
+                                                <a href="index.php?act=del_bl&id=<?php  echo $ma_bl ?>"><input type="button" ><i class="pe-7s-trash fa-2x"></i></a>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td class="product-id">2</td>
-                                            <td class="product-ten">Đỉnh</td>
-                                            <td class="product-tenloai">Strawberry</td>
-                                            <td class="product-hinh">
-                                                <img src="../BS3/assets/img/product-img-2.jpg" max-width="50px" alt="">
-                                            </td>
-                                            <td class="product-noidung">Quá đỉnh luôn pro ơi</td>
-                                            <td class="product-thoigian">16/11/2021</td>
-                                            <td>
-                                                    <a href="#"><input type="button" ><i class="pe-7s-trash fa-2x"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="product-id">3</td>
-                                            <td class="product-ten">Đỉnh</td>
-                                            <td class="product-tenloai">Strawberry</td>
-                                            <td class="product-hinh">
-                                                <img src="../BS3/assets/img/product-img-2.jpg" max-width="50px" alt="">
-                                            </td>
-                                            <td class="product-noidung">Quá đỉnh luôn pro ơi</td>
-                                            <td class="product-thoigian">16/11/2021</td>
-                                            <td>
-                                                    <a href="#"><input type="button" ><i class="pe-7s-trash fa-2x"></i></a>
-                                            </td>
-                                        </tr>
+                              <?php } ?>
+   
                                     </tbody>
                                 </table>
                             </div>
