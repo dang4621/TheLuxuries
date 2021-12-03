@@ -3916,7 +3916,6 @@ fieldset[disabled] .btn-neutral.active {
     border-radius: 5px;
     border: none;
     background-color: #F28123;
-    font-weight: 600;
     color: #fff;
 }
 .row .card .contact-form form .button input:hover{
@@ -3974,7 +3973,6 @@ fieldset[disabled] .btn-neutral.active {
     border-radius: 5px;
     border: none;
     background-color: #F28123;
-    font-weight: 600;
     color: #fff;
 }
 .row .col-md-12 .button input:hover{
@@ -3998,7 +3996,6 @@ fieldset[disabled] .btn-neutral.active {
 }
 .row .col-md-12 .card .content .buttons a{
     color:white;
-    font-weight: 600;
 }
 .row .col-md-12 .card .content .buttons:hover{
    background-color: #051922;
