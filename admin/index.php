@@ -4,13 +4,7 @@
     include '../model/sanpham.php';   
     include '../model/danhmuc.php';    
     include '../model/thuonghieu.php';
-<<<<<<< HEAD
-    include '../model/taikhoan.php';
-    
-
-=======
     include '../admin/quanly/binhluan.php';
->>>>>>> 691bef915a27f615526a93b63160e98e611ea5b3
     include 'header.php';
     $danhmuc = loadAll_dm();
     if( isset($_GET['act']) ){
