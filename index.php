@@ -847,16 +847,49 @@
 				case 'contact':                
 					include 'view/contact.php';
 					break;  
-					break;	
+					
 				case 'noti' :
 					include 'view/404.php';  
 					break;
 				case 'done' :
 					include 'view/done.php';  
 					break;
+					
+					case 'like':                
+						$id=$_GET['id'];
+						$iduser=$_SESSION['user']['id_tai_khoan'];
+							
+						$sql="SELECT count(yeu_thich.ma_san_pham) as countsp FROM yeu_thich WHERE id_tai_khoan='$iduser' and ma_san_pham='$id'";
+						$yeuthich= pdo_query($sql);
+						$idchitiet =rand(10000,999999) ;
+						foreach ($yeuthich as $like){
+						  extract($like);
+						  $number= $countsp;
+					   if($number==0){
+						   $sql="insert into yeu_thich(id_yt,ma_san_pham,id_tai_khoan,trang_thai) values('$idchitiet','$id','$iduser','1')";
+							pdo_execute($sql);
+						}elseif($number>0){
+							$sql="delete from yeu_thich where ma_san_pham='$id' and id_tai_khoan='$iduser' ";
+							pdo_execute($sql);
+						}
+					}
+					if(isset($_GET['id'])){
+						$id=$_GET['id'];
+					}
+					$onesp=loadOne_sp($id);
+					include 'view/product_details.php';
+					
+						break; 
+
 				case 'quenmk' :
 					    include 'view/quenmk.php';
 						break;
+
+
+
+				
+
+				
 				//Chuyển hướng khi action sai
 				default :  
 					include 'view/home.php';         

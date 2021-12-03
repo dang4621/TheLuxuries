@@ -28,6 +28,7 @@
     margin-top: 10px;
 }
 </style>
+<script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
 <div class="breadcrumb-section breadcrumb-bg">
     <div class="container">
         <div class="row">
@@ -212,6 +213,27 @@
                     <li><a href=""><i class="fab fa-google-plus-g"></i></a></li>
                     <li><a href=""><i class="fab fa-linkedin"></i></a></li>
                 </ul>
+
+                <?php 
+ 						$id=$_GET['id'];
+                         $iduser=$_SESSION['user']['id_tai_khoan'];
+                             
+                         $sql="SELECT count(yeu_thich.ma_san_pham) as countsp FROM yeu_thich WHERE id_tai_khoan='$iduser' and ma_san_pham='$id'";
+                         $yeuthich= pdo_query($sql);
+                         $idchitiet =rand(10000,999999) ;
+                         foreach ($yeuthich as $like){
+                           extract($like);
+                           $number= $countsp;
+                        if($number==0){ ?>
+                        <a href="index.php?act=like&id=<?=$id?>"><i class="fas fa-heart" style="font-size:50px;color:black"></i></a>
+
+                      <?php   }elseif($number>0){ ?>
+                        <a href="index.php?act=like&id=<?=$id?>"><i class="fas fa-heart" style="font-size:50px;color:red"></i></a>
+                         <?php }
+                     }
+                ?>
+                
+                
             </div>
             <?php } ?>
         </div>
