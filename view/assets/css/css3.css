@@ -1,0 +1,71 @@
+body {
+  padding: 1rem;
+  font-family: "Open Sans", sans-serif;
+}
+.test {
+    width: 35%;
+    display: flex;
+    flex-flow: row wrap;
+}
+.test .a {
+    flex: 1;
+    padding: 0.5rem;
+}
+.test .a input[type="radio"] {
+    display: none;
+  }
+  .test .a label {
+    display: block;
+    background: #f27f21;
+    border:none;
+    border-radius: 20px;
+    padding: 1rem;
+    margin: 1rem;
+    text-align: center;
+    position: relative;
+    color:white;
+  }
+  .test h2{
+    margin:0px;
+    font-size:11pt;
+    font-weight: 600;
+  }
+  .test .a input[type="radio"]:checked + label{
+    background: hsl(199deg 74% 8%);
+    color: hsl(27deg 89% 54%);
+    border: none;
+  }
+
+section {
+  width: 30%;
+  display: flex;
+  flex-flow: row wrap;
+}
+section > div {
+  flex: 1;
+}
+section input[type="radio"] {
+  display: none;
+}
+section label {
+  display: block;
+  background: #f27f21;
+  border: none;
+  border-radius: 20px;
+  padding: 1rem;
+  margin: 1rem;
+  text-align: center;
+  position: relative;
+  color:white;
+}
+section h2{
+  margin:0px;
+  font-size:11pt;
+  font-weight: 600;
+}
+section input[type="radio"]:checked + label {
+  background: hsl(199deg 74% 8%);
+  color: hsl(27deg 89% 54%);
+  border: none;
+}
+

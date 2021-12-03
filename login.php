@@ -59,8 +59,14 @@ include './google_source.php';
                     $sql = "SELECT * FROM tai_khoan WHERE username='{$user}' AND password ='{$password}'";
                     $khachhang = pdo_query_one($sql);
                     if (is_array($khachhang)) {
-                        $_SESSION['user'] = $khachhang;
-                        header("location:index.php");
+                        extract($khachhang);
+                        if($vai_tro == 0){
+                            $_SESSION['user'] = $khachhang;
+                            header("location:index.php");
+                        }elseif($vai_tro == 1 ){
+                            header('location:admin/index.php');
+                        }
+                        
                     } else {
                         $thongbao =  '<script>swal ( "Rất tiếc", "Tài khoản hoặc mật khẩu đã sai!" ,  "error" );</script>';
                     }

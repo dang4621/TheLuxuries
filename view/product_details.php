@@ -114,7 +114,7 @@
                     <form action="index.php?act=add" method="POST">
 
                         <h3><?= $ten_san_pham ?></h3>
-                        <p class="single-product-pricing"><span>Per Products</span> <?= $gia_goc ?></p>
+                        <p class="single-product-pricing"><span></span> <?= $gia_goc ?>$</p>
                         <p><?= $mo_ta ?></p>
                         <div class="them">
                             <div class="size">
