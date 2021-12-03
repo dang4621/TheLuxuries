@@ -1,8 +1,8 @@
-<div class="s-heading ">
+ 
+  <div class="s-heading ">
     </div>
-    <link rel="stylesheet" href="../assets/css/dathang.css">
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <div class="checked" style="align-items: center;">
+    <div class="checked">
         <div class="content">
             <form action="index.php?act=thongke1" method="POST">
                 <select name="thang" onChange="this.form.submit()"> 
@@ -12,15 +12,14 @@
                     }; ?>
                 </select>
             </form>
-            <?php 
-                
-                foreach ($values as $value){
-                            extract($value); 
-                            echo("<pre>")        ;                   
-                            print_r(substr($ngay_hoa_don, 8));
-                            
-                }
-            ?>
+              <?php 
+                  
+                  foreach ($values as $value){
+                              extract($value);                                  
+                              echo(substr($ngay_hoa_don,8,2).","); 
+                              
+                  }
+              ?>
             <div id="myPlot" style="height : 500px;width:100%;max-width:1000px"></div>
 
                 <script>
@@ -28,8 +27,8 @@
                 var xArray = [
                     <?php  
                     foreach ($values as $value){
-                                extract($value);                            
-                                echo(substr($ngay_hoa_don, 8).",");
+                      extract($value);                                  
+                      echo(substr($ngay_hoa_don,8,2).",");  
                         }
                     ?>
                 ];
@@ -52,8 +51,8 @@
                 // Define Layout
                 var layout = {
                 xaxis: {range: [1, 31], title: "Ngày"},
-                yaxis: {range: [50, 20000], title: "Doanh thu ($)"},  
-                title: "DOANH THU THEO THÁNG SMOKEHOUSE"
+                yaxis: {range: [50, 1000], title: "Doanh thu ($)"},  
+                title: "Doanh thu theo tháng <?php  ?> TheLuxuries"
                 };
 
                 // Display using Plotly
