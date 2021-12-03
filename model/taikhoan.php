@@ -1,6 +1,4 @@
 <?php 
-
-
 function check_username($username){
     if(!preg_match("/^[A-Za-z0-9_\.]{6,32}$/", $username)){
         return true; 
@@ -34,6 +32,14 @@ function layTaiKhoan($username){
 function lay_all_tk(){
     $sql="SELECT username FROM tai_khoan";
     return pdo_query($sql);
+}
+function loadAll_tk(){
+    $sql="SELECT*FROM tai_khoan ORDER BY id_tai_khoan";
+    return pdo_query($sql);
+}
+function del_tk($id){
+    $sql="DELETE FROM tai_khoan where id_tai_khoan='$id'";
+    pdo_execute($sql);
 }
 function kt_taikhoan($username,$password){
     $sql="SELECT*FROM dang_ky_kh WHERE username='$username' AND password='$password'";
