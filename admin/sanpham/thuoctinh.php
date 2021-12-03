@@ -106,7 +106,7 @@
                                 <?php             
                         if(isset($_POST['add_session'])){                          
                             $size = explode(',',trim($_POST['size']) );                      
-                           $color = explode(',',trim($_POST['color']) );
+                            $color = explode(',',trim($_POST['color']) );
                             ?>
                             <form action="" method="POST" id="form_tt">
                             <?php

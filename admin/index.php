@@ -4,6 +4,8 @@
     include '../model/sanpham.php';   
     include '../model/danhmuc.php';    
     include '../model/thuonghieu.php';
+    include '../model/taikhoan.php';
+    include '../model/thongke.php';
     include '../admin/quanly/binhluan.php';
     include 'header.php';
     $danhmuc = loadAll_dm();
@@ -246,14 +248,14 @@
             case 'dstaikhoan':
                 include '../admin/taikhoan/dstaikhoan.php';
                 break;
-                case 'del_tk':
-                    if(isset($_GET['id'])){
-                        $id=$_GET['id'];
-                        del_tk($id);
-                        echo ('<script>swal("Xóa thành công!", "Bạn đã nhấp vào nút!", "success");</script>');                  
-                    }
-                    include '../admin/taikhoan/dstaikhoan.php';      
-                    break;    
+            case 'del_tk':
+                if(isset($_GET['id'])){
+                    $id=$_GET['id'];
+                    del_tk($id);
+                    echo ('<script>swal("Xóa thành công!", "Bạn đã nhấp vào nút!", "success");</script>');                  
+                }
+                include '../admin/taikhoan/dstaikhoan.php';      
+                break;    
             case 'dsbinhluan':
                 include '../admin/binhluan/dsbinhluan.php';
                 break;
@@ -270,8 +272,27 @@
                 include '../admin/bill/dsbill.php';
                 break;
             case 'thongke1':
+                if(isset($_POST['thang'])){
+                    $thang = $_POST['thang'];
+                    if($thang == 10||$thang == 11||$thang == 12){
+                        $thang = $_POST['thang'];
+
+                    }else{
+                        $thang = "0".$_POST['thang'];
+                    }
+                    $values = lay_dtt($thang);
+                }else{
+                    $thang = (substr(date("Y/m/d"), 8).",");
+                    if($thang == 10||$thang == 11||$thang == 12){
+                        $thang = $_POST['thang'];
+                    }else{
+                        $thang = "0".$_POST['thang'];
+                    }
+                    $values = lay_dtt($thang);
+                }
                 include '../admin/thongke/thongke1.php';
-                break;                        
+                break;
+                                
             }   
         }else{
         include '../admin/home.php';  
