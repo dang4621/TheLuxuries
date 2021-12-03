@@ -95,7 +95,7 @@
 							</div>
 							<h3><?= $ten_san_pham ?></h3>
 							<p class="product-price">								
-								<?= $gia_goc ?><span>vnd</span>
+								<?= $gia_goc ?><span>$</span>
 							</p>
 							<a href="index.php?act=chitiet_sp&id=<?= $ma_san_pham ?>" class="cart-btn"><i class="fas fa-shopping-cart"></i>Xem chi tiết</a>
 						</div>

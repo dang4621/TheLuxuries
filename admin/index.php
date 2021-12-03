@@ -4,6 +4,7 @@
     include '../model/sanpham.php';   
     include '../model/danhmuc.php';    
     include '../model/thuonghieu.php';
+    include '../model/taikhoan.php';
     
 
     include 'header.php';
@@ -124,6 +125,8 @@
                 if(isset($_GET['id'])){
                     $id=$_GET['id'];
                     del_sp($id);
+                    echo ('<script>swal("Xóa thành công!", "Bạn đã nhấp vào nút!", "success");</script>');                  
+
                 }
                  $id=0;
                 $keyw="";

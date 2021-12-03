@@ -114,7 +114,7 @@
                     <form action="index.php?act=add" method="POST">
 
                         <h3><?= $ten_san_pham ?></h3>
-                        <p class="single-product-pricing"><span>Per Products</span> <?= $gia_goc ?></p>
+                        <p class="single-product-pricing"><span></span> <?= $gia_goc ?>$</p>
                         <p><?= $mo_ta ?></p>
                         <div class="them">
                             <div class="size">
@@ -203,7 +203,7 @@
 							<a href="single-product.html"><img src="./upload/' . $file[0] . '" style="height:200px" ></a>
 						</div>
 						<h3>' . $ten_san_pham . '</h3>
-						<p class="product-price"> ' . $gia_goc . ' VND </p>
+						<p class="product-price"> ' . $gia_goc . '$ </p>
 						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Thêm vào giỏ</a>
 					</div>
 				</div>';
