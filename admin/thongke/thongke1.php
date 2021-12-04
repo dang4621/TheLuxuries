@@ -47,7 +47,6 @@
                                 Thống kê doanh thu
                                 <b class="caret"></b>
                             </p>
-
                         </a>
                         <ul class="dropdown-menu">
                             <li><a href="index.php?act=thongke1">Doanh thu theo tháng</a></li>
