@@ -260,11 +260,11 @@
             case 'dsbinhluan':
                 include '../admin/binhluan/dsbinhluan.php';
                 break;
-                case 'del_bl':
-                    if(isset($_GET['id'])){
-                        $id=$_GET['id'];
-                        del_bl($id);
-                        echo ('<script>swal("Xóa thành công!", "Bạn đã nhấp vào nút!", "success");</script>');                  
+            case 'del_bl':
+                if(isset($_GET['id'])){
+                    $id=$_GET['id'];
+                    del_bl($id);
+                    echo ('<script>swal("Xóa thành công!", "Bạn đã nhấp vào nút!", "success");</script>');                  
                     }
                     include '../admin/binhluan/dsbinhluan.php';      
                     break;    
@@ -289,9 +289,17 @@
                     include '../admin/bill/dsbill.php';                
                 }
 				break;
-                case 'chitietdh':
-					include '..admin/bill/chitietdh.php';
-					break;        
+            case 'del_dh':
+                if(isset($_GET['id'])){
+                $id=$_GET['id'];
+                del_dh($id);
+                echo ('<script>swal("Xóa thành công!", "Bạn đã nhấp vào nút!", "success");</script>');                  
+            }
+                include '../admin/bill/dsbill.php';      
+                break;     
+            case 'chitietdh':
+				include '..admin/bill/chitietdh.php';
+				break;        
             case 'thongke1':
                 if(isset($_POST['thang'])){
                     $thang = $_POST['thang'];

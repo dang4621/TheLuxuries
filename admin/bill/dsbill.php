@@ -128,7 +128,7 @@
                         <td class="product-trangthai"><?php echo $thanh_tien; ?><span>&nbsp;USĐ</span></td>
                         <td>
                           <a href="index.php?act=cartde&id=<?php echo $so_hoa_don; ?>"><input type="button"><i class="pe-7s-plus fa-2x"></i></a>
-                          <a href="#"><input type="button"><i class="pe-7s-trash fa-2x"></i></a>
+                          <a href="index.php?act=del_dh&id=<?php echo $so_hoa_don; ?>"><input type="button"><i class="pe-7s-trash fa-2x"></i></a>
                         </td>
                       </tr>
                       <?php }?>
