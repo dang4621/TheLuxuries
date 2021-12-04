@@ -8,7 +8,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Thương hiệu</a>
+                <a class="navbar-brand" href="#">Thống kê</a>
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-left">
@@ -39,21 +39,18 @@
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="">
-                            <p>Tài khoản</p>
-                        </a>
-                    </li>
-                    <li class="dropdown">
+
+                
+                <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <p>
-                                Thả xuống
+                                Thống kê doanh thu
                                 <b class="caret"></b>
                             </p>
 
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Action</a></li>
+                            <li><a href="index.php?act=thongke1">Doanh thu theo tháng</a></li>
                             <li><a href="#">Another action</a></li>
                             <li><a href="#">Something</a></li>
                             <li><a href="#">Another action</a></li>
@@ -62,10 +59,41 @@
                             <li><a href="#">Separated link</a></li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="#">
-                            <p>Đăng xuất</p>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <p>
+                               Thống kê số lượng
+                                <b class="caret"></b>
+                            </p>
+
                         </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="index.php?act=thongke1">Doanh thu theo tháng</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <p>
+                                Khác
+                                <b class="caret"></b>
+                            </p>
+
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="index.php?act=thongke1">Doanh thu theo tháng</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
                     </li>
                     <li class="separator hidden-lg hidden-md"></li>
                 </ul>
@@ -134,7 +162,7 @@
                                         range: [50, 1000],
                                         title: "Doanh thu ($)"
                                     },
-                                    title: "Doanh thu theo tháng <?php  ?> TheLuxuries"
+                                    title: "Doanh thu theo tháng <?= $thang ?> TheLuxuries"
                                 };
                                 // Display using Plotly
                                 Plotly.newPlot("myPlot", data, layout);

@@ -63,7 +63,7 @@ include './google_source.php';
                         if($vai_tro == 0){
                             $_SESSION['user'] = $khachhang;
                             header("location:index.php");
-                        }elseif($vai_tro == 1 ){
+                        }else{
                             header('location:admin/index.php');
                         }
                         

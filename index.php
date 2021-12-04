@@ -883,11 +883,7 @@
 
 				case 'quenmk' :
 					    include 'view/quenmk.php';
-						break;
-
-
-
-				
+						break;		
 
 				
 				//Chuyển hướng khi action sai
