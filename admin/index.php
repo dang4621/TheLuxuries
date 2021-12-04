@@ -299,7 +299,15 @@
                 break;     
             case 'chitietdh':
 				include '..admin/bill/chitietdh.php';
-				break;        
+				break;   
+            case 'thongke2':
+                    $listthongke=loadall_thongke();
+                    include '../admin/thongke/thongke2.php';
+                    break;
+            case 'bieudo':
+                    $listthongke=loadall_thongke();
+                    include '../admin/thongke/bieudo.php';
+                    break;         
             case 'thongke1':
                 if(isset($_POST['thang'])){
                     $thang = $_POST['thang'];
@@ -326,5 +334,3 @@
         }else{
         include '../admin/home.php';  
     }
-
-

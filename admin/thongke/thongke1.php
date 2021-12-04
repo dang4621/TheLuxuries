@@ -68,7 +68,7 @@
 
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="index.php?act=thongke1">Doanh thu theo tháng</a></li>
+                            <li><a href="index.php?act=thongke2">Số lượng sản phẩm</a></li>
                             <li><a href="#">Another action</a></li>
                             <li><a href="#">Something</a></li>
                             <li><a href="#">Another action</a></li>
@@ -86,7 +86,7 @@
 
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="index.php?act=thongke1">Doanh thu theo tháng</a></li>
+                            <li><a href="index.php?act=thongke2">Số lượng sản phẩm</a></li>
                             <li><a href="#">Another action</a></li>
                             <li><a href="#">Something</a></li>
                             <li><a href="#">Another action</a></li>
