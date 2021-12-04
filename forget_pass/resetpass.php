@@ -29,8 +29,8 @@
 									<?php endif ?>
 	                                <br>
 	                                <br>
-	                                <input class="sign-up__inp" name="newpass" type="text" placeholder="Mật khẩu mới" required="required" />
-                                    <input class="sign-up__inp" name="repass" type="text" placeholder="Nhập lại mật khẩu" required="required" />
+	                                <input class="sign-up__inp" name="newpass" type="password" placeholder="Mật khẩu mới" required="required" />
+                                    <input class="sign-up__inp" name="repass" type="password" placeholder="Nhập lại mật khẩu" required="required" />
 	                                <div class="test11">
 	                                    <a class="forgot__password">Bạn chưa có tài khoản?</a>
 	                                    <a href="#"> ĐĂNG KÍ</a>

@@ -125,4 +125,8 @@
 										   WHERE   chi_tiet_hoa_don.so_hoa_don = $so_hoa_don ";
 										 return pdo_query_one($sql);     
     }
+    function del_dh($id){
+        $sql="DELETE FROM hoa_don where so_hoa_don='$id'";
+        pdo_execute($sql);
+    }
 ?>
