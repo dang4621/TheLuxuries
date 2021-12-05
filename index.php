@@ -858,7 +858,6 @@
 					case 'like':                
 						$id=$_GET['id'];
 						$iduser=$_SESSION['user']['id_tai_khoan'];
-							
 						$sql="SELECT count(yeu_thich.ma_san_pham) as countsp FROM yeu_thich WHERE id_tai_khoan='$iduser' and ma_san_pham='$id'";
 						$yeuthich= pdo_query($sql);
 						$idchitiet =rand(10000,999999) ;
