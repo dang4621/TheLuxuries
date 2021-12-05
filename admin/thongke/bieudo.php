@@ -41,17 +41,17 @@
                 <ul class="nav navbar-nav navbar-right">
 
 
-                <li class="dropdown">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <p>
-                                Thống kê sản phẩm
+                                Thống kê doanh thu
                                 <b class="caret"></b>
                             </p>
 
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="index.php?act=thongke2">Số lượng sản phẩm</a></li>
-                            <li><a href="index.php?act=bieudo">Thống kê danh mục</a></li>
+                            <li><a href="index.php?act=thongke1">Doanh thu theo tháng</a></li>
+                            <li><a href="#">Another action</a></li>
                             <li><a href="#">Something</a></li>
                             <li><a href="#">Another action</a></li>
                             <li><a href="#">Something</a></li>
@@ -62,14 +62,14 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <p>
-                                Thống kê số lượng
+                                Thống kê sản phẩm
                                 <b class="caret"></b>
                             </p>
 
                         </a>
                         <ul class="dropdown-menu">
                             <li><a href="index.php?act=thongke2">Số lượng sản phẩm</a></li>
-                            <li><a href="#">Another action</a></li>
+                            <li><a href="index.php?act=bieudo">Thống kê danh mục</a></li>
                             <li><a href="#">Something</a></li>
                             <li><a href="#">Another action</a></li>
                             <li><a href="#">Something</a></li>
@@ -100,56 +100,47 @@
             </div>
         </div>
     </nav>
-    <!-- ///////// -->
-    <div class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="card card-plain">
-                        <div class="header">
-                            <h4 class="title">Thống kê số lượng</h4>
-                            <p class="category"></p>
-                        </div>
-                        <br>
-                        <div class="content table-responsive table-full-width">
-                            <table class="table table-hover">
-                                <thead>
-                                    <th class="product">Mã danh mục</th>
-                                    <th class="product">Tên danh mục</th>
-                                    <th class="product">Số lượng</th>
-                                    <th class="product">Giá cao nhất</th>
-                                    <th class="product">Giá thấp nhất</th>
-                                    <th class="product">Giá trung bình</th>
-                                </thead>
-                                <tbody>
-                                    <?php
-                            foreach ($listthongke as $thongke){
-                                   extract($thongke);
-                                echo '
-                                    <tr>
-                                        <td class="product">'.$madm.'</td>
-                                        <td class="product">'.$tendm.'</td>
-                                        <td class="product">'.$countsp.'</td>
-                                        <td class="product">'.$maxprice.'</td>
-                                        <td class="product">'.$minprice.'</td>
-                                        <td class="product">'.$avgprice.'</td>
-
-                                    </tr>';
-                                    }
-                                    ?>
-                                </tbody>
-                            </table>
-                            <div class="buttons">
-                                <a href="index.php?act=bieudo" class="boxed-btn">Biểu đồ</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ///////// -->
 </div>
 </div>
+</div>
+<div class="row" style="position:absolute;left:400px;" >
+    <div id="piechart"></div>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <script type="text/javascript">
+    // Load google charts
+    google.charts.load('current', {
+        'packages': ['corechart']
+    });
+    google.charts.setOnLoadCallback(drawChart);
+
+    // Draw the chart and set the chart values
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Danh mục', 'Số lượng sản phẩm'],
+            <?php
+                $tongdm=count($listthongke);
+                $i=1;
+                  foreach ($listthongke as $thongke){
+                      extract($thongke);
+                      if($i==$tongdm) $dauphay="";else $dauphay=",";
+                    echo"['".$thongke['tendm']."', ".$thongke['countsp']."]".$dauphay; 
+                    $i+=1;
+                  }
+                ?>
+        ]);
+
+        // Optional; add a title and set the width and height of the chart
+        var options = {
+            'title': 'Thống kê sản phẩm theo danh mục',
+            'width': 1000,
+            'height': 800
+        };
+
+        // Display the chart inside the <div> element with id="piechart"
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+        chart.draw(data, options);
+    }
+    </script>
 </div>
