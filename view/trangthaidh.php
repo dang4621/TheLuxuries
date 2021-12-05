@@ -16,7 +16,7 @@
 		<div class="full-height-section error-section">
 			<div class="full-height-tablecell">
 				<div class="container">
-					<div class="row21">
+					<div class="row">
                     <div class="tracuu">
                         <h2>
                             <span2> &nbsp;&nbsp;&nbsp;Thông Tin Giỏ Hàng&nbsp;&nbsp;&nbsp; </span2>

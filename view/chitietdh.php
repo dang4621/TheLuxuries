@@ -17,8 +17,8 @@
 	    <div class="full-height-tablecell">
 	        <div class="container">
 	            <div class="row">
-	                    <div class="order-track container-fluid">
-	                        <div class="group">
+	                <div class="order-track container-fluid">
+	                    <div class="group">
 							<?php if(isset($_GET['id'])){ 
 								$id=$_GET['id'];
 								$nhom_hang=load_chitiet($id);

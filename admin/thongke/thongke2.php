@@ -42,16 +42,15 @@
 
 
                 <li class="dropdown">
+                <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <p>
-                                Thống kê sản phẩm
+                                Doanh thu
                                 <b class="caret"></b>
                             </p>
-
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="index.php?act=thongke2">Số lượng sản phẩm</a></li>
-                            <li><a href="index.php?act=bieudo">Thống kê danh mục</a></li>
+                            <li><a href="index.php?act=thongke1">Tổng doanh thu tháng</a></li>
                             <li><a href="#">Something</a></li>
                             <li><a href="#">Another action</a></li>
                             <li><a href="#">Something</a></li>
@@ -62,14 +61,13 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <p>
-                                Thống kê số lượng
+                               Sản phẩm
                                 <b class="caret"></b>
                             </p>
-
                         </a>
                         <ul class="dropdown-menu">
                             <li><a href="index.php?act=thongke2">Số lượng sản phẩm</a></li>
-                            <li><a href="#">Another action</a></li>
+                            <li><a href="index.php?act=bieudo">Thống kê danh mục</a></li>
                             <li><a href="#">Something</a></li>
                             <li><a href="#">Another action</a></li>
                             <li><a href="#">Something</a></li>
