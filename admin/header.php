@@ -95,7 +95,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="index.php?act=thongke1">
+                        <a href="index.php?act=index_tk">
                             <i class="pe-7s-graph"></i>
                             <p>Thống kê</p>
                         </a>
