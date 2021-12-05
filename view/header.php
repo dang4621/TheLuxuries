@@ -73,7 +73,7 @@
                                                 <a href="update_information/capnhatthongtin.php">Cập nhật thông tin</a>
                                             </li>
                                             <li>
-                                                <a href="index.php?act=quenmk">Quên mật khẩu</a>
+                                                <a href="forget_pass/quenmk.php">Quên mật khẩu</a>
                                             </li>
                                             <?php 
 											    if(isset($_SESSION['user'])){
