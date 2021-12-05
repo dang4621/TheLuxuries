@@ -104,34 +104,34 @@
                                 <a href="index.php?act=unset_tt">Nhập lại</a>
                             </form>
                                 <?php             
-                        if(isset($_POST['add_session'])){                          
-                            $size = explode(',',trim($_POST['size']) );                      
-                            $color = explode(',',trim($_POST['color']) );
-                            ?>
-                            <form action="" method="POST" id="form_tt">
-                            <?php
-                            $i=1;
-                            foreach($size as $value){
-                                foreach($color as $val){
-                                    ?>                                    
-                                        Màu : <?= $value ?>
-                                        <input type="hidden" name="c_size_<?=$i?>" value="<?= $value ?>">
-                                        Size : <?= $val ?>
-                                        <br>
-                                        <input type="hidden" name="c_color_<?=$i?>" value="<?= $val ?>">
-                                            Nhập số lượng
-                                        <input type="number" name="quantity_<?=$i?>"><br>
-                                        <!-- <?=$i?> -->                                    
-                                    <?php
-                                    $i++;                                    
-                                }
-                            }    
-                            $_SESSION['i']=$i;                        
-                            ?>     
-                            <br>                      
-                              <input type="submit" class="gui" name="add" form="form_tt">
-                              </form>
-                            <?php
+                                    if(isset($_POST['add_session'])){                          
+                                    $size = explode(',',trim($_POST['size']) );                      
+                                    $color = explode(',',trim($_POST['color']) );
+                                            ?>
+                                        <form action="" method="POST" id="form_tt">
+                                        <?php
+                                        $i=1;
+                                        foreach($size as $value){
+                                            foreach($color as $val){
+                                                ?>                                    
+                                                    Màu : <?= $val ?>
+                                                    <input type="hidden" name="c_size_<?=$i?>" value="<?= $value ?>">
+                                                    Size : <?= $value ?>
+                                                    <br>
+                                                    <input type="hidden" name="c_color_<?=$i?>" value="<?= $val ?>">
+                                                        Nhập số lượng
+                                                    <input type="number" name="quantity_<?=$i?>"><br>
+                                                    <!-- <?=$i?> -->                                    
+                                                <?php
+                                                $i++;                                    
+                                            }
+                                        }    
+                                        $_SESSION['i']=$i;                        
+                                        ?>     
+                                        <br>                      
+                                        <input type="submit" class="gui" name="add" form="form_tt">
+                                        </form>
+                                        <?php
                         }
                         if(isset($_POST['add'])){
                             $i =  $_SESSION['i'];
