@@ -39,7 +39,7 @@
 /* Tablet Layout: 768px. */
 @media only screen and (min-width: 768px) and (max-width: 991px) { 
         .tracuu{
-            margin-top:-380px;
+            margin-top:-100px;
         }
         .tracuu table{
             border-spacing: 10px 0px;
@@ -55,7 +55,7 @@
 /* Mobile Layout: 320px. */
 @media only screen and (max-width: 767px) {
     .tracuu{
-        margin-top:-300px;
+        margin-top:-100px;
     }
     .tracuu table{
         border-spacing: 5px 0px;
@@ -74,7 +74,7 @@
 /* Wide Mobile Layout: 375px. */
 @media only screen and (min-width: 375px) and (max-width: 812px) { 
     .tracuu{
-        margin-top:-350px;
+        margin-top:-325px;
     }
     .tracuu table{
         border-spacing: 3px 0px;
