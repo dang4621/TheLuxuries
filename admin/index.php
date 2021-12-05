@@ -300,8 +300,8 @@
             case 'chitietdh':
 				include '..admin/bill/chitietdh.php';
 				break;  
-            case 'thongketest':						       
-                include '../admin/thongke/thongketest.php';
+            case 'index_tk':						       
+                include '../admin/thongke/index_tk.php';
                 break;                      
             case 'thongke1':
                 if(isset($_POST['thang'])){
@@ -324,8 +324,18 @@
                 }
                 include '../admin/thongke/thongke1.php';
                 break;
+            case 'thongke2':
+                    $listthongke=loadall_thongke();
+                    include '../admin/thongke/thongke2.php';
+                    break;
+            case 'bieudo':
+                    $listthongke=loadall_thongke();
+                    include '../admin/thongke/bieudo.php';
+                    break;       
+                
                                 
-            }   
+            }
+         
         }else{
         include '../admin/home.php';  
     }
