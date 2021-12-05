@@ -3293,6 +3293,11 @@ fieldset[disabled] .btn-neutral.active {
 
 /*          Changes for small display      */
 @media (max-width: 991px) {
+/*test*/
+    .col-md-42{
+    display: none;
+    }
+/*end test*/
     .main-panel {
         width: 100%;
     }

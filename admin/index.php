@@ -274,7 +274,7 @@
                 break;
             case 'cartde':						                
 				include '../admin/bill/chitietdh.php';
-				break;        
+				break;    
             case 'sua_tt':
 				if(isset($_GET['ma_hoa_don'])){
                  if(isset($_GET['tt'])){
@@ -299,7 +299,10 @@
                 break;     
             case 'chitietdh':
 				include '..admin/bill/chitietdh.php';
-				break;        
+				break;  
+            case 'thongketest':						       
+                include '../admin/thongke/thongketest.php';
+                break;                      
             case 'thongke1':
                 if(isset($_POST['thang'])){
                     $thang = $_POST['thang'];
@@ -326,5 +329,3 @@
         }else{
         include '../admin/home.php';  
     }
-
-

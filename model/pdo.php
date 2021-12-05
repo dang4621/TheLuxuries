@@ -3,7 +3,7 @@
 function pdo_get_connection(){
  
 
-    $servername = "localhost:3306";
+    $servername = "localhost";
     $username = "root";
     $password = "";
     

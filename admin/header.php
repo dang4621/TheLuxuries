@@ -32,6 +32,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link rel="stylesheet" href="assets/css/chitietdh.css">
+    <link rel="stylesheet" href="assets/css/thongke.css">
+
+    <link rel="stylesheet" href="path/to/pe-icon-7-stroke/css/pe-icon-7-stroke.css">
+
+<!-- Optional - Adds useful class to manipulate icon font display -->
+<link rel="stylesheet" href="path/to/pe-icon-7-stroke/css/helper.css">
 
 </head>
 
