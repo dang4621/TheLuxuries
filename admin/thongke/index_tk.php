@@ -7,12 +7,12 @@
                 <table class="table">
                     <thead>
                         <th class="product-tongnd">Tổng người dùng</th>
-                    <thead>
-                    <tbody>
-                        <tr>
-                            <td class="product-tongnd">600</td> 
-                        </tr>
-                    </tbody>
+                        <thead>
+                        <tbody>
+                            <tr>
+                                <td class="product-tongnd">600</td>
+                            </tr>
+                        </tbody>
                 </table>
                 <i class="pe-7s-add-user"> </i>
             </div>
@@ -20,12 +20,12 @@
                 <table class="table">
                     <thead>
                         <th class="product-tongdh">Tổng đơn hàng</th>
-                    <thead>
-                    <tbody>
-                        <tr>
-                            <td class="product-tongdh">513</td> 
-                        </tr>
-                    </tbody>
+                        <thead>
+                        <tbody>
+                            <tr>
+                                <td class="product-tongdh">513</td>
+                            </tr>
+                        </tbody>
                 </table>
                 <i class="pe-7s-cart"></i>
             </div>
@@ -33,12 +33,12 @@
                 <table class="table">
                     <thead>
                         <th class="product-tongspbd">Tổng sản phẩm đã bán</th>
-                    <thead>
-                    <tbody>
-                        <tr>
-                            <td class="product-tongspbd">500</td> 
-                        </tr>
-                    </tbody>
+                        <thead>
+                        <tbody>
+                            <tr>
+                                <td class="product-tongspbd">500</td>
+                            </tr>
+                        </tbody>
                 </table>
                 <i class="pe-7s-shopbag"></i>
             </div>
@@ -46,12 +46,12 @@
                 <table class="table">
                     <thead>
                         <th class="product-tongsttd">Tổng số tiền thu được</th>
-                    <thead>
-                <tbody>
-                    <tr>
-                        <td class="product-tongsttd">547.546.000</td> 
-                    </tr>
-                </tbody>
+                        <thead>
+                        <tbody>
+                            <tr>
+                                <td class="product-tongsttd">547.546.000</td>
+                            </tr>
+                        </tbody>
                 </table>
                 <i class="pe-7s-cash"></i>
             </div>
@@ -69,7 +69,57 @@
                         <div class="content">
                             <div id="chartPreferences" class="ct-chart ct-perfect-fourth">
 
-                                <!--Nơi gắn biểu đồ-->
+                                <div class="row" >
+                                    <div id="piechart"></div>
+
+                                    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js">
+                                    </script>
+
+                                    <script type="text/javascript">
+                                    // Load google charts
+                                    google.charts.load('current', {
+                                        'packages': ['corechart']
+                                    });
+                                    google.charts.setOnLoadCallback(drawChart);
+
+                                    // Draw the chart and set the chart values
+                                    function drawChart() {
+                                        var data = google.visualization.arrayToDataTable([
+                                            ['Danh mục', 'Số lượng sản phẩm'],
+                                            <?php
+            $listthongke=loadall_thongke_2();
+                $tongdm=count($listthongke);
+                $i=1;
+                  foreach ($listthongke as $thongke){
+                      extract($thongke);
+                      if($i==$tongdm) $dauphay="";else $dauphay=",";
+                      if($thongke['tt']==0){
+                        echo"['chưa thanh toán', ".$thongke['datt']."]".$dauphay;
+                      }else if($thongke['tt']==1){
+                        echo"['đã thanh toán', ".$thongke['datt']."]".$dauphay;
+                      }else if($thongke['tt']==2){
+                        echo"['đơn đã hủy', ".$thongke['datt']."]".$dauphay;
+                      }
+                     
+                    $i+=1;
+                  }
+                ?>
+                                        ]);
+
+                                        // Optional; add a title and set the width and height of the chart
+                                        var options = {
+                                            'title': 'Thống kê sản phẩm theo danh mục',
+                                           // 'width': 400,
+                                            //'height': 300
+                                        };
+
+                                        // Display the chart inside the <div> element with id="piechart"
+                                        var chart = new google.visualization.PieChart(document.getElementById(
+                                            'piechart'));
+                                        chart.draw(data, options);
+                                    }
+                                    </script>
+                                </div>
 
                             </div>
                             <div class="footer">
@@ -96,7 +146,7 @@
                             <div id="chartHours" class="ct-chart">
 
                                 <!--Nơi gắn biểu đồ-->
-                                 
+
                             </div>
 
                             <div class="footer">
@@ -158,7 +208,8 @@
                                             <td class="product-slmua">1</td>
                                             <td class="product-tenhang">Phan Công Đỉnh</td>
                                             <td class="product-hinh">
-                                                <img src="https://vcdn1-dulich.vnecdn.net/2021/04/02/trantuanviet-bavi-hanoi-1617326198.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=ktcT9Y2ol0GS9x2oIjJaRw" width="50px" alt="">
+                                                <img src="https://vcdn1-dulich.vnecdn.net/2021/04/02/trantuanviet-bavi-hanoi-1617326198.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=ktcT9Y2ol0GS9x2oIjJaRw"
+                                                    width="50px" alt="">
                                             </td>
                                             <td class="product-gia">800 VND</td>
                                         </tr>
@@ -166,7 +217,8 @@
                                             <td class="product-id">2</td>
                                             <td class="product-tenloai">Phan Công Đỉnh</td>
                                             <td class="product-hinh">
-                                                <img src="https://vcdn1-dulich.vnecdn.net/2021/04/02/trantuanviet-bavi-hanoi-1617326198.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=ktcT9Y2ol0GS9x2oIjJaRw" width="50px" alt="">
+                                                <img src="https://vcdn1-dulich.vnecdn.net/2021/04/02/trantuanviet-bavi-hanoi-1617326198.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=ktcT9Y2ol0GS9x2oIjJaRw"
+                                                    width="50px" alt="">
                                             </td>
                                             <td class="product-gia">800 VND</td>
                                         </tr>
@@ -174,7 +226,8 @@
                                             <td class="product-id">3</td>
                                             <td class="product-tenloai">Phan Công Đỉnh</td>
                                             <td class="product-hinh">
-                                                <img src="https://vcdn1-dulich.vnecdn.net/2021/04/02/trantuanviet-bavi-hanoi-1617326198.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=ktcT9Y2ol0GS9x2oIjJaRw" width="50px" alt="">
+                                                <img src="https://vcdn1-dulich.vnecdn.net/2021/04/02/trantuanviet-bavi-hanoi-1617326198.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=ktcT9Y2ol0GS9x2oIjJaRw"
+                                                    width="50px" alt="">
                                             </td>
                                             <td class="product-gia">800 VND</td>
                                         </tr>
@@ -182,7 +235,8 @@
                                             <td class="product-id">3</td>
                                             <td class="product-tenloai">Phan Công Đỉnh</td>
                                             <td class="product-hinh">
-                                                <img src="https://vcdn1-dulich.vnecdn.net/2021/04/02/trantuanviet-bavi-hanoi-1617326198.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=ktcT9Y2ol0GS9x2oIjJaRw" alt="">
+                                                <img src="https://vcdn1-dulich.vnecdn.net/2021/04/02/trantuanviet-bavi-hanoi-1617326198.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=ktcT9Y2ol0GS9x2oIjJaRw"
+                                                    alt="">
                                             </td>
                                             <td class="product-gia">800 VND</td>
                                         </tr>
