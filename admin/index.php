@@ -301,24 +301,7 @@
 				include '..admin/bill/chitietdh.php';
 				break;  
             case 'index_tk':
-                    if(isset($_POST['thang'])){
-                        $thang = $_POST['thang'];
-                        if($thang == 10||$thang == 11||$thang == 12){
-                            $thang = $_POST['thang'];
-
-                        }else{
-                            $thang = "0".$_POST['thang'];
-                        }
-                        $values = lay_dtt($thang);
-                    }else{
-                        $thang = (substr(date("Y/m/d"),5,2));
-                        if($thang == 10||$thang == 11||$thang == 12){
-                            $thang =  $thang;
-                        }else{
-                            $thang = "0". $thang;
-                        }
-                        $values = lay_dtt($thang);
-                    }						       
+                    $listthongke=loadall_thongke_2();                   		       
                 include '../admin/thongke/index_tk.php';
                 break;                      
             case 'thongke1':
@@ -349,6 +332,11 @@
             case 'bieudo':
                     $listthongke=loadall_thongke();
                     include '../admin/thongke/bieudo.php';
+                    break;
+                    
+            case 'thongkedh':
+                    $listthongke=loadall_thongke_2();
+                    include '../admin/thongke/bieudodh.php';
                     break;       
                 
                                 

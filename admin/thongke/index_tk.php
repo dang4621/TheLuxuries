@@ -119,38 +119,23 @@
                                         <th class="product-gia">Giá</th>
                                     </thead>
                                     <tbody>
+                                        <?php 
+                                        $load = load_slxh(); 
+                                        foreach($load as $value){
+                                            extract($value);
+                                            // echo("<pre>");
+                                            // print_r($value);
+                                        ?>                                     
                                         <tr>
-                                            <td class="product-slmua">1</td>
+                                            <td class="product-slmua"><?= $slxh ?></td>
                                             <td class="product-tenhang">Phan Công Đỉnh</td>
                                             <td class="product-hinh">
                                                 <img src="https://vcdn1-dulich.vnecdn.net/2021/04/02/trantuanviet-bavi-hanoi-1617326198.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=ktcT9Y2ol0GS9x2oIjJaRw" width="50px" alt="">
                                             </td>
                                             <td class="product-gia">800 VND</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="product-id">2</td>
-                                            <td class="product-tenloai">Phan Công Đỉnh</td>
-                                            <td class="product-hinh">
-                                                <img src="https://vcdn1-dulich.vnecdn.net/2021/04/02/trantuanviet-bavi-hanoi-1617326198.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=ktcT9Y2ol0GS9x2oIjJaRw" width="50px" alt="">
-                                            </td>
-                                            <td class="product-gia">800 VND</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="product-id">3</td>
-                                            <td class="product-tenloai">Phan Công Đỉnh</td>
-                                            <td class="product-hinh">
-                                                <img src="https://vcdn1-dulich.vnecdn.net/2021/04/02/trantuanviet-bavi-hanoi-1617326198.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=ktcT9Y2ol0GS9x2oIjJaRw" width="50px" alt="">
-                                            </td>
-                                            <td class="product-gia">800 VND</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="product-id">3</td>
-                                            <td class="product-tenloai">Phan Công Đỉnh</td>
-                                            <td class="product-hinh">
-                                                <img src="https://vcdn1-dulich.vnecdn.net/2021/04/02/trantuanviet-bavi-hanoi-1617326198.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=ktcT9Y2ol0GS9x2oIjJaRw" alt="">
-                                            </td>
-                                            <td class="product-gia">800 VND</td>
-                                        </tr>
+                                        </tr>  
+                                        <?php  }
+                                        ?>                                      
                                     </tbody>
                                 </table>
                             </div>

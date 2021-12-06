@@ -40,4 +40,17 @@
             return pdo_query_one($sql);
     }
    
+
+    function loadall_thongke_2(){
+        $sql=" SELECT COUNT(hoa_don.trang_thai)as datt,hoa_don.trang_thai as tt FROM hoa_don GROUP BY hoa_don.trang_thai desc";
+        $listthongke=pdo_query($sql);
+        return $listthongke; 
+    }
+    function load_slxh(){
+        $sql = "SELECT id_tt, count(1) slxh
+                FROM chi_tiet_hoa_don
+                Group By id_tt ORDER BY slxh DESC  LIMIT 3";
+            return pdo_query($sql);
+    }
+    
 ?>
