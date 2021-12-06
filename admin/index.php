@@ -307,7 +307,8 @@
             case 'bieudo':
                     $listthongke=loadall_thongke();
                     include '../admin/thongke/bieudo.php';
-                    break;         
+                    break;
+                             
             case 'thongke1':
                 if(isset($_POST['thang'])){
                     $thang = $_POST['thang'];
