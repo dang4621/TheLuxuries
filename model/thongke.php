@@ -38,8 +38,7 @@
         $sql = "SELECT SUM(hoa_don.thanh_tien) AS tongtien
                 FROM hoa_don";
             return pdo_query_one($sql);
-    }
-   
+            } 
 
     function loadall_thongke_2(){
         $sql=" SELECT COUNT(hoa_don.trang_thai)as datt,hoa_don.trang_thai as tt FROM hoa_don GROUP BY hoa_don.trang_thai desc";
@@ -51,6 +50,12 @@
                 FROM chi_tiet_hoa_don
                 Group By id_tt ORDER BY slxh DESC  LIMIT 3";
             return pdo_query($sql);
+    }
+    function load_sp($id_tt){
+        $sql = "SELECT san_pham.ten_san_pham ,san_pham.image ,san_pham.gia_goc 
+                FROM (thuoc_tinh INNER JOIN san_pham ON thuoc_tinh.ma_san_pham = san_pham.ma_san_pham) 
+                WHERE thuoc_tinh.id_tt = '$id_tt'";
+            return pdo_query_one($sql);
     }
     
 ?>

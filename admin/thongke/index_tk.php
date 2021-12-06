@@ -50,7 +50,7 @@
                               $so_hdb= dem_hdb();
                               extract($so_hdb);
                         ?>
-                        <tr>
+                        <tr>`
                             <td class="product-tongspbd"><?= $soluong_mh ?></td> 
                         </tr>
                     </tbody>
@@ -107,7 +107,7 @@
                 <div class="col-md-6">
                     <div class="card ">
                         <div class="header">
-                            <h4 class="title1">Sản phẩm bán chạy</h4>
+                            <h4 class="title1"># sản phẩm bán chạy</h4>
                         </div>
                         <div class="content">
                             <div class="table-full-width">
@@ -128,12 +128,23 @@
                                         ?>                                     
                                         <tr>
                                             <td class="product-slmua"><?= $slxh ?></td>
-                                            <td class="product-tenhang">Phan Công Đỉnh</td>
+                                            <?php  
+                                             $load_sp = load_sp($id_tt);
+                                             extract($load_sp);
+                                             $url_hinh="";                                
+                                             if(isset($image)&&!$image==""){
+                                                 $file = explode(",",substr($image, 0, -1));
+                                             }else{
+                                                $file[0]="không có hình";
+                                             }; 
+                                              ?>
+                                            <td class="product-tenhang"><?= $ten_san_pham ?></td>
                                             <td class="product-hinh">
-                                                <img src="https://vcdn1-dulich.vnecdn.net/2021/04/02/trantuanviet-bavi-hanoi-1617326198.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=ktcT9Y2ol0GS9x2oIjJaRw" width="50px" alt="">
+                                                <img src="../upload/<?= $file[0] ?>" width="50px" alt="">
                                             </td>
-                                            <td class="product-gia">800 VND</td>
+                                            <td class="product-gia"><?= $gia_goc ?></td>
                                         </tr>  
+                                     
                                         <?php  }
                                         ?>                                      
                                     </tbody>

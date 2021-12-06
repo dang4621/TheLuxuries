@@ -300,10 +300,10 @@
             case 'chitietdh':
 				include '..admin/bill/chitietdh.php';
 				break;  
-            case 'index_tk':
-                    $listthongke=loadall_thongke_2();                   		       
+            case 'index_tk':             		       
                 include '../admin/thongke/index_tk.php';
-                break;                      
+                break;     
+                                 
             case 'thongke1':
                 if(isset($_POST['thang'])){
                     $thang = $_POST['thang'];
