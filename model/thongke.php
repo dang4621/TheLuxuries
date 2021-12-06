@@ -19,5 +19,25 @@
         $listthongke=pdo_query($sql);
         return $listthongke; 
     }
-    
+    function dem_stk(){
+        $sql = " SELECT COUNT(tai_khoan.id_tai_khoan) as soluong
+                FROM tai_khoan";
+            return pdo_query_one($sql);
+    }
+    function dem_shd(){
+        $sql = " SELECT COUNT(hoa_don.so_hoa_don) as soluong_hd
+                FROM hoa_don";
+            return pdo_query_one($sql);
+    }
+    function dem_hdb(){
+        $sql = "SELECT COUNT(chi_tiet_hoa_don.id_cthd) as soluong_mh
+                FROM chi_tiet_hoa_don";
+            return pdo_query_one($sql);
+    }
+    function dem_tongtien(){
+        $sql = "SELECT SUM(hoa_don.thanh_tien) AS tongtien
+                FROM hoa_don";
+            return pdo_query_one($sql);
+    }
+   
 ?>
