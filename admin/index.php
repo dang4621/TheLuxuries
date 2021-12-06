@@ -300,7 +300,8 @@
             case 'chitietdh':
 				include '..admin/bill/chitietdh.php';
 				break;  
-            case 'index_tk':             		       
+            case 'index_tk':   
+                $listthongke=loadall_thongke_2();          		       
                 include '../admin/thongke/index_tk.php';
                 break;     
                                  
@@ -337,9 +338,7 @@
             case 'thongkedh':
                     $listthongke=loadall_thongke_2();
                     include '../admin/thongke/bieudodh.php';
-                    break;       
-                
-                                
+                    break;   
             }
          
         }else{

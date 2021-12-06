@@ -1,8 +1,8 @@
 <div class="main-panel">
     <?php include 'thongke/header.php' ?>
     <?php 
-                $so_tk= dem_stk();
-                extract($so_tk);
+        $so_tk= dem_stk();
+         extract($so_tk);
                  ?>
     <br>
     <div class="col-md-42">
