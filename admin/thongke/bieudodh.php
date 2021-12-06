@@ -26,11 +26,11 @@
                       extract($thongke);
                       if($i==$tongdm) $dauphay="";else $dauphay=",";
                       if($thongke['tt']==0){
-                        echo"['thanh toán khi nhận hàng', ".$thongke['datt']."]".$dauphay;
+                        echo"['chưa thanh toán', ".$thongke['datt']."]".$dauphay;
                       }else if($thongke['tt']==1){
-                        echo"['thanh toán online', ".$thongke['datt']."]".$dauphay;
+                        echo"['đã thanh toán', ".$thongke['datt']."]".$dauphay;
                       }else if($thongke['tt']==2){
-                        echo"['đã hủy đơn', ".$thongke['datt']."]".$dauphay;
+                        echo"['đơn đã hủy', ".$thongke['datt']."]".$dauphay;
                       }
                      
                     $i+=1;
