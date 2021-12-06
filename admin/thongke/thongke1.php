@@ -16,35 +16,35 @@
                                     <select name="thang" onChange="this.form.submit()">
                                         <option value="">Chọn tháng</option>
                                         <?php for($i=1 ; $i<13 ; $i++){
-                          echo("<option value='".$i."'> Tháng ".$i."</option>");
-                  }; ?>
-                                    </select>
-                                </form>
-                                <?php 
-                
-                foreach ($values as $value){
-                            extract($value);                                  
-                            echo(substr($ngay_hoa_don,8,2).","); 
-                            
-                }
-            ?>
-                                <div id="myPlot"></div>
-                                <script>
-                                var xArray = [
-                                    <?php  
-                  foreach ($values as $value){
-                    extract($value);                                  
-                    echo(substr($ngay_hoa_don,8,2).",");  
-                      }
-                  ?>
-                                ];
-                                var yArray = [
-                                    <?php  
-              foreach ($values as $value){
-                          extract($value);                            
-                          echo($Tongtien.",");
-              }
-          ?>
+                                                    echo("<option value='".$i."'> Tháng ".$i."</option>");
+                                            }; ?>
+                                                                </select>
+                                                            </form>
+                                                            <?php 
+                                            
+                                            foreach ($values as $value){
+                                                        extract($value);                                  
+                                                        
+                                                        
+                                            }
+                                        ?>
+                                                            <div id="myPlot"></div>
+                                                            <script>
+                                                            var xArray = [
+                                                                <?php  
+                                            foreach ($values as $value){
+                                                extract($value);                                  
+                                                echo(substr($ngay_hoa_don,8,2).",");  
+                                                }
+                                            ?>
+                                                            ];
+                                                            var yArray = [
+                                                                <?php  
+                                        foreach ($values as $value){
+                                                    extract($value);                            
+                                                    echo($Tongtien.",");
+                                        }
+                                    ?>
                                 ];
                                 // Define Data
                                 var data = [{
