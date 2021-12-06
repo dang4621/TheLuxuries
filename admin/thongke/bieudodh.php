@@ -25,7 +25,14 @@
                   foreach ($listthongke as $thongke){
                       extract($thongke);
                       if($i==$tongdm) $dauphay="";else $dauphay=",";
-                    echo"['".$thongke['tendm']."', ".$thongke['countsp']."]".$dauphay; 
+                      if($thongke['tt']==0){
+                        echo"['thanh toán khi nhận hàng', ".$thongke['datt']."]".$dauphay;
+                      }else if($thongke['tt']==1){
+                        echo"['thanh toán online', ".$thongke['datt']."]".$dauphay;
+                      }else if($thongke['tt']==2){
+                        echo"['đã hủy đơn', ".$thongke['datt']."]".$dauphay;
+                      }
+                     
                     $i+=1;
                   }
                 ?>

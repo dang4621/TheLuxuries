@@ -32,6 +32,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link rel="stylesheet" href="assets/css/chitietdh.css">
+    <link rel="stylesheet" href="assets/css/thongke.css">
+
+    <link rel="stylesheet" href="path/to/pe-icon-7-stroke/css/pe-icon-7-stroke.css">
+
+<!-- Optional - Adds useful class to manipulate icon font display -->
+<link rel="stylesheet" href="path/to/pe-icon-7-stroke/css/helper.css">
 
 </head>
 
@@ -89,11 +95,12 @@
                         </a>
                     </li>
                     <li>
-                        <a href="index.php?act=thongke1">
+                        <a href="index.php?act=index_tk">
                             <i class="pe-7s-graph"></i>
                             <p>Thống kê</p>
                         </a>
                     </li>
+
 
                     <li class="active-pro">
                         <a href="#">

@@ -11,4 +11,19 @@
                 WHERE ngay_hoa_don LIKE '%2021-".$thang."%' GROUP BY ngay_hoa_don";
             return pdo_query($sql);
     }
+       
+    function loadall_thongke(){
+        $sql=" select danh_muc.ma_nhom_hang as madm,danh_muc.ten_nhom_hang as tendm, count(san_pham.ma_san_pham) as countsp, min(san_pham.gia_goc) as minprice, max(san_pham.gia_goc) as maxprice, avg(san_pham.gia_goc) as avgprice";
+        $sql.=" from san_pham left join danh_muc on danh_muc.ma_nhom_hang=san_pham.ma_nhom_hang"; 
+        $sql.=" group by danh_muc.ma_nhom_hang order by danh_muc.ma_nhom_hang desc";
+        $listthongke=pdo_query($sql);
+        return $listthongke; 
+    }
+
+    function loadall_thongke_2(){
+        $sql=" SELECT COUNT(hoa_don.trang_thai)as datt,hoa_don.trang_thai as tt FROM hoa_don GROUP BY hoa_don.trang_thai desc";
+        $listthongke=pdo_query($sql);
+        return $listthongke; 
+    }
+    
 ?>

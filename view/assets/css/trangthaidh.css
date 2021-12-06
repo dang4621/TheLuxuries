@@ -36,3 +36,57 @@
     color: #85858a;
     font-style:italic;
 }
+/* Tablet Layout: 768px. */
+@media only screen and (min-width: 768px) and (max-width: 991px) { 
+        .tracuu{
+            margin-top:-100px;
+        }
+        .tracuu table{
+            border-spacing: 10px 0px;
+            line-height: 80px;
+        }
+        .tracuu h2 span2{
+            font-size:18pt;
+        }
+        .tracuu table th{
+            font-size:8pt;
+        }
+}
+/* Mobile Layout: 320px. */
+@media only screen and (max-width: 767px) {
+    .tracuu{
+        margin-top:-100px;
+    }
+    .tracuu table{
+        border-spacing: 5px 0px;
+        line-height: 50px;
+    }
+    .tracuu h2 span2{
+        font-size:14pt;
+    }
+    .tracuu table th{
+        font-size:6pt;
+    }
+    .tracuu table td{
+        font-size:5pt;
+    }
+}
+/* Wide Mobile Layout: 375px. */
+@media only screen and (min-width: 375px) and (max-width: 812px) { 
+    .tracuu{
+        margin-top:-325px;
+    }
+    .tracuu table{
+        border-spacing: 3px 0px;
+        line-height: 50px;
+    }
+    .tracuu h2 span2{
+        font-size:14pt;
+    }
+    .tracuu table th{
+        font-size:5pt;
+    }
+    .tracuu table td{
+        font-size:5pt;
+    }
+}
