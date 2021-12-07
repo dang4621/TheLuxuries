@@ -126,7 +126,7 @@
                 if(isset($_GET['id'])){
                     $id=$_GET['id'];
                     del_sp($id);
-                    echo ('<script>swal("Xóa thành công!", "Bạn đã nhấp vào nút!", "success");</script>');                  
+                    echo ('<script>swal("Xóa thành công!", "Bạn đã nhấp vào nút!", "success");</script>');                 
 
                 }
                  $id=0;

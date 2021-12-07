@@ -80,7 +80,8 @@
 					if (isset($_POST['sethang'])) {						 					
 						$so_hoa_don =  rand(10000, 99999999);	
 						$idtk = $_SESSION['user']['id_tai_khoan'];
-						$ngaydathang = date('h:i:sa d/m/y');
+						$timestamp = time();
+						$ngaydathang = date("20y-m-d h:i:s", $timestamp);
 						
 						if(isset($_POST['payment'])){
 							$pt_thanhtoan = $_POST['payment'];
