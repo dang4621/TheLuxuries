@@ -884,7 +884,9 @@
 				case 'quenmk' :
 					    include 'view/quenmk.php';
 						break;		
-
+				case 'prolike' :
+					 include 'view/like.php';
+					 break;	
 				
 				//Chuyển hướng khi action sai
 				default :  

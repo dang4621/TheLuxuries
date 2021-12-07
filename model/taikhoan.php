@@ -157,4 +157,12 @@ function update_tk($username ,$email,$phone,$pass,$matk){
     $sql = "UPDATE tai_khoan SET username = '$username' ,email = '$email' ,sdt = '$phone' ,password = '$pass'  WHERE id_tai_khoan = '$matk'";
     return pdo_execute($sql);
 }
+
+function layTaiKhoan_like($username){
+    $sql="SELECT san_pham.ten_san_pham as name, san_pham.image as hinh , san_pham.ma_san_pham as code,san_pham.gia_goc
+    as price, COUNT(yeu_thich.ma_san_pham) AS Tong
+    FROM yeu_thich INNER JOIN san_pham ON yeu_thich.ma_san_pham = san_pham.ma_san_pham 
+    WHERE yeu_thich.id_tai_khoan='$username' GROUP BY yeu_thich.ma_san_pham;";
+    return pdo_query($sql);
+}
 ?>
