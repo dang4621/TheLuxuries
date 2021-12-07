@@ -132,13 +132,17 @@
                                             <li>
                                                 <a href="forget_pass/quenmk.php">Quên mật khẩu</a>
                                             </li>
+                                            
                                             <?php 
 											    if(isset($_SESSION['user'])){
 												    echo('<li><a href="index.php?act=logout">Đăng xuất</a></li>');
 											    }else{
 												    echo('<li><a href="login.php">Đăng nhập</a></li>');
 											    }
-										    ?>
+                                                if($_SESSION['user']['vai_tro'] == 1){
+                                                    echo('<li><a href="=admin/">Admin</a></li>');
+                                                }
+                                              ?>
                                         </ul>
                                            <li> 
                                         <li><a class="shopping-cart" href="index.php?act=cart">

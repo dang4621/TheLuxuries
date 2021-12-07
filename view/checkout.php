@@ -119,14 +119,14 @@
 								} ?>
 							</tbody>
 							<tbody class="checkout-details">
-								<tr>
+								<!-- <tr>
 									<td><b>Tổng phụ</b> </td>
 									<td>$190</td>
-								</tr>
-								<tr>
+								</tr> -->
+								<!-- <tr>
 									<td><b>Vận chuyển</b></td>
 									<td>$50</td>
-								</tr>
+								</tr> -->
 								<tr>
 									<td><b>Tất cả</b></td>
 									<td><?php
@@ -134,7 +134,7 @@
 											for ($j = 1; $j < $a; $j++) {
 												$total += $tt[$j];
 											}
-											print_r($total);
+											print_r($total." $");
 										}
 										?></td>
 										<input type="hidden" name="total" value="<?= $total ?>">
