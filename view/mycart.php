@@ -15,7 +15,7 @@
 		<div class="row">
 			<div class="col-lg-8 col-md-12">
 				<div class="cart-table-wrap">
-					<table class="cart-table">
+					<table class="cart-table">				
 						<thead class="cart-table-head">
 							<tr class="table-head-row">
 								<th class="product-remove"></th>
@@ -62,6 +62,12 @@
 					</table>
 				</div>
 			</div>
+			<!-- <?php 
+			if(isset($_SESSION['mgg'])){
+				print_r($_SESSION['mgg']);
+			}
+			
+			?> -->
 			<div class="col-lg-4">
 				<div class="total-section">
 					<table class="total-table">
@@ -79,18 +85,38 @@
 											for($j=1;$j<$a;$j++){
 											$total+=$tt[$j];
 											}
-										print_r($total);
+											if(isset($_SESSION['mgg'])){
+												$hieu = $total/100*$_SESSION['mgg']['value'];
+												$total-=$hieu;												
+												print_r($total." $");
+												
+											}else{
+												print_r($total." $");
+											}
 										}
 									?></td>
 							</tr>
 							<tr class="total-data">
+								<td>Mã giảm giá
+								<input type="text" name="mgg"></td>
+								<td>
+									<input class="boxed-btn32" type="submit" name="check_mgg" value="Áp dụng">
+									<?php 
+										if(isset($_SESSION['mgg'])){
+											echo("Bạn đang áp dụng mã giảm giá : ".$_SESSION['mgg']['code']."");
+										}
+									?>
+								</td>
+								
+							</tr>
+							<!-- <tr class="total-data">
 								<td><strong>Vận chuyển: </strong></td>
 								<td>0 vnd</td>
 							</tr>
 							<tr class="total-data">
 								<td><strong>Tất cả: </strong></td>
 								<td></td>
-							</tr>
+							</tr> -->
 						</tbody>
 					</table>
            
@@ -113,8 +139,24 @@
 						}
 					}
 					header("Location:index.php?act=cart");
-				}
+					}
+					if(isset($_POST['check_mgg'])){
+						$mgg = $_POST['mgg'];
+						if(compare($mgg)){
+							$gia_tri=get_value($mgg);
+							extract($gia_tri);
+							$_SESSION['mgg']=["code"=>$mgg, "value"=>$gia_tri];
+							$thongbao = '<script>swal ( "Mã hợp lệ", "Mã đã được áp dụng", "success");</script>';							
+						}else{
+  							$thongbao =  '<script>swal ( "Mã không hợp lệ", "Hãy thử lại" ,  "error" );</script>';
+						}
+					}
 				?>
+				 <?php
+                if (isset($thongbao)) {
+                    echo '<p>' . $thongbao . '</p>';
+                }
+                ?>
 				</div>
 			</div>
 		</div>

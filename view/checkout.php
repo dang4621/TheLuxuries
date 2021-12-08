@@ -141,6 +141,7 @@
 								</tr>
 							</tbody>
 						</table>
+					
 						<br>
 						<input class="boxed-btn" type="submit" value="đồng ý đặt hàng" name="sethang">
 					</div>

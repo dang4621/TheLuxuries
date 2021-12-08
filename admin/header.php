@@ -100,6 +100,12 @@
                             <p>Thống kê</p>
                         </a>
                     </li>
+                    <li>
+                        <a href="index.php?act=add_mgg">
+                            <i class="pe-7s-graph"></i>
+                            <p>Mã giảm giá</p>
+                        </a>
+                    </li>
 
 
                     <li class="active-pro">

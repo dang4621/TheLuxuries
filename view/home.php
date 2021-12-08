@@ -4,6 +4,12 @@
 			<div class="row">
 				<div class="col-lg-9 offset-lg-2 text-center">
 					<div class="hero-text">
+						<?php
+							if(isset($_SESSION['user'])){
+								unset($_SESSION['mgg']);
+							}
+							
+						?>
 						<div class="hero-text-tablecell">
 							<p class="subtitle"> Thời trang luôn thay đổi </p>
 							<h1> Nhưng phong cách mãi mãi trường tồn</h1>
@@ -57,6 +63,7 @@
 						</div>
 					</div>
 				</div>
+				
 			</div>
 
 		</div>

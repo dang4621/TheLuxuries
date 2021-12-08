@@ -60,6 +60,8 @@
 <!-- sweetalert -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 </head>
 
@@ -134,9 +136,12 @@
 											    }else{
 												    echo('<li><a href="login.php">Đăng nhập</a></li>');
 											    }
-                                                if($_SESSION['user']['vai_tro'] == 1){
-                                                    echo('<li><a href="=admin/">Admin</a></li>');
+                                                if(isset($_SESSION['user'])){
+                                                   if($_SESSION['user']['vai_tro'] == 1){
+                                                    echo('<li><a href="admin/">Admin</a></li>');
+                                                    }  
                                                 }
+                                               
                                               ?>
                                         </ul>
                                            <li> 

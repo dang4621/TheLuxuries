@@ -7,7 +7,8 @@
      include './model/thuonghieu.php';
 	 include './model/giohang.php';
 	 include './model/taikhoan.php';
-
+	 include './model/mgg.php';
+	
 		include 'view/header.php';
 		$danhmuc=loadAll_dm(); 
 		$ba_sp=load3_sp();
