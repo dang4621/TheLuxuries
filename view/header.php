@@ -123,6 +123,11 @@
                                             <li>
                                                 <a href="index.php?act=cartdetails">Đơn hàng của tôi</a>
                                             </li>
+
+                                            <li>
+                                                <a href="index.php?act=prolike">SẢN PHẨM ĐÃ YÊU THÍCH</a>
+                                            </li>
+
                                             <li>
                                                 <a href="update_information/capnhatthongtin.php">Cập nhật thông tin</a>
                                             </li>
