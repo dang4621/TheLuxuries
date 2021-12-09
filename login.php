@@ -54,6 +54,7 @@ include './google_source.php';
                 include './model/pdo.php';
                 session_start();
                 if (isset($_POST['submit'])) {
+                   if(isset($_POST['username'])&&!empty($_POST['username'])&&isset($_POST['password'])&&!empty($_POST['password'])){
                     $user = $_POST['username'];
                     $password = $_POST['password'];
                     $sql = "SELECT * FROM tai_khoan WHERE username='{$user}' AND password ='{$password}'";
@@ -70,6 +71,10 @@ include './google_source.php';
                     } else {
                         $thongbao =  '<script>swal ( "Rất tiếc", "Tài khoản hoặc mật khẩu đã sai!" ,  "error" );</script>';
                     }
+                   } else {
+                    $thongbao =  '<script>swal ( "Rất tiếc", "bạn cần nhập tài khoản và mật khẩu!" ,  "error" );</script>';
+                   }
+
                 }
                 ?>
                 <?php
@@ -82,9 +87,9 @@ include './google_source.php';
                 <?php
                 include 'model/taikhoan.php';
 
-                if (isset($_POST['signin'])) {
-                    $thongbao = ".";
-                    if(isset($_POST['password'])&&!empty($_POST['password'])&&isset($_POST['email'])&&!empty($_POST['email'])&&isset($_POST['phone'])&&!empty($_POST['phone'])){
+            if (isset($_POST['signin'])) {
+                $thongbao = ".";
+                    if(isset($_POST['username'])&&!empty($_POST['username'])&&isset($_POST['password'])&&!empty($_POST['password'])&&isset($_POST['email'])&&!empty($_POST['email'])&&isset($_POST['phone'])&&!empty($_POST['phone'])){
                         $u = $_POST['username'];
                         $pass = $_POST['password'];
                         $repass = $_POST['repassword'];
