@@ -134,7 +134,6 @@
                                             <li>
                                                 <a href="forget_pass/quenmk.php">Quên mật khẩu</a>
                                             </li>
-                                            
                                             <?php 
 											    if(isset($_SESSION['user'])){
 												    echo('<li><a href="index.php?act=logout">Đăng xuất</a></li>');

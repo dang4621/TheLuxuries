@@ -77,8 +77,8 @@
 									<div class="card-body">
 											<input type="radio"  name="payment" value="0" checked>
 									  	<label for="html">Thanh toán lúc nhận hàng</label><br>
-									  		<input type="radio"  name="payment" value="1">
-									  	<label for="css">Thanh toán qua Vnpay </label><br>
+									<!--   		<input type="radio"  name="payment" value="1">
+									  	<label for="css">Thanh toán qua Vnpay </label><br> -->
 									</div>
 									
 								</div>
@@ -134,14 +134,40 @@
 											for ($j = 1; $j < $a; $j++) {
 												$total += $tt[$j];
 											}
-											print_r($total." $");
+											if(isset($_SESSION['mgg'])){
+												$hieu = $total/100*$_SESSION['mgg']['value'];
+												$total-=$hieu;												
+												print_r($total." $");
+												
+											}else{
+												print_r($total." $");
+											}
 										}
 										?></td>
 										<input type="hidden" name="total" value="<?= $total ?>">
 								</tr>
+								<tr>								
+									<?php 
+										if(isset($_SESSION['mgg'])){
+											echo("Bạn đang áp dụng mã giảm giá : ".$_SESSION['mgg']['code']."Được giảm".$_SESSION['mgg']['value']."% trên hóa đơn (Không tính phí ship)");
+											echo('<a href="index.php?act=delcode">Loại bỏ</a>');
+										}else{ ?>									
+										<td>Mã giảm giá
+										<input type="text" name="mgg"></td>
+										<td>
+											<input class="boxed-btn32" type="submit" name="check_mgg" value="Áp dụng">	
+										</td>
+									<?php	}
+										?>
+									
+								</tr>
 							</tbody>
 						</table>
-					
+						<?php
+							if (isset($thongbao)) {
+								echo '<p>' . $thongbao . '</p>';
+							}
+						?>
 						<br>
 						<input class="boxed-btn" type="submit" value="đồng ý đặt hàng" name="sethang">
 					</div>

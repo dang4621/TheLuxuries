@@ -75,9 +75,27 @@
 					break;
 				case 'checkout':
 					include 'view/checkout.php';
+					break;					
+				case 'delcode':
+					unset($_SESSION['mgg']);
+					include 'view/checkout.php';
 					break;
 				case 'confirm':
 					include 'mail/index.php';
+					if(isset($_POST['check_mgg'])){
+						$mgg = $_POST['mgg'];
+						$check = compare_admin($mgg);
+						if($check == 1){
+							$gia_tri=get_value($mgg);
+							extract($gia_tri);
+							$_SESSION['mgg']=["code"=>$mgg, "value"=>$gia_tri];
+							$thongbao = '<script>swal ( "Mã hợp lệ", "Mã đã được áp dụng", "success");</script>';	
+							include 'view/checkout.php';						
+						}else{
+  							$thongbao =  '<script>swal ( "Mã không hợp lệ", "Hãy thử lại" ,  "error" );</script>';
+							include 'view/checkout.php';
+						}						
+					}
 					if (isset($_POST['sethang'])) {						 					
 						$so_hoa_don =  rand(10000, 99999999);	
 						$idtk = $_SESSION['user']['id_tai_khoan'];
