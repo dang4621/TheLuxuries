@@ -64,6 +64,7 @@
 
 										  
 										   $nhom_hang1=load_sp_theo_dh($so_hoa_don);
+										}
 										   foreach($nhom_hang1 as $calue){
 											  extract($calue);
 											
@@ -109,7 +110,7 @@
 
                                 <?php } ?>
 
-								<?php } ?>
+							
 
 
 	                                        </div>
