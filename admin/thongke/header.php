@@ -47,7 +47,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a href="index.php?act=thongke1">Tổng doanh thu tháng</a></li>
-                            <li><a href="#">Something</a></li>
+                            <li><a href="index.php?act=thongkedh">Thống kê đơn hàng</a></li>
                             <li><a href="#">Another action</a></li>
                             <li><a href="#">Something</a></li>
                             <li class="divider"></li>
@@ -81,6 +81,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a href="index.php?act=thongke2">Số lượng sản phẩm</a></li>
+                            <li><a href="index.php?act=thongkedh">đơn hàng</a></li>
                             <li><a href="#">Another action</a></li>
                             <li><a href="#">Something</a></li>
                             <li><a href="#">Another action</a></li>
