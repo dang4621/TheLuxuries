@@ -64,9 +64,9 @@
 
 										  
 										   $nhom_hang1=load_sp_theo_dh($so_hoa_don);
-										   if(is_array($nhom_hang1)){
-											  extract($nhom_hang1);
-											  } 
+										   foreach($nhom_hang1 as $calue){
+											  extract($calue);
+											
 
 											  $url_hinh="";                                
 											  if(isset($image)&&!$image==""){
@@ -108,6 +108,8 @@
 	                                            <hr>
 
                                 <?php } ?>
+
+								<?php } ?>
 
 
 	                                        </div>
