@@ -57,7 +57,7 @@
                     <!--<img src="assets/img/products/product-img-5.jpg"> -->
                     <div class="slideshow-container">
                         <?php
-                       
+                       unset($_SESSION['mgg']);
 						if (is_array($onesp)) {
 							extract($onesp);
                             tangSoLanXem($ma_san_pham);

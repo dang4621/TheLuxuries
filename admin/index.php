@@ -1,4 +1,5 @@
 <?php 
+    date_default_timezone_set("Asia/Ho_Chi_Minh");
     session_start();
     include '../model/pdo.php';
     include '../model/sanpham.php';   
@@ -6,6 +7,7 @@
     include '../model/thuonghieu.php';
     include '../model/taikhoan.php';
     include '../model/thongke.php';
+    include '../model/mgg.php';
     include '../admin/quanly/binhluan.php';
     include '../model/giohang.php';
     include 'header.php';
@@ -339,6 +341,23 @@
                     $listthongke=loadall_thongke_2();
                     include '../admin/thongke/bieudodh.php';
                     break;   
+            case 'add_mgg':
+                    include '../mail/index.php';
+                    include '../admin/magiamgia/add.php';
+                    if(isset($_POST['add_mgg'])){
+                        $ma_giam_gia = $_POST['code_mgg'];
+                        $ngay_bat_dau = $_POST['start'];
+                        $ngay_ket_thuc = $_POST['end'];
+                        $gia_tri = $_POST['value_gg'];
+                        $title = $_POST['title_mgg'];
+                        them_mgg($ma_giam_gia ,$ngay_bat_dau ,$ngay_ket_thuc,$gia_tri, $title); 
+                        echo('<h2 style="color: green;">Tạo thành công</h2>');
+
+                    }
+                    break;   
+            case 'show_mgg':
+                    include '../admin/magiamgia/show.php';
+                    break;        
             }
          
         }else{

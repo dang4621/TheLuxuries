@@ -60,6 +60,8 @@
 <!-- sweetalert -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 </head>
 
@@ -132,16 +134,18 @@
                                             <li>
                                                 <a href="forget_pass/quenmk.php">Quên mật khẩu</a>
                                             </li>
-                                            
                                             <?php 
 											    if(isset($_SESSION['user'])){
 												    echo('<li><a href="index.php?act=logout">Đăng xuất</a></li>');
 											    }else{
 												    echo('<li><a href="login.php">Đăng nhập</a></li>');
 											    }
-                                                if($_SESSION['user']['vai_tro'] == 1){
-                                                    echo('<li><a href="=admin/">Admin</a></li>');
+                                                if(isset($_SESSION['user'])){
+                                                   if($_SESSION['user']['vai_tro'] == 1){
+                                                    echo('<li><a href="admin/">Admin</a></li>');
+                                                    }  
                                                 }
+                                               
                                               ?>
                                         </ul>
                                            <li> 
