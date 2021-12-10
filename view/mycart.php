@@ -89,8 +89,7 @@
 						<a href="index.php?act=checkout" class="boxed-btn black">Tiến hành thanh toán</a>			
 						<input class="boxed-btn32" type="submit" name="cartup" value="Cập nhập">
 					</div>
-					<br>
-					<?php require 'view/paybutton.php'; ?>
+					<br>					
 			</form>
 			
 					<?php

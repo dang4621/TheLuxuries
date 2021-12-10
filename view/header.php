@@ -115,17 +115,17 @@
                                         <a class="dangnhap" href="login.php" id="btn-dangnhap">
                                         <i class="fa fa-user"></i></a>
                                         <ul class="sub-dangnhap2">
+                                            
                                             <?php 
 												if(isset($_SESSION['user'])){
 													echo("<li>&nbsp;&nbsp;&nbsp;Hi !".$_SESSION['user']['username']." </li>");
-												}
-											?>
-                                            <li>
+                                                    ?>
+                                             <li>
                                                 <a href="index.php?act=cartdetails">Đơn hàng của tôi</a>
                                             </li>
 
                                             <li>
-                                                <a href="index.php?act=prolike">SẢN PHẨM ĐÃ YÊU THÍCH</a>
+                                                <a href="index.php?act=prolike">Sản phẩm yêu thích</a>
                                             </li>
 
                                             <li>
@@ -133,19 +133,23 @@
                                             </li>
                                             <li>
                                                 <a href="forget_pass/quenmk.php">Quên mật khẩu</a>
+                                            </li> 
+                                            <li>
+                                                <a href="index.php?act=logout">Đăng xuất</a>
+                                            </li>      
+											<?php	}
+                                            else{ ?>
+                                            <li>
+                                                <a href="login.php">Đăng nhập</a>
                                             </li>
+                                          <?php  }
+											?>                                           
                                             <?php 
-											    if(isset($_SESSION['user'])){
-												    echo('<li><a href="index.php?act=logout">Đăng xuất</a></li>');
-											    }else{
-												    echo('<li><a href="login.php">Đăng nhập</a></li>');
-											    }
                                                 if(isset($_SESSION['user'])){
                                                    if($_SESSION['user']['vai_tro'] == 1){
                                                     echo('<li><a href="admin/">Admin</a></li>');
                                                     }  
-                                                }
-                                               
+                                                }                                               
                                               ?>
                                         </ul>
                                            <li> 

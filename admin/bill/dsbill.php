@@ -99,7 +99,7 @@
                     </thead>
                     <tbody>
                     <?php 
-              $donhang=load_dh();
+              $donhang=load_all_dh();
 							foreach($donhang as $value){ 
 								    extract($value); ?>
                       <tr>
