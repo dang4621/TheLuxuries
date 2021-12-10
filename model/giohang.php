@@ -97,6 +97,10 @@
         $sql="SELECT*FROM hoa_don WHERE id_tai_khoan='$id'";
                 return pdo_query($sql);     
     }
+    function load_all_dh(){
+        $sql="SELECT*FROM hoa_don ORDER BY so_hoa_don";
+                return pdo_query($sql);     
+    }
 
     function load_chitiet(){
         $id=$_GET['id'];
