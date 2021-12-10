@@ -148,20 +148,19 @@
                             </div>
                             <!-- //////////////////// -->
                             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 group-left">
-                                <li class="list-group-item items">
-                                    <div class="media22">
-                                        <h4 class="title">DANH SÁCH SẢN PHẨM</h4>
-                                        <?php 
+	                                    <li class="list-group-item items">
+	                                        <div class="media22">
+	                                            <h4 class="title">DANH SÁCH SẢN PHẨM</h4>
+										<?php 
                                         $donhang=load_sp_dh();
 							            foreach($donhang as $value){ 
 								         extract($value); 							
 							               $idtt= $id_tt;
-
-										  
 										   $nhom_hang1=load_sp_theo_dh($so_hoa_don);
-										   if(is_array($nhom_hang1)){
-											  extract($nhom_hang1);
-											  } 
+										}
+										   foreach($nhom_hang1 as $calue){
+											  extract($calue);
+											
 
 											  $url_hinh="";                                
 											  if(isset($image)&&!$image==""){
@@ -169,46 +168,47 @@
 											  }else{
 												  $url_hinh="không có hình";
 											  }; 
-									  $imgpath = "upload/" . $file[0];
+									  $imgpath = "../upload/" . $file[0];
 										 ?>
-                                        <div class="sanpham">
-                                            <div class="media-left">
-                                                <img class="media-object" src="<?php echo $imgpath; ?>"
-                                                    data-holder-rendered="true">
-                                            </div>
-                                            <div class="media-body">
-                                                <h4 class="media-heading"><?php echo $ten_san_pham; ?>
-                                                </h4>
-                                                <h5>
-                                                    <span class="price">Giá: </span><span
-                                                        class="value"><?php echo $gia_goc; ?>
-                                                        VNĐ</span>
-                                                </h5>
+	                                            <div class="sanpham">
+	                                                <div class="media-left">
+	                                                    <img class="media-object"
+	                                                        src="<?php echo $imgpath; ?>"
+	                                                        data-holder-rendered="true">
+	                                                </div>
+	                                                <div class="media-body">
+	                                                    <h4 class="media-heading"><?php echo $ten_san_pham; ?>
+	                                                    </h4>
+	                                                    <h5>
+	                                                        <span class="price">Giá: </span><span class="value"><?php echo $gia_goc; ?>
+	                                                            VNĐ</span>
+	                                                    </h5>
 
 
 
-                                                <h5>
-                                                    <span class="size">size </span><span
-                                                        class="value"><?php echo $size; ?></span>
-                                                </h5>
-                                                <h5>
-                                                    <span class="quantity">Số lượng: </span><span
-                                                        class="value"><?php echo $so_luong; ?> </span>
-                                                </h5>
-                                                <br>
-                                                <h5>
-                                                    <span class="total"><?php echo $gia_goc; ?> VNĐ</span>
-                                                </h5>
-                                            </div>
-                                        </div>
-                                        <hr>
+	                                                    <h5>
+	                                                        <span class="size">size </span><span class="value"><?php echo $size; ?></span>
+	                                                    </h5>
+	                                                    <h5>
+	                                                        <span class="quantity">Số lượng: </span><span
+	                                                            class="value"><?php echo $so_luong; ?> </span>
+	                                                    </h5>
+	                                                    <br>
+	                                                    <h5>
+	                                                        <span class="total"><?php echo $gia_goc; ?> VNĐ</span>
+	                                                    </h5>
+	                                                </div>
+	                                            </div>
+	                                            <hr>
 
-                                        <?php } ?>
+                                <?php } ?>
+
+							
 
 
-                                    </div>
-                                </li>
-                            </div>
+	                                        </div>
+	                                    </li>
+	                                </div>
                             <!-- ////////////////// -->
                         </div>
                     </div>
