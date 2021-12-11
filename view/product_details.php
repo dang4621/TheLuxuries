@@ -57,7 +57,7 @@
                     <!--<img src="assets/img/products/product-img-5.jpg"> -->
                     <div class="slideshow-container">
                         <?php
-                       
+                       unset($_SESSION['mgg']);
 						if (is_array($onesp)) {
 							extract($onesp);
                             tangSoLanXem($ma_san_pham);
@@ -130,7 +130,7 @@
                                             extract($loai);
                                             $a++   ?>                                      
                                         <div class="a">
-                                            <input type="radio" id="size-<?=$a?>" name="select-1" value="<?=$size?>">
+                                            <input type="radio" id="size-<?=$a?>" name="select-1" value="<?=$size?>" required   >
                                             <label for="size-<?=$a?>">
                                                 <h2><?= $size ?></h2>
                                             </label>
@@ -151,7 +151,7 @@
 										$i++;
 									?>
                                         <div>
-                                            <input type="radio" id="control_0<?= $i ?>" name="select-2" value="<?= $color ?>">
+                                            <input type="radio" id="control_0<?= $i ?>" name="select-2" value="<?= $color ?>" required>
                                             <label for="control_0<?= $i ?>">
                                                 <h2><?= $color ?></h2>
                                             </label>

@@ -54,6 +54,7 @@ include './google_source.php';
                 include './model/pdo.php';
                 session_start();
                 if (isset($_POST['submit'])) {
+                   if(isset($_POST['username'])&&!empty($_POST['username'])&&isset($_POST['password'])&&!empty($_POST['password'])){
                     $user = $_POST['username'];
                     $password = $_POST['password'];
                     $sql = "SELECT * FROM tai_khoan WHERE username='{$user}' AND password ='{$password}'";
@@ -70,6 +71,10 @@ include './google_source.php';
                     } else {
                         $thongbao =  '<script>swal ( "Rất tiếc", "Tài khoản hoặc mật khẩu đã sai!" ,  "error" );</script>';
                     }
+                   } else {
+                    $thongbao =  '<script>swal ( "Rất tiếc", "bạn cần nhập tài khoản và mật khẩu!" ,  "error" );</script>';
+                   }
+
                 }
                 ?>
                 <?php
@@ -81,33 +86,38 @@ include './google_source.php';
 
                 <?php
                 include 'model/taikhoan.php';
-                if (isset($_POST['signin'])) {
-                    $u = $_POST['username'];
-                    $load_acc = lay_all_tk();
-                    foreach($load_acc as $val){
-                        extract($val);
-                        if( $u == $username){
-                            $thongbao = '<script>swal ( "Rất tiếc", "User name đã tồn tại!" ,  "error" );</script>' ;
-                        }else{
+
+            if (isset($_POST['signin'])) {
+                $thongbao = ".";
+                    if(isset($_POST['username'])&&!empty($_POST['username'])&&isset($_POST['password'])&&!empty($_POST['password'])&&isset($_POST['email'])&&!empty($_POST['email'])&&isset($_POST['phone'])&&!empty($_POST['phone'])){
+                        $u = $_POST['username'];
                         $pass = $_POST['password'];
                         $repass = $_POST['repassword'];
                         $email = $_POST['email'];
                         $phone = $_POST['phone'];
-                        
-                        $random =rand(10000,99999999) ;
-                        $id_tk= $random;
-                        $thongbao = "";
-                        if ($pass != $repass) {
-                            $thongbao .= '<script>swal ( "Rất tiếc", "Mật khẩu không giống nhau!" ,  "error" );</script>';
-                        }
-                        if ($thongbao != "") {
-                        } else {
-                            $sql = "INSERT INTO tai_khoan(id_tai_khoan,username,password,email,sdt)value(?,?,?,?,?)";
-                            $kq = pdo_execute($sql,$id_tk , $u, $pass, $email, $phone);
-                            $thongbao .= '<script>swal ( "Đăng ký thành công!", "Bạn đã nhấp vào nút!", "success");</script>';  
-                        }
-                        }
-                    }
+                        $sql = "SELECT * FROM tai_khoan WHERE username='{$u}' ";
+                        $khachhang = pdo_query_one($sql);
+                            if( is_array($khachhang)){
+                                $thongbao = '<script>swal ( "Rất tiếc", "User name đã tồn tại!" ,  "error" );</script>' ;
+                            }else{
+                            $random =rand(10000,99999999) ;
+                            $id_tk= $random;
+                            $thongbao = "";
+                            if ($pass != $repass) {
+                                $thongbao .= '<script>swal ( "Rất tiếc", "Mật khẩu không giống nhau!" ,  "error" );</script>';
+                            }
+                            if ($thongbao != "") {
+                            } else {
+                                $sql = "INSERT INTO tai_khoan(id_tai_khoan,username,password,email,sdt)value(?,?,?,?,?)";
+                                $kq = pdo_execute($sql,$id_tk , $u, $pass, $email, $phone);
+                                $thongbao .= '<script>swal ( "Đăng ký thành công!", "Bạn đã nhấp vào nút!", "success");</script>';  
+                            }
+                            }
+                    }else{
+                        $thongbao .= '<script>swal ( "Rất tiếc", "bạn cần nhập đủ thông tin" ,  "error" );</script>';
+                    }    
+
+                   
                   
                 } ?>
                 <?php

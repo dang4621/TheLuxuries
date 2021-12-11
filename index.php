@@ -7,7 +7,8 @@
      include './model/thuonghieu.php';
 	 include './model/giohang.php';
 	 include './model/taikhoan.php';
-
+	 include './model/mgg.php';
+	
 		include 'view/header.php';
 		$danhmuc=loadAll_dm(); 
 		$ba_sp=load3_sp();
@@ -74,13 +75,32 @@
 					break;
 				case 'checkout':
 					include 'view/checkout.php';
+					break;					
+				case 'delcode':
+					unset($_SESSION['mgg']);
+					include 'view/checkout.php';
 					break;
 				case 'confirm':
 					include 'mail/index.php';
+					if(isset($_POST['check_mgg'])){
+						$mgg = $_POST['mgg'];
+						$check = compare_admin($mgg);
+						if($check == 1){
+							$gia_tri=get_value($mgg);
+							extract($gia_tri);
+							$_SESSION['mgg']=["code"=>$mgg, "value"=>$gia_tri];
+							$thongbao = '<script>swal ( "Mã hợp lệ", "Mã đã được áp dụng", "success");</script>';	
+							include 'view/checkout.php';						
+						}else{
+  							$thongbao =  '<script>swal ( "Mã không hợp lệ", "Hãy thử lại" ,  "error" );</script>';
+							include 'view/checkout.php';
+						}						
+					}
 					if (isset($_POST['sethang'])) {						 					
 						$so_hoa_don =  rand(10000, 99999999);	
 						$idtk = $_SESSION['user']['id_tai_khoan'];
-						$ngaydathang = date('h:i:sa d/m/y');
+						$timestamp = time();
+						$ngaydathang = date("20y-m-d h:i:s", $timestamp);
 						
 						if(isset($_POST['payment'])){
 							$pt_thanhtoan = $_POST['payment'];
@@ -884,7 +904,9 @@
 				case 'quenmk' :
 					    include 'view/quenmk.php';
 						break;		
-
+				case 'prolike' :
+					 include 'view/like.php';
+					 break;	
 				
 				//Chuyển hướng khi action sai
 				default :  

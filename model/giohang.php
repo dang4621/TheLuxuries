@@ -123,7 +123,7 @@
 														   INNER JOIN thuoc_tinh ON chi_tiet_hoa_don.id_tt = thuoc_tinh.id_tt)
 														   INNER JOIN san_pham ON thuoc_tinh.ma_san_pham = san_pham.ma_san_pham
 										   WHERE   chi_tiet_hoa_don.so_hoa_don = $so_hoa_don ";
-										 return pdo_query_one($sql);     
+										 return pdo_query($sql);     
     }
     function del_dh($id){
         $sql="DELETE FROM hoa_don where so_hoa_don='$id'";

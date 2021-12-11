@@ -60,6 +60,8 @@
 <!-- sweetalert -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 </head>
 
@@ -121,6 +123,11 @@
                                             <li>
                                                 <a href="index.php?act=cartdetails">Đơn hàng của tôi</a>
                                             </li>
+
+                                            <li>
+                                                <a href="index.php?act=prolike">SẢN PHẨM ĐÃ YÊU THÍCH</a>
+                                            </li>
+
                                             <li>
                                                 <a href="update_information/capnhatthongtin.php">Cập nhật thông tin</a>
                                             </li>
@@ -133,7 +140,13 @@
 											    }else{
 												    echo('<li><a href="login.php">Đăng nhập</a></li>');
 											    }
-										    ?>
+                                                if(isset($_SESSION['user'])){
+                                                   if($_SESSION['user']['vai_tro'] == 1){
+                                                    echo('<li><a href="admin/">Admin</a></li>');
+                                                    }  
+                                                }
+                                               
+                                              ?>
                                         </ul>
                                            <li> 
                                         <li><a class="shopping-cart" href="index.php?act=cart">

@@ -15,7 +15,7 @@
 		<div class="row">
 			<div class="col-lg-8 col-md-12">
 				<div class="cart-table-wrap">
-					<table class="cart-table">
+					<table class="cart-table">				
 						<thead class="cart-table-head">
 							<tr class="table-head-row">
 								<th class="product-remove"></th>
@@ -61,7 +61,7 @@
 							</tbody>
 					</table>
 				</div>
-			</div>
+			</div>			
 			<div class="col-lg-4">
 				<div class="total-section">
 					<table class="total-table">
@@ -78,24 +78,14 @@
 									if(!empty($a)){
 											for($j=1;$j<$a;$j++){
 											$total+=$tt[$j];
-											}
-										print_r($total);
+											}									
+												print_r($total." $");
 										}
 									?></td>
-							</tr>
-							<tr class="total-data">
-								<td><strong>Vận chuyển: </strong></td>
-								<td>0 vnd</td>
-							</tr>
-							<tr class="total-data">
-								<td><strong>Tất cả: </strong></td>
-								<td></td>
-							</tr>
+							</tr>							
 						</tbody>
-					</table>
-           
+					</table>           
 					<div class="cart-buttons">
-						<!-- <input class="boxed-btn" type="submit" name="cartup" value="cập nhập giỏ hàng"> -->
 						<a href="index.php?act=checkout" class="boxed-btn black">Tiến hành thanh toán</a>			
 						<input class="boxed-btn32" type="submit" name="cartup" value="Cập nhập">
 					</div>
@@ -113,8 +103,8 @@
 						}
 					}
 					header("Location:index.php?act=cart");
-				}
-				?>
+					}
+				?>				
 				</div>
 			</div>
 		</div>
