@@ -9,23 +9,6 @@
     <script src="https://www.paypal.com/sdk/js?client-id=AXZgZLv6VTSs5zFkGmenvubEjPxRfOB4rnHDjcQ5MdNV3CDsO1_prH0_beOAQ6LcKa29pJS9xd2-XVx1&currency=USD"></script>
 
     <!-- Set up a container element for the button -->
-    <?php if (!empty($_SESSION['shopping_cart'])) {
-									$total = 0;
-									$a = 1;
-									foreach ($_SESSION['shopping_cart'] as $value) {
-										extract($value);
-										$tt[$a] = $gia * $quantity;
-								?>
-	
-								<?php $a++;
-									}
-								} 
-                if (!empty($a)) {
-                  for ($j = 1; $j < $a; $j++) {
-                    $total += $tt[$j];
-                  }
-                }
-                ?>
 
     <input type="hidden" value="<?= $total?>" name="sethang2" id="sethang2"> 
 

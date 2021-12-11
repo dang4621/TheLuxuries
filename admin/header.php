@@ -53,7 +53,7 @@
 
                 <ul class="nav">
                     <li>
-                        <a href="#">
+                        <a href="index.php">
                             <i class="pe-7s-home"></i>
                             <p>Trang chủ</p>
                         </a>
@@ -101,15 +101,15 @@
                         </a>
                     </li>
                     <li>
-                        <a href="index.php?act=add_mgg">
-                            <i class="pe-7s-graph"></i>
+                        <a href="index.php?act=show_mgg">
+                            <i class="pe-7s-ticket"></i>
                             <p>Mã giảm giá</p>
                         </a>
                     </li>
 
 
                     <li class="active-pro">
-                        <a href="#">
+                        <a href="../index.php">
                             <i class="pe-7s-shopbag"></i>
                             <p>Shop The Luxuries</p>
                         </a>
@@ -119,7 +119,7 @@
         </div>
     </div>
 
-</body>
+
 
 <!--   Core JS Files   -->
 <script src="assets/js/jquery.3.2.1.min.js" type="text/javascript"></script>

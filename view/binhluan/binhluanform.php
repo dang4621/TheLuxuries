@@ -93,7 +93,7 @@ $ma_san_pham=$_REQUEST['ma_san_pham'];
             <div class="col-md-12" style="width:60%">
                 <input type="hidden" name="ma_san_pham" value="<?=$ma_san_pham?>">
                 <input class="form-control" type="text" name="noi_dung"><br>
-                <input type="submit" class="btn-primary btn" name="guibinhluan" value="Comment">
+                <input type="submit" class="btn-primary btn" name="guibinhluan" value="Gửi">
             </div>
         </form>
         <div class="row">

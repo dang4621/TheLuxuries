@@ -8,13 +8,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Thương hiệu</a>
+                <a class="navbar-brand" href="#">Mã giảm giá</a>
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-left">
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-globe"></i>
+                            <i class="pe-7s-global"></i>
                             <b class="caret hidden-sm hidden-xs"></b>
                             <span class="notification hidden-sm hidden-xs">5</span>
                             <p class="hidden-lg hidden-md">
@@ -119,9 +119,6 @@
                                               
                                             ?></td>
                                             <td>
-                                                <!--sửa-->
-                                                <a href="index.php?act=up_th&id='.$id_mgg.'"><i
-                                                        class="pe-7s-plus fa-2x"></i></a>
                                                 <!--Xoá-->
                                                 <a href="index.php?act=del_th&id='.$id_mgg.'"><i
                                                         class="pe-7s-trash fa-2x"></i></a>

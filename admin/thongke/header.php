@@ -13,7 +13,7 @@
                 <ul class="nav navbar-nav navbar-left">
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-globe"></i>
+                            <i class="pe-7s-global"></i>
                             <b class="caret hidden-sm hidden-xs"></b>
                             <span class="notification hidden-sm hidden-xs">5</span>
                             <p class="hidden-lg hidden-md">
@@ -48,10 +48,8 @@
                         <ul class="dropdown-menu">
                             <li><a href="index.php?act=thongke1">Tổng doanh thu tháng</a></li>
                             <li><a href="index.php?act=thongkedh">Thống kê đơn hàng</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something</a></li>
                             <li class="divider"></li>
-                            <li><a href="#">Separated link</a></li>
+                            <li><a href="#"></a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -64,11 +62,8 @@
                         <ul class="dropdown-menu">
                             <li><a href="index.php?act=thongke2">Số lượng sản phẩm</a></li>
                             <li><a href="index.php?act=bieudo">Thống kê danh mục</a></li>
-                            <li><a href="#">Something</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something</a></li>
                             <li class="divider"></li>
-                            <li><a href="#">Separated link</a></li>
+                            <li><a href="#"></a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -81,13 +76,9 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a href="index.php?act=thongke2">Số lượng sản phẩm</a></li>
-                            <li><a href="index.php?act=thongkedh">đơn hàng</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something</a></li>
+                            <li><a href="index.php?act=thongkedh">Đơn hàng</a></li>
                             <li class="divider"></li>
-                            <li><a href="#">Separated link</a></li>
+                            <li><a href="#"></a></li>
                         </ul>
                     </li>
                     <li class="separator hidden-lg hidden-md"></li>

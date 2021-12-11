@@ -47,10 +47,10 @@
 
 										
 										<form method="post" action="index.php?act=confirm">
-												<p><input type="text" placeholder="Tên" name="name"></p>
-												<p><input type="email" placeholder="Email" name="email"></p>
-												<p><input type="text" placeholder="Địa chỉ" name="address"></p>
-												<p><input type="tel" placeholder="Số điện thoại" name="sdt"></p>
+												<p><input type="text" placeholder="Tên" name="name" required></p>
+												<p><input type="email" placeholder="Email" name="email" required></p>
+												<p><input type="text" placeholder="Địa chỉ" name="address" required ></p>
+												<p><input type="tel" placeholder="Số điện thoại" name="sdt" required></p>
 												<p><textarea name="bill" id="bill" cols="30" rows="10" placeholder="Lời nhắn"></textarea></p>
 													
 										</div>
@@ -58,31 +58,34 @@
 								</div>
 							</div>
 							<div class="card single-accordion">
+								<?php 							
+								if(isset($_GET['pay'])) { ?>
+									<input type="hidden"  name="payment" value="1">
+								
+								<div class="card-header" id="headingThree">
+									<h5 class="mb-0">
+										<button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+											Đã thanh toán qua Paypal
+										</button>
+									</h5>
+								</div>
+								<?php
+								}else { ?>	
 								<div class="card-header" id="headingThree">
 									<h5 class="mb-0">
 										<button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
 											Phương thức thanh toán
 										</button>
 									</h5>
-								</div>
-								<?php 
-							
-								if(isset($_GET['pay'])) {
-									?>
-									<input type="radio"  name="payment" value="1">
-									<?php
-								}else { ?>
-								
+								</div>							
 								<div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
 									<div class="card-body">
 											<input type="radio"  name="payment" value="0" checked>
-									  	<label for="html">Thanh toán lúc nhận hàng</label><br>
-									<!--   		<input type="radio"  name="payment" value="1">
-									  	<label for="css">Thanh toán qua Vnpay </label><br> -->
+									  		<label for="html">Thanh toán lúc nhận hàng</label><br>
 									</div>
 									
 								</div>
-							<?php }?>
+								<?php }?>
 							</div>
 						</div>
 
@@ -94,7 +97,7 @@
 						<table class="order-details">
 							<thead>
 								<tr>
-									<th>Chi tiết đơn hàng của bạn</th>
+									<th>Chi tiết đơn hàng</th>
 									<th>Số lượng</th>
 								</tr>
 							</thead>
@@ -170,7 +173,10 @@
 						?>
 						<br>
 						<input class="boxed-btn" type="submit" value="đồng ý đặt hàng" name="sethang">
+						
 					</div>
+					<br>
+					<?php require 'view/paybutton.php'; ?>
 				</div>
 			</div>
 		</div>

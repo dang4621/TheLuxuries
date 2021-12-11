@@ -69,7 +69,7 @@
                             </tr>
                         </tbody>
                 </table>
-                <i class="pe-7s-cash"></i>
+                <i class="pe-7s-note2"></i>
             </div>
         </div>
     </div>
@@ -80,7 +80,7 @@
                     <div class="card">
                         <div class="header">
                             <h4 class="title1">Biểu đồ tròn</h4>
-                            <p class="category">Phan Công Đỉnh</p>
+                            <p class="category"></p>
                         </div>
                         <div class="content">
                             <div id="chartPreferences" class="ct-chart ct-perfect-fourth">
@@ -191,7 +191,7 @@
                             <div class="footer">
                                 <hr>
                                 <div class="stats">
-                                    <i class="fa fa-history"></i> Phan Công Đỉnh
+                                    <i class="fa fa-history"></i> 
                                 </div>
                             </div>
                         </div>

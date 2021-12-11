@@ -92,7 +92,7 @@
 				<div class="col-lg-8 offset-lg-2 text-center">
 					<div class="section-title">
 						<h3><span class="orange-text">Đội ngũ</span> của chúng tôi</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, fuga quas itaque eveniet beatae optio.</p>
+						<p>Mặc đẹp không thực sự liên quan đến việc có quần áo đẹp. Đó là một câu hỏi về sự cân bằng và ý thức.</p>
 					</div>
 				</div>
 			</div>
@@ -100,7 +100,7 @@
 				<div class="col-lg-4 col-md-6">
 					<div class="single-team-item">
 						<div class="team-bg team-bg-1"></div>
-						<h4>Hoàng Hải Đăng <span>Farmer</span></h4>
+						<h4>Hoàng Hải Đăng <span>Leader</span></h4>
 						<ul class="social-link-team">
 							<li><a href="https://www.facebook.com/hoanghaidang4621" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
 							<li><a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a></li>
@@ -111,7 +111,7 @@
 				<div class="col-lg-4 col-md-6">
 					<div class="single-team-item">
 						<div class="team-bg team-bg-2"></div>
-						<h4>Phan Ngọc Truyền <span>Farmer</span></h4>
+						<h4>Phan Ngọc Truyền <span>Developer</span></h4>
 						<ul class="social-link-team">
 							<li><a href="https://www.facebook.com/truyen.pn02" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
 							<li><a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a></li>
@@ -122,7 +122,7 @@
 				<div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0">
 					<div class="single-team-item">
 						<div class="team-bg team-bg-3"></div>
-						<h4>Phan Công Đỉnh <span>Farmer</span></h4>
+						<h4>Phan Công Đỉnh <span>Developer</span></h4>
 						<ul class="social-link-team">
 							<li><a href="https://www.facebook.com/CongDinh.PC/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
 							<li><a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a></li>
@@ -136,7 +136,7 @@
 				<div class="col-lg-4 col-md-6">
 					<div class="single-team-item">
 						<div class="team-bg team-bg-4"></div>
-						<h4>Huỳnh Quốc Chương <span>Farmer</span></h4>
+						<h4>Huỳnh Quốc Chương <span>Developer</span></h4>
 						<ul class="social-link-team">
 							<li><a href="https://www.facebook.com/I.am.HQC.12.03" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
 							<li><a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a></li>
@@ -147,7 +147,7 @@
 				<div class="col-lg-4 col-md-6">
 					<div class="single-team-item">
 						<div class="team-bg team-bg-5"></div>
-						<h4>Chế Hoài Anh <span>Farmer</span></h4>
+						<h4>Chế Hoài Anh <span>Developer</span></h4>
 						<ul class="social-link-team">
 							<li><a href="https://www.facebook.com/profile.php?id=100008673675803" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
 							<li><a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a></li>
@@ -158,11 +158,11 @@
 				<div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0">
 					<div class="single-team-item">
 						<div class="team-bg team-bg-6"></div>
-						<h4>Simon Joe <span>Farmer</span></h4>
+						<h4>Nguyễn Thị Thanh Xuân <span>Tester</span></h4>
 						<ul class="social-link-team">
-							<li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-							<li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
-							<li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+							<li><a href="https://www.facebook.com/thanhxuan1002" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+							<li><a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a></li>
+							<li><a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a></li>
 						</ul>
 					</div>
 				</div>

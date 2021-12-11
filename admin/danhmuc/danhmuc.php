@@ -15,7 +15,7 @@
                         <ul class="nav navbar-nav navbar-left">
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-globe"></i>
+                                    <i class="pe-7s-global"></i>
                                     <b class="caret hidden-sm hidden-xs"></b>
                                     <span class="notification hidden-sm hidden-xs">5</span>
                                     <p class="hidden-lg hidden-md">
@@ -84,6 +84,8 @@
                                     <h4 class="title">Thêm danh mục</h4>
                                     <p class="category"></p>
                                 </div>
+                                <br>
+                                <br>
                                 <div class="contact-form">
                                     <form action="" method="POST" id="fruitkha-contact" onSubmit="return valid_datas( this );">
                                         <p>

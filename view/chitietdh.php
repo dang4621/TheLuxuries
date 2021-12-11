@@ -145,7 +145,7 @@
 	                                </div>
 	                            </div>
 	                            <div class="butn">
-	                                <input type="submit" class="dinh2" value="Quay lại">&nbsp;&nbsp;
+	                                <a href="index.php"> <input type="submit" class="dinh2" value="Quay lại"></a>&nbsp;&nbsp;
 									<a href="index.php?act=sua_tt&ma_hoa_don=<?= $so_hoa_don ?>&tt=4">Hủy đơn hàng</a><br><br>
            							<a href="index.php?act=sua_tt&ma_hoa_don=<?= $so_hoa_don ?>&tt=3">Đã nhận được hàng</a>
 	                            </div>

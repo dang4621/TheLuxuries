@@ -34,8 +34,8 @@
         <div class="row">
             <div class="col-lg-8 offset-lg-2 text-center">
                 <div class="breadcrumb-text">
-                    <p>Xem thêm chi tiết</p>
-                    <h1>Single Product</h1>
+                    <p>Thời trang chỉ là sự lặp lại của ý tưởng</p>
+                    <h1>Chi tiết sản phẩm</h1>
 
                 </div>
             </div>
@@ -218,10 +218,10 @@
                            extract($like);
                            $number= $countsp;
                         if($number==0){ ?>
-                        <a href="index.php?act=like&id=<?=$id?>"><i class="fas fa-heart" style="font-size:50px;color:black"></i></a>
+                        <a href="index.php?act=like&id=<?=$id?>"><i class="fa fa-heart-o fa-3x" style="color:black"></i></a>
 
                       <?php   }elseif($number>0){ ?>
-                        <a href="index.php?act=like&id=<?=$id?>"><i class="fas fa-heart" style="font-size:50px;color:red"></i></a>
+                        <a href="index.php?act=like&id=<?=$id?>"><i class="fas fa-heart fa-3x" style="color:red"></i></a>
                          <?php }
                      }
                 ?>
@@ -250,8 +250,7 @@
             <div class="col-lg-8 offset-lg-2 text-center">
                 <div class="section-title">
                     <h3>Những sản phẩm<span class="orange-text"> tương tự</span></h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, fuga quas itaque eveniet
-                        beatae optio.</p>
+                    <p>Quần áo cũng giống như một bữa ăn ngon, một bộ phim hay, một giai điệu tuyệt vời.</p>
                 </div>
             </div>
         </div>

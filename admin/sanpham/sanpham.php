@@ -14,7 +14,7 @@
                 <ul class="nav navbar-nav navbar-left">
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-globe"></i>
+                            <i class="pe-7s-global"></i>
                             <b class="caret hidden-sm hidden-xs"></b>
                             <span class="notification hidden-sm hidden-xs">5</span>
                             <p class="hidden-lg hidden-md">
@@ -111,14 +111,14 @@
                                             style="width:100%;">&nbsp;
                                     </p>
                                     <p>
-                                        <input type="number" min="1" max="999999999" placeholder="Giá" name="gia_goc"
+                                        <input type="number" min="1" max="999999999" placeholder="Giá" name="gia_goc" required
                                             style="width:100%;">&nbsp;
                                     </p>
                                     <p>
                                         <input type="number" min="1" max="999999999" placeholder="Giảm giá"
-                                            name="giam_gia" style="width:100%;">&nbsp;
+                                            name="giam_gia" required style="width:100%;">&nbsp;
                                     </p>
-                                    <p><input type="file" name="anhsp[]" multiple="multiple"
+                                    <p><input type="file" name="anhsp[]" multiple="multiple" required
                                             style="padding:5px;width:60%;">&nbsp;</p>
                                     <p><textarea name="mota" id="mota" cols="30" rows="10" placeholder="Mô tả"
                                     style="width:100%;"required ></textarea></p>

@@ -11,13 +11,13 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#">Thương hiệu</a>
+                        <a class="navbar-brand" href="#">Mã giảm giá</a>
                     </div>
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav navbar-left">
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-globe"></i>
+                                    <i class="pe-7s-global"></i>
                                     <b class="caret hidden-sm hidden-xs"></b>
                                     <span class="notification hidden-sm hidden-xs">5</span>
                                     <p class="hidden-lg hidden-md">
@@ -86,6 +86,7 @@
                                     <h4 class="title">Thêm mã giảm giá</h4>
                                     <p class="category"></p>
                                 </div>
+                                <br>
                                 <div class="contact-form">
                                     <form action="" method="POST" name="create">
                                         <button type="submit" name="create">Tạo mã</button>
@@ -110,21 +111,26 @@
                                         <?php if(!empty($code)){
                                             print_r(" <p>Mã code của bạn là : </p><h2>".$code."</h2>");
                                         } ?>
-                                        <br>
+                                        
                                         <p>Ngày bắt đầu :</p>
                                         <input type="datetime-local" name="start">
                                         <br>
+                                        <p></p>
                                         <p>Ngày kết thúc :</p>
                                         <input type="datetime-local" name="end">
                                         <br>
+                                        <p></p>
                                         <p>Số % giảm trên tổng hóa đơn</p>
                                         <input type="number" value="1" name="value_gg" min="1" max="80">
                                         <br>
-                                        <p>Title</p>
+                                        <p></p>
+                                        <p>Nội dung giảm giá</p>
                                         <input type="text" name="title_mgg">
                                         <br>
+                                        <p></p>
                                         <button type="submit" name="add_mgg"> Thêm mã giảm giá</button>
                                     </form> 
+                                    <p></p>
                                     <a href="index.php?act=show_mgg">Xem các mã hiện có</a>
 
                                 </div>

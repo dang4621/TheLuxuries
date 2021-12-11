@@ -14,7 +14,7 @@
                 <ul class="nav navbar-nav navbar-left">
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-globe"></i>
+                            <i class="pe-7s-global"></i>
                             <b class="caret hidden-sm hidden-xs"></b>
                             <span class="notification hidden-sm hidden-xs">5</span>
                             <p class="hidden-lg hidden-md">
@@ -105,7 +105,7 @@
                                             <td>
                                                 <!--sửa-->
                                                 <a href="index.php?act=up_th&id='.$ma_thuong_hieu.'"><i
-                                                        class="pe-7s-plus fa-2x"></i></a>
+                                                        class="pe-7s-config fa-2x"></i></a>
                                                 <!--Xoá-->
                                                 <a href="index.php?act=del_th&id='.$ma_thuong_hieu.'"><i
                                                         class="pe-7s-trash fa-2x"></i></a>

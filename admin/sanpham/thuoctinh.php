@@ -14,7 +14,7 @@
                 <ul class="nav navbar-nav navbar-left">
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-globe"></i>
+                            <i class="pe-7s-global"></i>
                             <b class="caret hidden-lg hidden-md"></b>
                             <p class="hidden-lg hidden-md">
                                 Thông báo
@@ -79,13 +79,13 @@
                 <div class="col-md-12">
                     <div class="card card-plain">
                         <div class="header">
-                            <h4 class="title10">Thêm loại sản phẩm và số lượng của từng loại</h4>
+                            <h4 class="title">Thuộc tính sản phẩm</h4>
                             <p class="category"></p>
                         </div>
-                        <div class="contact-form">
+                        <div class="contact-form12">
                             <form action="" method="post" id="fruitkha-contact12" name="">
                                 <label for="">Size (vd : L,S,M):</label>
-                                <input type="text" name="size"><br>
+                                <input type="text" name="size" style="width:100%;border:none;box-shadow: 0px 0px 5px rgb(145 140 140);;border-radius: 5px;"><br>
                                 <!-- <input name="size" type="radio" id="css" value="M">
                                 <label for="css">M</label>
                                 <input name="size" type="radio" id="javascript" value="L">
@@ -96,12 +96,13 @@
                                 <label for="javascript">XXL</label><br> -->
                                 <!--dfdsf-->
                                 <label for="">Màu sắc (vd : xanh , đỏ , tím )</label>
-                                <input type="text" name="color"><br>
+                                <input type="text" name="color" style="width:100%;border:none;box-shadow: 0px 0px 5px rgb(145 140 140);;border-radius: 5px;"><br>
                                 <!-- <label for="">Số lượng sản phẩm:</label>
                                 <input id="number" name="number" type="number" value="50"> <br> -->
                                 <button type="submit" name="add_session">Thêm loại</button>
+                                <p></p>
                                 <a href="index.php?act=thuoctinh">Xác nhận</a><br><br>
-                                <a href="index.php?act=unset_tt">Nhập lại</a>
+
                             </form>
                                 <?php             
                                     if(isset($_POST['add_session'])){                          
@@ -119,8 +120,8 @@
                                                     Size : <?= $value ?>
                                                     <br>
                                                     <input type="hidden" name="c_color_<?=$i?>" value="<?= $val ?>">
-                                                        Nhập số lượng
-                                                    <input type="number" name="quantity_<?=$i?>"><br>
+                                                        Số lượng
+                                                    <input type="number" name="quantity_<?=$i?>" style="width:100%;border:none;box-shadow: 0px 0px 5px rgb(145 140 140);;border-radius: 5px;"><br>
                                                     <!-- <?=$i?> -->                                    
                                                 <?php
                                                 $i++;                                    
@@ -128,8 +129,8 @@
                                         }    
                                         $_SESSION['i']=$i;                        
                                         ?>     
-                                        <br>                      
-                                        <input type="submit" class="gui" name="add" form="form_tt">
+                                                          
+                                        <!--<input type="submit" class="gui" name="add" form="form_tt">-->
                                         </form>
                                         <?php
                         }

@@ -2291,7 +2291,7 @@ fieldset[disabled] .btn-neutral.active {
     font-size: 18pt;
     border: 1px solid;
     border-radius: 30px;
-    width: 300px;
+    max-width: 300px;
     text-align: center;
 }
 
@@ -3896,14 +3896,18 @@ fieldset[disabled] .btn-neutral.active {
     background-color:#051922 ;
     color: #F28123;
 }
-.table tr td a .pe-7s-plus{
+.table tr td a .pe-7s-config,.pe-7s-info{
     color:white;
     border:1px solid;
     border-radius:10px;
     background-color:#F28123;
     padding:3px;
 }
-.table tr td a .pe-7s-plus:hover{
+.table tr td a .pe-7s-config:hover{
+    background-color:#051922 ;
+    color: #F28123;
+}
+.table tr td a .pe-7s-info:hover{
     background-color:#051922 ;
     color: #F28123;
 }
@@ -3913,7 +3917,7 @@ fieldset[disabled] .btn-neutral.active {
     height: 40px;
     border-radius: 5px;
     border: none;
-    box-shadow: 0px 0px 10px rgb(145 140 140);
+    box-shadow: 0px 0px 5px rgb(145 140 140);
     background-color: white;
 }
 .row .card .contact-form form .button input{
@@ -4040,10 +4044,10 @@ form#fruitkha-contact12{
     text-align: center;
     border:none;
     border-radius: 5px;
-    height: 245px;
+    height: auto;
     padding: 20px;
     background-color: white;
-    width: 60%;
+    max-width:500px;
     margin: 0 auto;
     margin-top: 30px;
     box-shadow: 0px 0px 10px rgb(145 140 140);
@@ -4055,6 +4059,7 @@ form#fruitkha-contact12 label{
     font-size: 12pt;
     color: #333333;
     font-weight: 600;
+    text-transform:none;
 }
 form#fruitkha-contact12 button{
     text-align: center;
@@ -4142,3 +4147,46 @@ form#fruitkha-contact12 input[type="reset"]:hover{
 }*/
 
 /*end thuoc tinh*/
+/*mã giảm giá*/
+.container-fluid .row .col-md-12 .card-plain .contact-form{
+    border:none;
+    box-shadow: 0px 0px 10px rgb(145 140 140);
+    padding: 20px;
+    max-width: 450px;
+    margin: 0 auto;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 14pt;
+    background-color: white;
+}
+.container-fluid .row .col-md-12 .card-plain .contact-form button[type="submit"]{
+    border-radius: 10px;
+    border:none;
+    background-color:#f28123;
+    color:white;
+}
+.container-fluid .row .col-md-12 .card-plain .contact-form button[type="submit"]:hover{
+    background-color:#051922;
+    color:#f28123;
+}
+/*end mã giảm giá*/
+/*sanpham*/
+form#add_sp{
+    border: none;
+    background-color: white;
+    padding: 20px;
+    max-width: 750px;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgb(145 140 140);
+}
+/*end sanpham*/
+/*Trang Chủ*/
+.content .container-fluid .row .col-md-12 .admin{
+    text-align: center;
+}
+.content .container-fluid .row .col-md-12 .admin p{
+    font-size: 25px;
+    font-weight: 600;
+}
+/*end trang chủ*/

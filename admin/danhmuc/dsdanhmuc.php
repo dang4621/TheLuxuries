@@ -14,7 +14,7 @@
                 <ul class="nav navbar-nav navbar-left">
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-globe"></i>
+                            <i class="pe-7s-global"></i>
                             <b class="caret hidden-sm hidden-xs"></b>
                             <span class="notification hidden-sm hidden-xs">5</span>
                             <p class="hidden-lg hidden-md">
@@ -99,7 +99,7 @@
                                                 <td class="product-tenloai">'.$ten_nhom_hang.'</td>            
                                                 <td>
                                                     <!--sửa-->
-                                                    <a href="index.php?act=edit_dm&id='.$ma_nhom_hang.'"><i class="pe-7s-plus fa-2x"></i></a>
+                                                    <a href="index.php?act=edit_dm&id='.$ma_nhom_hang.'"><i class="pe-7s-config fa-2x"></i></a>
                                                     <!--Xoá-->
                                                     <a href="index.php?act=del_dm&id='.$ma_nhom_hang.'"><i class="pe-7s-trash fa-2x"></i></a>
                                                 </td>

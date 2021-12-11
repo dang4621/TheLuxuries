@@ -5,7 +5,7 @@
             <div class="col-lg-8 offset-lg-2 text-center">
                 <div class="breadcrumb-text">
                     <p>Thời Trang Và Thương Hiệu</p>
-                    <h1>Sản phẩm bạn đã Yêu tHÍCH</h1>
+                    <h1>Sản phẩm bạn đã yêu thích</h1>
                 </div>
             </div>
         </div>
@@ -16,17 +16,6 @@
 <!-- products -->
 <div class="product-section mt-150 mb-150">
     <div class="container">
-
-        <div class="row">
-            <div class="col-md-12">
-                <div class="product-filters">
-
-                </div>
-                <!-- test -->
-            </div>
-        </div>
-
-        <br> 
         <div class="row product-lists">
             <?php
             $username=$_SESSION['user']['id_tai_khoan'];

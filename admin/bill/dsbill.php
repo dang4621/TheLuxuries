@@ -15,7 +15,7 @@
               </li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <i class="fa fa-globe"></i>
+                  <i class="pe-7s-global"></i>
                   <b class="caret hidden-sm hidden-xs"></b>
                   <span class="notification hidden-sm hidden-xs">5</span>
                   <p class="hidden-lg hidden-md">
@@ -99,7 +99,7 @@
                     </thead>
                     <tbody>
                     <?php 
-              $donhang=load_dh();
+              $donhang=load_all_dh();
 							foreach($donhang as $value){ 
 								    extract($value); ?>
                       <tr>
@@ -127,7 +127,7 @@
                         </td>
                         <td class="product-trangthai"><?php echo $thanh_tien; ?><span>&nbsp;USĐ</span></td>
                         <td>
-                          <a href="index.php?act=cartde&id=<?php echo $so_hoa_don; ?>"><input type="button"><i class="pe-7s-plus fa-2x"></i></a>
+                          <a href="index.php?act=cartde&id=<?php echo $so_hoa_don; ?>"><input type="button"><i class="pe-7s-info fa-2x"></i></a>
                           <a href="index.php?act=del_dh&id=<?php echo $so_hoa_don; ?>"><input type="button"><i class="pe-7s-trash fa-2x"></i></a>
                         </td>
                       </tr>

@@ -2242,6 +2242,9 @@ a.video-play-btn {
   background-image: url(../img/team/anh1.jpg);
 }
 
+.team-bg-6 {
+  background-image: url(../img/team/coxuan.jpg);
+}
 .team-bg {
   height: 400px;
   background-size: cover;

@@ -15,7 +15,7 @@
                         <ul class="nav navbar-nav navbar-left">
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-globe"></i>
+                                    <i class="pe-7s-global"></i>
                                     <b class="caret hidden-sm hidden-xs"></b>
                                     <span class="notification hidden-sm hidden-xs">5</span>
                                     <p class="hidden-lg hidden-md">
@@ -84,17 +84,19 @@
                                     <h4 class="title">Thêm Thương Hiệu</h4>
                                     <p class="category"></p>
                                 </div>
+                                <br>
+                                <br>
                                 <div class="contact-form">
                                     <form action="" method="POST" id="fruitkha-contact" name=""
                                         enctype="multipart/form-data">
 
                                         <p>
                                             <b>TÊN HÃNG SẢN XUẤT</b><br>
-                                            <input type="text" name="name" style="width:100%;">
+                                            <input type="text" name="name" required style="width:100%;">
                                         </p>
                                         <p>
                                             <b>XUẤT XỨ</b><br>
-                                            <input type="text" name="xuatxu" style="width:100%;">
+                                            <input type="text" name="xuatxu" required style="width:100%;">
                                         </p>
                                         <p>
                                             <b>ẢNH</b><br>
