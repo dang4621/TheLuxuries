@@ -88,9 +88,17 @@
 						if($check == 1){
 							$gia_tri=get_value($mgg);
 							extract($gia_tri);
-							$_SESSION['mgg']=["code"=>$mgg, "value"=>$gia_tri];
+							$id_tai_khoan = $_SESSION['user']['id_tai_khoan'];
+							$ss = compare_user($id_mgg,$id_tai_khoan);
+							if($ss == 1){
+							$_SESSION['mgg']=["code"=>$mgg, "value"=>$gia_tri ,"id_mgg" => $id_mgg];
 							$thongbao = '<script>swal ( "Mã hợp lệ", "Mã đã được áp dụng", "success");</script>';	
-							include 'view/checkout.php';						
+							include 'view/checkout.php';	
+							}else{
+								$thongbao =  '<script>swal ( "Mã không hợp lệ", "Hãy thử lại" ,  "error" );</script>';
+								include 'view/checkout.php';
+							}
+												
 						}else{
   							$thongbao =  '<script>swal ( "Mã không hợp lệ", "Hãy thử lại" ,  "error" );</script>';
 							include 'view/checkout.php';
@@ -124,9 +132,13 @@
 							$soluong=$quantity;
 							$price=$gia;												
 							$sql="insert into chi_tiet_hoa_don(id_cthd,so_hoa_don,id_tt,gia,so_luong) value(?,?,?,?,?)";
-							pdo_execute($sql,$idchitiet,$so_hoa_don,$matt,$price,$soluong);							
+							pdo_execute($sql,$idchitiet,$so_hoa_don,$matt,$price,$soluong);	
+													
 						}
-
+						$id_magg =  $_SESSION['mgg']['id_mgg'];
+						$iduser=$_SESSION['user']['id_tai_khoan'];
+						$sql = "INSERT INTO trang_thai_mgg(id_mgg , id_tai_khoan,trang_thai) VALUES ('$id_magg' , '$iduser',1)";
+						pdo_execute($sql);
 						$title = "The luxuries Cart";					
 						$content .= '<!DOCTYPE html>
 											<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" lang="en">

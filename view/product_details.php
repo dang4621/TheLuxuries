@@ -266,11 +266,11 @@
 				echo '<div class="col-lg-4 col-md-6 text-center">
 					<div class="single-product-item">
 						<div class="product-image">
-							<a href="single-product.html"><img src="./upload/' . $file[0] . '" style="height:200px" ></a>
+							<a href="index.php?act=chitiet_sp&id='. $ma_san_pham .'"><img src="./upload/' . $file[0] . '" style="height:200px" ></a>
 						</div>
 						<h3>' . $ten_san_pham . '</h3>
 						<p class="product-price"> ' . $gia_goc . '$ </p>
-						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Thêm vào giỏ</a>
+						<a href="index.php?act=chitiet_sp&id='. $ma_san_pham .'" class="cart-btn"><i class="fas fa-shopping-cart"></i> Thêm vào giỏ</a>
 					</div>
 				</div>';
 			}

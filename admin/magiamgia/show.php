@@ -80,7 +80,7 @@
                 <div class="col-md-12">
                     <div class="card card-plain">
                         <div class="header">
-                            <h4 class="title">Danh Sách Thương Hiệu</h4>
+                            <h4 class="title">Danh Sách Mã Giảm Giá</h4>
                             <p class="category"></p>
                         </div>
                         <br>

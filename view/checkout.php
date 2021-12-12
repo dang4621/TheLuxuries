@@ -156,9 +156,9 @@
 											echo('<a href="index.php?act=delcode">Loại bỏ</a>');
 										}else{ ?>									
 										<td>Mã giảm giá
-										<input type="text" name="mgg"></td>
+										<input type="text" id="mgg" name="mgg"></td>
 										<td>
-											<input class="boxed-btn32" type="submit" name="check_mgg" value="Áp dụng">	
+											<input class="boxed-btn32" id="apdung" type="submit" name="check_mgg" value="Áp dụng">	
 										</td>
 									<?php	}
 										?>
@@ -181,6 +181,7 @@
 			</div>
 		</div>
 	</div>
+	
 
 		</form>
 	<!-- end check out section -->

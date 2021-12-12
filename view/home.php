@@ -8,16 +8,34 @@
 							if(isset($_SESSION['user'])){
 								unset($_SESSION['mgg']);
 							}
+							if(isset($_SESSION['user'])){
+								$mgg =	get_mgg();
+								extract($mgg);
+								?>
+									<div class="hero-text-tablecell">
+										<h1>Nhập ngay mã </h1><h1 style="color: red;"><?= $ma_giam_gia ?>  </h1>
+										<h1> Giảm <?= $gia_tri ?> % dành cho thành viên mới</h1>
+										<div class="hero-btns">
+											<a href="index.php?act=shop" class="boxed-btn">Cửa hàng</a>
+											<a href="index.php?act=contact" class="boxed-btn">Liên hệ</a>
+										</div>
+									</div>
+								<?php
+							}else{
+								?>
+								<div class="hero-text-tablecell">
+									<p class="subtitle"> Thời trang luôn thay đổi </p>
+									<h1> Nhưng phong cách mãi mãi trường tồn</h1>
+									<div class="hero-btns">
+										<a href="index.php?act=shop" class="boxed-btn">Cửa hàng</a>
+										<a href="index.php?act=contact" class="boxed-btn">Liên hệ</a>
+									</div>
+								</div>
+								<?php
+							}
 							
 						?>
-						<div class="hero-text-tablecell">
-							<p class="subtitle"> Thời trang luôn thay đổi </p>
-							<h1> Nhưng phong cách mãi mãi trường tồn</h1>
-							<div class="hero-btns">
-								<a href="index.php?act=shop" class="boxed-btn">Cửa hàng</a>
-								<a href="index.php?act=contact" class="boxed-btn">Liên hệ</a>
-							</div>
-						</div>
+						
 					</div>
 				</div>
 			</div>
