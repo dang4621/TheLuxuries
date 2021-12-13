@@ -152,7 +152,7 @@
 								</tr>
 							</tbody>
 						</table>
-						<input class="boxed-btn" type="submit" value="đồng ý đặt hàng" name="sethang">
+						<input style="margin-top :10px" class="boxed-btn" type="submit" value="đồng ý đặt hàng" name="sethang">
 						<?php
 							if (isset($thongbao)) {
 								echo '<p>' . $thongbao . '</p>';
@@ -160,10 +160,13 @@
 						?>	</form>
 							<!-- <a href="index.php?act=delcode">Loại bỏ</a>									 -->
 							<br>
+							<div style="padding: 10px;">
 								Mã giảm giá
 								<input type="text" id="mgg" name="mgg">								
 								<input class="boxed-btn32" type="button" id="check_mgg" name="check_mgg" value="Áp dụng">	
-								
+									
+							</div>
+							
 														
 						<br>
 						
