@@ -150,18 +150,6 @@
 										<input type="hidden" name="total" value="<?= $total ?>">
 								</tr>
 								<tr>								
-									<?php 
-										if(isset($_SESSION['mgg'])){
-											echo("Bạn đang áp dụng mã giảm giá : ".$_SESSION['mgg']['code']."Được giảm".$_SESSION['mgg']['value']."% trên hóa đơn (Không tính phí ship)");
-											echo('<a href="index.php?act=delcode">Loại bỏ</a>');
-										}else{ ?>									
-										<td>Mã giảm giá
-										<input type="text" id="mgg" name="mgg"></td>
-										<td>
-											<input class="boxed-btn32" id="apdung" type="submit" name="check_mgg" value="Áp dụng">	
-										</td>
-									<?php	}
-										?>
 									
 								</tr>
 							</tbody>
@@ -170,7 +158,22 @@
 							if (isset($thongbao)) {
 								echo '<p>' . $thongbao . '</p>';
 							}
-						?>
+						?>	</form>
+						<form action="index.php?act=checkmgg" method="POST">
+							<?php print_r($_SESSION['test']);
+								if(isset($_SESSION['mgg'])){
+									echo("Bạn đang áp dụng mã giảm giá : ".$_SESSION['mgg']['code']."Được giảm".$_SESSION['mgg']['value']."% trên hóa đơn (Không tính phí ship)");
+									echo('<a href="index.php?act=delcode">Loại bỏ</a>');
+								}else{ ?>									
+								<td>Mã giảm giá
+								<input type="text" name="mgg"></td>
+								<td>
+									<input class="boxed-btn32" type="submit" name="check_mgg" value="Áp dụng">	
+								</td>
+							<?php	}
+								?>
+									
+						</form>
 						<br>
 						<input class="boxed-btn" type="submit" value="đồng ý đặt hàng" name="sethang">
 						
@@ -183,7 +186,7 @@
 	</div>
 	
 
-		</form>
+	
 	<!-- end check out section -->
 
 	<!-- logo carousel -->
