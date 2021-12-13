@@ -57,7 +57,7 @@
 							   		} 
 									?>
                                 </td>
-                                <td><?php echo $thanh_tien; ?><span>&nbsp;USĐ</span></td>
+                                <td><?php echo $thanh_tien; ?><span>&nbsp;USD</span></td>
                                 <td><a href="index.php?act=cartde&id=<?php echo $so_hoa_don; ?>">Chi tiết</a></td>
                             </tr>
 							<?php }?>

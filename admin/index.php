@@ -1,6 +1,6 @@
 <?php 
-    date_default_timezone_set("Asia/Ho_Chi_Minh");
     session_start();
+    date_default_timezone_set("Asia/Ho_Chi_Minh");
     include '../model/pdo.php';
     include '../model/sanpham.php';   
     include '../model/danhmuc.php';    
@@ -139,18 +139,20 @@
             case 'edit_sp':
                 if(isset($_GET['id'])){
                 $id=$_GET['id'];
-                $sanpham=loadOne_sp($id) ;                
+                $sanpham=loadOne_sp($id) ; 
+                $thuong_hieu=loadAll_th();               
                 include '../admin/sanpham/suasanpham.php';
                 }
 
                 break ;
             case 'update_sp':
                 $id=0;
-                if(isset($_POST['submit'])){                     
+                if(isset($_POST['submit'])){    
+                      
+                    $ma_san_pham=$_POST['ma_san_pham'];        
                     $ma_nhom_hang=$_POST['id_dm'];
-                    $ma_thuong_hieu = 4231423412;
+                    $ma_thuong_hieu= $_POST['id_th'];
                     $ten_san_pham=$_POST['ten_sp'];   
-                    $ma_san_pham=$_POST['id_sp'];
                      //upload nhiều ảnh
                      $targetDir = "../upload/"; 
                      $allowTypes = array('jpg','png','jpeg','gif'); 
@@ -178,13 +180,32 @@
                     $timestamp = time();
                     $today=date("20y-m-d h:i:s", $timestamp);
                     $mo_ta=$_POST['mota'];  
-                        update_sp($ma_san_pham,$ma_nhom_hang,$ten_san_pham,$gia_goc,$giam_gia,$image,$donvi,$mo_ta, $today);
+                        update_sp($ma_san_pham,$ma_nhom_hang,$ma_thuong_hieu,$ten_san_pham,$file, $gia_goc,$giam_gia,$today, $mo_ta);                                    
                         echo ('<script>swal("Cập nhật thành công!", "Bạn đã nhấp vào nút!", "success");</script>');                  
                     }                    
                     $sanpham=load_all_sp($keyw,$id);
                     include '../admin/sanpham/dssanpham.php';
                     break;
-                
+              case 'suathuoctinh':
+                if(isset($_GET['id'])){            
+                   $thuoctinh = loadthuoctinh($_GET['id']);
+                   include 'sanpham/suathuoctinh.php';
+                }
+
+                break ;
+            case 'cp_edit_tt':              
+                if(isset($_POST['edit'])){
+                    $i = $_POST['i'];
+                    for($j = 1 ;$j < $i ; $j++){
+                        $size = $_POST['size_'.$i.''];
+                        $color =$_POST['color_'.$i.''];
+                        $so_luong =$_POST['so_luong_'.$i.''];
+                        $id = $_POST['id_tt__<?=$i?>'];
+                        edit_tt($size,$color,$so_luong,$id);
+                    }
+                }
+                break;
+         
             case 'sp_confirm':
                 if(isset($_POST['submit'])){                   
                     $ma_nhom_hang=$_POST['id_dm'];
@@ -238,7 +259,10 @@
                     }
                     unset($_SESSION['thuoctinh']);
                     unset($_SESSION['code']);
-                    header("Location: index.php?act=dssanpham"); 
+                    $id=0;
+                    $keyw="";
+                    $sanpham=load_all_sp($keyw,$id);
+                    include '../admin/sanpham/dssanpham.php';
                 }
                 break;
             case 'unset_tt':

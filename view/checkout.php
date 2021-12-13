@@ -132,50 +132,41 @@
 								</tr> -->
 								<tr>
 									<td><b>Tất cả</b></td>
-									<td><?php
-										if (!empty($a)) {
-											for ($j = 1; $j < $a; $j++) {
-												$total += $tt[$j];
+									<td id="tong">
+										<?php
+										if (!empty($_SESSION['shopping_cart'])) {
+											$total = 0;
+											foreach ($_SESSION['shopping_cart'] as $value) {
+												extract($value);
+												$total += $gia * $quantity;												
 											}
-											if(isset($_SESSION['mgg'])){
-												$hieu = $total/100*$_SESSION['mgg']['value'];
-												$total-=$hieu;												
-												print_r($total." $");
-												
-											}else{
-												print_r($total." $");
-											}
+											$_SESSION['total'] = $total;
 										}
+										print_r($_SESSION['total']);
 										?></td>
-										<input type="hidden" name="total" value="<?= $total ?>">
+										<input type="hidden" name="total" value="">
+										<input type="hidden" name="magiamgia" value="">
 								</tr>
 								<tr>								
-									
+									<td id="thongbao" colspan="2">Áp dụng mã giảm giá để được nhận ưu đãi</td>
 								</tr>
 							</tbody>
 						</table>
+						<input class="boxed-btn" type="submit" value="đồng ý đặt hàng" name="sethang">
 						<?php
 							if (isset($thongbao)) {
 								echo '<p>' . $thongbao . '</p>';
 							}
 						?>	</form>
-						<form action="index.php?act=checkmgg" method="POST">
-							<?php print_r($_SESSION['test']);
-								if(isset($_SESSION['mgg'])){
-									echo("Bạn đang áp dụng mã giảm giá : ".$_SESSION['mgg']['code']."Được giảm".$_SESSION['mgg']['value']."% trên hóa đơn (Không tính phí ship)");
-									echo('<a href="index.php?act=delcode">Loại bỏ</a>');
-								}else{ ?>									
-								<td>Mã giảm giá
-								<input type="text" name="mgg"></td>
-								<td>
-									<input class="boxed-btn32" type="submit" name="check_mgg" value="Áp dụng">	
-								</td>
-							<?php	}
-								?>
-									
-						</form>
+							<!-- <a href="index.php?act=delcode">Loại bỏ</a>									 -->
+							<br>
+								Mã giảm giá
+								<input type="text" id="mgg" name="mgg">								
+								<input class="boxed-btn32" type="button" id="check_mgg" name="check_mgg" value="Áp dụng">	
+								
+														
 						<br>
-						<input class="boxed-btn" type="submit" value="đồng ý đặt hàng" name="sethang">
+						
 						
 					</div>
 					<br>
@@ -216,3 +207,37 @@
 		</div>
 	</div>
 	<!-- end logo carousel -->
+
+	<script  src="https://code.jquery.com/jquery-3.6.0.js"
+  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>  
+    <script type="text/javascript">
+        $('#check_mgg').on('click',function(e){
+			e.preventDefault();
+            var mgg = $('#mgg').val();
+            if(mgg == ''){
+                alert("Bạn chưa nhập mã giảm giá");
+            }else{
+                $.ajax({
+                    url : 'http://localhost/theluxuries/view/total.php',
+                    method : 'POST',
+					dataType : 'json', 
+                    data : {
+                        mgg:mgg,
+                    },success:function(data){
+						console.log(data);
+                        if(data[1] == false){
+							$('#thongbao').html(data[0])
+							
+						}else{
+							$('#thongbao').html(data[0]);
+							$('#tong').html(data[1]);
+							$('[name=total]').val(data[1])
+							$('[name=magiamgia]').val(data[2])
+						}
+                        
+                    }
+                })
+            }
+        })
+    </script>

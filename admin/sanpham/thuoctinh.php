@@ -86,22 +86,11 @@
                             <form action="" method="post" id="fruitkha-contact12" name="">
                                 <label for="">Size (vd : L,S,M):</label>
                                 <input type="text" name="size" style="width:100%;border:none;box-shadow: 0px 0px 5px rgb(145 140 140);;border-radius: 5px;"><br>
-                                <!-- <input name="size" type="radio" id="css" value="M">
-                                <label for="css">M</label>
-                                <input name="size" type="radio" id="javascript" value="L">
-                                <label for="javascript">L</label>
-                                <input name="size" type="radio" id="javascript" value="XL">
-                                <label for="javascript">XL</label>
-                                <input name="size" type="radio" id="javascript" value="XXL">
-                                <label for="javascript">XXL</label><br> -->
-                                <!--dfdsf-->
                                 <label for="">Màu sắc (vd : xanh , đỏ , tím )</label>
                                 <input type="text" name="color" style="width:100%;border:none;box-shadow: 0px 0px 5px rgb(145 140 140);;border-radius: 5px;"><br>
-                                <!-- <label for="">Số lượng sản phẩm:</label>
-                                <input id="number" name="number" type="number" value="50"> <br> -->
                                 <button type="submit" name="add_session">Thêm loại</button>
                                 <p></p>
-                                <a href="index.php?act=thuoctinh">Xác nhận</a><br><br>
+                                <a href="index.php?act=thuoctinh">Xem danh sách</a><br><br>
 
                             </form>
                                 <?php             
@@ -115,12 +104,11 @@
                                         foreach($size as $value){
                                             foreach($color as $val){
                                                 ?>                                    
-                                                    Màu : <?= $val ?>
+                                                    Màu : <?= $val ?> |
                                                     <input type="hidden" name="c_size_<?=$i?>" value="<?= $value ?>">
-                                                    Size : <?= $value ?>
-                                                    <br>
+                                                    Size : <?= $value ?>|                                                    
                                                     <input type="hidden" name="c_color_<?=$i?>" value="<?= $val ?>">
-                                                        Số lượng
+                                                    Nhập số lượng :
                                                     <input type="number" name="quantity_<?=$i?>" style="width:100%;border:none;box-shadow: 0px 0px 5px rgb(145 140 140);;border-radius: 5px;"><br>
                                                     <!-- <?=$i?> -->                                    
                                                 <?php
@@ -128,24 +116,24 @@
                                             }
                                         }    
                                         $_SESSION['i']=$i;                        
-                                        ?>     
-                                                          
-                                        <!--<input type="submit" class="gui" name="add" form="form_tt">-->
+                                        ?>                                                               
+                                        <input type="submit" class="gui" name="add" value="Lưu" form="form_tt">
                                         </form>
                                         <?php
-                        }
-                        if(isset($_POST['add'])){
-                            $i =  $_SESSION['i'];
-                            for($j = 1 ; $j < $i ;$j++){
-                                $row = [
-                                    "size" => $_POST['c_size_'.$j] ,
-                                    "color" =>  $_POST['c_color_'.$j] ,
-                                    "quantity" =>  $_POST['quantity_'.$j] 
-                                    ]; 
-                                $_SESSION["thuoctinh"][$_POST['c_size_'.$j].$_POST['c_color_'.$j].$_POST['quantity_'.$j]]=$row;  
-                            }                        
-                        }                        
-					?>
+                                        }
+                                        if(isset($_POST['add'])){
+                                            $i =  $_SESSION['i'];
+                                            for($j = 1 ; $j < $i ;$j++){
+                                                $row = [
+                                                    "size" => $_POST['c_size_'.$j] ,
+                                                    "color" =>  $_POST['c_color_'.$j] ,
+                                                    "quantity" =>  $_POST['quantity_'.$j] 
+                                                    ]; 
+                                                $_SESSION["thuoctinh"][$_POST['c_size_'.$j].$_POST['c_color_'.$j].$_POST['quantity_'.$j]]=$row;  
+                                                echo ('<script>swal("Thêm thành công!", "Thuộc tính sản phẩm đã lưu", "success");</script>');  
+                                            }                        
+                                        }                        
+					                    ?>
                             </form>
                         </div>
                     </div>

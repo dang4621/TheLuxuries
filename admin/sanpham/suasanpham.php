@@ -89,7 +89,7 @@
                             <?php if(is_array($sanpham)){
                                extract($sanpham);
                     } ?>
-                            <form id="add_sp" action="index.php?act=sp_confirm" method="post"
+                            <form id="add_sp" action="index.php?act=update_sp" method="post"
                                 enctype="multipart/form-data">
                                 <b>Danh mục</b>
                                 <select name="id_dm" style="width:150px;height:30px;margin:20px 10px;">
@@ -100,7 +100,16 @@
 										}   
 									?>
                                 </select>
+                                <b>Thương hiệu</b>
+                                    <select name="id_th" style="width:150px;height:30px;margin:20px 10px;">
+                                        <?php                                 
+										foreach($thuong_hieu as $val){
+											extract($val);
+											echo '<option value="'.$ma_thuong_hieu.'">'.$ten_thuong_hieu.'</option>';
+										}   
+									?>
                                 <p>
+                                    <input type="hidden" name="ma_san_pham" value="<?= $ma_san_pham ?>">
                                     <input type="text" placeholder="Tên" name="ten_sp" required
                                         value="<?php echo($ten_san_pham) ?>" style="width:100%;">&nbsp;
                                 </p>
@@ -123,6 +132,7 @@
                         <input form="add_sp" name="submit" type="submit" value="Cập nhật">&nbsp;&nbsp;
                         <input type="reset" value="Nhập lại">&nbsp;&nbsp;
                         <a href="index.php?act=dssanpham"><input type="button" value="Danh sách"></a>
+                        <a href="index.php?act=suathuoctinh&id=<?= $ma_san_pham ?>"><input type="button" value="Sửa thuộc tính"></a>
                     </div>
                     </form>
                 </div>

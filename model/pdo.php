@@ -4,11 +4,15 @@ function pdo_get_connection(){
  
 
     $servername = "localhost:2222";
+    //localhost
     $username = "root";
+    //fpolyga_hoanghaidang
     $password = "";
+    //01223296916
     
     try {
       $conn = new PDO("mysql:host=$servername;dbname=theluxuries", $username, $password);
+      //dbname = fpolyga_hoanghaidang
       // set the PDO error mode to exception
       $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
       return $conn;

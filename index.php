@@ -1,150 +1,125 @@
 
 <?php ob_start();
-     session_start();
-     include './model/pdo.php';
-     include './model/sanpham.php';   
-     include './model/danhmuc.php';    
-     include './model/thuonghieu.php';
-	 include './model/giohang.php';
-	 include './model/taikhoan.php';
-	 include './model/mgg.php';
-	
-		include 'view/header.php';
-		$danhmuc=loadAll_dm(); 
-		$ba_sp=load3_sp();
-	
-		if( isset($_GET['act']) ){
-			$act=$_GET['act'];        
-			switch($act){            
-				case 'trangchu':                
-					include 'view/home.php';
-					break;       
-				case 'shop':					
-					if(isset($_POST['select'])){      
-						$id=$_POST['select'];      
-						settype($id,"int");      
-					}else{  
-						$id=0;   
-						}
-		
-					if(isset($_POST['timkiem'])){        
-						$keyw=$_POST['keyw'];         
-					}else{           
-						$keyw="";
-					}				
-					$sanpham=load_all_sp($keyw,$id);
-					include 'view/shop.php';
-					break;
-				case 'chitiet_sp':
-					if(isset($_GET['id'])){
-						$id=$_GET['id'];
-					}
-					$onesp=loadOne_sp($id);
-					include 'view/product_details.php';
-				case 'add':
-                    if(isset($_SESSION["user"])){
-                        if(isset($_POST['add'])){
-                            $ma_san_pham=$_POST['id'];
-                            $soluong=$_POST['quantity'];
-							$gia = $_POST['gia'];
-							$size=$_POST['select-1'];
-							$color=$_POST['select-2'];
+session_start();
+include './model/pdo.php';
+include './model/sanpham.php';
+include './model/danhmuc.php';
+include './model/thuonghieu.php';
+include './model/giohang.php';
+include './model/taikhoan.php';
+include './model/mgg.php';
 
-                            $alert=themGH($ma_san_pham,$soluong,$gia,$size,$color); 
-                            header("Location: index.php?act=cart");							 
-                            }
-                        }else{
-                        	header("Location: login.php"); 
-                       	 break; 
-                    }
-					break;
-				case 'del-sp':    
-                    if(isset($_SESSION["user"])){
-                        if(isset($_GET['id'])){
-                            $ma_san_pham=$_GET['id'];
-                            xoaSP($ma_san_pham);                  
-                    }
-                }
-				case 'cart':
-					if(isset($_SESSION["user"])){
-						include 'view/mycart.php';  
-					 }
-					 else{
-						 header("Location: login.php"); 
-					 }  					
-					break;
-				case 'checkout':
-					include 'view/checkout.php';
-					break;					
-				case 'delcode':
-					unset($_SESSION['mgg']);
-					include 'view/checkout.php';
-					break;
-				case 'checkmgg':
-					if(isset($_POST['check_mgg'])){
-						$mgg = $_POST['mgg'];
-						$check = compare_admin($mgg);
-						
-						if($check == 1){
-							$gia_tri=get_value($mgg);
-							extract($gia_tri);
-							$id_tai_khoan = $_SESSION['user']['id_tai_khoan'];
-							$ss = compare_user($id_mgg,$id_tai_khoan);
-							$_SESSION['test'] = $ss;
-							if($ss == 0 || $ss == ""){
-								$_SESSION['mgg']=["code"=>$mgg, "value"=>$gia_tri ,"id_mgg" => $id_mgg];
-								$thongbao = '<script>swal ( "Mã hợp lệ", "Mã đã được áp dụng", "success");</script>';	
-								include 'view/checkout.php';	
-							}else{
-								$thongbao =  '<script>swal ( "Mã không hợp lệ", "Hãy thử lại" ,  "error" );</script>';
-								include 'view/checkout.php';
-							}
-												
-						}else{
-  							$thongbao =  '<script>swal ( "Mã không hợp lệ", "Hãy thử lại" ,  "error" );</script>';
-							include 'view/checkout.php';
-						}						
-					}
-					break;		
-				case 'confirm':
-					include 'mail/index.php';				
-					if (isset($_POST['sethang'])) {						 					
-						$so_hoa_don =  rand(10000, 99999999);	
-						$idtk = $_SESSION['user']['id_tai_khoan'];
-						$timestamp = time();
-						$ngaydathang = date("20y-m-d h:i:s", $timestamp);
-						
-						if(isset($_POST['payment'])){
-							$pt_thanhtoan = $_POST['payment'];
-						}else{
-							$pt_thanhtoan=1;
-						}
-						$thanhtien = $_POST['total'];
-						$phiship = 5000;
-						$trang_thai = 0 ;
-						$hoten = $_POST['name'];
-						$sdt = $_POST['sdt'];
-						$email = $_POST['email'];
-						$address = $_POST['address'];
-						$loi_nhan = $_POST['bill'];						
-						$sql = "INSERT INTO hoa_don(so_hoa_don,id_tai_khoan, ngay_hoa_don,  pt_thanhtoan,   thanh_tien, phi_ship, trang_thai, ho_ten,	sdt,	dia_chi, loi_nhan ) value(?,?,?,?,?,?,?,?,?,?,?)";
-						pdo_execute($sql, 			$so_hoa_don, $idtk, 	$ngaydathang,   $pt_thanhtoan , $thanhtien, $phiship, $trang_thai , $hoten, $sdt, $address, $loi_nhan);
-						foreach ($_SESSION['shopping_cart'] as $value){
-							extract($value);
-							$idchitiet =rand(10000,999999) ;
-							$matt=getid($ma_san_pham,$size,$color);	
-							$soluong=$quantity;
-							$price=$gia;												
-							$sql="insert into chi_tiet_hoa_don(id_cthd,so_hoa_don,id_tt,gia,so_luong) value(?,?,?,?,?)";
-							pdo_execute($sql,$idchitiet,$so_hoa_don,$matt,$price,$soluong);	
-													
-						}
-						$id_magg =  $_SESSION['mgg']['id_mgg'];
-						$iduser=$_SESSION['user']['id_tai_khoan'];
-						$sql = "INSERT INTO trang_thai_mgg(id_mgg , id_tai_khoan,trang_thai) VALUES ('$id_magg' , '$iduser',1)";
-						pdo_execute($sql);
-						$title = "The luxuries Cart";					
-						$content .= '<!DOCTYPE html>
+include 'view/header.php';
+$danhmuc = loadAll_dm();
+$ba_sp = load3_sp();
+
+if (isset($_GET['act'])) {
+	$act = $_GET['act'];
+	switch ($act) {
+		case 'trangchu':
+			include 'view/home.php';
+			break;
+		case 'shop':
+			if (isset($_POST['select'])) {
+				$id = $_POST['select'];
+				settype($id, "int");
+			} else {
+				$id = 0;
+			}
+
+			if (isset($_POST['timkiem'])) {
+				$keyw = $_POST['keyw'];
+			} else {
+				$keyw = "";
+			}
+			$sanpham = load_all_sp($keyw, $id);
+			include 'view/shop.php';
+			break;
+		case 'chitiet_sp':
+			if (isset($_GET['id'])) {
+				$id = $_GET['id'];
+			}
+			$onesp = loadOne_sp($id);
+			include 'view/product_details.php';
+		case 'add':
+			if (isset($_SESSION["user"])) {
+				if (isset($_POST['add'])) {
+					$ma_san_pham = $_POST['id'];
+					$soluong = $_POST['quantity'];
+					$gia = $_POST['gia'];
+					$size = $_POST['select-1'];
+					$color = $_POST['select-2'];
+
+					$alert = themGH($ma_san_pham, $soluong, $gia, $size, $color);
+					header("Location: index.php?act=cart");
+				}
+			} else {
+				header("Location: login.php");
+				break;
+			}
+			break;
+		case 'del-sp':
+			if (isset($_SESSION["user"])) {
+				if (isset($_GET['id'])) {
+					$ma_san_pham = $_GET['id'];
+					xoaSP($ma_san_pham);
+				}
+			}
+		case 'cart':
+			if (isset($_SESSION["user"])) {
+				include 'view/mycart.php';
+			} else {
+				header("Location: login.php");
+			}
+			break;
+		case 'checkout':
+			include 'view/checkout.php';
+			break;
+		case 'delcode':
+			unset($_SESSION['mgg']);
+			include 'view/checkout.php';
+			break;
+		case 'confirm':
+			include 'mail/index.php';
+			if (isset($_POST['sethang'])) {
+				$so_hoa_don =  rand(10000, 99999999);
+				$idtk = $_SESSION['user']['id_tai_khoan'];
+				$timestamp = time();
+				$ngaydathang = date("20y-m-d h:i:s", $timestamp);
+
+				if (isset($_POST['payment'])) {
+					$pt_thanhtoan = $_POST['payment'];
+				} else {
+					$pt_thanhtoan = 1;
+				}
+				$thanhtien = $_POST['total'];
+				$phiship = 5000;
+				$trang_thai = 0;
+				$hoten = $_POST['name'];
+				$sdt = $_POST['sdt'];
+				$email = $_POST['email'];
+				$address = $_POST['address'];
+				$loi_nhan = $_POST['bill'];
+				$sql = "INSERT INTO hoa_don(so_hoa_don,id_tai_khoan, ngay_hoa_don,  pt_thanhtoan,   thanh_tien, phi_ship, trang_thai, ho_ten,	sdt,	dia_chi, loi_nhan ) value(?,?,?,?,?,?,?,?,?,?,?)";
+				pdo_execute($sql, 			$so_hoa_don, $idtk, 	$ngaydathang,   $pt_thanhtoan, $thanhtien, $phiship, $trang_thai, $hoten, $sdt, $address, $loi_nhan);
+				foreach ($_SESSION['shopping_cart'] as $value) {
+					extract($value);
+					$idchitiet = rand(10000, 999999);
+					$matt = getid($ma_san_pham, $size, $color);
+					$soluong = $quantity;
+					$price = $gia;
+					$sql = "insert into chi_tiet_hoa_don(id_cthd,so_hoa_don,id_tt,gia,so_luong) value(?,?,?,?,?)";
+					pdo_execute($sql, $idchitiet, $so_hoa_don, $matt, $price, $soluong);
+				}
+				if(isset($_POST['magiamgia'])){
+					$id_magg =$_POST['magiamgia'];
+					$iduser = $_SESSION['user']['id_tai_khoan'];
+					$sql = "INSERT INTO trang_thai_mgg(id_mgg , id_tai_khoan,trang_thai) VALUES ('$id_magg' , '$iduser',1)";
+					pdo_execute($sql);
+				}
+				
+				$title = "The luxuries Cart";
+				$content .= '<!DOCTYPE html>
 											<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" lang="en">
 											
 											<head>
@@ -373,10 +348,10 @@
 																</table>
 																<table class="row row-6" align="center" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">';
 
-					
-						foreach ($_SESSION['shopping_cart'] as $value) {
-							extract($value);
-							$content .= '							
+
+				foreach ($_SESSION['shopping_cart'] as $value) {
+					extract($value);
+					$content .= '							
 									<tbody>
 									<tr>
 										<td>
@@ -400,7 +375,7 @@
 																	<td style="padding-bottom:10px;padding-left:25px;padding-right:10px;padding-top:10px;">
 																		<div style="font-family: sans-serif">
 																			<div style="font-size: 12px; mso-line-height-alt: 14.399999999999999px; color: #555555; line-height: 1.2; font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;">
-																				<p style="margin: 0; font-size: 14px;"><span style="font-size:16px;"><strong>'.$ten_san_pham.'</strong></span></p>
+																				<p style="margin: 0; font-size: 14px;"><span style="font-size:16px;"><strong>' . $ten_san_pham . '</strong></span></p>
 																			</div>
 																		</div>
 																	</td>
@@ -411,7 +386,7 @@
 																	<td style="padding-bottom:10px;padding-left:25px;padding-right:10px;">
 																		<div style="font-family: sans-serif">
 																			<div style="font-size: 12px; mso-line-height-alt: 14.399999999999999px; color: #555555; line-height: 1.2; font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;">
-																				<p style="margin: 0; font-size: 14px;">Color:&nbsp; &nbsp;'.$color.'</p>
+																				<p style="margin: 0; font-size: 14px;">Color:&nbsp; &nbsp;' . $color . '</p>
 																			</div>
 																		</div>
 																	</td>
@@ -422,7 +397,7 @@
 																	<td style="padding-bottom:10px;padding-left:25px;padding-right:10px;">
 																		<div style="font-family: sans-serif">
 																			<div style="font-size: 12px; mso-line-height-alt: 14.399999999999999px; color: #555555; line-height: 1.2; font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;">
-																				<p style="margin: 0; font-size: 14px;">Size:&nbsp; &nbsp; &nbsp;'.$size.'</p>
+																				<p style="margin: 0; font-size: 14px;">Size:&nbsp; &nbsp; &nbsp;' . $size . '</p>
 																			</div>
 																		</div>
 																	</td>
@@ -433,7 +408,7 @@
 																	<td style="padding-bottom:15px;padding-left:25px;padding-right:10px;">
 																		<div style="font-family: sans-serif">
 																			<div style="font-size: 12px; mso-line-height-alt: 14.399999999999999px; color: #555555; line-height: 1.2; font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;">
-																				<p style="margin: 0; font-size: 14px;">Qty:&nbsp; &nbsp; &nbsp; '.$quantity.'</p>
+																				<p style="margin: 0; font-size: 14px;">Qty:&nbsp; &nbsp; &nbsp; ' . $quantity . '</p>
 																			</div>
 																		</div>
 																	</td>
@@ -446,7 +421,7 @@
 																	<td style="padding-bottom:15px;padding-left:10px;padding-right:10px;padding-top:50px;">
 																		<div style="font-family: sans-serif">
 																			<div style="font-size: 12px; mso-line-height-alt: 14.399999999999999px; color: #555555; line-height: 1.2; font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;">
-																				<p style="margin: 0; font-size: 14px;">'.$gia.'$</p>
+																				<p style="margin: 0; font-size: 14px;">' . $gia . '$</p>
 																			</div>
 																		</div>
 																	</td>
@@ -461,10 +436,10 @@
 									</tr>
 								</tbody>
 							<!-- end   -->												
-									';		
-								}
-							
-									$content .= '	</table>
+									';
+				}
+
+				$content .= '	</table>
 														<table class="row row-7" align="center" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
 															<tbody>
 																<tr>
@@ -838,103 +813,101 @@
 									</body>
 									
 									</html>';
-							$_SESSION['user']['email']=$email;
-							mail::sendMail($title,$content,$email);
-							unset($_SESSION["shopping_cart"]);
-						header("Location:index.php");
-					}              
-					 break;
-				case 'logout':
-					unset($_SESSION['user']);
-					header("Location: index.php");  
-					break;			
-					 
-				case 'cartdetails':						                
-					include 'view/trangthaidh.php';
-					break;
+				$_SESSION['user']['email'] = $email;
+				mail::sendMail($title, $content, $email);
+				unset($_SESSION["shopping_cart"]);
+				header("Location:index.php");
+			}
+			break;
+		case 'logout':
+			unset($_SESSION['user']);
+			header("Location: index.php");
+			break;
 
-				case 'cartde':						                
-					include 'view/chitietdh.php';
-					break;	
-				case 'sua_tt':
-					if(isset($_GET['ma_hoa_don'])){
-                        if(isset($_GET['tt'])){
-                            $trangthai=$_GET['tt'];
-                            $so_hoa_don=$_GET['ma_hoa_don'];
-                            sua_tt($trangthai,$so_hoa_don);
-                        }else if(isset($_GET['huy'])){
-                            $so_hoa_don=$_GET['ma_hoa_don'];
-                            $ma_kh=$_GET['huy'];
-                            xoa_dh($so_hoa_don,$ma_kh);                            
-                        }                     
-						include 'view/trangthaidh.php';                 
+		case 'cartdetails':
+			include 'view/trangthaidh.php';
+			break;
 
-                    }
-					break;
-			    case 'trangthaidh' :
-					include 'view/trangthaidh.php';
-					break;
-				case 'chitietdh' :
-					include 'view/chitietdh.php';
-					break;
-				//include các file trên header
-				case 'about':                
-					include 'view/about.php';
-					break;
-				case 'contact':                
-					include 'view/contact.php';
-					break;  
-					
-				case 'noti' :
-					include 'view/404.php';  
-					break;
-				case 'done' :
-					include 'view/done.php';  
-					break;
-					
-					case 'like':                
-						$id=$_GET['id'];
-						$iduser=$_SESSION['user']['id_tai_khoan'];
-						$sql="SELECT count(yeu_thich.ma_san_pham) as countsp FROM yeu_thich WHERE id_tai_khoan='$iduser' and ma_san_pham='$id'";
-						$yeuthich= pdo_query($sql);
-						$idchitiet =rand(10000,999999) ;
-						foreach ($yeuthich as $like){
-						  extract($like);
-						  $number= $countsp;
-					   if($number==0){
-						   $sql="insert into yeu_thich(id_yt,ma_san_pham,id_tai_khoan,trang_thai) values('$idchitiet','$id','$iduser','1')";
-							pdo_execute($sql);
-						}elseif($number>0){
-							$sql="delete from yeu_thich where ma_san_pham='$id' and id_tai_khoan='$iduser' ";
-							pdo_execute($sql);
-						}
-					}
-					if(isset($_GET['id'])){
-						$id=$_GET['id'];
-					}
-					$onesp=loadOne_sp($id);
-					include 'view/product_details.php';
-					
-						break; 
-
-				case 'quenmk' :
-					    include 'view/quenmk.php';
-						break;		
-				case 'prolike' :
-					 include 'view/like.php';
-					 break;	
-				
-				//Chuyển hướng khi action sai
-				default :  
-					include 'view/home.php';         
-					break;
+		case 'cartde':
+			include 'view/chitietdh.php';
+			break;
+		case 'sua_tt':
+			if (isset($_GET['ma_hoa_don'])) {
+				if (isset($_GET['tt'])) {
+					$trangthai = $_GET['tt'];
+					$so_hoa_don = $_GET['ma_hoa_don'];
+					sua_tt($trangthai, $so_hoa_don);
+				} else if (isset($_GET['huy'])) {
+					$so_hoa_don = $_GET['ma_hoa_don'];
+					$ma_kh = $_GET['huy'];
+					xoa_dh($so_hoa_don, $ma_kh);
 				}
-					
-			}else{
-				include 'view/home.php';
-			}            
-	  
-			
-		include 'view/footer.php';
-	 
+				include 'view/trangthaidh.php';
+			}
+			break;
+		case 'trangthaidh':
+			include 'view/trangthaidh.php';
+			break;
+		case 'chitietdh':
+			include 'view/chitietdh.php';
+			break;
+			//include các file trên header
+		case 'about':
+			include 'view/about.php';
+			break;
+		case 'contact':
+			include 'view/contact.php';
+			break;
+
+		case 'noti':
+			include 'view/404.php';
+			break;
+		case 'done':
+			include 'view/done.php';
+			break;
+
+		case 'like':
+			$id = $_GET['id'];
+			$iduser = $_SESSION['user']['id_tai_khoan'];
+			$sql = "SELECT count(yeu_thich.ma_san_pham) as countsp FROM yeu_thich WHERE id_tai_khoan='$iduser' and ma_san_pham='$id'";
+			$yeuthich = pdo_query($sql);
+			$idchitiet = rand(10000, 999999);
+			foreach ($yeuthich as $like) {
+				extract($like);
+				$number = $countsp;
+				if ($number == 0) {
+					$sql = "insert into yeu_thich(id_yt,ma_san_pham,id_tai_khoan,trang_thai) values('$idchitiet','$id','$iduser','1')";
+					pdo_execute($sql);
+				} elseif ($number > 0) {
+					$sql = "delete from yeu_thich where ma_san_pham='$id' and id_tai_khoan='$iduser' ";
+					pdo_execute($sql);
+				}
+			}
+			if (isset($_GET['id'])) {
+				$id = $_GET['id'];
+			}
+			$onesp = loadOne_sp($id);
+			include 'view/product_details.php';
+
+			break;
+
+		case 'quenmk':
+			include 'view/quenmk.php';
+			break;
+		case 'prolike':
+			include 'view/like.php';
+			break;
+
+			//Chuyển hướng khi action sai
+		default:
+			include 'view/home.php';
+			break;
+	}
+} else {
+	include 'view/home.php';
+}
+
+
+include 'view/footer.php';
+
 ?>

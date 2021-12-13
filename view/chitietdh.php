@@ -123,23 +123,23 @@
 											
 	                                        <h4 class="title">THANH TOÁN</h4>
 	                                        <h4><span class="pleft">Trị giá đơn hàng:</span><span
-	                                                class="pright bold"><?php echo $thanh_tien;?> <span>VNĐ</span></span>
+	                                                class="pright bold"><?php echo $thanh_tien;?> <span>USD</span></span>
 	                                        </h4>
-	                                        <h4><span class="pleft">Giảm giá:</span><span class="pright bold">-0
+	                                        <!-- <h4><span class="pleft">Giảm giá:</span><span class="pright bold">-0
 	                                                <span>VNĐ</span></span>
 	                                        </h4>
 	                                        <h4><span class="pleft">Phí giao hàng:</span><span class="pright bold"><?php echo $phi_ship;?>
 	                                                <span>VNĐ</span></span>
-	                                        </h4>
-	                                        <h4><span class="pleft">Phí thanh toán:</span><span class="pright bold">0
+	                                        </h4> -->
+	                                        <!-- <h4><span class="pleft">Phí thanh toán:</span><span class="pright bold">0
 	                                                <span>VNĐ</span></span>
-	                                        </h4>
-	                                        <h4 class="divider"></h4>
+	                                        </h4> -->
+	                                        <!-- <h4 class="divider"></h4> -->
 
-	                                        <h4>
+	                                        <!-- <h4>
 	                                            <span class="pleft ">Tổng thanh toán:</span><span
 	                                                class="pright bold"><?php echo $thanh_tien + $phi_ship ; ?> <span>VNĐ</span></span>
-	                                        </h4>
+	                                        </h4> -->
 	                                        <br>
 	                                    </div>
 	                                </div>

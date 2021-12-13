@@ -64,15 +64,15 @@ function test(){
 }
 
 function del_sp($id){
-    $sql="UPDATE thuoc_tinh SET so_luong= 0 WHERE ma_san_pham=$id";
+    $sql="DELETE FROM `san_pham` WHERE `san_pham`.`ma_san_pham` = $id";
     pdo_execute($sql); 
 }
 
-function update_sp($ma_san_pham,$ma_nhom_hang,$ten_san_pham,$gia_goc,$giam_gia,$image,$donvi,$mo_ta, $today){
-   if($image!=""){
-    $sql="UPDATE san_pham SET ma_nhom_hang = '$ma_nhom_hang',ten_san_pham='$ten_san_pham',gia_goc='$gia_goc',giam_gia='$giam_gia',image='$image',don_vi='$donvi',mo_ta='$mo_ta',ngay_nhap='$today' WHERE ma_san_pham='$ma_san_pham'";
+function update_sp($ma_san_pham,$ma_nhom_hang,$ma_thuong_hieu,$ten_san_pham,$file, $gia_goc,$giam_gia,$today, $mo_ta){
+   if($file!=""){
+    $sql="UPDATE san_pham SET ma_nhom_hang = '$ma_nhom_hang',ma_thuong_hieu = '$ma_thuong_hieu',ten_san_pham='$ten_san_pham',gia_goc='$gia_goc',giam_gia='$giam_gia',image='$file',mo_ta='$mo_ta',ngay_nhap='$today' WHERE ma_san_pham='$ma_san_pham'";
    }else{
-    $sql="UPDATE san_pham SET ma_nhom_hang = '$ma_nhom_hang',ten_san_pham='$ten_san_pham',gia_goc='$gia_goc',giam_gia='$giam_gia',don_vi='$donvi',mo_ta='$mo_ta',ngay_nhap='$today' WHERE ma_san_pham='$ma_san_pham'";
+    $sql="UPDATE san_pham SET ma_nhom_hang = '$ma_nhom_hang',ma_thuong_hieu = '$ma_thuong_hieu',ten_san_pham='$ten_san_pham',gia_goc='$gia_goc',giam_gia='$giam_gia',mo_ta='$mo_ta',ngay_nhap='$today' WHERE ma_san_pham='$ma_san_pham'";
    }
     pdo_execute($sql);
 }
@@ -81,10 +81,18 @@ function tangSoLanXem($id=0){
     pdo_execute($sql); 
 }
 
+function loadthuoctinh($id){
+    $sql="SELECT * FROM thuoc_tinh WHERE thuoc_tinh.ma_san_pham = '$id'";
+        return pdo_query($sql);
+}
 function loadOne_sp2(){
     $id=$_GET['id'];
     $sql="SELECT*FROM san_pham WHERE ma_san_pham='$id'";
             return pdo_query_one($sql);     
+}
+function edit_tt($size,$color,$so_luong,$id){
+    $sql = "UPDATE thuoc_tinh SET size = '$size' , color = '$color' ,so_luong = '$so_luong' WHERE thuoc_tinh.id_tt = '$id';";
+    pdo_execute($sql); 
 }
 
 ?>
